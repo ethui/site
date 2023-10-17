@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Iron Wallet",
-  description: "A develeoper-centric Ethereum Wallet",
+  description: "A developer-centric Ethereum Wallet",
 };
 
 export default function RootLayout({
