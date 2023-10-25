@@ -1,24 +1,12 @@
 import { FaGithub } from "react-icons/fa";
+import Iron from "./components/Iron";
 
 export default function Home() {
   return (
     <div className="bg-white">
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="flex justify-center items-center">
-            <img
-              src="https://avatars.githubusercontent.com/u/130035865?s=200&v=4"
-              className="h-24 w-auto"
-            />
-            <div className="ml-6">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Iron Wallet
-              </h1>
-              <p className="text-lg leading-8 text-gray-600">
-                A developer-centric Ethereum Wallet
-              </p>
-            </div>
-          </div>
+          <Iron />
 
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
