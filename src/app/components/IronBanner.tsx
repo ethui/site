@@ -1,4 +1,4 @@
-export default function Iron() {
+export default function IronBanner() {
   return (
     <div className="flex justify-center items-center">
       <img

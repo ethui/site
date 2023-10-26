@@ -1,13 +1,12 @@
 import { FaGithub } from "react-icons/fa";
-import Iron from "./components/Iron";
+import IronBanner from "./components/IronBanner";
 
 export default function Home() {
   return (
     <div className="bg-white">
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <Iron />
-
+          <IronBanner />
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
               href="http://github.com/iron-wallet"
@@ -17,7 +16,6 @@ export default function Home() {
               <FaGithub className="mr-1" />
               Github
             </a>
-
             <a href="http://mirror.xyz/iron-wallet.eth" target="_blank">
               Blog
             </a>
