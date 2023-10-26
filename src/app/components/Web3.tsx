@@ -12,8 +12,8 @@ const { chains, publicClient } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "Iron Demo",
-  projectId: "iron-demo",
+  appName: "Iron Site",
+  projectId: "iron-site",
   chains,
 });
 
