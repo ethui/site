@@ -2,6 +2,8 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import IronBanner from "../components/IronBanner";
 import Link from "next/link";
+import chromeWebStoreImg from "public/chrome_web_store.png";
+import mozillaAddOnsImg from "public/mozilla_add_on.svg";
 
 const Header = () => {
   return (
@@ -28,7 +30,7 @@ const DownloadLinks = () => {
         target="_blank"
       >
         <Image
-          src="/chrome_web_store.png"
+          src={chromeWebStoreImg}
           alt="chrome_web_store_extension"
           width="200"
           height="60"
@@ -40,7 +42,7 @@ const DownloadLinks = () => {
         target="_blank"
       >
         <Image
-          src="/mozilla_add_on.svg"
+          src={mozillaAddOnsImg}
           alt="mozilla_get_add_on"
           width="150"
           height="60"
