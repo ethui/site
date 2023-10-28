@@ -49,28 +49,24 @@ export default function Extension() {
           <div className="flex flex-col items-center py-28 sm:py-44 lg:py-52 px-6">
             <div className="space-y-4">
               <section>
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-lg font-semibold mb-2">
                   1. Install the Iron extension for your browser:
                 </h2>
-                <p className="mt-2">
-                  <DownloadLinks />
-                </p>
+                <DownloadLinks />
               </section>
 
               <section className="pt-8">
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-lg font-semibold mb-2">
                   2. Refresh this page to reload the extension
                 </h2>
                 <Refresh />
               </section>
 
               <section className="pt-8">
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-lg font-semibold mb-2">
                   3. Connect the wallet to activate the app
                 </h2>
-                <p className="mt-2">
-                  <ConnectButton />
-                </p>
+                <ConnectButton />
               </section>
             </div>
           </div>
@@ -82,7 +78,7 @@ export default function Extension() {
 
 const Header = () => {
   return (
-    <div className="flex items-center px-4 pt-4">
+    <div className="flex items-center">
       <Link href="/">
         <Image
           src="https://avatars.githubusercontent.com/u/130035865?s=200&v=4"
@@ -99,7 +95,7 @@ const Header = () => {
 
 const DownloadLinks = () => {
   return (
-    <div className="flex py-4 gap-2">
+    <div className="flex gap-2">
       <a
         href={CHROME_EXTENSION}
         target="_blank"
@@ -130,7 +126,7 @@ const DownloadLinks = () => {
 
 const Refresh = () => {
   return (
-    <div className="flex py-4 gap-2">
+    <div className="flex gap-2">
       <a
         href="/onboarding/extension?refresh=true"
         className="flex justify-center items-center rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-slate-600 h-12"
