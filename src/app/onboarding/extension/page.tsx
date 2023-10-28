@@ -9,6 +9,7 @@ import { publicProvider } from "wagmi/providers/public";
 import { injectedWallet } from '@rainbow-me/rainbowkit/wallets';
 import {AiOutlineChrome,AiOutlineGithub} from "react-icons/ai";
 import {FaFirefoxBrowser} from"react-icons/fa";
+import "@rainbow-me/rainbowkit/styles.css";
 
 const CHROME_EXTENSION="https://chrome.google.com/webstore/detail/iron-wallet/eljobehkpcnpekmbcjiidekjhkbcnpkf";
 const FIREFOX_EXTENSION="https://addons.mozilla.org/en-US/firefox/addon/iron-wallet/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search";
