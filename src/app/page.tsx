@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
@@ -6,8 +7,11 @@ export default function Home() {
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="flex justify-center items-center">
-            <img
+            <Image
               src="https://avatars.githubusercontent.com/u/130035865?s=200&v=4"
+              alt="Iron Wallet Logo"
+              width={100}
+              height={100}
               className="h-24 w-auto"
             />
             <div className="ml-6">
