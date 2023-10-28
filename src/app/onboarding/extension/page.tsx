@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import chromeLogo from "@browser-logos/chrome/chrome_256x256.png";
-import firefoxLogo from "@browser-logos/firefox/firefox_256x256.png";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { foundry } from "@wagmi/core/chains";
 import { ConnectButton, RainbowKitProvider, connectorsForWallets } from "@rainbow-me/rainbowkit";
 import { publicProvider } from "wagmi/providers/public";
 import { injectedWallet } from '@rainbow-me/rainbowkit/wallets';
+import {AiOutlineChrome,AiOutlineGithub} from "react-icons/ai";
+import {FaFirefoxBrowser} from"react-icons/fa";
 
 const CHROME_EXTENSION="https://chrome.google.com/webstore/detail/iron-wallet/eljobehkpcnpekmbcjiidekjhkbcnpkf";
 const FIREFOX_EXTENSION="https://addons.mozilla.org/en-US/firefox/addon/iron-wallet/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search";
@@ -89,9 +89,9 @@ const DownloadLinks = () => {
       <a
         href={CHROME_EXTENSION}
         target="_blank"
-        className="flex justify-center items-center rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-slate-600 h-12"
+        className="flex justify-center items-center rounded-md bg-black px-3.5 py-2.5 font-semibold text-white hover:bg-slate-600 h-12"
       >
-        <Image src={chromeLogo.src} alt="Download for Chrome" width="30" height="30" />
+        <AiOutlineChrome className="text-4xl"/>
         <span className="pl-2">Chrome</span>
       </a>
       <a
@@ -99,7 +99,7 @@ const DownloadLinks = () => {
         target="_blank"
         className="flex justify-center items-center rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-slate-600 h-12"
       >
-        <Image src={firefoxLogo.src} alt="Download for firefox" width="30" height="30" />
+        <FaFirefoxBrowser className="text-4xl"/>
         <span className="pl-2">Firefox</span>
       </a>
       <a
@@ -107,7 +107,7 @@ const DownloadLinks = () => {
         target="_blank"
         className="flex justify-center items-center rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-slate-600 h-12"
       >
-        <Image src="/github.png" alt="Download from Github" width="30" height="30" />
+        <AiOutlineGithub className="text-4xl"/>
         <span className="pl-2">From Github</span>
       </a>
     </div>

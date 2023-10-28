@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@browser-logos/chrome": "^2.0.0",
-    "@browser-logos/firefox": "^3.0.10",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@rainbow-me/rainbowkit": "^1.1.3",

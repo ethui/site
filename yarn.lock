@@ -31,16 +31,6 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@browser-logos/chrome@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@browser-logos/chrome/-/chrome-2.0.0.tgz#31213afcacbc3e842c7e66ae602b1dd9775b234d"
-  integrity sha512-JDr78z/3x4zTtBgZ0bunFq9D4QhjT5gPBy90rpJQ5VlJugK/7xGFUgwUIkVT5vfU7lTi2F0wB/5XeOPrV67ErA==
-
-"@browser-logos/firefox@^3.0.10":
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/@browser-logos/firefox/-/firefox-3.0.10.tgz#1a9bb32caef66791056bd307d7933d5cec0731ef"
-  integrity sha512-Bys3b02btUOvZyt02fFXfqPiNhYX6ukCtdvs4ERCSYnf6BVqCqeBR8niRYgyaECTdZwzqNCaUUKwQ0JX7lV1/A==
-
 "@coinbase/wallet-sdk@^3.6.6":
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/@coinbase/wallet-sdk/-/wallet-sdk-3.7.2.tgz#7a89bd9e3a06a1f26d4480d8642af33fb0c7e3aa"
