@@ -6,8 +6,8 @@ import "@rainbow-me/rainbowkit/styles.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Iron Wallet",
-  description: "A developer-centric Ethereum Wallet",
+  title: "EthUI",
+  description: "An Ethereum toolkit",
 };
 
 export default function RootLayout({
