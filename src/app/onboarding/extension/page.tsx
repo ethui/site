@@ -49,7 +49,7 @@ export default function Extension() {
             <div className="space-y-4">
               <section>
                 <h2 className="text-lg font-semibold mb-2">
-                  1. Install the EthUI extension for your browser:
+                  1. Install the ethui extension for your browser:
                 </h2>
                 <DownloadLinks />
               </section>
@@ -81,7 +81,7 @@ const Header = () => {
       <Link href="/">
         <Image
           src="https://avatars.githubusercontent.com/u/130035865?s=200&v=4"
-          alt="EthUI Logo"
+          alt="ethui Logo"
           width="40"
           height="40"
           className="h-14 w-auto"

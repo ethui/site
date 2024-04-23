@@ -9,14 +9,14 @@ export default function Home() {
           <div className="flex justify-center items-center">
             <Image
               src="https://avatars.githubusercontent.com/u/130035865?s=200&v=4"
-              alt="EthUI Logo"
+              alt="ethui logo"
               width={100}
               height={100}
               className="h-24 w-auto"
             />
             <div className="ml-6">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                EthUI
+                ethui
               </h1>
               <p className="text-lg leading-8 text-gray-600">
                 An Ethereum toolkit
