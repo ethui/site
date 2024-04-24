@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ethui/form": "0.0.1",
+    "@ethui/form": "0.0.4",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@mui/icons-material": "^5.15.15",
@@ -27,6 +27,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "autoprefixer": "^10",
+    "encoding": "^0.1.13",
     "eslint": "^8",
     "eslint-config-import": "^0.13.0",
     "eslint-config-next": "13.5.4",
