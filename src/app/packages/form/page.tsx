@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { AbiForm } from "@ethui/form";
+import { AbiForm, type AbiFunction, Debug } from "@ethui/form";
 import {
   Box,
   Container,
@@ -11,11 +11,36 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 function App() {
   const [item, setItem] = useState<string>(
-    "function transfer(uint256[] amount)",
+    "function transfer(string[] amount)",
+  );
+
+  const [parsedItem, setParsedItem] = useState<AbiFunction | undefined>();
+  const [value, setValue] = useState<bigint | undefined>();
+  const [data, setData] = useState<`0x${string}` | undefined>();
+  const [args, setArgs] = useState<any[] | undefined>();
+
+  const onChange = useCallback(
+    ({
+      item,
+      value,
+      data,
+      args,
+    }: {
+      item?: AbiFunction;
+      value?: bigint;
+      data?: `0x${string}`;
+      args?: any[];
+    }) => {
+      setParsedItem(item);
+      setArgs(args);
+      setData(data);
+      setValue(value);
+    },
+    [],
   );
 
   return (
@@ -52,7 +77,34 @@ function App() {
                 onChange={(e) => setItem(e.target.value)}
               />
               <Box sx={{ mt: 2 }}>
-                <AbiForm abiItem={item} debug={false} preview={true} />
+                <Grid container>
+                  <Grid item xs={12} md={4}>
+                    <AbiForm abiItem={item} debug={false} onChange={onChange} />
+                  </Grid>
+                  <Grid item xs={12} md={8}>
+                    <Paper sx={{ width: "100%", height: "100%" }}>
+                      <Stack spacing={1} sx={{ p: 2 }}>
+                        {parsedItem &&
+                          args &&
+                          parsedItem.inputs.map((input, i) => (
+                            <div key={i}>
+                              <Typography fontWeight="bold">
+                                {input.name || i.toString()}:
+                              </Typography>
+                              <Debug value={args[i]} />
+                            </div>
+                          ))}
+                        <Typography fontWeight="bold">calldata:</Typography>
+                        <Typography
+                          fontFamily="monospace"
+                          sx={{ overflowWrap: "break-word" }}
+                        >
+                          {data}
+                        </Typography>
+                      </Stack>
+                    </Paper>
+                  </Grid>
+                </Grid>
               </Box>
             </Paper>
           </Stack>
