@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ethui/form": "file:../app/packages/form",
+    "@ethui/form": "0.0.9",
     "@fontsource/roboto-mono": "^5.0.18",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
