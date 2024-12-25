@@ -15,7 +15,7 @@ import { AiOutlineChrome, AiOutlineGithub } from "react-icons/ai";
 import { FaFirefoxBrowser } from "react-icons/fa";
 
 const CHROME_EXTENSION =
-  "https://chrome.google.com/webstore/detail/iron-wallet/eljobehkpcnpekmbcjiidekjhkbcnpkf";
+  "https://chrome.google.com/webstore/detail/ethui/eljobehkpcnpekmbcjiidekjhkbcnpkf";
 const FIREFOX_EXTENSION =
   "https://addons.mozilla.org/en-US/firefox/addon/ethui/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search";
 const GITHUB_LATEST_RELEASE = "https://github.com/ethui/ethui/releases/latest";
