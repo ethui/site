@@ -11,6 +11,7 @@
     "@ethui/form": "0.0.9",
     "@ethui/ui": "0.0.7",
     "@hookform/resolvers": "^3.10.0",
+    "@icons-pack/react-simple-icons": "^11.2.0",
     "@rainbow-me/rainbowkit": "^2.2.3",
     "@tanstack/react-query": "^5.66.0",
     "autoprefixer": "^10.4.20",

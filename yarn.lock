@@ -750,6 +750,7 @@ __metadata:
     "@ethui/form": "npm:0.0.9"
     "@ethui/ui": "npm:0.0.7"
     "@hookform/resolvers": "npm:^3.10.0"
+    "@icons-pack/react-simple-icons": "npm:^11.2.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tanstack/react-query": "npm:^5.66.0"
     "@tanstack/react-router": "npm:^1.99.0"
@@ -871,6 +872,15 @@ __metadata:
   peerDependencies:
     react-hook-form: ^7.0.0
   checksum: 10c0/7ee44533b4cdc28c4fa2a94894c735411e5a1f830f4a617c580533321a9b901df0cc8c1e2fad81ad8d55154ebc5cb844cf9c116a3148ffae2bc48758c33cbb8e
+  languageName: node
+  linkType: hard
+
+"@icons-pack/react-simple-icons@npm:^11.2.0":
+  version: 11.2.0
+  resolution: "@icons-pack/react-simple-icons@npm:11.2.0"
+  peerDependencies:
+    react: ^16.13 || ^17 || ^18 || ^19
+  checksum: 10c0/103db87a6f618c6693ffb738b6d51ee4f98fe7edd0f231187a1da22a2e9beee8cfafb90a2a735066b9435720fdd3e9b0c5f7b5950d727ecc33f34c0992f40b77
   languageName: node
   linkType: hard
 
