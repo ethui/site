@@ -1,4 +1,3 @@
-import { mainnet } from "wagmi/chains";
 import {
   SiFirefoxbrowser,
   SiGithub,
@@ -9,9 +8,10 @@ import {
   RainbowKitProvider,
   getDefaultConfig,
 } from "@rainbow-me/rainbowkit";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { WagmiProvider } from "wagmi";
+import { mainnet } from "wagmi/chains";
 
 export const Route = createFileRoute("/onboarding/extension/")({
   component: Extension,

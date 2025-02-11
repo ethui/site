@@ -1,16 +1,6 @@
 {
   "files": {
-    "ignore": [
-      ".sqlx",
-      ".direnv",
-      ".pnp.cjs",
-      ".pnp.loader.mjs",
-      "**/*.gen.ts",
-      "*.generated.ts",
-      "extension/dist",
-      "gui/dist",
-      "bin/gen"
-    ]
+    "ignore": ["**/*.gen.ts", "*.generated.ts"]
   },
   "formatter": {
     "indentStyle": "space"

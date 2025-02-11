@@ -1,7 +1,7 @@
 import { RainbowKitProvider, getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { defineChain } from "viem";
 import { anvil, mainnet, sepolia } from "viem/chains";
-import { WagmiProvider } from "wagmi";
+import { type Config, WagmiProvider } from "wagmi";
 
 interface Props {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ const demoChain = defineChain({
   },
 });
 
-export const config = getDefaultConfig({
+export const config: Config = getDefaultConfig({
   appName: "ethui demo",
   projectId: "TODO",
   chains: [demoChain, anvil, mainnet, sepolia],
