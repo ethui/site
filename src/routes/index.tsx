@@ -1,24 +1,49 @@
 import { Button } from "@ethui/ui/components/shadcn/button";
-import { createFileRoute } from "@tanstack/react-router";
-import { Github } from "lucide-react";
+import { SiApple, SiLinux } from "@icons-pack/react-simple-icons";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   beforeLoad: () => ({ breadcrumb: "Home" }),
   component: Home,
 });
 
+interface Data {
+  version: string;
+  osx: any;
+  linux: any;
+}
+
 function Home() {
+  const [data, setData] = useState<Data | undefined>();
+
+  useEffect(() => {
+    (async () => {
+      const resp = await fetch(
+        "https://api.github.com/repos/ethui/ethui/releases/latest",
+      );
+
+      const json = await resp.json();
+      const version = json.tag_name;
+      const osx = json.assets.find((asset: any) => asset.name.includes("dmg"));
+      const linux = json.assets.find((asset: any) =>
+        asset.name.includes("AppImage"),
+      );
+      console.log(linux);
+
+      setData({ version, osx, linux });
+    })();
+  }, []);
+
   return (
     <div className="bg-white">
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="flex items-center justify-center">
             <img
-              src="https://avatars.githubusercontent.com/u/130035865?s=200&v=4"
+              src="https://avatars.githubusercontent.com/u/164216877?s=400&v=4"
               alt="ethui logo"
-              width={100}
-              height={100}
-              className="h-24 w-auto"
+              className="h-32 w-auto"
             />
             <div className="ml-6">
               <h1 className="font-bold text-4xl text-gray-900 tracking-tight sm:text-6xl">
@@ -33,13 +58,24 @@ function Home() {
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button asChild>
               <a
-                href="http://github.com/ethui"
+                href={data?.osx?.browser_download_url}
                 rel="noreferrer"
-                target="_blank"
+                download={data?.osx?.name}
               >
-                <Github className="mr-1" />
-                Github
+                <SiApple className="mr-1" />
+                Download
               </a>
+            </Button>
+
+            <Button asChild>
+              <Link
+                to={data?.linux?.browser_download_url}
+                rel="noreferrer"
+                download={data?.linux?.name}
+              >
+                <SiLinux className="mr-1" />
+                Download
+              </Link>
             </Button>
 
             <Button variant="ghost" asChild>
