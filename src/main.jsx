@@ -12,7 +12,6 @@ import { routeTree } from "./routeTree.gen";
 
 const router = createRouter({
   routeTree,
-  history: createHashHistory(),
   context: {},
 });
 
