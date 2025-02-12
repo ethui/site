@@ -20,14 +20,14 @@ const features = [
       "ethui can skip annoying transaction reviews, allowing you to focus on what matters",
   },
   {
-    title: "Multi wallet, multi browser, multi everything",
-    description:
-      "Setup multiple wallets without needing browser profiles; Connect websites to different chains simultaneously",
-  },
-  {
     title: "Your own contract explorer",
     description:
       "By scanning compilation artifacts, we give you a UI to directly interact with your contracts",
+  },
+  {
+    title: "Multi wallet, multi browser, multi everything",
+    description:
+      "Setup multiple wallets without needing browser profiles; Connect websites to different chains simultaneously",
   },
 ];
 
