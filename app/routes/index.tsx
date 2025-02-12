@@ -1,7 +1,7 @@
 import { Button } from "@ethui/ui/components/shadcn/button";
 import SiApple from "@icons-pack/react-simple-icons/icons/SiApple";
 import SiLinux from "@icons-pack/react-simple-icons/icons/SiLinux";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
