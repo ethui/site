@@ -2,7 +2,7 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "composite": true,
-    "target": "es2022",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
 

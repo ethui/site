@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@ethui/form": "0.0.9",
-    "@ethui/ui": "0.0.7",
+    "@ethui/ui": "0.0.9",
     "@hookform/resolvers": "^3.10.0",
     "@icons-pack/react-simple-icons": "^11.2.0",
     "@rainbow-me/rainbowkit": "^2.2.3",
@@ -53,5 +53,5 @@
     "vite": "^6.0.11",
     "vite-tsconfig-paths": "^5.1.4"
   },
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
