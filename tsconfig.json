@@ -11,12 +11,12 @@
     "strict": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "isolatedModules": true,
     "resolveJsonModule": true,
     "jsx": "react-jsx",
 
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "rewriteRelativeImportExtensions": true,
 
     "baseUrl": ".",
     "paths": {
