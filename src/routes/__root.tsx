@@ -17,7 +17,7 @@ function Root() {
     <QueryClientProvider client={queryClient}>
       <div className="flex flex-1 flex-col gap-4 px-4 pt-4">
         <Header />
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1">
           <Outlet />
         </main>
       </div>
