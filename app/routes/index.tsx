@@ -1,4 +1,6 @@
 import { Button } from "@ethui/ui/components/shadcn/button";
+import SiApple from "@icons-pack/react-simple-icons/icons/SiApple";
+import SiLinux from "@icons-pack/react-simple-icons/icons/SiLinux";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
@@ -60,6 +62,7 @@ function Home() {
                 rel="noreferrer"
                 download={data?.osx?.name}
               >
+                <SiApple className="mr-1" />
                 Download
               </a>
             </Button>
@@ -70,6 +73,7 @@ function Home() {
                 rel="noreferrer"
                 download={data?.linux?.name}
               >
+                <SiLinux className="mr-1" />
                 Download
               </Link>
             </Button>
