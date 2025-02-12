@@ -11,10 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as LandingImport } from './routes/_landing'
 import { Route as IndexImport } from './routes/index'
 import { Route as OnboardingExtensionIndexImport } from './routes/onboarding/extension/index'
 
 // Create/Update Routes
+
+const LandingRoute = LandingImport.update({
+  id: '/_landing',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -39,6 +45,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/_landing': {
+      id: '/_landing'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LandingImport
+      parentRoute: typeof rootRoute
+    }
     '/onboarding/extension/': {
       id: '/onboarding/extension/'
       path: '/onboarding/extension'
@@ -53,36 +66,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '': typeof LandingRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '': typeof LandingRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/_landing': typeof LandingRoute
   '/onboarding/extension/': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/onboarding/extension'
+  fullPaths: '/' | '' | '/onboarding/extension'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/onboarding/extension'
-  id: '__root__' | '/' | '/onboarding/extension/'
+  to: '/' | '' | '/onboarding/extension'
+  id: '__root__' | '/' | '/_landing' | '/onboarding/extension/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LandingRoute: typeof LandingRoute
   OnboardingExtensionIndexRoute: typeof OnboardingExtensionIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LandingRoute: LandingRoute,
   OnboardingExtensionIndexRoute: OnboardingExtensionIndexRoute,
 }
 
@@ -97,11 +115,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/_landing",
         "/onboarding/extension/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/_landing": {
+      "filePath": "_landing.tsx"
     },
     "/onboarding/extension/": {
       "filePath": "onboarding/extension/index.tsx"
