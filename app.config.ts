@@ -1,13 +1,9 @@
-import { defineConfig } from '@tanstack/start/config'
-import tsConfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from "@tanstack/start/config";
+import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  service: { preset: 'vercel' },
+  service: { preset: "vercel" },
   vite: {
-    plugins: [
-      tsConfigPaths({
-        projects: ['./tsconfig.json'],
-      }),
-    ],
+    plugins: [tsConfigPaths()],
   },
-})
+});
