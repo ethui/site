@@ -15,10 +15,7 @@ import { Route as RedirectImport } from './routes/redirect'
 import { Route as DeferredImport } from './routes/deferred'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
-import { Route as LayoutLayout2Import } from './routes/_layout/_layout-2'
 import { Route as OnboardingExtensionIndexImport } from './routes/onboarding/extension/index'
-import { Route as LayoutLayout2LayoutBImport } from './routes/_layout/_layout-2/layout-b'
-import { Route as LayoutLayout2LayoutAImport } from './routes/_layout/_layout-2/layout-a'
 
 // Create/Update Routes
 
@@ -45,27 +42,10 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const LayoutLayout2Route = LayoutLayout2Import.update({
-  id: '/_layout-2',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
 const OnboardingExtensionIndexRoute = OnboardingExtensionIndexImport.update({
   id: '/onboarding/extension/',
   path: '/onboarding/extension/',
   getParentRoute: () => rootRoute,
-} as any)
-
-const LayoutLayout2LayoutBRoute = LayoutLayout2LayoutBImport.update({
-  id: '/layout-b',
-  path: '/layout-b',
-  getParentRoute: () => LayoutLayout2Route,
-} as any)
-
-const LayoutLayout2LayoutARoute = LayoutLayout2LayoutAImport.update({
-  id: '/layout-a',
-  path: '/layout-a',
-  getParentRoute: () => LayoutLayout2Route,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -100,27 +80,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RedirectImport
       parentRoute: typeof rootRoute
     }
-    '/_layout/_layout-2': {
-      id: '/_layout/_layout-2'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof LayoutLayout2Import
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/_layout-2/layout-a': {
-      id: '/_layout/_layout-2/layout-a'
-      path: '/layout-a'
-      fullPath: '/layout-a'
-      preLoaderRoute: typeof LayoutLayout2LayoutAImport
-      parentRoute: typeof LayoutLayout2Import
-    }
-    '/_layout/_layout-2/layout-b': {
-      id: '/_layout/_layout-2/layout-b'
-      path: '/layout-b'
-      fullPath: '/layout-b'
-      preLoaderRoute: typeof LayoutLayout2LayoutBImport
-      parentRoute: typeof LayoutLayout2Import
-    }
     '/onboarding/extension/': {
       id: '/onboarding/extension/'
       path: '/onboarding/extension'
@@ -133,98 +92,49 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-interface LayoutLayout2RouteChildren {
-  LayoutLayout2LayoutARoute: typeof LayoutLayout2LayoutARoute
-  LayoutLayout2LayoutBRoute: typeof LayoutLayout2LayoutBRoute
-}
-
-const LayoutLayout2RouteChildren: LayoutLayout2RouteChildren = {
-  LayoutLayout2LayoutARoute: LayoutLayout2LayoutARoute,
-  LayoutLayout2LayoutBRoute: LayoutLayout2LayoutBRoute,
-}
-
-const LayoutLayout2RouteWithChildren = LayoutLayout2Route._addFileChildren(
-  LayoutLayout2RouteChildren,
-)
-
-interface LayoutRouteChildren {
-  LayoutLayout2Route: typeof LayoutLayout2RouteWithChildren
-}
-
-const LayoutRouteChildren: LayoutRouteChildren = {
-  LayoutLayout2Route: LayoutLayout2RouteWithChildren,
-}
-
-const LayoutRouteWithChildren =
-  LayoutRoute._addFileChildren(LayoutRouteChildren)
-
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof LayoutLayout2RouteWithChildren
+  '': typeof LayoutRoute
   '/deferred': typeof DeferredRoute
   '/redirect': typeof RedirectRoute
-  '/layout-a': typeof LayoutLayout2LayoutARoute
-  '/layout-b': typeof LayoutLayout2LayoutBRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof LayoutLayout2RouteWithChildren
+  '': typeof LayoutRoute
   '/deferred': typeof DeferredRoute
   '/redirect': typeof RedirectRoute
-  '/layout-a': typeof LayoutLayout2LayoutARoute
-  '/layout-b': typeof LayoutLayout2LayoutBRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/_layout': typeof LayoutRouteWithChildren
+  '/_layout': typeof LayoutRoute
   '/deferred': typeof DeferredRoute
   '/redirect': typeof RedirectRoute
-  '/_layout/_layout-2': typeof LayoutLayout2RouteWithChildren
-  '/_layout/_layout-2/layout-a': typeof LayoutLayout2LayoutARoute
-  '/_layout/_layout-2/layout-b': typeof LayoutLayout2LayoutBRoute
   '/onboarding/extension/': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | ''
-    | '/deferred'
-    | '/redirect'
-    | '/layout-a'
-    | '/layout-b'
-    | '/onboarding/extension'
+  fullPaths: '/' | '' | '/deferred' | '/redirect' | '/onboarding/extension'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | ''
-    | '/deferred'
-    | '/redirect'
-    | '/layout-a'
-    | '/layout-b'
-    | '/onboarding/extension'
+  to: '/' | '' | '/deferred' | '/redirect' | '/onboarding/extension'
   id:
     | '__root__'
     | '/'
     | '/_layout'
     | '/deferred'
     | '/redirect'
-    | '/_layout/_layout-2'
-    | '/_layout/_layout-2/layout-a'
-    | '/_layout/_layout-2/layout-b'
     | '/onboarding/extension/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LayoutRoute: typeof LayoutRouteWithChildren
+  LayoutRoute: typeof LayoutRoute
   DeferredRoute: typeof DeferredRoute
   RedirectRoute: typeof RedirectRoute
   OnboardingExtensionIndexRoute: typeof OnboardingExtensionIndexRoute
@@ -232,7 +142,7 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LayoutRoute: LayoutRouteWithChildren,
+  LayoutRoute: LayoutRoute,
   DeferredRoute: DeferredRoute,
   RedirectRoute: RedirectRoute,
   OnboardingExtensionIndexRoute: OnboardingExtensionIndexRoute,
@@ -259,32 +169,13 @@ export const routeTree = rootRoute
       "filePath": "index.tsx"
     },
     "/_layout": {
-      "filePath": "_layout.tsx",
-      "children": [
-        "/_layout/_layout-2"
-      ]
+      "filePath": "_layout.tsx"
     },
     "/deferred": {
       "filePath": "deferred.tsx"
     },
     "/redirect": {
       "filePath": "redirect.tsx"
-    },
-    "/_layout/_layout-2": {
-      "filePath": "_layout/_layout-2.tsx",
-      "parent": "/_layout",
-      "children": [
-        "/_layout/_layout-2/layout-a",
-        "/_layout/_layout-2/layout-b"
-      ]
-    },
-    "/_layout/_layout-2/layout-a": {
-      "filePath": "_layout/_layout-2/layout-a.tsx",
-      "parent": "/_layout/_layout-2"
-    },
-    "/_layout/_layout-2/layout-b": {
-      "filePath": "_layout/_layout-2/layout-b.tsx",
-      "parent": "/_layout/_layout-2"
     },
     "/onboarding/extension/": {
       "filePath": "onboarding/extension/index.tsx"
