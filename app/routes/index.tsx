@@ -1,6 +1,6 @@
 import { Button } from "@ethui/ui/components/shadcn/button";
-import SiApple from "@icons-pack/react-simple-icons/icons/SiApple";
-import SiLinux from "@icons-pack/react-simple-icons/icons/SiLinux";
+import SiApple from "@icons-pack/react-simple-icons/icons/SiApple.js";
+import SiLinux from "@icons-pack/react-simple-icons/icons/SiLinux.js";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 

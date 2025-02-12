@@ -1,4 +1,4 @@
-import SiGithub from "@icons-pack/react-simple-icons/icons/SiGithub";
+import SiGithub from "@icons-pack/react-simple-icons/icons/SiGithub.js";
 import { Link } from "@tanstack/react-router";
 
 export function Header() {
