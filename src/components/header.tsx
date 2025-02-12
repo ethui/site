@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 export function Header() {
   return (
-    <header className="flex h-7 items-center px-4 lg:px-6">
+    <header className="flex h-7 items-center p-4 lg:p-6">
       <Link className="flex items-center justify-center" to="/">
         <img
           src="https://avatars.githubusercontent.com/u/164216877?s=200&v=4"
