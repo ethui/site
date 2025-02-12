@@ -5,8 +5,8 @@ export default {
   darkMode: ["class"],
   content: [
     "node_modules/@ethui/ui/components/**/*.js",
-    "./src/components/**/*.tsx",
-    "./src/routes/**/*.tsx",
+    "app/components/**/*.tsx",
+    "app/routes/**/*.tsx",
   ],
   presets: [baseConfig],
   plugins: [require("tailwindcss-animate")],

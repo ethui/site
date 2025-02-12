@@ -4,7 +4,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
-  beforeLoad: () => ({ breadcrumb: "Home" }),
   component: Home,
 });
 
