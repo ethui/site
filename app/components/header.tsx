@@ -1,4 +1,3 @@
-import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Link } from "@tanstack/react-router";
 
 export function Header() {
@@ -18,7 +17,7 @@ export function Header() {
           className="font-medium text-sm underline-offset-4 hover:underline"
           to="https://github.com/ethui/ethui"
         >
-          <SiGithub className="inline h-6 w-6" />
+          foo
         </Link>
       </nav>
     </header>
