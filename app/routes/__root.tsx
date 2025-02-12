@@ -3,10 +3,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Meta, Scripts } from "@tanstack/start";
-import * as React from "react";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import appCss from "#/styles/app.css?url";
+import appCss from "@ethui/ui/tailwind.css?url";
+import rainbowkiwCss from "@rainbow-me/rainbowkit/styles.css?url";
 import { seo } from "#/utils/seo";
 
 export const Route = createRootRoute({
@@ -22,11 +22,13 @@ export const Route = createRootRoute({
       ...seo({
         title:
           "TanStack Start | Type-Safe, Client-First, Full-Stack React Framework",
-        description: `TanStack Start is a type-safe, client-first, full-stack React framework. `,
+        description:
+          "TanStack Start is a type-safe, client-first, full-stack React framework. ",
       }),
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: rainbowkiwCss },
       {
         rel: "apple-touch-icon",
         sizes: "180x180",
@@ -78,7 +80,7 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <Meta />
       </head>
