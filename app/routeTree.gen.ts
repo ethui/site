@@ -11,25 +11,11 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as RedirectImport } from './routes/redirect'
-import { Route as DeferredImport } from './routes/deferred'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
 import { Route as OnboardingExtensionIndexImport } from './routes/onboarding/extension/index'
 
 // Create/Update Routes
-
-const RedirectRoute = RedirectImport.update({
-  id: '/redirect',
-  path: '/redirect',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DeferredRoute = DeferredImport.update({
-  id: '/deferred',
-  path: '/deferred',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const LayoutRoute = LayoutImport.update({
   id: '/_layout',
@@ -66,20 +52,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
-    '/deferred': {
-      id: '/deferred'
-      path: '/deferred'
-      fullPath: '/deferred'
-      preLoaderRoute: typeof DeferredImport
-      parentRoute: typeof rootRoute
-    }
-    '/redirect': {
-      id: '/redirect'
-      path: '/redirect'
-      fullPath: '/redirect'
-      preLoaderRoute: typeof RedirectImport
-      parentRoute: typeof rootRoute
-    }
     '/onboarding/extension/': {
       id: '/onboarding/extension/'
       path: '/onboarding/extension'
@@ -95,16 +67,12 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
-  '/deferred': typeof DeferredRoute
-  '/redirect': typeof RedirectRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutRoute
-  '/deferred': typeof DeferredRoute
-  '/redirect': typeof RedirectRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
@@ -112,39 +80,27 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_layout': typeof LayoutRoute
-  '/deferred': typeof DeferredRoute
-  '/redirect': typeof RedirectRoute
   '/onboarding/extension/': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/deferred' | '/redirect' | '/onboarding/extension'
+  fullPaths: '/' | '' | '/onboarding/extension'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/deferred' | '/redirect' | '/onboarding/extension'
-  id:
-    | '__root__'
-    | '/'
-    | '/_layout'
-    | '/deferred'
-    | '/redirect'
-    | '/onboarding/extension/'
+  to: '/' | '' | '/onboarding/extension'
+  id: '__root__' | '/' | '/_layout' | '/onboarding/extension/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LayoutRoute: typeof LayoutRoute
-  DeferredRoute: typeof DeferredRoute
-  RedirectRoute: typeof RedirectRoute
   OnboardingExtensionIndexRoute: typeof OnboardingExtensionIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LayoutRoute: LayoutRoute,
-  DeferredRoute: DeferredRoute,
-  RedirectRoute: RedirectRoute,
   OnboardingExtensionIndexRoute: OnboardingExtensionIndexRoute,
 }
 
@@ -160,8 +116,6 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/_layout",
-        "/deferred",
-        "/redirect",
         "/onboarding/extension/"
       ]
     },
@@ -170,12 +124,6 @@ export const routeTree = rootRoute
     },
     "/_layout": {
       "filePath": "_layout.tsx"
-    },
-    "/deferred": {
-      "filePath": "deferred.tsx"
-    },
-    "/redirect": {
-      "filePath": "redirect.tsx"
     },
     "/onboarding/extension/": {
       "filePath": "onboarding/extension/index.tsx"
