@@ -1,5 +1,4 @@
-//import SiGithub from "@icons-pack/react-simple-icons/icons/SiGithub.mjs";
-import { GithubIcon } from "./icons";
+import { GithubIcon } from "#/components/icons";
 import { Link } from "@tanstack/react-router";
 
 export function Header() {

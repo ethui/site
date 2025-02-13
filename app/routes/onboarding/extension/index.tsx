@@ -1,9 +1,5 @@
 import { Button } from "@ethui/ui/components/shadcn/button";
-import {
-  SiFirefoxbrowser,
-  SiGithub,
-  SiGooglechrome,
-} from "@icons-pack/react-simple-icons";
+import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 import {
   ConnectButton,
   RainbowKitProvider,
@@ -75,19 +71,19 @@ const DownloadLinks = () => {
     <div className="flex gap-2">
       <Button asChild>
         <a href={CHROME_EXTENSION} rel="noreferrer" target="_blank">
-          <SiGooglechrome className="text-4xl" />
+          <GoogleChromeIcon className="text-4xl" />
           <span className="pl-2">Chrome</span>
         </a>
       </Button>
       <Button asChild>
         <a href={FIREFOX_EXTENSION} rel="noreferrer" target="_blank">
-          <SiFirefoxbrowser className="text-4xl" />
+          <FirefoxIcon className="text-4xl" />
           <span className="pl-2">Firefox</span>
         </a>
       </Button>
       <Button asChild>
         <a href={GITHUB_LATEST_RELEASE} rel="noreferrer" target="_blank">
-          <SiGithub className="text-4xl" />
+          <GithubIcon className="text-4xl" />
           <span className="pl-2">From Github</span>
         </a>
       </Button>
