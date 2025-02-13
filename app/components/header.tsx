@@ -1,9 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { GithubIcon } from "#/components/icons";
+import clsx from "clsx";
 
-export function Header() {
+interface Props {
+  hero?: boolean;
+  isVisible?: boolean;
+}
+
+export function Header({ hero = false, isVisible = true }: Props) {
   return (
-    <header className="flex h-7 items-center px-4 lg:px-6">
+    <header
+      className={clsx(
+        "z-50 flex items-center px-4 py-2 transition-all duration-300 lg:px-6",
+        hero && "fixed top-0 right-0 left-0 bg-white",
+        isVisible ? "translate-y-0" : "-translate-y-full",
+      )}
+    >
       <Link className="flex items-center justify-center" to="/">
         <img
           src="https://avatars.githubusercontent.com/u/164216877?s=200&v=4"
