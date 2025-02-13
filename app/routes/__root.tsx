@@ -13,13 +13,13 @@ const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
     ? () => null // Render nothing in production
     : lazy(() =>
-        // Lazy load in development
-        import("@tanstack/router-devtools").then((res) => ({
-          default: res.TanStackRouterDevtools,
-          // For Embedded Mode
-          // default: res.TanStackRouterDevtoolsPanel
-        })),
-      );
+      // Lazy load in development
+      import("@tanstack/router-devtools").then((res) => ({
+        default: res.TanStackRouterDevtools,
+        // For Embedded Mode
+        // default: res.TanStackRouterDevtoolsPanel
+      })),
+    );
 
 export const Route = createRootRoute({
   head: () => ({
@@ -71,12 +71,7 @@ function RootComponent() {
   return (
     <RootDocument>
       <QueryClientProvider client={queryClient}>
-        <div className="flex flex-1 flex-col gap-4 px-4 pt-4">
-          <Header />
-          <main className="flex-1 overflow-auto">
-            <Outlet />
-          </main>
-        </div>
+        <Outlet />
       </QueryClientProvider>
     </RootDocument>
   );

@@ -1048,6 +1048,7 @@ __metadata:
     "@types/react-dom": "npm:^18.3.5"
     "@vitejs/plugin-react": "npm:^4.3.4"
     autoprefixer: "npm:^10.4.20"
+    clsx: "npm:^2.1.1"
     globals: "npm:^15.14.0"
     lodash-es: "npm:^4.17.21"
     lucide-react: "npm:^0.475.0"
