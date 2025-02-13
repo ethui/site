@@ -13,7 +13,7 @@
     "fix:biome": "biome check --write ."
   },
   "dependencies": {
-    "@ethui/form": "0.0.9",
+    "@ethui/form": "0.0.10",
     "@ethui/ui": "0.0.9",
     "@hookform/resolvers": "^3.10.0",
     "@rainbow-me/rainbowkit": "^2.2.3",
