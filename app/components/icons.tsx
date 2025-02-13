@@ -16,6 +16,7 @@ function generateIcon(icon: SimpleIcon) {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           ref={ref}
+          fill="currentColor"
           {...props}
         >
           <title>{icon.title}</title>
