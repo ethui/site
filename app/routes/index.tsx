@@ -1,6 +1,5 @@
+import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { Button } from "@ethui/ui/components/shadcn/button";
-import SiApple from "@icons-pack/react-simple-icons/icons/SiApple.js";
-import SiLinux from "@icons-pack/react-simple-icons/icons/SiLinux.js";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
@@ -62,7 +61,7 @@ function Home() {
                 rel="noreferrer"
                 download={data?.osx?.name}
               >
-                <SiApple className="mr-1" />
+                <AppleIcon className="mr-1" />
                 Download
               </a>
             </Button>
@@ -73,7 +72,7 @@ function Home() {
                 rel="noreferrer"
                 download={data?.linux?.name}
               >
-                <SiLinux className="mr-1" />
+                <LinuxIcon className="mr-1" />
                 Download
               </Link>
             </Button>

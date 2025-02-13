@@ -99,7 +99,7 @@ const Refresh = () => {
   return (
     <div className="flex gap-2">
       <Button asChild>
-        <Link to="/onboarding/extension?refresh=true">
+        <Link to="/onboarding/extension" search={{ refresh: true }}>
           <span>Refresh now</span>
         </Link>
       </Button>
