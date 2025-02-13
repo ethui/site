@@ -1,11 +1,11 @@
 import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import {
+  type SimpleIcon,
   siApple,
   siFirefoxbrowser,
   siGithub,
   siGooglechrome,
   siLinux,
-  type SimpleIcon,
 } from "simple-icons";
 
 function generateIcon(icon: SimpleIcon) {

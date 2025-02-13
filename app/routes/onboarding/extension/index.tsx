@@ -1,5 +1,4 @@
 import { Button } from "@ethui/ui/components/shadcn/button";
-import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 import {
   ConnectButton,
   RainbowKitProvider,
@@ -9,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
+import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 
 export const Route = createFileRoute("/onboarding/extension/")({
   component: Extension,

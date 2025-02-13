@@ -1,7 +1,9 @@
-import { AppleIcon, LinuxIcon } from "#/components/icons";
+import { ButtonWithDropdown } from "@ethui/ui/components/button-with-dropdown";
 import { Button } from "@ethui/ui/components/shadcn/button";
 import { Link, createFileRoute } from "@tanstack/react-router";
+import { FileCode2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { AppleIcon, LinuxIcon } from "#/components/icons";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -15,6 +17,7 @@ interface Data {
 
 function Home() {
   const [data, setData] = useState<Data | undefined>();
+  const isLinux = navigator.userAgent.includes("Linux");
 
   useEffect(() => {
     (async () => {
@@ -33,6 +36,32 @@ function Home() {
       setData({ version, osx, linux });
     })();
   }, []);
+
+  const macOsLink = (
+    <Link
+      to={data?.osx?.browser_download_url}
+      rel="noreferrer"
+      download={data?.osx?.name}
+      className="flex items-center gap-x-2"
+    >
+      <AppleIcon className="mr-1" />
+      Download for macOS
+    </Link>
+  );
+
+  const linuxLink = (
+    <Link
+      to={data?.linux?.browser_download_url}
+      rel="noreferrer"
+      download={data?.linux?.name}
+      className="flex items-center gap-x-2"
+    >
+      <LinuxIcon className="mr-1" />
+      Download for Linux
+    </Link>
+  );
+
+  const defaultLink = isLinux ? linuxLink : macOsLink;
 
   return (
     <div className="bg-white">
@@ -55,27 +84,32 @@ function Home() {
           </div>
 
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button asChild>
-              <a
-                href={data?.osx?.browser_download_url}
-                rel="noreferrer"
-                download={data?.osx?.name}
+            <span>
+              <ButtonWithDropdown
+                asChild
+                options={[
+                  <Button key="macOS" variant="ghost" asChild>
+                    {macOsLink}
+                  </Button>,
+                  <Button key="Linux" variant="ghost" asChild>
+                    {linuxLink}
+                  </Button>,
+                  <Button key="From Source" variant="ghost" asChild>
+                    <a
+                      href="http://github.com/ethui/ethui"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-x-2"
+                    >
+                      <FileCode2 className="mr-1" />
+                      Build from source
+                    </a>
+                  </Button>,
+                ]}
               >
-                <AppleIcon className="mr-1" />
-                Download
-              </a>
-            </Button>
-
-            <Button asChild>
-              <Link
-                to={data?.linux?.browser_download_url}
-                rel="noreferrer"
-                download={data?.linux?.name}
-              >
-                <LinuxIcon className="mr-1" />
-                Download
-              </Link>
-            </Button>
+                {defaultLink}
+              </ButtonWithDropdown>
+            </span>
 
             <Button variant="ghost" asChild>
               <a

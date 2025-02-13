@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@ethui/form": "0.0.10",
-    "@ethui/ui": "0.0.9",
+    "@ethui/ui": "0.0.10",
     "@hookform/resolvers": "^4.0.0",
     "@rainbow-me/rainbowkit": "^2.2.3",
     "@tanstack/react-query": "^5.66.0",
@@ -54,5 +54,5 @@
     "vite": "^6.0.11",
     "vite-tsconfig-paths": "^5.1.4"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@4.6.0"
 }
