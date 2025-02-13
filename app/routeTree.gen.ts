@@ -13,7 +13,6 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
-import { Route as LayoutFooImport } from './routes/_layout.foo'
 import { Route as OnboardingExtensionIndexImport } from './routes/onboarding/extension/index'
 
 // Create/Update Routes
@@ -27,12 +26,6 @@ const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any)
-
-const LayoutFooRoute = LayoutFooImport.update({
-  id: '/foo',
-  path: '/foo',
-  getParentRoute: () => LayoutRoute,
 } as any)
 
 const OnboardingExtensionIndexRoute = OnboardingExtensionIndexImport.update({
@@ -59,13 +52,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
-    '/_layout/foo': {
-      id: '/_layout/foo'
-      path: '/foo'
-      fullPath: '/foo'
-      preLoaderRoute: typeof LayoutFooImport
-      parentRoute: typeof LayoutImport
-    }
     '/onboarding/extension/': {
       id: '/onboarding/extension/'
       path: '/onboarding/extension'
@@ -78,57 +64,43 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-interface LayoutRouteChildren {
-  LayoutFooRoute: typeof LayoutFooRoute
-}
-
-const LayoutRouteChildren: LayoutRouteChildren = {
-  LayoutFooRoute: LayoutFooRoute,
-}
-
-const LayoutRouteWithChildren =
-  LayoutRoute._addFileChildren(LayoutRouteChildren)
-
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof LayoutRouteWithChildren
-  '/foo': typeof LayoutFooRoute
+  '': typeof LayoutRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof LayoutRouteWithChildren
-  '/foo': typeof LayoutFooRoute
+  '': typeof LayoutRoute
   '/onboarding/extension': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/_layout': typeof LayoutRouteWithChildren
-  '/_layout/foo': typeof LayoutFooRoute
+  '/_layout': typeof LayoutRoute
   '/onboarding/extension/': typeof OnboardingExtensionIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/foo' | '/onboarding/extension'
+  fullPaths: '/' | '' | '/onboarding/extension'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/foo' | '/onboarding/extension'
-  id: '__root__' | '/' | '/_layout' | '/_layout/foo' | '/onboarding/extension/'
+  to: '/' | '' | '/onboarding/extension'
+  id: '__root__' | '/' | '/_layout' | '/onboarding/extension/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LayoutRoute: typeof LayoutRouteWithChildren
+  LayoutRoute: typeof LayoutRoute
   OnboardingExtensionIndexRoute: typeof OnboardingExtensionIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LayoutRoute: LayoutRouteWithChildren,
+  LayoutRoute: LayoutRoute,
   OnboardingExtensionIndexRoute: OnboardingExtensionIndexRoute,
 }
 
@@ -151,14 +123,7 @@ export const routeTree = rootRoute
       "filePath": "index.tsx"
     },
     "/_layout": {
-      "filePath": "_layout.tsx",
-      "children": [
-        "/_layout/foo"
-      ]
-    },
-    "/_layout/foo": {
-      "filePath": "_layout.foo.tsx",
-      "parent": "/_layout"
+      "filePath": "_layout.tsx"
     },
     "/onboarding/extension/": {
       "filePath": "onboarding/extension/index.tsx"

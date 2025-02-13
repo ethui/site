@@ -2,7 +2,7 @@ import { ButtonWithDropdown } from "@ethui/ui/components/button-with-dropdown";
 import { Button } from "@ethui/ui/components/shadcn/button";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { FileCode2 } from "lucide-react";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { type Ref, useEffect, useRef, useState } from "react";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { Header } from "#/components/header";
 
@@ -42,14 +42,12 @@ function Home() {
   return (
     <>
       <Header hero isVisible={isHeaderVisible} />
-      <div ref={heroRef}>
-        <Hero />
-      </div>
+      <Hero ref={heroRef} />
     </>
   );
 }
 
-const Hero = forwardRef((props, ref) => {
+function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
   const [data, setData] = useState<Data | undefined>();
   const isLinux = navigator.userAgent.includes("Linux");
 
@@ -157,4 +155,4 @@ const Hero = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+}
