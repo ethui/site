@@ -1,12 +1,12 @@
-import { Header } from "#/components/header";
+import appCss from "@ethui/ui/tailwind.css?url";
+import rainbowkiwCss from "@rainbow-me/rainbowkit/styles.css?url";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Meta, Scripts } from "@tanstack/start";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import appCss from "@ethui/ui/tailwind.css?url";
-import rainbowkiwCss from "@rainbow-me/rainbowkit/styles.css?url";
+import { Header } from "#/components/header";
 import { seo } from "#/utils/seo";
 
 export const Route = createRootRoute({
