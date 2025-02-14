@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: corepack enable
       - run: npm install -g yarn
       - uses: actions/setup-node@v4
         with:
