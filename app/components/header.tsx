@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { GithubIcon } from "#/components/icons";
 import clsx from "clsx";
+import { GithubIcon } from "#/components/icons";
 
 interface Props {
   hero?: boolean;

@@ -3,8 +3,8 @@ import { Button } from "@ethui/ui/components/shadcn/button";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { FileCode2 } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
-import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { Header } from "#/components/header";
+import { AppleIcon, LinuxIcon } from "#/components/icons";
 
 export const Route = createFileRoute("/")({
   component: Home,
