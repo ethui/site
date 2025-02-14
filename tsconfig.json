@@ -22,6 +22,7 @@
     "rewriteRelativeImportExtensions": true,
 
     "types": ["node"],
+    "typeRoots": ["node_modules", "./node_modules/@types"],
 
     "baseUrl": ".",
     "paths": {

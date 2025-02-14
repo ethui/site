@@ -1,7 +1,7 @@
 import { createMiddleware } from "@tanstack/start";
 
 export const logMiddleware = createMiddleware()
-  .client(async (ctx) => {
+  .client(async (ctx: any) => {
     const clientTime = new Date();
 
     return ctx.next({
@@ -13,7 +13,7 @@ export const logMiddleware = createMiddleware()
       },
     });
   })
-  .server(async (ctx) => {
+  .server(async (ctx: any) => {
     const serverTime = new Date();
 
     return ctx.next({
@@ -24,7 +24,7 @@ export const logMiddleware = createMiddleware()
       },
     });
   })
-  .clientAfter(async (ctx) => {
+  .clientAfter(async (ctx: any) => {
     const now = new Date();
 
     console.log("Client Req/Res:", {

@@ -6,7 +6,6 @@ import { Meta, Scripts } from "@tanstack/start";
 import { Suspense, lazy } from "react";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import { Header } from "#/components/header";
 import { seo } from "#/utils/seo";
 
 const TanStackRouterDevtools =
