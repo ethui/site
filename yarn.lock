@@ -1038,7 +1038,7 @@ __metadata:
     "@hookform/resolvers": "npm:^4.0.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tanstack/react-query": "npm:^5.66.0"
-    "@tanstack/react-router": "npm:^1.99.0"
+    "@tanstack/react-router": "npm:^1.104.1"
     "@tanstack/router-devtools": "npm:^1.102.5"
     "@tanstack/router-plugin": "npm:^1.104.1"
     "@tanstack/start": "npm:^1.102.5"
@@ -3471,7 +3471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:^1.102.5, @tanstack/react-router@npm:^1.99.0":
+"@tanstack/react-router@npm:^1.102.5":
   version: 1.102.5
   resolution: "@tanstack/react-router@npm:1.102.5"
   dependencies:
@@ -3485,6 +3485,23 @@ __metadata:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
   checksum: 10c0/a24142a51be43db0ed0a65e016263772a7436f70dfe438bb339d90751b132b685c90e1326c9b550d87de53a5d5c2293524499a97d753492190aced315ee540c0
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-router@npm:^1.104.1":
+  version: 1.104.1
+  resolution: "@tanstack/react-router@npm:1.104.1"
+  dependencies:
+    "@tanstack/history": "npm:1.99.13"
+    "@tanstack/react-store": "npm:^0.7.0"
+    "@tanstack/router-core": "npm:^1.104.1"
+    jsesc: "npm:^3.1.0"
+    tiny-invariant: "npm:^1.3.3"
+    tiny-warning: "npm:^1.0.3"
+  peerDependencies:
+    react: ">=18.0.0 || >=19.0.0"
+    react-dom: ">=18.0.0 || >=19.0.0"
+  checksum: 10c0/ea4337ba6070b21835e3954e120058142d1b894ea5d545c5085919c2cca4f0f3d6e90a226759edb96b277c571633441b12b323143e2d98ee8250550799bdff00
   languageName: node
   linkType: hard
 
@@ -3508,6 +3525,16 @@ __metadata:
     "@tanstack/history": "npm:1.99.13"
     "@tanstack/store": "npm:^0.7.0"
   checksum: 10c0/c71f30d677489ac4e6d86531d10e4ef5c638b76ad037c248288a25e963c3c9b9d8beb56b6390cc7dac92171412579c18f8d7963b5c0b9d72287c184003b52b9b
+  languageName: node
+  linkType: hard
+
+"@tanstack/router-core@npm:^1.104.1":
+  version: 1.104.1
+  resolution: "@tanstack/router-core@npm:1.104.1"
+  dependencies:
+    "@tanstack/history": "npm:1.99.13"
+    "@tanstack/store": "npm:^0.7.0"
+  checksum: 10c0/47096c330bd61edf51d4c0fc5d3b82d1c5e3717e397f48b11eab591821461b22c875baa2e2d2289e35d03c666ba5b8a8227b42f92ac00115485c34ee2f7adf22
   languageName: node
   linkType: hard
 
