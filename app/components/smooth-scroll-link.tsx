@@ -14,7 +14,6 @@ export function SmoothScrollLink({
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    console.log(to, hash, routerState);
     if (hash && (!to || routerState.location.pathname === to)) {
       const targetElement = document.getElementById(hash.toString());
 
