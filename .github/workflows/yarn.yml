@@ -22,12 +22,12 @@ jobs:
   yarn:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: npm install -g yarn
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - run: corepack enable yarn
+      - uses: actions/setup-node@v4
         with:
           cache: "yarn"
           node-version: "22"
 
-      - run: yarn install --frozen-lockfile
-        run: yarn lint
+      - run: yarn install --immutable
+      - run: yarn lint

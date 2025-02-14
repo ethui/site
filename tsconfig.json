@@ -1,7 +1,8 @@
 {
+  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "composite": true,
-    "target": "es2022",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -9,23 +10,23 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "incremental": true,
-    "isolatedModules": true,
 
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
     "rewriteRelativeImportExtensions": true,
 
     "types": ["node"],
+    "typeRoots": ["node_modules", "./node_modules/@types"],
 
+    "baseUrl": ".",
     "paths": {
-      "#/*": ["./src/*"]
+      "#/*": ["./app/*"]
     }
-  },
-  "include": ["./src", "vite.config.ts", "wagmi.config.ts"]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "files": {
-    "ignore": ["**/*.gen.ts", "*.generated.ts"]
+    "ignore": ["**/*.gen.ts", "*.generated.ts", ".vercel", ".vinxi", "dist"]
   },
   "formatter": {
     "indentStyle": "space"
