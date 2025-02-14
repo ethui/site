@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@tanstack/router-plugin": "^1.99.3",
+    "@tanstack/router-plugin": "^1.104.1",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.13.2",
     "@types/react": "^19.0.8",
