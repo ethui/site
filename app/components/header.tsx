@@ -16,7 +16,7 @@ export function Header({ hero = false, isVisible = true }: Props) {
         isVisible ? "translate-y-0" : "-translate-y-full",
       )}
     >
-      <Link className="flex items-center justify-center" to="/">
+      <Link className="flex items-center justify-center" to="/" hash="hero">
         <img
           src="https://avatars.githubusercontent.com/u/164216877?s=200&v=4"
           alt="ethui logo"

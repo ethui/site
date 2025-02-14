@@ -125,7 +125,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
   const defaultLink = isLinux ? linuxLink : macOsLink;
 
   return (
-    <div className="flex h-screen flex-col justify-center" ref={ref}>
+    <div className="flex h-screen flex-col justify-center" ref={ref} id="hero">
       <div className="isolate flex flex-col">
         <div className="flex items-center justify-center">
           <img
@@ -218,7 +218,7 @@ function Footer() {
   return (
     <footer className="p-6">
       <div className="flex flex-col items-center justify-between md:flex-row">
-        <Link className="flex items-center justify-center" to="/">
+        <Link className="flex items-center justify-center" to="/" hash="hero">
           <img
             src="https://avatars.githubusercontent.com/u/164216877?s=200&v=4"
             alt="ethui logo"

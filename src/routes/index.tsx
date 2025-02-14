@@ -74,7 +74,10 @@ function Hero() {
   }, []);
 
   return (
-    <div className="relative isolate h-screen flex flex-col items-center justify-center">
+    <div
+      className="relative isolate h-screen flex flex-col items-center justify-center"
+      id="hero"
+    >
       <div className="flex items-center justify-center">
         <img
           src="https://avatars.githubusercontent.com/u/164216877?s=400&v=4"
