@@ -6,6 +6,7 @@ import { type Ref, useEffect, useRef, useState } from "react";
 import { Header } from "#/components/header";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { SmoothScrollLink } from "#/components/smooth-scroll-link";
+import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -22,21 +23,25 @@ const features = [
     title: "Local-first",
     description:
       "ethui works directly with anvil and forge to provide a fast and reproducible environment",
+    video: videoFastMode,
   },
   {
     title: "Fast feedback loops",
     description:
       "ethui can skip annoying transaction reviews, allowing you to focus on what matters",
+    video: videoFastMode,
   },
   {
     title: "Your own contract explorer",
     description:
       "By scanning compilation artifacts, we give you a UI to directly interact with your contracts",
+    video: videoFastMode,
   },
   {
     title: "Multi wallet, multi browser, multi everything",
     description:
       "Setup multiple wallets without needing browser profiles; Connect websites to different chains simultaneously",
+    video: videoFastMode,
   },
 ];
 
@@ -210,15 +215,22 @@ export default function Highlights() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 md:w-2/3 md:gap-20">
-        {features.map((feature, index) => (
+      <div className="flex flex-col gap-2 md:w-2/3 md:gap-40">
+        {features.map(({ title, description, video }, index) => (
           <div key={index} className="flex flex-col gap-2">
-            <h3 className=" font-semibold text-2xl">{feature.title}</h3>
-            <p className=" text-secondary-foreground">{feature.description}</p>
-            <img
-              src="https://i.ytimg.com/vi/NpEaa2P7qZI/maxresdefault.jpg"
-              alt="placeholder"
-            />
+            <h3 className=" font-semibold text-2xl">{title}</h3>
+            <p className=" text-secondary-foreground">{description}</p>
+            {video && (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="aspect-16/9 mr-4 max-w-3xl"
+              >
+                <source src={video} type="video/webm" />
+              </video>
+            )}
           </div>
         ))}
       </div>
