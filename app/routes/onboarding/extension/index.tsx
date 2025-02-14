@@ -29,7 +29,7 @@ const wagmi = getDefaultConfig({
 
 const queryClient = new QueryClient();
 
-export default function Extension() {
+function Extension() {
   return (
     <WagmiProvider config={wagmi}>
       <QueryClientProvider client={queryClient}>
