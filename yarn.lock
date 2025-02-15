@@ -1039,7 +1039,7 @@ __metadata:
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tanstack/react-query": "npm:^5.66.0"
     "@tanstack/react-router": "npm:^1.99.0"
-    "@tanstack/router-devtools": "npm:^1.102.5"
+    "@tanstack/router-devtools": "npm:^1.105.0"
     "@tanstack/router-plugin": "npm:^1.104.1"
     "@tanstack/start": "npm:^1.102.5"
     "@types/lodash-es": "npm:^4.17.12"
@@ -3511,17 +3511,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/router-devtools@npm:^1.102.5":
-  version: 1.102.5
-  resolution: "@tanstack/router-devtools@npm:1.102.5"
+"@tanstack/router-devtools@npm:^1.105.0":
+  version: 1.105.0
+  resolution: "@tanstack/router-devtools@npm:1.105.0"
   dependencies:
     clsx: "npm:^2.1.1"
     goober: "npm:^2.1.16"
   peerDependencies:
-    "@tanstack/react-router": ^1.102.5
+    "@tanstack/react-router": ^1.105.0
+    csstype: ^3.0.10
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/dd9341ee2762d3f6cc6cc2daa1797d01485385fe8c779a87ecb8007df388660cc04fbb010d33847e6621de6d0c227ffd4fd33251d615c652634119bad2b465c5
+  peerDependenciesMeta:
+    csstype:
+      optional: true
+  checksum: 10c0/7d817cd8e93baffd291e26f51c36662bac64e7b36ca58d391198b56335dfc3f65e164a964036a1eac1e8e5e90c71dfb52cc3e83defac5f4b6b12f7ed8d041070
   languageName: node
   linkType: hard
 
