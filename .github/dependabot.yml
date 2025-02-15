@@ -10,3 +10,23 @@ updates:
     open-pull-requests-limit: 20
     schedule:
       interval: "weekly"
+      tanstack-start:
+        patterns:
+          - "@tanstack/start"
+          - "@tanstack/router-devtools"
+          - "@tanstack/react-router"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      wevm:
+        patterns:
+          - "*wagmi*"
+          - "*viem*"
+      css:
+        patterns:
+          - "*tailwind*"
+          - "*postcss*"
+          - "*autoprefixer*"
