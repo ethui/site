@@ -220,9 +220,12 @@ export default function Highlights() {
 
       <div className="flex flex-col gap-2 px-4 py-8 md:w-3/5 md:gap-40 md:px-8">
         {features.map(({ title, description, video }, index) => (
-          <div key={index} className="flex flex-col gap-2">
-            <h3 className=" font-semibold text-2xl">{title}</h3>
-            <p className=" text-secondary-foreground">{description}</p>
+          <div
+            key={index}
+            className="flex h-[60vh] flex-col justify-center gap-2"
+          >
+            <h3 className="font-semibold text-2xl">{title}</h3>
+            <p className="text-secondary-foreground">{description}</p>
             {video && (
               <video
                 autoPlay
