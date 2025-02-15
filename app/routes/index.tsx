@@ -207,7 +207,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
   );
 }
 
-export default function Highlights() {
+function Highlights() {
   return (
     <section
       className="flex w-full flex-col self-center md:flex-row"
