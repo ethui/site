@@ -7,6 +7,27 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 20
     schedule:
       interval: "weekly"
+    groups:
+      tanstack-start:
+        patterns:
+          - "@tanstack/start"
+          - "@tanstack/router-devtools"
+          - "@tanstack/react-router"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      wevm:
+        patterns:
+          - "*wagmi*"
+          - "*viem*"
+      css:
+        patterns:
+          - "*tailwind*"
+          - "*postcss*"
+          - "*autoprefixer*"
