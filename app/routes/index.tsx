@@ -3,10 +3,10 @@ import { Button } from "@ethui/ui/components/shadcn/button";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ChevronDown, FileCode2 } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
+import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
 import { Header } from "#/components/header";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { SmoothScrollLink } from "#/components/smooth-scroll-link";
-import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -205,9 +205,12 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
 
 export default function Highlights() {
   return (
-    <section className="flex flex-col px-4 md:flex-row" id="highlights">
-      <div className="sticky flex flex-col gap-2 md:top-0 md:w-1/3 md:self-start">
-        <div className="flex h-screen flex-col flex-col gap-2 md:justify-center">
+    <section
+      className="flex w-full flex-col self-center md:flex-row"
+      id="highlights"
+    >
+      <div className="sticky flex flex-col bg-sidebar md:top-0 md:w-2/5 md:self-start">
+        <div className="flex flex-col gap-2 px-4 py-16 md:h-screen md:items-end md:justify-center md:px-8 md:py-0">
           <h2 className=" font-bold text-3xl">Ethereum made easy</h2>
           <p className="">
             Developing for web3 can be challenging, we're here to help.
@@ -215,7 +218,7 @@ export default function Highlights() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 md:w-2/3 md:gap-40">
+      <div className="flex flex-col gap-2 px-4 py-8 md:w-3/5 md:gap-40 md:px-8">
         {features.map(({ title, description, video }, index) => (
           <div key={index} className="flex flex-col gap-2">
             <h3 className=" font-semibold text-2xl">{title}</h3>
@@ -226,7 +229,7 @@ export default function Highlights() {
                 loop
                 muted
                 playsInline
-                className="aspect-16/9 mr-4 max-w-3xl"
+                className="mr-4 aspect-16/9 max-w-3xl"
               >
                 <source src={video} type="video/webm" />
               </video>

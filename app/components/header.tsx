@@ -11,7 +11,7 @@ export function Header({ hero = false, isVisible = true }: Props) {
   return (
     <header
       className={clsx(
-        "z-50 flex items-center px-4 py-2 transition-all duration-300 lg:px-6",
+        "z-50 flex items-center bg-white px-4 py-2 transition-all duration-300 md:bg-transparent lg:px-6",
         hero && "fixed top-0 right-0 left-0",
         isVisible ? "translate-y-0" : "-translate-y-full",
       )}
