@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@ethui/form": "0.0.10",
-    "@ethui/ui": "0.0.13",
+    "@ethui/ui": "0.0.14",
     "@hookform/resolvers": "^4.0.0",
     "@rainbow-me/rainbowkit": "^2.2.3",
     "@tanstack/react-query": "^5.66.0",
