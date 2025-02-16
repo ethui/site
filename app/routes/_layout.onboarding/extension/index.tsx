@@ -10,7 +10,7 @@ import { WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 
-export const Route = createFileRoute("/onboarding/extension/")({
+export const Route = createFileRoute("/_layout/onboarding/extension/")({
   component: Extension,
 });
 

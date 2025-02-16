@@ -1034,7 +1034,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^1.9.4"
     "@ethui/form": "npm:0.0.10"
-    "@ethui/ui": "npm:0.0.10"
+    "@ethui/ui": "npm:0.0.13"
     "@hookform/resolvers": "npm:^4.0.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tanstack/react-query": "npm:^5.66.0"
@@ -1070,9 +1070,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ethui/ui@npm:0.0.10":
-  version: 0.0.10
-  resolution: "@ethui/ui@npm:0.0.10"
+"@ethui/ui@npm:0.0.13":
+  version: 0.0.13
+  resolution: "@ethui/ui@npm:0.0.13"
   dependencies:
     "@fontsource/source-code-pro": "npm:^5.1.1"
     "@hookform/resolvers": "npm:^3.10.0"
@@ -1094,24 +1094,35 @@ __metadata:
     "@radix-ui/react-tabs": "npm:^1.1.2"
     "@radix-ui/react-toast": "npm:^1.2.5"
     "@radix-ui/react-tooltip": "npm:^1.1.7"
+    "@tanstack/react-query": "npm:^5.21.4"
     class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
+    clsx: "npm:^2.0.0"
     cmdk: "npm:1.0.4"
     immer: "npm:^10.1.1"
     lucide-react: "npm:^0.475.0"
     next-themes: "npm:^0.4.4"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
+    react: "npm: ^19"
+    react-dom: "npm:^19"
     react-hook-form: "npm:^7.54.2"
-    tailwind-merge: "npm:^2.6.0"
-    tailwindcss-animate: "npm:^1.0.7"
+    tailwind-merge: "npm:^2.0.0"
+    tailwindcss: "npm:^3.4.0"
+    tailwindcss-animate: "npm:^1.0.0"
     viem: "npm:^2.22.21"
     vite-tsconfig-paths: "npm:^5.1.4"
     zod: "npm:^3.24.1"
     zustand: "npm:^5.0.3"
   peerDependencies:
     "@tanstack/react-query": ^5.21.4
-  checksum: 10c0/7a3ab2ace10f5e2184b1bd20bbf8ea5f1c0db529adc834729fae27370117be2f0bb73ac63607650a8ac99c8b8dbb95cf9682451b1c76ab0ead52bcc5b88c1b36
+    "@types/react": ^18 || ^19
+    "@types/react-dom": ^18 || ^19
+    clsx: ^2.0.0
+    lucide-react: ^0.475.0
+    react: ^18 || ^19
+    react-dom: ^18 || ^19
+    tailwind-merge: ^2.0.0
+    tailwindcss: ^3.4.0
+    tailwindcss-animate: ^1.0.0
+  checksum: 10c0/e222b9c7aeb46adc39cea77abb6f13fe0c8f8baea7081550cdcc8402ea53aa79731cbc4579416b985a07ff9018cde865638feca01ae470051d0a0ca70f5c7fdf
   languageName: node
   linkType: hard
 
@@ -3460,7 +3471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.66.0":
+"@tanstack/react-query@npm:^5.21.4, @tanstack/react-query@npm:^5.66.0":
   version: 5.66.0
   resolution: "@tanstack/react-query@npm:5.66.0"
   dependencies:
@@ -5190,7 +5201,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:2.1.1, clsx@npm:^2.1.1":
+"clsx@npm:2.1.1, clsx@npm:^2.0.0, clsx@npm:^2.1.1":
   version: 2.1.1
   resolution: "clsx@npm:2.1.1"
   checksum: 10c0/c4c8eb865f8c82baab07e71bfa8897c73454881c4f99d6bc81585aecd7c441746c1399d08363dc096c550cceaf97bd4ce1e8854e1771e9998d9f94c4fe075839
@@ -8810,7 +8821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.0.0":
+"react-dom@npm:^19, react-dom@npm:^19.0.0":
   version: 19.0.0
   resolution: "react-dom@npm:19.0.0"
   dependencies:
@@ -8907,19 +8918,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react@npm: ^19, react@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "react@npm:19.0.0"
+  checksum: 10c0/9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
     loose-envify: "npm:^1.1.0"
   checksum: 10c0/283e8c5efcf37802c9d1ce767f302dd569dd97a70d9bb8c7be79a789b9902451e0d16334b05d73299b20f048cbc3c7d288bbbde10b701fa194e2089c237dbea3
-  languageName: node
-  linkType: hard
-
-"react@npm:^19.0.0":
-  version: 19.0.0
-  resolution: "react@npm:19.0.0"
-  checksum: 10c0/9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
   languageName: node
   linkType: hard
 
@@ -9749,14 +9760,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:^2.6.0":
+"tailwind-merge@npm:^2.0.0, tailwind-merge@npm:^2.6.0":
   version: 2.6.0
   resolution: "tailwind-merge@npm:2.6.0"
   checksum: 10c0/fc8a5535524de9f4dacf1c16ab298581c7bb757d68a95faaf28942b1c555a619bba9d4c6726fe83986e44973b315410c1a5226e5354c30ba82353bd6d2288fa5
   languageName: node
   linkType: hard
 
-"tailwindcss-animate@npm:^1.0.7":
+"tailwindcss-animate@npm:^1.0.0, tailwindcss-animate@npm:^1.0.7":
   version: 1.0.7
   resolution: "tailwindcss-animate@npm:1.0.7"
   peerDependencies:
@@ -9765,7 +9776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.17":
+"tailwindcss@npm:^3.4.0, tailwindcss@npm:^3.4.17":
   version: 3.4.17
   resolution: "tailwindcss@npm:3.4.17"
   dependencies:
