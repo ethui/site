@@ -1034,13 +1034,13 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^1.9.4"
     "@ethui/form": "npm:0.0.10"
-    "@ethui/ui": "npm:0.0.13"
+    "@ethui/ui": "npm:0.0.14"
     "@hookform/resolvers": "npm:^4.1.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tanstack/react-query": "npm:^5.66.0"
     "@tanstack/react-router": "npm:^1.105.0"
     "@tanstack/router-devtools": "npm:^1.105.0"
-    "@tanstack/router-plugin": "npm:^1.104.1"
+    "@tanstack/router-plugin": "npm:^1.105.0"
     "@tanstack/start": "npm:^1.105.2"
     "@types/lodash-es": "npm:^4.17.12"
     "@types/node": "npm:^22.13.4"
@@ -1057,7 +1057,7 @@ __metadata:
     react-dom: "npm:^19.0.0"
     react-hook-form: "npm:^7.54.2"
     redaxios: "npm:^0.5.1"
-    simple-icons: "npm:^14.6.0"
+    simple-icons: "npm:^14.7.0"
     tailwind-merge: "npm:^2.6.0"
     tailwindcss: "npm:^3.4.17"
     ts-unused-exports: "npm:^11.0.1"
@@ -1070,9 +1070,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ethui/ui@npm:0.0.13":
-  version: 0.0.13
-  resolution: "@ethui/ui@npm:0.0.13"
+"@ethui/ui@npm:0.0.14":
+  version: 0.0.14
+  resolution: "@ethui/ui@npm:0.0.14"
   dependencies:
     "@fontsource/source-code-pro": "npm:^5.1.1"
     "@hookform/resolvers": "npm:^3.10.0"
@@ -1122,7 +1122,7 @@ __metadata:
     tailwind-merge: ^2.0.0
     tailwindcss: ^3.4.0
     tailwindcss-animate: ^1.0.0
-  checksum: 10c0/e222b9c7aeb46adc39cea77abb6f13fe0c8f8baea7081550cdcc8402ea53aa79731cbc4579416b985a07ff9018cde865638feca01ae470051d0a0ca70f5c7fdf
+  checksum: 10c0/377183bc43674665fda72309110c6c6dbbae26b3dac601d1148e81e586b0b6c2c4a9da57261f107efccdeadb2c55eb3faaa5750cc52c78a7578382ffb4b605f8
   languageName: node
   linkType: hard
 
@@ -3542,23 +3542,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/router-generator@npm:^1.104.1":
-  version: 1.104.1
-  resolution: "@tanstack/router-generator@npm:1.104.1"
-  dependencies:
-    "@tanstack/virtual-file-routes": "npm:^1.99.0"
-    prettier: "npm:^3.5.0"
-    tsx: "npm:^4.19.2"
-    zod: "npm:^3.24.1"
-  peerDependencies:
-    "@tanstack/react-router": ^1.104.1
-  peerDependenciesMeta:
-    "@tanstack/react-router":
-      optional: true
-  checksum: 10c0/3790f38cd3b561ff0fbbf3b3f3350098d8a2e1ea75daec12d16ee404bca2a2fa41aa302711aa522ff426eeecfe514c20ca3d0891bdbc5f2e03ca37274331db2f
-  languageName: node
-  linkType: hard
-
 "@tanstack/router-generator@npm:^1.105.0":
   version: 1.105.0
   resolution: "@tanstack/router-generator@npm:1.105.0"
@@ -3573,44 +3556,6 @@ __metadata:
     "@tanstack/react-router":
       optional: true
   checksum: 10c0/223baceacfd05b7b498d1a59a007f51772cbd316b30b7ed93564e88888e6c8ab5e0bf704af2be0aef8b4916ec7d739c693c0e17e86bce876fd3e78c1a0839461
-  languageName: node
-  linkType: hard
-
-"@tanstack/router-plugin@npm:^1.104.1":
-  version: 1.104.1
-  resolution: "@tanstack/router-plugin@npm:1.104.1"
-  dependencies:
-    "@babel/core": "npm:^7.26.8"
-    "@babel/plugin-syntax-jsx": "npm:^7.25.9"
-    "@babel/plugin-syntax-typescript": "npm:^7.25.9"
-    "@babel/template": "npm:^7.26.8"
-    "@babel/traverse": "npm:^7.26.8"
-    "@babel/types": "npm:^7.26.8"
-    "@tanstack/router-generator": "npm:^1.104.1"
-    "@tanstack/router-utils": "npm:^1.102.2"
-    "@tanstack/virtual-file-routes": "npm:^1.99.0"
-    "@types/babel__core": "npm:^7.20.5"
-    "@types/babel__template": "npm:^7.4.4"
-    "@types/babel__traverse": "npm:^7.20.6"
-    babel-dead-code-elimination: "npm:^1.0.9"
-    chokidar: "npm:^3.6.0"
-    unplugin: "npm:^2.1.2"
-    zod: "npm:^3.24.1"
-  peerDependencies:
-    "@rsbuild/core": ">=1.0.2"
-    "@tanstack/react-router": ^1.104.1
-    vite: ">=5.0.0 || >=6.0.0"
-    webpack: ">=5.92.0"
-  peerDependenciesMeta:
-    "@rsbuild/core":
-      optional: true
-    "@tanstack/react-router":
-      optional: true
-    vite:
-      optional: true
-    webpack:
-      optional: true
-  checksum: 10c0/ef39a3d9fe9e605143ecc6f58b354052de3066e0246425ba3b2697e24c90d0cce39efc8e27eb807f4af8301daa83aa8be767ff2374509e1f164380d5c4d85803
   languageName: node
   linkType: hard
 
@@ -9449,10 +9394,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-icons@npm:^14.6.0":
-  version: 14.6.0
-  resolution: "simple-icons@npm:14.6.0"
-  checksum: 10c0/210ffdee04c5e10711ab803bc9c10a6dde6eeda9f785ffada97afc608c2ec8e10c7d08d81462c117f326a016e744dac636e4c1c50e6cf80edf8d672769b250ba
+"simple-icons@npm:^14.7.0":
+  version: 14.7.0
+  resolution: "simple-icons@npm:14.7.0"
+  checksum: 10c0/f19fc6bb30ad230c9d1fcd420915d56f8045739cbfcaa88f4bcfab4da04923253f4c2001ad68335bc4944952897d33ceb7227e1eaa7c0a012d9f5415d16c22cc
   languageName: node
   linkType: hard
 
