@@ -1034,7 +1034,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^1.9.4"
     "@ethui/form": "npm:0.0.10"
-    "@ethui/ui": "npm:0.0.14"
+    "@ethui/ui": "npm:0.0.19"
     "@hookform/resolvers": "npm:^4.1.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tanstack/react-query": "npm:^5.66.0"
@@ -1070,9 +1070,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ethui/ui@npm:0.0.14":
-  version: 0.0.14
-  resolution: "@ethui/ui@npm:0.0.14"
+"@ethui/ui@npm:0.0.19":
+  version: 0.0.19
+  resolution: "@ethui/ui@npm:0.0.19"
   dependencies:
     "@fontsource/source-code-pro": "npm:^5.1.1"
     "@hookform/resolvers": "npm:^3.10.0"
@@ -1122,7 +1122,7 @@ __metadata:
     tailwind-merge: ^2.0.0
     tailwindcss: ^3.4.0
     tailwindcss-animate: ^1.0.0
-  checksum: 10c0/377183bc43674665fda72309110c6c6dbbae26b3dac601d1148e81e586b0b6c2c4a9da57261f107efccdeadb2c55eb3faaa5750cc52c78a7578382ffb4b605f8
+  checksum: 10c0/6934fc383e04857db560699e29eea8ab42fb2ebd5eea6fe1a355257405fe284a69b9ea698b5e1fa66ef44c6e3b862764eddc5130fabd0f9d2301d59625e3341c
   languageName: node
   linkType: hard
 
