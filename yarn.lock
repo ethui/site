@@ -1037,7 +1037,7 @@ __metadata:
     "@ethui/ui": "npm:0.0.19"
     "@hookform/resolvers": "npm:^4.1.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
-    "@tanstack/react-query": "npm:^5.66.0"
+    "@tanstack/react-query": "npm:^5.66.3"
     "@tanstack/react-router": "npm:^1.105.0"
     "@tanstack/router-devtools": "npm:^1.105.0"
     "@tanstack/router-plugin": "npm:^1.105.0"
@@ -3463,6 +3463,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.66.3":
+  version: 5.66.3
+  resolution: "@tanstack/query-core@npm:5.66.3"
+  checksum: 10c0/93375becb7e611a0913a833cb5ee6df01adefdcf43c043473fc37f6934590a297a72db2f55cd0d113e48ec85d4ea665be930b9eaf8f4c72f99cb50aa22840602
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-cross-context@npm:^1.99.0":
   version: 1.99.0
   resolution: "@tanstack/react-cross-context@npm:1.99.0"
@@ -3473,7 +3480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.21.4, @tanstack/react-query@npm:^5.66.0":
+"@tanstack/react-query@npm:^5.21.4":
   version: 5.66.0
   resolution: "@tanstack/react-query@npm:5.66.0"
   dependencies:
@@ -3481,6 +3488,17 @@ __metadata:
   peerDependencies:
     react: ^18 || ^19
   checksum: 10c0/60e1a3fd7f2f8b2038d70954b51eeb84c31273d09a68537babdc2ac3d8c200968a1f7865a8e189ffd63be0c30387985b4b4eaf1d9065990bd3699ac5872b7523
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.66.3":
+  version: 5.66.3
+  resolution: "@tanstack/react-query@npm:5.66.3"
+  dependencies:
+    "@tanstack/query-core": "npm:5.66.3"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/3a6663d369fd3f55b9c8a906707169ba37d36c54066c300707ce26709aad714c77347df62ac54c504b6cf92e505b134f37681596b7d23a431bfdc20c6cd59b1c
   languageName: node
   linkType: hard
 
