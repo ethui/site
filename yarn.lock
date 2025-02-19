@@ -1034,7 +1034,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^1.9.4"
     "@ethui/form": "npm:0.0.10"
-    "@ethui/ui": "npm:0.0.28"
+    "@ethui/ui": "npm:0.0.30"
     "@hookform/resolvers": "npm:^4.1.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tailwindcss/postcss": "npm:^4.0.7"
@@ -1072,9 +1072,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ethui/ui@npm:0.0.28":
-  version: 0.0.28
-  resolution: "@ethui/ui@npm:0.0.28"
+"@ethui/ui@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@ethui/ui@npm:0.0.30"
   dependencies:
     "@fontsource/source-code-pro": "npm:^5.1.1"
     "@hookform/resolvers": "npm:^4.1.0"
@@ -1108,9 +1108,9 @@ __metadata:
     react-dom: "npm:^19"
     react-hook-form: "npm:^7.54.2"
     tailwind-merge: "npm:^3.0.1"
-    tailwindcss: "npm:^4.0.6"
+    tailwindcss: "npm:^4.0.7"
     tailwindcss-animate: "npm:^1.0.0"
-    viem: "npm:^2.22.21"
+    viem: "npm:^2.23.3"
     vite-tsconfig-paths: "npm:^5.1.4"
     zod: "npm:^3.24.2"
     zustand: "npm:^5.0.3"
@@ -1125,7 +1125,7 @@ __metadata:
     tailwind-merge: ^3.0.0
     tailwindcss: ^4.0.0
     tailwindcss-animate: ^1.0.0
-  checksum: 10c0/a496402d697b31d474e69138c8b8b2f550dc157cb0642425a056a08f8cf0f941b082c5b7cc97416511d3a549cd52074a4ab3733c3e64b6f134a46d172dc14b5a
+  checksum: 10c0/bf6a38b57fc34ffeaa04b4226cb324fc2ca7f23acb6854cafbc623a66c7368bb599d28996dfffe0b4805630eaae21128041ec683ceb5bb2eeb335b74f3cf1414
   languageName: node
   linkType: hard
 
@@ -9862,7 +9862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.0.7, tailwindcss@npm:^4.0.6, tailwindcss@npm:^4.0.7":
+"tailwindcss@npm:4.0.7, tailwindcss@npm:^4.0.7":
   version: 4.0.7
   resolution: "tailwindcss@npm:4.0.7"
   checksum: 10c0/d884b580022a439e26c1c372dd693d62f552b19635c3e018af640cca00357c4407710c452bfe465902299698a325f6215777807165f7e94f8f12411651ae3d6a
@@ -10546,6 +10546,27 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/39332d008d2ab0700aa57f541bb199350daecdfb722ae1b262404b02944e11205368fcc696cc0ab8327b9f90bf7172014687ae3e5d9091978e9d174885ccff2d
+  languageName: node
+  linkType: hard
+
+"viem@npm:^2.23.3":
+  version: 2.23.3
+  resolution: "viem@npm:2.23.3"
+  dependencies:
+    "@noble/curves": "npm:1.8.1"
+    "@noble/hashes": "npm:1.7.1"
+    "@scure/bip32": "npm:1.6.2"
+    "@scure/bip39": "npm:1.5.4"
+    abitype: "npm:1.0.8"
+    isows: "npm:1.0.6"
+    ox: "npm:0.6.7"
+    ws: "npm:8.18.0"
+  peerDependencies:
+    typescript: ">=5.0.4"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/21384e8fc1c35f11c2b0f059b0174abc6b7a20f1fe1565f5e1691135b3f6545df1c57622739a841329c128c10c4f0732f8376d9d38632a5ebeefb78d3b0dd74e
   languageName: node
   linkType: hard
 
