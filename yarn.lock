@@ -1039,7 +1039,7 @@ __metadata:
     "@rainbow-me/rainbowkit": "npm:^2.2.3"
     "@tailwindcss/postcss": "npm:^4.0.7"
     "@tailwindcss/vite": "npm:^4.0.7"
-    "@tanstack/react-query": "npm:^5.66.3"
+    "@tanstack/react-query": "npm:^5.66.7"
     "@tanstack/react-router": "npm:^1.105.0"
     "@tanstack/router-devtools": "npm:^1.105.0"
     "@tanstack/router-plugin": "npm:^1.105.0"
@@ -1051,7 +1051,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.3.4"
     autoprefixer: "npm:^10.4.20"
     clsx: "npm:^2.1.1"
-    globals: "npm:^15.14.0"
+    globals: "npm:^15.15.0"
     lodash-es: "npm:^4.17.21"
     lucide-react: "npm:^0.475.0"
     postcss: "npm:^8.5.3"
@@ -3631,13 +3631,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.66.3":
-  version: 5.66.3
-  resolution: "@tanstack/query-core@npm:5.66.3"
-  checksum: 10c0/93375becb7e611a0913a833cb5ee6df01adefdcf43c043473fc37f6934590a297a72db2f55cd0d113e48ec85d4ea665be930b9eaf8f4c72f99cb50aa22840602
-  languageName: node
-  linkType: hard
-
 "@tanstack/query-core@npm:5.66.4":
   version: 5.66.4
   resolution: "@tanstack/query-core@npm:5.66.4"
@@ -3652,17 +3645,6 @@ __metadata:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
   checksum: 10c0/d02c70fb9a1df1ba3cbbe04c353cbfe11349b457caace60ca003e0f27c9b30dbc8323a3f9e0b6ef87aba0028c5bd26e4bc320821d87d5b519b95c6278ead5de0
-  languageName: node
-  linkType: hard
-
-"@tanstack/react-query@npm:^5.66.3":
-  version: 5.66.3
-  resolution: "@tanstack/react-query@npm:5.66.3"
-  dependencies:
-    "@tanstack/query-core": "npm:5.66.3"
-  peerDependencies:
-    react: ^18 || ^19
-  checksum: 10c0/3a6663d369fd3f55b9c8a906707169ba37d36c54066c300707ce26709aad714c77347df62ac54c504b6cf92e505b134f37681596b7d23a431bfdc20c6cd59b1c
   languageName: node
   linkType: hard
 
@@ -6747,7 +6729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^15.14.0":
+"globals@npm:^15.15.0":
   version: 15.15.0
   resolution: "globals@npm:15.15.0"
   checksum: 10c0/f9ae80996392ca71316495a39bec88ac43ae3525a438b5626cd9d5ce9d5500d0a98a266409605f8cd7241c7acf57c354a48111ea02a767ba4f374b806d6861fe
