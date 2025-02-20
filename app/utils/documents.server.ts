@@ -19,12 +19,12 @@ export async function fetchRepoFile({
     fn: async () => {
       try {
         console.log("here", org, repo, ref, filepath);
-        if (process.env.NODE_ENV === "development") {
-          return await fetchFs(repo, filepath);
-        } else {
-          console.log(org, repo, ref, filepath);
-          return await fetchRemote(org, repo, "refs/heads/main", filepath);
-        }
+        //if (process.env.NODE_ENV === "development") {
+        //  return await fetchFs(repo, filepath);
+        //} else {
+        console.log(org, repo, ref, filepath);
+        return await fetchRemote(org, repo, "refs/heads/main", filepath);
+        //}
       } catch (err) {
         console.log(err);
         return null;

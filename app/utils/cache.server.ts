@@ -11,7 +11,7 @@ const docCache =
   (globalThis.docCache = new LRUCache<string, unknown>({
     max: 300,
     // ttl: 1,
-    ttl: process.env.NODE_ENV === "production" ? 1 : 1000000,
+    ttl: process.env.NODE_ENV === "production" ? 100 : 1000000,
   }));
 
 export async function fetchCached<T>(opts: {
@@ -20,8 +20,10 @@ export async function fetchCached<T>(opts: {
   ttl: number;
 }): Promise<T> {
   if (docCache.has(opts.key)) {
+    console.log("cache it");
     return docCache.get(opts.key) as T;
   }
+  console.log("no cache");
 
   const result = await opts.fn();
 
