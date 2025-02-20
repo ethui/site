@@ -7,6 +7,7 @@ import { DocsSidebar } from "./-sidebar";
 import { DocsHeader } from "./-header";
 
 export const Route = createFileRoute("/docs/_l")({
+  beforeLoad: () => ({ breadcrumb: "Docs" }),
   component: RouteComponent,
 });
 

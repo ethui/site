@@ -1,7 +1,7 @@
 import appCss from "@ethui/ui/tailwind.css?url";
 import rainbowkiwCss from "@rainbow-me/rainbowkit/styles.css?url";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
 import { Suspense, lazy } from "react";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
@@ -12,15 +12,19 @@ const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
     ? () => null // Render nothing in production
     : lazy(() =>
-        // Lazy load in development
-        import("@tanstack/router-devtools").then((res) => ({
-          default: res.TanStackRouterDevtools,
-          // For Embedded Mode
-          // default: res.TanStackRouterDevtoolsPanel
-        })),
-      );
+      // Lazy load in development
+      import("@tanstack/router-devtools").then((res) => ({
+        default: res.TanStackRouterDevtools,
+        // For Embedded Mode
+        // default: res.TanStackRouterDevtoolsPanel
+      })),
+    );
 
-export const Route = createRootRoute({
+export interface RouteContext {
+  breadcrumb?: string;
+}
+
+export const Route = createRootRouteWithContext<RouteContext>()({
   head: () => ({
     meta: [
       {

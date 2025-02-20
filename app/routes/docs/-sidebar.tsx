@@ -27,58 +27,31 @@ const data = {
   navMain: [
     {
       title: "Getting Started",
+      to: "getting-started",
       items: [
+        {
+          title: "What is ethui?",
+          to: "what-is-ethui",
+        },
         {
           title: "Installation",
-          to: "/dsa",
-        },
-        {
-          title: "Project Structure",
-          to: "#",
+          to: "installation",
         },
       ],
     },
     {
-      title: "Building ",
-      to: "#",
+      title: "Features",
+      to: "features",
       items: [
         {
-          title: "Routing",
-          to: "#",
+          title: "Anvil sync",
+          to: "anvil",
         },
         {
-          title: "Data Fetching",
-          to: "#",
-          isActive: true,
+          title: "Forge ABI watcher",
+          to: "/forge",
         },
-      ],
-    },
-    {
-      title: "API Reference",
-      to: "#",
-      items: [
-        {
-          title: "Components",
-          to: "#",
-        },
-        {
-          title: "File Conventions",
-          to: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      to: "#",
-      items: [
-        {
-          title: "Accessibility",
-          to: "#",
-        },
-        {
-          title: "Fast Refresh",
-          to: "#",
-        },
+        { title: "Fast mode", to: "fast-mode" },
       ],
     },
   ],
@@ -109,10 +82,10 @@ export function DocsSidebar({
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {data.navMain.map((item) => (
+        {data.navMain.map(({ title, items, to: parentTo }) => (
           <Collapsible
-            key={item.title}
-            title={item.title}
+            key={title}
+            title={title}
             defaultOpen
             className="group/collapsible"
           >
@@ -122,23 +95,26 @@ export function DocsSidebar({
                 className="group/label text-sidebar-foreground text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               >
                 <CollapsibleTrigger className="cursor-pointer">
-                  {item.title}{" "}
+                  {title}{" "}
                   <ChevronRightIcon className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenuSub>
-                    {item.items.map(({ title, to }) => (
-                      <SidebarMenuSubItem key={to}>
-                        <SidebarMenuSubButton
-                          asChild
-                          isActive={currentPath === to}
-                        >
-                          <Link to={to}>{title}</Link>
-                        </SidebarMenuSubButton>
-                      </SidebarMenuSubItem>
-                    ))}
+                    {items.map(({ title, to: childTo }) => {
+                      const to = `/docs/${parentTo}/${childTo}`;
+                      return (
+                        <SidebarMenuSubItem key={to}>
+                          <SidebarMenuSubButton
+                            asChild
+                            isActive={currentPath === to}
+                          >
+                            <Link to={to}>{title}</Link>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      );
+                    })}
                   </SidebarMenuSub>
                 </SidebarGroupContent>
               </CollapsibleContent>
