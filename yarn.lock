@@ -1064,10 +1064,12 @@ __metadata:
     redaxios: "npm:^0.5.1"
     rehype-add-classes: "npm:^1.0.0"
     rehype-autolink-headings: "npm:^7.1.0"
+    rehype-class-names: "npm:^2.0.0"
     rehype-slug: "npm:^6.0.0"
     simple-icons: "npm:^14.7.0"
     tailwind-merge: "npm:^3.0.1"
     tailwindcss: "npm:^4.0.7"
+    titleize: "npm:^4.0.0"
     ts-unused-exports: "npm:^11.0.1"
     tsc: "npm:^2.0.4"
     typescript: "npm:^5.7.3"
@@ -1075,6 +1077,7 @@ __metadata:
     vite: "npm:^6.0.11"
     vite-tsconfig-paths: "npm:^5.1.4"
     wagmi: "npm:^2.14.11"
+    zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
 
@@ -5001,6 +5004,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bcp-47-match@npm:^2.0.0":
+  version: 2.0.3
+  resolution: "bcp-47-match@npm:2.0.3"
+  checksum: 10c0/ae5c202854df8a9ad4777dc3b49562578495a69164869f365a88c1a089837a9fbbce4c0c44f6f1a5e44c7841f47e91fe6fea00306ca49ce5ec95a7eb71f839c4
+  languageName: node
+  linkType: hard
+
 "binary-extensions@npm:^2.0.0":
   version: 2.3.0
   resolution: "binary-extensions@npm:2.3.0"
@@ -5031,7 +5041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"boolbase@npm:~1.0.0":
+"boolbase@npm:^1.0.0, boolbase@npm:~1.0.0":
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
   checksum: 10c0/e4b53deb4f2b85c52be0e21a273f2045c7b6a6ea002b0e139c744cb6f95e9ec044439a52883b0d74dedd1ff3da55ed140cfdddfed7fb0cccbed373de5dce1bcf
@@ -5659,6 +5669,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-selector-parser@npm:^3.0.0":
+  version: 3.0.5
+  resolution: "css-selector-parser@npm:3.0.5"
+  checksum: 10c0/250b110ffd6926a9971dad56a69802b00ff52d621b6c20b3cfd714f024eb6ed7042a57226dea3446ff00dad864d03f5cee5c451b8c6d09ee12c723f5a9ca71c2
+  languageName: node
+  linkType: hard
+
 "css-what@npm:^6.1.0":
   version: 6.1.0
   resolution: "css-what@npm:6.1.0"
@@ -5920,6 +5937,15 @@ __metadata:
   version: 1.0.3
   resolution: "dijkstrajs@npm:1.0.3"
   checksum: 10c0/2183d61ac1f25062f3c3773f3ea8d9f45ba164a00e77e07faf8cc5750da966222d1e2ce6299c875a80f969190c71a0973042192c5624d5223e4ed196ff584c99
+  languageName: node
+  linkType: hard
+
+"direction@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "direction@npm:2.0.1"
+  bin:
+    direction: cli.js
+  checksum: 10c0/dce809431cad978e0778769a3818ea797ebe0bd542c85032ad9ad98971e2021a146be62feb259d7ffe4b76739e07b23e861b29c3f184ac8d38cc6ba956d5c586
   languageName: node
   linkType: hard
 
@@ -7119,10 +7145,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hast-util-classnames@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "hast-util-classnames@npm:3.0.0"
+  dependencies:
+    "@types/hast": "npm:^3.0.0"
+    space-separated-tokens: "npm:^2.0.0"
+  checksum: 10c0/5a65001617115077eb7f15d4f524d8d32742f23e42cc21330efbfcb4eca6654c5e03378c05e235d9087c885a419ea64c52b963852acd695c6682bfddbf6c6625
+  languageName: node
+  linkType: hard
+
 "hast-util-has-property@npm:^1.0.0":
   version: 1.0.4
   resolution: "hast-util-has-property@npm:1.0.4"
   checksum: 10c0/dcad2e0fc6e2e13b42028ccec40cea5f607ea5fd0c38706467e546df52a5ed5db95c94ba29028855a6024d7a571d7d3dc55403fc16e370f580187716d48865ef
+  languageName: node
+  linkType: hard
+
+"hast-util-has-property@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "hast-util-has-property@npm:3.0.0"
+  dependencies:
+    "@types/hast": "npm:^3.0.0"
+  checksum: 10c0/6e2c0e22ca893c6ebb60f8390e184c4deb041c36d09796756f02cd121c1789c0f5c862ed06caea8f1a80ea8c0ef6a7854dd57946c2eebb76488727bd4a1c952e
   languageName: node
   linkType: hard
 
@@ -7167,6 +7212,29 @@ __metadata:
     space-separated-tokens: "npm:^1.1.0"
     zwitch: "npm:^1.0.0"
   checksum: 10c0/670ffdcdded6e75156e0677c6dce6e9cd8e5d2230f4c15d8da75a4f2c0b999455fb9f480937289a5e22fe4078999a413b1184243451852e6c5aed65aca871a56
+  languageName: node
+  linkType: hard
+
+"hast-util-select@npm:^6.0.0":
+  version: 6.0.4
+  resolution: "hast-util-select@npm:6.0.4"
+  dependencies:
+    "@types/hast": "npm:^3.0.0"
+    "@types/unist": "npm:^3.0.0"
+    bcp-47-match: "npm:^2.0.0"
+    comma-separated-tokens: "npm:^2.0.0"
+    css-selector-parser: "npm:^3.0.0"
+    devlop: "npm:^1.0.0"
+    direction: "npm:^2.0.0"
+    hast-util-has-property: "npm:^3.0.0"
+    hast-util-to-string: "npm:^3.0.0"
+    hast-util-whitespace: "npm:^3.0.0"
+    nth-check: "npm:^2.0.0"
+    property-information: "npm:^7.0.0"
+    space-separated-tokens: "npm:^2.0.0"
+    unist-util-visit: "npm:^5.0.0"
+    zwitch: "npm:^2.0.0"
+  checksum: 10c0/d6829953f829c24ffe465c2b156f6a7cd352f7d9b4d601e0e6ca38b85cc4a720bb9f027d34881c3b2a05f4b55c9375e256dbf43ca88604230da784e1c9c7d03f
   languageName: node
   linkType: hard
 
@@ -9173,6 +9241,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nth-check@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "nth-check@npm:2.1.1"
+  dependencies:
+    boolbase: "npm:^1.0.0"
+  checksum: 10c0/5fee7ff309727763689cfad844d979aedd2204a817fbaaf0e1603794a7c20db28548d7b024692f953557df6ce4a0ee4ae46cd8ebd9b36cfb300b9226b567c479
+  languageName: node
+  linkType: hard
+
 "nypm@npm:^0.5.1":
   version: 0.5.2
   resolution: "nypm@npm:0.5.2"
@@ -10057,6 +10134,18 @@ __metadata:
     unified: "npm:^11.0.0"
     unist-util-visit: "npm:^5.0.0"
   checksum: 10c0/3d6653047c83cf7f9455bc0f5483a40170aee211cc057b7541b491d31e54b08fda72ab5ec4caeacea63e8af130584f0e14d5c63f6ddb86b7f34584b9e3f92dcf
+  languageName: node
+  linkType: hard
+
+"rehype-class-names@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "rehype-class-names@npm:2.0.0"
+  dependencies:
+    "@types/hast": "npm:^3.0.0"
+    hast-util-classnames: "npm:^3.0.0"
+    hast-util-select: "npm:^6.0.0"
+    unified: "npm:^11.0.4"
+  checksum: 10c0/b4e1115cd02d3f2cbc1b23827599882e4ee7b78e2f919a3c53632cf9e5bcec26470287a9d470877f2489d2dacbd9c3e05a747075f4f82a7375f09a1e1b345c77
   languageName: node
   linkType: hard
 
@@ -10974,6 +11063,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"titleize@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "titleize@npm:4.0.0"
+  checksum: 10c0/94bb07a310b39f2d75854ff028389796d996271f682750d24e7f43a4e71945044189efda3a6ad63e3358865a88aea06051d4e849c435464de4915678f135f373
+  languageName: node
+  linkType: hard
+
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
@@ -11214,7 +11310,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unified@npm:^11.0.0":
+"unified@npm:^11.0.0, unified@npm:^11.0.4":
   version: 11.0.5
   resolution: "unified@npm:11.0.5"
   dependencies:
