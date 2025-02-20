@@ -4,6 +4,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeAddClasses from "rehype-class-names";
 import { titleize } from "#/utils/titleize";
+import { fetchRepoFile } from "#/utils/documents.server";
 
 export const Route = createFileRoute("/docs/_l/$section/$subsection")({
   beforeLoad: (ctx) => ({ breadcrumb: titleize(ctx.params.subsection) }),
@@ -11,10 +12,14 @@ export const Route = createFileRoute("/docs/_l/$section/$subsection")({
     const { section, subsection } = ctx.params;
 
     console.log(ctx.location);
-    const url = `http://localhost:3000/raw-docs/${section}/${subsection}.md`;
-    console.log(url);
-    const response = await fetch(url);
-    return { content: await response.text() };
+    const file = await fetchRepoFile({
+      org: "ethui",
+      repo: "docs",
+      filepath: `${section}/${subsection}.md`,
+    });
+
+    console.log(file);
+    return { content: file };
   },
   component: RouteComponent,
 });
@@ -24,15 +29,14 @@ const rehypePlugins: React.ComponentProps<
 >["rehypePlugins"] = [
     rehypeSlug,
     [rehypeAutolinkHeadings, { behavior: "wrap" }],
-    [rehypeAddClasses, { "h2>a": "no-underline" }],
+    [rehypeAddClasses, { "h1>a, h2>a, h3>a": "no-underline font-bold" }],
   ];
 
 function RouteComponent() {
   const { content } = Route.useLoaderData();
   console.log(content);
-  const { subsection } = Route.useParams();
   return (
-    <div className="prose">
+    <div className="prose p-4">
       <ReactMarkdown rehypePlugins={rehypePlugins}>{content}</ReactMarkdown>
     </div>
   );
