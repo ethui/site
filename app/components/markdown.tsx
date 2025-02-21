@@ -11,17 +11,17 @@ const classes = {
 const rehypePlugins: React.ComponentProps<
   typeof ReactMarkdown
 >["rehypePlugins"] = [
-  rehypeSlug,
-  [rehypeAutolinkHeadings, { behavior: "wrap" }],
-  [rehypeAddClasses, classes],
-];
+    rehypeSlug,
+    [rehypeAutolinkHeadings, { behavior: "wrap" }],
+    [rehypeAddClasses, classes],
+  ];
 
 export function Markdown({
   className,
   children,
 }: { children: string; className?: string }) {
   return (
-    <div className={clsx(className, "prose")}>
+    <div className={clsx("prose", className)}>
       <ReactMarkdown rehypePlugins={rehypePlugins}>{children}</ReactMarkdown>
     </div>
   );
