@@ -22,6 +22,8 @@ export const Route = createFileRoute("/docs/_l/$section/$subsection")({
 function RouteComponent() {
   const { content } = Route.useLoaderData();
   return (
-    <Markdown className="mx-auto w-full max-w-[80ch] p-4">{content}</Markdown>
+    <Markdown className="mx-auto w-full max-w-[80ch] p-4 md:pt-8">
+      {content}
+    </Markdown>
   );
 }
