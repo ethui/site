@@ -29,9 +29,7 @@ function RouteComponent() {
         <DocsSidebar config={config} />
         <SidebarInset>
           <DocsHeader />
-          <div className="mx-auto min-w-4xl">
-            <Outlet />
-          </div>
+          <Outlet />
         </SidebarInset>
       </SidebarProvider>
     </div>

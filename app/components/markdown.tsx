@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import ReactMarkdown from "react-markdown";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeAddClasses from "rehype-class-names";
@@ -15,9 +16,12 @@ const rehypePlugins: React.ComponentProps<
     [rehypeAddClasses, classes],
   ];
 
-export function Markdown({ children }: { children: string }) {
+export function Markdown({
+  className,
+  children,
+}: { children: string; className?: string }) {
   return (
-    <div className="prose p-4">
+    <div className={clsx(className, "prose")}>
       <ReactMarkdown rehypePlugins={rehypePlugins}>{children}</ReactMarkdown>
     </div>
   );
