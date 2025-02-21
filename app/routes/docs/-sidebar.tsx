@@ -20,46 +20,14 @@ import {
   SidebarMenuSubItem,
 } from "@ethui/ui/components/shadcn/sidebar";
 import { Link, useRouterState } from "@tanstack/react-router";
+import type { DocsConfig } from "#/utils/docs";
 import { SearchForm } from "./-search-form";
 
-// This is sample data.
-const data = {
-  navMain: [
-    {
-      title: "Getting Started",
-      to: "getting-started",
-      items: [
-        {
-          title: "What is ethui?",
-          to: "what-is-ethui",
-        },
-        {
-          title: "Installation",
-          to: "installation",
-        },
-      ],
-    },
-    {
-      title: "Features",
-      to: "features",
-      items: [
-        {
-          title: "Anvil sync",
-          to: "anvil",
-        },
-        {
-          title: "Forge ABI watcher",
-          to: "/forge",
-        },
-        { title: "Fast mode", to: "fast-mode" },
-      ],
-    },
-  ],
-};
+interface DocsSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  config: DocsConfig;
+}
 
-export function DocsSidebar({
-  ...props
-}: React.ComponentProps<typeof Sidebar>) {
+export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
 
@@ -82,7 +50,7 @@ export function DocsSidebar({
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {data.navMain.map(({ title, items, to: parentTo }) => (
+        {config.sections.map(({ title, slug: sectionSlug, subsections }) => (
           <Collapsible
             key={title}
             title={title}
@@ -102,8 +70,8 @@ export function DocsSidebar({
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenuSub>
-                    {items.map(({ title, to: childTo }) => {
-                      const to = `/docs/${parentTo}/${childTo}`;
+                    {subsections.map(({ title, slug: subsectionSlug }) => {
+                      const to = `/docs/${sectionSlug}/${subsectionSlug}`;
                       return (
                         <SidebarMenuSubItem key={to}>
                           <SidebarMenuSubButton

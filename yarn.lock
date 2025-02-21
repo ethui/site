@@ -1083,8 +1083,8 @@ __metadata:
   linkType: soft
 
 "@ethui/ui@file:../ui/dist::locator=%40ethui%2Fsite%40workspace%3A.":
-  version: 0.0.32
-  resolution: "@ethui/ui@file:../ui/dist#../ui/dist::hash=cee816&locator=%40ethui%2Fsite%40workspace%3A."
+  version: 0.0.30
+  resolution: "@ethui/ui@file:../ui/dist#../ui/dist::hash=642b3f&locator=%40ethui%2Fsite%40workspace%3A."
   dependencies:
     "@fontsource/source-code-pro": "npm:^5.1.1"
     "@hookform/resolvers": "npm:^4.1.0"
@@ -1135,7 +1135,7 @@ __metadata:
     tailwind-merge: ^3.0.0
     tailwindcss: ^4.0.0
     tailwindcss-animate: ^1.0.0
-  checksum: 10c0/622b22089de3db315199424fbd75b03de4e5732b49098aa3a24d99025253a07249bed86fb8e2bfdab9d1ecb6dd228edf676c8baa43a10f2728054fb7ed408c81
+  checksum: 10c0/59c1fc92d26885a9ecdd3b7855618a8527d13e754fc9f2a9559e766ed3cd2236eba0cbfe5873e83927cfc7f328ddbc731a62360524b3b5352168bd6eeb5acbd8
   languageName: node
   linkType: hard
 

@@ -1,8 +1,8 @@
-import { Breadcrumbs } from "#/components/breadcrumbs";
 import {
   SidebarTrigger,
   useSidebar,
 } from "@ethui/ui/components/shadcn/sidebar";
+import { Breadcrumbs } from "#/components/breadcrumbs";
 
 export function DocsHeader() {
   const sidebar = useSidebar();

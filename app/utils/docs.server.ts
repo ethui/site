@@ -18,13 +18,11 @@ export async function fetchRepoFile({
     ttl,
     fn: async () => {
       try {
-        console.log("here", org, repo, ref, filepath);
-        //if (process.env.NODE_ENV === "development") {
-        //  return await fetchFs(repo, filepath);
-        //} else {
-        console.log(org, repo, ref, filepath);
-        return await fetchRemote(org, repo, "refs/heads/main", filepath);
-        //}
+        if (process.env.NODE_ENV === "development") {
+          return await fetchFs(repo, filepath);
+        } else {
+          return await fetchRemote(org, repo, "refs/heads/main", filepath);
+        }
       } catch (err) {
         console.log(err);
         return null;
@@ -47,6 +45,7 @@ async function fetchRemote(
   const response = await fetch(href, {
     headers: { "User-Agent": `docs:${owner}/${repo}` },
   });
+  console.log(response);
 
   if (!response.ok) {
     return null;

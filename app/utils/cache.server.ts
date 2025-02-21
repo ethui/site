@@ -1,18 +1,17 @@
 import { LRUCache } from "lru-cache";
 
 declare global {
-  var docCache: LRUCache<string, unknown>;
+  var docCache: LRUCache<string, any>;
 }
 
-// biome-ignore lint/suspicious/noRedeclare: <explanation>
-const docCache =
+const ttl = process.env.NODE_ENV === "production" ? 100 : 1;
+
+globalThis.docCache =
   globalThis.docCache ||
-  // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-  (globalThis.docCache = new LRUCache<string, unknown>({
+  new LRUCache<string, any>({
     max: 300,
-    // ttl: 1,
-    ttl: process.env.NODE_ENV === "production" ? 100 : 1000000,
-  }));
+    ttl,
+  });
 
 export async function fetchCached<T>(opts: {
   fn: () => Promise<T>;
@@ -20,10 +19,8 @@ export async function fetchCached<T>(opts: {
   ttl: number;
 }): Promise<T> {
   if (docCache.has(opts.key)) {
-    console.log("cache it");
     return docCache.get(opts.key) as T;
   }
-  console.log("no cache");
 
   const result = await opts.fn();
 

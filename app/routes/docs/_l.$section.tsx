@@ -1,5 +1,5 @@
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { titleize } from "#/utils/titleize";
-import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/docs/_l/$section")({
   beforeLoad: (ctx) => ({ breadcrumb: titleize(ctx.params.section) }),
