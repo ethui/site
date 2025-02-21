@@ -19,7 +19,7 @@ const TanStackRouterDevtools =
         })),
       );
 
-export interface RouteContext {
+interface RouteContext {
   breadcrumb?: string;
 }
 
