@@ -1,7 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeAddClasses from "rehype-class-names";
-import rehypeSlug from "rehype-slug";
 import { Markdown } from "#/components/markdown";
 import { fetchDocFile } from "#/utils/docs";
 import { titleize } from "#/utils/titleize";
