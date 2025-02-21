@@ -50,7 +50,7 @@ export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {config.sections.map(({ title, slug: sectionSlug, subsections }) => (
+        {config.sections.map(({ title, slug: sectionSlug, children }) => (
           <Collapsible
             key={title}
             title={title}
@@ -70,7 +70,7 @@ export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenuSub>
-                    {subsections.map(({ title, slug: subsectionSlug }) => {
+                    {children.map(({ title, slug: subsectionSlug }) => {
                       const to = `/docs/${sectionSlug}/${subsectionSlug}`;
                       return (
                         <SidebarMenuSubItem key={to}>

@@ -64,7 +64,7 @@ const configSchema = z.object({
     z.object({
       title: z.string(),
       slug: z.string(),
-      subsections: z.array(
+      children: z.array(
         z.object({
           title: z.string(),
           slug: z.string(),

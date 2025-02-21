@@ -1,3 +1,4 @@
 @import "@ethui/ui/tailwind.css";
 @import "@rainbow-me/rainbowkit/styles.css";
+@import "../node_modules/rehype-github-alerts/dist/styling/css/index.css";
 @source "../node_modules/@ethui/ui";

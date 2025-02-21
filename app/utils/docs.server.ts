@@ -10,6 +10,7 @@ export async function fetchRepoFile({
   ref = "refs/heads/main",
   filepath,
 }: { org: string; repo: string; filepath: string; ref?: string }) {
+  console.log(filepath);
   const key = `${org}/${repo}:${ref}:${filepath}`;
   const ttl = process.env.NODE_ENV === "development" ? 1 : fiveMinutes;
 
