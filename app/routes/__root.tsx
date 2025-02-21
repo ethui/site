@@ -1,9 +1,8 @@
-import appCss from "@ethui/ui/tailwind.css?url";
-import rainbowkiwCss from "@rainbow-me/rainbowkit/styles.css?url";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
 import { Suspense, lazy } from "react";
+import appCss from "#/app.css?url";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
 import { seo } from "#/utils/seo";
@@ -20,7 +19,11 @@ const TanStackRouterDevtools =
         })),
       );
 
-export const Route = createRootRoute({
+export interface RouteContext {
+  breadcrumb?: string;
+}
+
+export const Route = createRootRouteWithContext<RouteContext>()({
   head: () => ({
     meta: [
       {
@@ -37,7 +40,6 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "stylesheet", href: rainbowkiwCss },
       {
         rel: "apple-touch-icon",
         sizes: "180x180",
