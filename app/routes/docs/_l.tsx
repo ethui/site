@@ -20,7 +20,6 @@ export const Route = createFileRoute("/docs/_l")({
 
 function RouteComponent() {
   const { config } = Route.useLoaderData();
-  console.log(config);
   return (
     <div className="flex flex-col">
       <SidebarProvider
@@ -30,7 +29,9 @@ function RouteComponent() {
         <DocsSidebar config={config} />
         <SidebarInset>
           <DocsHeader />
-          <Outlet />
+          <div className="mx-auto min-w-4xl">
+            <Outlet />
+          </div>
         </SidebarInset>
       </SidebarProvider>
     </div>

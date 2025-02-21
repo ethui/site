@@ -44,10 +44,7 @@ export const fetchDocsConfig = createServerFn({ method: "GET" })
       throw notFound();
     }
 
-    console.log(file);
-    console.log(2);
     const validationResult = configSchema.safeParse(JSON.parse(file));
-    console.log(file, validationResult.error);
     if (!validationResult.success) {
       throw new Error(validationResult.error.message);
     }

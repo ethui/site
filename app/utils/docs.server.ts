@@ -45,7 +45,6 @@ async function fetchRemote(
   const response = await fetch(href, {
     headers: { "User-Agent": `docs:${owner}/${repo}` },
   });
-  console.log(response);
 
   if (!response.ok) {
     return null;
