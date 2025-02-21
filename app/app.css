@@ -1,4 +1,3 @@
 @import "@ethui/ui/tailwind.css";
 @import "@rainbow-me/rainbowkit/styles.css";
-@source "app/**/*.tsx";
 @source "node_modules/@ethui/ui/**/*.js";
