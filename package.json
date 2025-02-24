@@ -53,8 +53,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@tailwindcss/postcss": "^4.0.7",
-    "@tailwindcss/vite": "^4.0.7",
+    "@tailwindcss/postcss": "^4.0.8",
+    "@tailwindcss/vite": "^4.0.8",
     "@tanstack/router-plugin": "^1.105.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.13.5",
