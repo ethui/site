@@ -1036,7 +1036,7 @@ __metadata:
     "@ethui/form": "npm:0.0.10"
     "@ethui/ui": "npm:0.0.35"
     "@hookform/resolvers": "npm:^4.1.0"
-    "@rainbow-me/rainbowkit": "npm:^2.2.3"
+    "@rainbow-me/rainbowkit": "npm:^2.2.4"
     "@tailwindcss/postcss": "npm:^4.0.7"
     "@tailwindcss/typography": "npm:^0.5.16"
     "@tailwindcss/vite": "npm:^4.0.7"
@@ -2870,9 +2870,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rainbow-me/rainbowkit@npm:^2.2.3":
-  version: 2.2.3
-  resolution: "@rainbow-me/rainbowkit@npm:2.2.3"
+"@rainbow-me/rainbowkit@npm:^2.2.4":
+  version: 2.2.4
+  resolution: "@rainbow-me/rainbowkit@npm:2.2.4"
   dependencies:
     "@vanilla-extract/css": "npm:1.15.5"
     "@vanilla-extract/dynamic": "npm:2.1.2"
@@ -2887,7 +2887,7 @@ __metadata:
     react-dom: ">=18"
     viem: 2.x
     wagmi: ^2.9.0
-  checksum: 10c0/d2e03c6d4ea19f2574f4f336bcbb4c5c880d291bc42e8ac0b240845ffee21d23fcd3e4154e54c7332cb54bd1fe5eed72f4df4dbf0c9b203984cdc67001916ebe
+  checksum: 10c0/f44c6e385b55691940759f4f9e36dae4bde6f3de9c76a464cf1d94bb06a9f752ffacbb422698f8a314e842582d09d319cd5722abe7c493b37a832d0a5f48a2a4
   languageName: node
   linkType: hard
 
