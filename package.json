@@ -48,7 +48,7 @@
     "titleize": "^4.0.0",
     "vinxi": "0.5.3",
     "vite-tsconfig-paths": "^5.1.4",
-    "wagmi": "^2.14.11",
+    "wagmi": "^2.14.12",
     "zod": "^3.24.2"
   },
   "devDependencies": {
