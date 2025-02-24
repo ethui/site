@@ -1072,7 +1072,7 @@ __metadata:
     rehype-github-emoji: "npm:^1.0.0"
     rehype-slug: "npm:^6.0.0"
     remark-frontmatter: "npm:^5.0.0"
-    simple-icons: "npm:^14.7.0"
+    simple-icons: "npm:^14.8.0"
     tailwind-merge: "npm:^3.0.1"
     tailwindcss: "npm:^4.0.7"
     titleize: "npm:^4.0.0"
@@ -10809,10 +10809,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-icons@npm:^14.7.0":
-  version: 14.7.0
-  resolution: "simple-icons@npm:14.7.0"
-  checksum: 10c0/f19fc6bb30ad230c9d1fcd420915d56f8045739cbfcaa88f4bcfab4da04923253f4c2001ad68335bc4944952897d33ceb7227e1eaa7c0a012d9f5415d16c22cc
+"simple-icons@npm:^14.8.0":
+  version: 14.8.0
+  resolution: "simple-icons@npm:14.8.0"
+  checksum: 10c0/8638183d035ab93084bc6a5207b4dddacf3d5f34ca6f5c234c43fd1db7c4ffa6212b3d7c1b5852ed854731732be849d8e564d5243787099302d1a6d2f4276d42
   languageName: node
   linkType: hard
 
