@@ -69,7 +69,7 @@ export function DocsSidebar({
                 <SidebarGroupContent>
                   <SidebarMenuSub>
                     {children.map(
-                      ({ attributes: { title, slug: subsectionSlug } }) => {
+                      ({ frontmatter: { title, slug: subsectionSlug } }) => {
                         const to = `/docs/${sectionSlug}/${subsectionSlug}`;
                         return (
                           <SidebarMenuSubItem key={to}>

@@ -16,13 +16,13 @@ const remarkPlugins = [remarkFrontmatter];
 const rehypePlugins: React.ComponentProps<
   typeof ReactMarkdown
 >["rehypePlugins"] = [
-  rehypeSlug,
-  [rehypeAutolinkHeadings, { behavior: "wrap" }],
-  [rehypeAddClasses, classes],
-  [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
-  rehypeGithubAlerts,
-  rehypeGithubEmoji,
-];
+    rehypeSlug,
+    [rehypeAutolinkHeadings, { behavior: "wrap" }],
+    [rehypeAddClasses, classes],
+    [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
+    rehypeGithubAlerts,
+    rehypeGithubEmoji,
+  ];
 
 export function Markdown({
   className,

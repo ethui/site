@@ -16,15 +16,14 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
 import { Route as DocsLImport } from './routes/docs/_l'
-import { Route as DocsLIndexImport } from './routes/docs/_l.index'
-import { Route as DocsLSectionImport } from './routes/docs/_l.$section'
-import { Route as DocsLSectionIndexImport } from './routes/docs/_l.$section.index'
 import { Route as LayoutOnboardingExtensionIndexImport } from './routes/_layout.onboarding/extension/index'
-import { Route as DocsLSectionSubsectionImport } from './routes/docs/_l.$section.$subsection'
+import { Route as DocsLGettingStartedLImport } from './routes/docs/_l.getting-started/_l'
+import { Route as DocsLGettingStartedLWhatIsEthuiImport } from './routes/docs/_l.getting-started/_l.what-is-ethui'
 
 // Create Virtual Routes
 
 const DocsImport = createFileRoute('/docs')()
+const DocsLGettingStartedImport = createFileRoute('/docs/_l/getting-started')()
 
 // Create/Update Routes
 
@@ -50,22 +49,10 @@ const DocsLRoute = DocsLImport.update({
   getParentRoute: () => DocsRoute,
 } as any)
 
-const DocsLIndexRoute = DocsLIndexImport.update({
-  id: '/',
-  path: '/',
+const DocsLGettingStartedRoute = DocsLGettingStartedImport.update({
+  id: '/getting-started',
+  path: '/getting-started',
   getParentRoute: () => DocsLRoute,
-} as any)
-
-const DocsLSectionRoute = DocsLSectionImport.update({
-  id: '/$section',
-  path: '/$section',
-  getParentRoute: () => DocsLRoute,
-} as any)
-
-const DocsLSectionIndexRoute = DocsLSectionIndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DocsLSectionRoute,
 } as any)
 
 const LayoutOnboardingExtensionIndexRoute =
@@ -75,11 +62,17 @@ const LayoutOnboardingExtensionIndexRoute =
     getParentRoute: () => LayoutRoute,
   } as any)
 
-const DocsLSectionSubsectionRoute = DocsLSectionSubsectionImport.update({
-  id: '/$subsection',
-  path: '/$subsection',
-  getParentRoute: () => DocsLSectionRoute,
+const DocsLGettingStartedLRoute = DocsLGettingStartedLImport.update({
+  id: '/_l',
+  getParentRoute: () => DocsLGettingStartedRoute,
 } as any)
+
+const DocsLGettingStartedLWhatIsEthuiRoute =
+  DocsLGettingStartedLWhatIsEthuiImport.update({
+    id: '/what-is-ethui',
+    path: '/what-is-ethui',
+    getParentRoute: () => DocsLGettingStartedLRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -113,26 +106,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsLImport
       parentRoute: typeof DocsRoute
     }
-    '/docs/_l/$section': {
-      id: '/docs/_l/$section'
-      path: '/$section'
-      fullPath: '/docs/$section'
-      preLoaderRoute: typeof DocsLSectionImport
+    '/docs/_l/getting-started': {
+      id: '/docs/_l/getting-started'
+      path: '/getting-started'
+      fullPath: '/docs/getting-started'
+      preLoaderRoute: typeof DocsLGettingStartedImport
       parentRoute: typeof DocsLImport
     }
-    '/docs/_l/': {
-      id: '/docs/_l/'
-      path: '/'
-      fullPath: '/docs/'
-      preLoaderRoute: typeof DocsLIndexImport
-      parentRoute: typeof DocsLImport
-    }
-    '/docs/_l/$section/$subsection': {
-      id: '/docs/_l/$section/$subsection'
-      path: '/$subsection'
-      fullPath: '/docs/$section/$subsection'
-      preLoaderRoute: typeof DocsLSectionSubsectionImport
-      parentRoute: typeof DocsLSectionImport
+    '/docs/_l/getting-started/_l': {
+      id: '/docs/_l/getting-started/_l'
+      path: '/getting-started'
+      fullPath: '/docs/getting-started'
+      preLoaderRoute: typeof DocsLGettingStartedLImport
+      parentRoute: typeof DocsLGettingStartedRoute
     }
     '/_layout/onboarding/extension/': {
       id: '/_layout/onboarding/extension/'
@@ -141,12 +127,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutOnboardingExtensionIndexImport
       parentRoute: typeof LayoutImport
     }
-    '/docs/_l/$section/': {
-      id: '/docs/_l/$section/'
-      path: '/'
-      fullPath: '/docs/$section/'
-      preLoaderRoute: typeof DocsLSectionIndexImport
-      parentRoute: typeof DocsLSectionImport
+    '/docs/_l/getting-started/_l/what-is-ethui': {
+      id: '/docs/_l/getting-started/_l/what-is-ethui'
+      path: '/what-is-ethui'
+      fullPath: '/docs/getting-started/what-is-ethui'
+      preLoaderRoute: typeof DocsLGettingStartedLWhatIsEthuiImport
+      parentRoute: typeof DocsLGettingStartedLImport
     }
   }
 }
@@ -164,28 +150,34 @@ const LayoutRouteChildren: LayoutRouteChildren = {
 const LayoutRouteWithChildren =
   LayoutRoute._addFileChildren(LayoutRouteChildren)
 
-interface DocsLSectionRouteChildren {
-  DocsLSectionSubsectionRoute: typeof DocsLSectionSubsectionRoute
-  DocsLSectionIndexRoute: typeof DocsLSectionIndexRoute
+interface DocsLGettingStartedLRouteChildren {
+  DocsLGettingStartedLWhatIsEthuiRoute: typeof DocsLGettingStartedLWhatIsEthuiRoute
 }
 
-const DocsLSectionRouteChildren: DocsLSectionRouteChildren = {
-  DocsLSectionSubsectionRoute: DocsLSectionSubsectionRoute,
-  DocsLSectionIndexRoute: DocsLSectionIndexRoute,
+const DocsLGettingStartedLRouteChildren: DocsLGettingStartedLRouteChildren = {
+  DocsLGettingStartedLWhatIsEthuiRoute: DocsLGettingStartedLWhatIsEthuiRoute,
 }
 
-const DocsLSectionRouteWithChildren = DocsLSectionRoute._addFileChildren(
-  DocsLSectionRouteChildren,
-)
+const DocsLGettingStartedLRouteWithChildren =
+  DocsLGettingStartedLRoute._addFileChildren(DocsLGettingStartedLRouteChildren)
+
+interface DocsLGettingStartedRouteChildren {
+  DocsLGettingStartedLRoute: typeof DocsLGettingStartedLRouteWithChildren
+}
+
+const DocsLGettingStartedRouteChildren: DocsLGettingStartedRouteChildren = {
+  DocsLGettingStartedLRoute: DocsLGettingStartedLRouteWithChildren,
+}
+
+const DocsLGettingStartedRouteWithChildren =
+  DocsLGettingStartedRoute._addFileChildren(DocsLGettingStartedRouteChildren)
 
 interface DocsLRouteChildren {
-  DocsLSectionRoute: typeof DocsLSectionRouteWithChildren
-  DocsLIndexRoute: typeof DocsLIndexRoute
+  DocsLGettingStartedRoute: typeof DocsLGettingStartedRouteWithChildren
 }
 
 const DocsLRouteChildren: DocsLRouteChildren = {
-  DocsLSectionRoute: DocsLSectionRouteWithChildren,
-  DocsLIndexRoute: DocsLIndexRoute,
+  DocsLGettingStartedRoute: DocsLGettingStartedRouteWithChildren,
 }
 
 const DocsLRouteWithChildren = DocsLRoute._addFileChildren(DocsLRouteChildren)
@@ -204,20 +196,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutRouteWithChildren
   '/docs': typeof DocsLRouteWithChildren
-  '/docs/$section': typeof DocsLSectionRouteWithChildren
-  '/docs/': typeof DocsLIndexRoute
-  '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
+  '/docs/getting-started': typeof DocsLGettingStartedLRouteWithChildren
   '/onboarding/extension': typeof LayoutOnboardingExtensionIndexRoute
-  '/docs/$section/': typeof DocsLSectionIndexRoute
+  '/docs/getting-started/what-is-ethui': typeof DocsLGettingStartedLWhatIsEthuiRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutRouteWithChildren
-  '/docs': typeof DocsLIndexRoute
-  '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
+  '/docs': typeof DocsLRouteWithChildren
+  '/docs/getting-started': typeof DocsLGettingStartedLRouteWithChildren
   '/onboarding/extension': typeof LayoutOnboardingExtensionIndexRoute
-  '/docs/$section': typeof DocsLSectionIndexRoute
+  '/docs/getting-started/what-is-ethui': typeof DocsLGettingStartedLWhatIsEthuiRoute
 }
 
 export interface FileRoutesById {
@@ -226,11 +216,10 @@ export interface FileRoutesById {
   '/_layout': typeof LayoutRouteWithChildren
   '/docs': typeof DocsRouteWithChildren
   '/docs/_l': typeof DocsLRouteWithChildren
-  '/docs/_l/$section': typeof DocsLSectionRouteWithChildren
-  '/docs/_l/': typeof DocsLIndexRoute
-  '/docs/_l/$section/$subsection': typeof DocsLSectionSubsectionRoute
+  '/docs/_l/getting-started': typeof DocsLGettingStartedRouteWithChildren
+  '/docs/_l/getting-started/_l': typeof DocsLGettingStartedLRouteWithChildren
   '/_layout/onboarding/extension/': typeof LayoutOnboardingExtensionIndexRoute
-  '/docs/_l/$section/': typeof DocsLSectionIndexRoute
+  '/docs/_l/getting-started/_l/what-is-ethui': typeof DocsLGettingStartedLWhatIsEthuiRoute
 }
 
 export interface FileRouteTypes {
@@ -239,30 +228,27 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/docs'
-    | '/docs/$section'
-    | '/docs/'
-    | '/docs/$section/$subsection'
+    | '/docs/getting-started'
     | '/onboarding/extension'
-    | '/docs/$section/'
+    | '/docs/getting-started/what-is-ethui'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | ''
     | '/docs'
-    | '/docs/$section/$subsection'
+    | '/docs/getting-started'
     | '/onboarding/extension'
-    | '/docs/$section'
+    | '/docs/getting-started/what-is-ethui'
   id:
     | '__root__'
     | '/'
     | '/_layout'
     | '/docs'
     | '/docs/_l'
-    | '/docs/_l/$section'
-    | '/docs/_l/'
-    | '/docs/_l/$section/$subsection'
+    | '/docs/_l/getting-started'
+    | '/docs/_l/getting-started/_l'
     | '/_layout/onboarding/extension/'
-    | '/docs/_l/$section/'
+    | '/docs/_l/getting-started/_l/what-is-ethui'
   fileRoutesById: FileRoutesById
 }
 
@@ -312,33 +298,30 @@ export const routeTree = rootRoute
       "filePath": "docs/_l.tsx",
       "parent": "/docs",
       "children": [
-        "/docs/_l/$section",
-        "/docs/_l/"
+        "/docs/_l/getting-started"
       ]
     },
-    "/docs/_l/$section": {
-      "filePath": "docs/_l.$section.tsx",
+    "/docs/_l/getting-started": {
+      "filePath": "docs/_l.getting-started",
       "parent": "/docs/_l",
       "children": [
-        "/docs/_l/$section/$subsection",
-        "/docs/_l/$section/"
+        "/docs/_l/getting-started/_l"
       ]
     },
-    "/docs/_l/": {
-      "filePath": "docs/_l.index.tsx",
-      "parent": "/docs/_l"
-    },
-    "/docs/_l/$section/$subsection": {
-      "filePath": "docs/_l.$section.$subsection.tsx",
-      "parent": "/docs/_l/$section"
+    "/docs/_l/getting-started/_l": {
+      "filePath": "docs/_l.getting-started/_l.tsx",
+      "parent": "/docs/_l/getting-started",
+      "children": [
+        "/docs/_l/getting-started/_l/what-is-ethui"
+      ]
     },
     "/_layout/onboarding/extension/": {
       "filePath": "_layout.onboarding/extension/index.tsx",
       "parent": "/_layout"
     },
-    "/docs/_l/$section/": {
-      "filePath": "docs/_l.$section.index.tsx",
-      "parent": "/docs/_l/$section"
+    "/docs/_l/getting-started/_l/what-is-ethui": {
+      "filePath": "docs/_l.getting-started/_l.what-is-ethui.tsx",
+      "parent": "/docs/_l/getting-started/_l"
     }
   }
 }

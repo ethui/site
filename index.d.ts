@@ -6,7 +6,13 @@ declare module "#/assets/videos/ethui-local.webm?url";
 declare module "#/app.css?url";
 
 declare module "#/docs/*.md" {
-  const attributes: { title: string; slug: string };
-  const markdown: string;
-  export { attributes, markdown };
+  export const title: string;
+  export const slug: string;
+  export { MDXContent as default } from "mdx/types";
+}
+A;
+declare module "#/docs/*.mdx" {
+  export const frontmatter: { title: string; slug: string };
+  const Component: React.ComponentType;
+  export default Component;
 }
