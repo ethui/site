@@ -10,7 +10,7 @@ export const Route = createFileRoute("/docs/_l/$section/$subsection")({
 
     return docsManifest.sections
       .find(({ slug }) => slug === section)
-      ?.children.find(({ attributes: { slug } }) => slug === subsection);
+      ?.children.find(({ attributes: { slug } }) => slug === subsection)!;
   },
   component: RouteComponent,
 });

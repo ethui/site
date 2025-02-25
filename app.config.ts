@@ -1,6 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "@tanstack/start/config";
-import mdPlugin from "vite-plugin-markdown";
+import mdPlugin, { Mode } from "vite-plugin-markdown";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
-      mdPlugin.default({ mode: ["markdown"] }),
+      mdPlugin({ mode: [Mode.MARKDOWN] }),
       tsConfigPaths({
         projects: ["./tsconfig.json"],
       }),

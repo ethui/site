@@ -6,8 +6,7 @@ declare module "#/assets/videos/ethui-local.webm?url";
 declare module "#/app.css?url";
 
 declare module "#/docs/*.md" {
-  export default {
-    attributes: Record<string, string>,
-    markdown: string,
-  };
+  const attributes: { title: string; slug: string };
+  const markdown: string;
+  export { attributes, markdown };
 }
