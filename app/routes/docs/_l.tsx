@@ -23,7 +23,9 @@ function RouteComponent() {
         <SidebarInset>
           <DocsHeader />
           <MDXProvider>
-            <Outlet />
+            <div className="prose mx-auto w-full max-w-[80ch] p-4 md:pt-8">
+              <Outlet />
+            </div>
           </MDXProvider>
         </SidebarInset>
       </SidebarProvider>
