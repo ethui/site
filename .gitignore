@@ -2,6 +2,7 @@ node_modules
 dist
 .yarn/install-state.gz
 tsconfig.tsbuildinfo
+app.config.timestamp_*
 
 .DS_Store
 .cache
