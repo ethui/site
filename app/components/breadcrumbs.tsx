@@ -23,7 +23,7 @@ export function Breadcrumbs() {
       }
       return acc;
     },
-    [],
+    [] as { label: string; path: string }[],
   );
 
   return (
