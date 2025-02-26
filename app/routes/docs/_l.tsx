@@ -2,7 +2,6 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@ethui/ui/components/shadcn/sidebar";
-import { MDXProvider } from "@mdx-js/react";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { DocsHeader } from "./-header";
 import { DocsSidebar } from "./-sidebar";
@@ -22,11 +21,9 @@ function RouteComponent() {
         <DocsSidebar />
         <SidebarInset>
           <DocsHeader />
-          <MDXProvider>
-            <div className="prose mx-auto w-full max-w-[80ch] p-4 md:pt-8">
-              <Outlet />
-            </div>
-          </MDXProvider>
+          <div className="mx-auto w-full max-w-[80ch] p-4 md:pt-8">
+            <Outlet />
+          </div>
         </SidebarInset>
       </SidebarProvider>
     </div>

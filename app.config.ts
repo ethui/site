@@ -22,9 +22,8 @@ export default defineConfig({
   },
   vite: {
     plugins: [
-      tailwindcss(),
       mdx({
-        mdExtensions: [".mdx"],
+        providerImportSource: "@mdx-js/react",
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
         rehypePlugins: [
           rehypeSlug,
@@ -39,6 +38,7 @@ export default defineConfig({
           rehypeGithubEmoji,
         ],
       }),
+      tailwindcss(),
       tsConfigPaths({
         projects: ["./tsconfig.json"],
       }),

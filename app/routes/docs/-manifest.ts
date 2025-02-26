@@ -17,13 +17,5 @@ export const docsManifest = {
         await import("#/docs/02-features/auto-impersonation.mdx"),
       ],
     },
-    {
-      title: "Integrations",
-      slug: "integrations",
-      children: [
-        await import("#/docs/03-integrations/forge.mdx"),
-        await import("#/docs/03-integrations/anvil.mdx"),
-      ],
-    },
   ],
 };

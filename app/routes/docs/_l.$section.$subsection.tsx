@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { NotFound } from "#/components/NotFound";
 import { titleize } from "#/utils/titleize";
 import { docsManifest } from "./-manifest";
+import { MDXProvider } from "@mdx-js/react";
+
+import Anvil from "#/docs/02-features/01-anvil.mdx";
 
 export const Route = createFileRoute("/docs/_l/$section/$subsection")({
   beforeLoad: (ctx) => ({ breadcrumb: titleize(ctx.params.subsection) }),
@@ -19,5 +22,9 @@ function RouteComponent() {
     return <NotFound />;
   }
 
-  return <doc.default />;
+  return (
+    <MDXProvider components={components}>
+      <Anvil />
+    </MDXProvider>
+  );
 }
