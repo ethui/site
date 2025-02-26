@@ -13,7 +13,7 @@ import { Fragment } from "react/jsx-runtime";
 export function Breadcrumbs() {
   const matches = useRouterState({ select: (s) => s.matches });
 
-  const breadcrumbs = matches.reduce(
+  const breadcrumbs: { label: string; path: string }[] = matches.reduce(
     (acc, { context, pathname }) => {
       if (
         context?.breadcrumb &&
