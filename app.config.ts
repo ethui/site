@@ -16,7 +16,10 @@ const classes = {
 };
 
 export default defineConfig({
-  server: { preset: "vercel" },
+  server: {
+    preset: "vercel",
+    esbuild: { options: { supported: { "top-level-await": true } } },
+  },
   vite: {
     plugins: [
       tailwindcss(),
