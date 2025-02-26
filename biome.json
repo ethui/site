@@ -1,6 +1,13 @@
 {
   "files": {
-    "ignore": ["**/*.gen.ts", "*.generated.ts", ".vercel", ".vinxi", "dist"]
+    "ignore": [
+      "**/*.gen.ts",
+      "*.generated.ts",
+      ".vercel",
+      ".vinxi",
+      "dist",
+      "app.config.timestamp_*"
+    ]
   },
   "formatter": {
     "indentStyle": "space"

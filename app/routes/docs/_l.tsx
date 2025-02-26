@@ -2,10 +2,10 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@ethui/ui/components/shadcn/sidebar";
+import { MDXProvider } from "@mdx-js/react";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { DocsHeader } from "./-header";
 import { DocsSidebar } from "./-sidebar";
-import { MDXProvider } from "@mdx-js/react";
 
 export const Route = createFileRoute("/docs/_l")({
   beforeLoad: () => ({ breadcrumb: "Docs" }),
