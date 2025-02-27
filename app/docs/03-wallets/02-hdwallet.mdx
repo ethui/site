@@ -1,0 +1,21 @@
+---
+title: HDWallet
+slug: hdwallet
+---
+
+# HDWallet
+
+The `HDWallet` wallet allows you to use a mnemonic phrase to unlock your wallet.
+
+## Why?
+
+This is useful for testing, as it allows you to submit transactions without having to unlock your wallet, and enables [fast mode](/docs/features/fast-mode) to work on secure wallets as well.
+
+## How?
+
+ethui uses the [ethers-hdwallet-connector][ethers-hdwallet-connector] library to connect to your mnemonic phrase, and unlock your wallet using the `eth_sendTransaction` RPC endpoint.
+
+> [!NOTE]
+> ethui does not support Ledger devices with a screen, as it is not possible to interact with them in a secure way.
+
+[ethers-hdwallet-connector]: https://github.com/gakonst/ethers-hdwallet-connector
