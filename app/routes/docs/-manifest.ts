@@ -13,9 +13,14 @@ export const docsManifest = {
       slug: "features",
       children: [
         await import("#/docs/02-features/01-anvil.mdx"),
-        await import("#/docs/02-features/fast-mode.mdx"),
-        await import("#/docs/02-features/auto-impersonation.mdx"),
+        await import("#/docs/02-features/02-fast-mode.mdx"),
+        await import("#/docs/02-features/03-auto-impersonation.mdx"),
       ],
+    },
+    {
+      title: "Wallets",
+      slug: "wallets",
+      children: [await import("#/docs/03-wallets/01-index.mdx")],
     },
   ],
 };
