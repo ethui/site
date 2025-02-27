@@ -22,7 +22,15 @@ export const docsManifest = {
     {
       title: "Wallets",
       slug: "wallets",
-      children: [await import("#/docs/03-wallets/01-index.mdx")],
+      children: [
+        await import("#/docs/03-wallets/01-index.mdx"),
+        await import("#/docs/03-wallets/02-hdwallet.mdx"),
+        await import("#/docs/03-wallets/03-keystore.mdx"),
+        await import("#/docs/03-wallets/04-pkey.mdx"),
+        await import("#/docs/03-wallets/05-plaintext.mdx"),
+        await import("#/docs/03-wallets/06-impersonator.mdx"),
+        await import("#/docs/03-wallets/07-ledger.mdx"),
+      ],
     },
   ],
 };

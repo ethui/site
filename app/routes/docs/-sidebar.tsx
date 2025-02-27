@@ -34,13 +34,10 @@ export function DocsSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <Link
-              to="/docs"
-              className="flex flex-row items-center justify-center"
-            >
+            <Link to="/" className="flex flex-row items-center justify-center">
               <EthuiLogo fg="fill-foreground" bg="bg-transparent" />
               <span className="ml-2 font-bold text-2xl text-gray-900">
-                ethui docs
+                ethui
               </span>
             </Link>
           </SidebarMenuItem>
