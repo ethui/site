@@ -1,7 +1,7 @@
 import { ButtonWithDropdown } from "@ethui/ui/components/button-with-dropdown";
 import { Button } from "@ethui/ui/components/shadcn/button";
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ChevronDown, FileCode2 } from "lucide-react";
+import { BookOpen, ChevronDown, FileCode2, Rss } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
 import { Header } from "#/components/header";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
@@ -189,7 +189,21 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
               href="http://mirror.xyz/ethui.eth"
               rel="noreferrer"
               target="_blank"
+              className="flex items-center gap-x-2"
             >
+              <BookOpen className="mr-1" />
+              Read the Docs
+            </a>
+          </Button>
+
+          <Button variant="ghost" asChild>
+            <a
+              href="http://mirror.xyz/ethui.eth"
+              rel="noreferrer"
+              target="_blank"
+              className="flex items-center gap-x-2"
+            >
+              <Rss className="mr-1" />
               Blog
             </a>
           </Button>
