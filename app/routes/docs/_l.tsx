@@ -2,7 +2,8 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@ethui/ui/components/shadcn/sidebar";
-import { Outlet, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { AnimatedOutlet } from "#/components/animated-outlet";
 import { DocsHeader } from "./-header";
 import { DocsSidebar } from "./-sidebar";
 
@@ -22,7 +23,7 @@ function RouteComponent() {
         <SidebarInset>
           <DocsHeader />
           <div className="prose mx-auto w-full max-w-[80ch] p-4 md:pt-8">
-            <Outlet />
+            <AnimatedOutlet />
           </div>
         </SidebarInset>
       </SidebarProvider>
