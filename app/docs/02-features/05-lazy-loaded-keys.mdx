@@ -1,0 +1,17 @@
+---
+title: Lazy Loaded Private Keys
+slug: lazy-loaded-keys
+---
+
+[secrets-crate]: https://crates.io/crates/secrets
+
+# Lazy Loaded Private Keys
+
+In most web3 wallets, you're forced to input your password when you first open the wallet. ethui handles this differently.
+
+Because it allows for multiple wallets of various types, and because a wallet unlock is not strictly necessary for a lot of flows, we defer this step until it is actually needed.
+
+In practice, this means that when a signature is needed from a secure wallet, we first request an account unlock (prompting you for the password), and then cache it in-memory (safely, using) for a few minutes.
+
+> [!NOTE]
+> The in-memory cached key is stored as securetly as possible, using the [secrets][secrets-crate] to isolate it in-memory as much as possible and avoid leaks
