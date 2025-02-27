@@ -5,24 +5,15 @@ slug: plaintext
 
 # Plaintext
 
-The `Plaintext` wallet allows you to use a private key directly, without any encryption.
+The `Plaintext` stores a 12 or 15-word mnenomnic, much like [`hdwallet`](/docs/wallets/hdwallet), but without any encryption.
 
-This is useful for testing, as it allows you to submit transactions without having to unlock your wallet, and enables [fast mode](/docs/features/fast-mode) to work on secure wallets as well.
+> [!WARNING]
+> Do not use this with a mnemonic that holds real funds. Your funds will not be safe.
 
 ## Why?
 
-This is actually a security feature that happens to be very convenient for development.
+It's a fairly common practice for developers to keep a mnemonic purely for testing purposes (local development, or interacting with testnets). In fact, the default wallet created when you first boot ethui is of this exact type, and you may recongize it if you ever used anvil:
 
-Let's say you're spawning the following anvil node:
-
-```sh
-anvil --chain-id 1
 ```
-
-This could open you up for [replay attacks](https://chain.link/education-hub/replay-attack), where you end up signing a payload that can actually end up being used on the real mainnet chain to execute a real transaction, either maliciously or by mistake.
-
-By auto-impersonating accounts, you now skip the signing step, but are still able to include transactions on the test chain. In the end:
-
-- you never have to actually unlock your wallet
-- no signature is ever produced from your private key
-- [fast mode](/docs/features/fast-mode)
+test test test test test test test test test test test junk
+`

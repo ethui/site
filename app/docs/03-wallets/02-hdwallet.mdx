@@ -1,21 +1,13 @@
 ---
-title: HDWallet
+title: HD Wallet
 slug: hdwallet
 ---
 
-# HDWallet
+[zxcvbn-typescript]: https://www.npmjs.com/package/zxcvbn-typescript
 
-The `HDWallet` wallet allows you to use a mnemonic phrase to unlock your wallet.
+# HD Wallet
 
-## Why?
+The typical mnenomic multi-address wallet you may be familiar with.
+This wallet is created from a 12 or 15-word mnemonic phrase, and encrypted with a secure password.
 
-This is useful for testing, as it allows you to submit transactions without having to unlock your wallet, and enables [fast mode](/docs/features/fast-mode) to work on secure wallets as well.
-
-## How?
-
-ethui uses the [ethers-hdwallet-connector][ethers-hdwallet-connector] library to connect to your mnemonic phrase, and unlock your wallet using the `eth_sendTransaction` RPC endpoint.
-
-> [!NOTE]
-> ethui does not support Ledger devices with a screen, as it is not possible to interact with them in a secure way.
-
-[ethers-hdwallet-connector]: https://github.com/gakonst/ethers-hdwallet-connector
+We enforce password security through [`xcvbn-typescript`][zxcvbn-typescript], which uses the [BIP39 standard][bip39-standard] to generate the mnemonic phrase, and [scrypt][scrypt] to encrypt the wallet.

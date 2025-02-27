@@ -5,19 +5,4 @@ slug: ledger
 
 # Ledger
 
-The `Ledger` wallet allows you to connect to a Ledger device, and sign transactions using the `eth_sendTransaction` RPC endpoint.
-
-## Why?
-
-Ledger devices are a popular choice for storing private keys, and are also a common choice for signing transactions.
-
-By using the `eth_sendTransaction` RPC endpoint, ethui can automatically sign transactions using your Ledger device, without ever exposing your private key to the internet.
-
-## How?
-
-ethui uses the [ethers-ledger-connector][ethers-ledger-connector] library to connect to your Ledger device, and sign transactions using the `eth_sendTransaction` RPC endpoint.
-
-> [!NOTE]
-> ethui does not support Ledger devices with a screen, as it is not possible to interact with them in a secure way.
-
-[ethers-ledger-connector]: https://github.com/gakonst/ethers-ledger-connector
+The `Ledger` wallet allows you to connect to a Ledger device. Currently, this is the only type of hardware wallet supported.

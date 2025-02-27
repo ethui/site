@@ -5,17 +5,6 @@ slug: pkey
 
 # Private Key
 
-The `Private Key` wallet allows you to use a private key directly, without any encryption.
+The `Private Key` wallet allows you to use a single private key directly.
 
-## Why?
-
-This is useful for testing, as it allows you to submit transactions without having to unlock your wallet, and enables [fast mode](/docs/features/fast-mode) to work on secure wallets as well.
-
-## How?
-
-ethui uses the [ethers-private-key-connector][ethers-private-key-connector] library to connect to your private key, and unlock your wallet using the `eth_sendTransaction` RPC endpoint.
-
-> [!NOTE]
-> ethui does not support Ledger devices with a screen, as it is not possible to interact with them in a secure way.
-
-[ethers-private-key-connector]: https://github.com/gakonst/ethers-private-key-connector
+While this method is secure (the key is password-protected), it is not the most convenient or recommended way to use a wallet. It is supported only for scenarios where a user already has a private key and needs to access it
