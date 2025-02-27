@@ -17,6 +17,7 @@ export const docsManifest = {
         await import("#/docs/02-features/03-auto-impersonation.mdx"),
         await import("#/docs/02-features/04-forge.mdx"),
         await import("#/docs/02-features/05-lazy-loaded-keys.mdx"),
+        await import("#/docs/02-features/06-simulations.mdx"),
       ],
     },
     {
