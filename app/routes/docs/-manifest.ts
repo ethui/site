@@ -15,6 +15,7 @@ export const docsManifest = {
         await import("#/docs/02-features/01-anvil.mdx"),
         await import("#/docs/02-features/02-fast-mode.mdx"),
         await import("#/docs/02-features/03-auto-impersonation.mdx"),
+        await import("#/docs/02-features/04-lazy-loaded-keys.mdx"),
       ],
     },
     {
