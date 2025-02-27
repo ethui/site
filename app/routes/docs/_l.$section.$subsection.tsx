@@ -23,7 +23,7 @@ function RouteComponent() {
   }
 
   return (
-    <MDXProvider components={components}>
+    <MDXProvider>
       <Anvil />
     </MDXProvider>
   );
