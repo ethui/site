@@ -4,8 +4,6 @@ import { titleize } from "#/utils/titleize";
 import { docsManifest } from "./-manifest";
 import { MDXProvider } from "@mdx-js/react";
 
-import Anvil from "#/docs/02-features/01-anvil.mdx";
-
 export const Route = createFileRoute("/docs/_l/$section/$subsection")({
   beforeLoad: (ctx) => ({ breadcrumb: titleize(ctx.params.subsection) }),
   component: RouteComponent,
@@ -24,7 +22,7 @@ function RouteComponent() {
 
   return (
     <MDXProvider>
-      <Anvil />
+      <doc.default />
     </MDXProvider>
   );
 }
