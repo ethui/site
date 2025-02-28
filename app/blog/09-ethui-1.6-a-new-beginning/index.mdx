@@ -1,0 +1,83 @@
+---
+title: ethui 1.6.0 – A new beginning
+slug: ethui-1.6.0-a-new-beginning
+---
+The past few weeks have been particularly busy, but also quiet. Nonetheless, a new release is finally here.
+
+<https://github.com/ethui/ethui/releases/tag/v1.6.0>
+
+## A new name?
+
+Long story short: a cease & desist from a project that has recently registered a trademark that created a conflict with our name. Being an open-source tool, and a rather young one at that, and without any legal structure in place we didn’t have any legal structure in place, it became a good opportunity for a change.
+
+It’s also a good opportunity to do away with the “Wallet” part of the name. That quickly became a confusing bit, since our goal is not necessarily to be a direct competitor in the wallet space.
+
+Our value proposition, at least for the moment, is not for the average user, but for the developers and power users who want better tooling to interface with the Ethereum ecosystem.
+
+In short, we want to provide a powerful UI for Ethereum development and interaction (or any EVM-capable chain). So the name `ethui` came along.
+
+## What does this mean?
+
+Not much, other than the name change itself.
+
+* `ethui.eth` is now our canonical ENS address (`iron-wallet.eth` is still ours, and both point to the same address, for backward compatibility)
+
+* `https://iron-wallet.xyz` is now `https://ethui.dev`
+
+* the new release of both the app and the browser extension went through the obligatory Find/Replace process
+
+As a side effect, if you’ve used a previous version of Iron Wallet, you may have to manually port your config over to the new version, or start again from the onboarding process. This should be as easy as:
+
+```
+# for linux
+cd ~/.config
+mv iron-wallet ethui
+
+# for macos
+cd ~/Library/Application\ Support
+mv iron-wallet ethui
+```
+
+## What about concrete progress?
+
+Of course, we have a few of those, too!
+
+### Faster Alchemy.com sync
+
+The previous sync logic was somewhat poorly built, resulting in a huge delay between first adding a wallet, and seeing its mainnet transaction history.
+
+The [new approach](https://github.com/ethui/ethui/pull/609) speeds up the process considerably, while also prioritizing data requested explicitly by the UI.
+
+### Improved simulations
+
+Transaction previews now show additional information such as ERC20 transfers, and the number of past known transactions to that address, which should help catch unintended transactions such as phishing attempts.
+
+![](https://images.mirror-media.xyz/publication-images/g2LDsyaLHmpFy-BXzf_P7.png?height=613&width=673)
+
+### Improved contract interactions
+
+The built-in explorer and contract interaction tool now supports many broad use cases and argument types that were previously tricky to parse. This is largely thanks to the great work done in the recent [alloy-dyn-abi crate](https://github.com/alloy-rs/core/tree/main/crates/dyn-abi).
+
+![](https://images.mirror-media.xyz/publication-images/r_k6ijsLWxM3NYxGtWqCP.png?height=364&width=1036)
+
+### Better wallet onboarding
+
+The previous onboarding flow was limited, especially when it comes to wallet setup. Since wallet needs vary from user to user, it’s important to make the possibilities clear from the start.
+
+![](https://images.mirror-media.xyz/publication-images/dkMHzYB5u7Am_y2ABE3p\_.png?height=652&width=575)
+
+The new flow directly allows you to create as many wallets of as many types as you need, right from the start.
+
+### Icons all around
+
+We added [Effigy avatars](https://effigy.im/), chain icons, and token icons for well-known currencies, to enrich the UI and more easily identify things at a glance
+
+![](https://images.mirror-media.xyz/publication-images/bnm5o3Xs0DHVuYjM5MK-B.png?height=760&width=862)
+
+There are many other incremental improvements, performance optimizations, and bug fixes, that you can check out on the release history.
+
+Check out the wallet, or dive directly into the source code to contribute or make a feature request!
+
+<https://ethui.dev/>
+
+<https://github.com/ethui/ethui>
