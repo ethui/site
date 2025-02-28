@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_l/blog/_l")({
 
 function RouteComponent() {
   return (
-    <div className="prose container mx-auto md:max-w-3xl">
+    <div className="container mx-auto md:max-w-3xl">
       <AnimatedOutlet />
     </div>
   );

@@ -1,7 +1,7 @@
 import { NotFound } from "#/components/NotFound";
-import { MDXProvider } from "@mdx-js/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { blogManifest } from "./-manifest";
+import { Markdown } from "#/components/markdown";
 
 export const Route = createFileRoute("/_l/blog/_l/$slug")({
   component: RouteComponent,
@@ -18,8 +18,8 @@ function RouteComponent() {
   }
 
   return (
-    <MDXProvider>
+    <Markdown>
       <post.default />
-    </MDXProvider>
+    </Markdown>
   );
 }
