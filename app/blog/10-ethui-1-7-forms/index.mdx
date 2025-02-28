@@ -1,0 +1,36 @@
+The new release brings along a very special feature: Contract interactions are now much easier thanks to our new form interaction tool.
+
+<https://github.com/ethui/ethui/releases/tag/v1.7.0>
+
+ethui already allowed you, since a very early 0.3 version, to interact with arbitrary contracts as if you were on etherscan. This had the benefit of working fully locally, in private anvil chains, and more importantly, without requiring you to publish or verify your solidity source code anywhere
+
+One problem remained though. That interaction was awkward at best. Similarly to etherscan’s UI, you’re forced to juggle inline arrays and tuples anytime you want to interact with something slightly more complex.
+
+## @ethui/form
+
+This [new package](https://www.npmjs.com/package/@ethui/form), built primarily for our app, but usable by anyone on their own projects, renders a dynamic form based on a given ABI input. 
+
+<https://github.com/ethui/demos/raw/main/1.7.0-form.mp4?loop=true&autoplay=true?controls=true>
+
+The new form allows for much more complex use cases where it wouldn’t be feasible to manipulate complex fields in a single text box. We’re already using it internally to test merkle-tree based transactions, where a long proof must be submitted.
+
+This is additionally powered by a second package, [@ethui/abiparse](https://www.npmjs.com/package/@ethui/abiparse), which handles some of the tedious work of parsing your raw input into valid transaction parameters.
+
+As you may notice in the video, you can now type “1 ether”, or other subunits, and have it parsed into the correct `uint256` amount.
+
+Ironically, this whole feature was initially a side-quest for what we were originally trying to achieve….
+
+## Transaction editing
+
+After this release, the transaction preview dialog is now a transaction editing dialog, where you can see a similar form as the one in the contract interaction tool, and tweak your transaction params before actually submitting
+
+Why, you ask? Well, in many cases, it’s a convenient way to see the simulation update in real-time, and provide you with information of how it would react to slightly different params. 
+
+<https://github.com/ethui/demos/raw/main/1.7.0-tx-review.mp4?autoplay=true&loop=true&controls=true>
+
+## What’s next?
+
+Next up, we plan to redirect our attention back to indexing, taking the chance that reth has now released [Execution Extensions](https://twitter.com/gakonst/status/1786426191240679729), which could make our work much more pleasant and efficient
+
+<https://github.com/ethui/ethui>
+
