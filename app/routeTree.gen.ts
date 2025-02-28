@@ -13,13 +13,12 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as LayoutImport } from './routes/_layout'
+import { Route as LImport } from './routes/_l'
 import { Route as IndexImport } from './routes/index'
+import { Route as DocsIndexImport } from './routes/docs/index'
 import { Route as DocsLImport } from './routes/docs/_l'
-import { Route as DocsLIndexImport } from './routes/docs/_l.index'
-import { Route as DocsLSectionImport } from './routes/docs/_l.$section'
-import { Route as DocsLSectionIndexImport } from './routes/docs/_l.$section.index'
-import { Route as LayoutOnboardingExtensionIndexImport } from './routes/_layout.onboarding/extension/index'
+import { Route as DocsLNotfoundImport } from './routes/docs/_l.$notfound'
+import { Route as LOnboardingExtensionIndexImport } from './routes/_l.onboarding/extension/index'
 import { Route as DocsLSectionSubsectionImport } from './routes/docs/_l.$section.$subsection'
 
 // Create Virtual Routes
@@ -34,8 +33,8 @@ const DocsRoute = DocsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const LayoutRoute = LayoutImport.update({
-  id: '/_layout',
+const LRoute = LImport.update({
+  id: '/_l',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -45,40 +44,33 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DocsIndexRoute = DocsIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DocsRoute,
+} as any)
+
 const DocsLRoute = DocsLImport.update({
   id: '/_l',
   getParentRoute: () => DocsRoute,
 } as any)
 
-const DocsLIndexRoute = DocsLIndexImport.update({
-  id: '/',
-  path: '/',
+const DocsLNotfoundRoute = DocsLNotfoundImport.update({
+  id: '/$notfound',
+  path: '/$notfound',
   getParentRoute: () => DocsLRoute,
 } as any)
 
-const DocsLSectionRoute = DocsLSectionImport.update({
-  id: '/$section',
-  path: '/$section',
-  getParentRoute: () => DocsLRoute,
+const LOnboardingExtensionIndexRoute = LOnboardingExtensionIndexImport.update({
+  id: '/onboarding/extension/',
+  path: '/onboarding/extension/',
+  getParentRoute: () => LRoute,
 } as any)
-
-const DocsLSectionIndexRoute = DocsLSectionIndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DocsLSectionRoute,
-} as any)
-
-const LayoutOnboardingExtensionIndexRoute =
-  LayoutOnboardingExtensionIndexImport.update({
-    id: '/onboarding/extension/',
-    path: '/onboarding/extension/',
-    getParentRoute: () => LayoutRoute,
-  } as any)
 
 const DocsLSectionSubsectionRoute = DocsLSectionSubsectionImport.update({
-  id: '/$subsection',
-  path: '/$subsection',
-  getParentRoute: () => DocsLSectionRoute,
+  id: '/$section/$subsection',
+  path: '/$section/$subsection',
+  getParentRoute: () => DocsLRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -92,11 +84,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/_layout': {
-      id: '/_layout'
+    '/_l': {
+      id: '/_l'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof LayoutImport
+      preLoaderRoute: typeof LImport
       parentRoute: typeof rootRoute
     }
     '/docs': {
@@ -113,124 +105,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsLImport
       parentRoute: typeof DocsRoute
     }
-    '/docs/_l/$section': {
-      id: '/docs/_l/$section'
-      path: '/$section'
-      fullPath: '/docs/$section'
-      preLoaderRoute: typeof DocsLSectionImport
-      parentRoute: typeof DocsLImport
-    }
-    '/docs/_l/': {
-      id: '/docs/_l/'
+    '/docs/': {
+      id: '/docs/'
       path: '/'
       fullPath: '/docs/'
-      preLoaderRoute: typeof DocsLIndexImport
+      preLoaderRoute: typeof DocsIndexImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/_l/$notfound': {
+      id: '/docs/_l/$notfound'
+      path: '/$notfound'
+      fullPath: '/docs/$notfound'
+      preLoaderRoute: typeof DocsLNotfoundImport
       parentRoute: typeof DocsLImport
     }
     '/docs/_l/$section/$subsection': {
       id: '/docs/_l/$section/$subsection'
-      path: '/$subsection'
+      path: '/$section/$subsection'
       fullPath: '/docs/$section/$subsection'
       preLoaderRoute: typeof DocsLSectionSubsectionImport
-      parentRoute: typeof DocsLSectionImport
+      parentRoute: typeof DocsLImport
     }
-    '/_layout/onboarding/extension/': {
-      id: '/_layout/onboarding/extension/'
+    '/_l/onboarding/extension/': {
+      id: '/_l/onboarding/extension/'
       path: '/onboarding/extension'
       fullPath: '/onboarding/extension'
-      preLoaderRoute: typeof LayoutOnboardingExtensionIndexImport
-      parentRoute: typeof LayoutImport
-    }
-    '/docs/_l/$section/': {
-      id: '/docs/_l/$section/'
-      path: '/'
-      fullPath: '/docs/$section/'
-      preLoaderRoute: typeof DocsLSectionIndexImport
-      parentRoute: typeof DocsLSectionImport
+      preLoaderRoute: typeof LOnboardingExtensionIndexImport
+      parentRoute: typeof LImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface LayoutRouteChildren {
-  LayoutOnboardingExtensionIndexRoute: typeof LayoutOnboardingExtensionIndexRoute
+interface LRouteChildren {
+  LOnboardingExtensionIndexRoute: typeof LOnboardingExtensionIndexRoute
 }
 
-const LayoutRouteChildren: LayoutRouteChildren = {
-  LayoutOnboardingExtensionIndexRoute: LayoutOnboardingExtensionIndexRoute,
+const LRouteChildren: LRouteChildren = {
+  LOnboardingExtensionIndexRoute: LOnboardingExtensionIndexRoute,
 }
 
-const LayoutRouteWithChildren =
-  LayoutRoute._addFileChildren(LayoutRouteChildren)
-
-interface DocsLSectionRouteChildren {
-  DocsLSectionSubsectionRoute: typeof DocsLSectionSubsectionRoute
-  DocsLSectionIndexRoute: typeof DocsLSectionIndexRoute
-}
-
-const DocsLSectionRouteChildren: DocsLSectionRouteChildren = {
-  DocsLSectionSubsectionRoute: DocsLSectionSubsectionRoute,
-  DocsLSectionIndexRoute: DocsLSectionIndexRoute,
-}
-
-const DocsLSectionRouteWithChildren = DocsLSectionRoute._addFileChildren(
-  DocsLSectionRouteChildren,
-)
+const LRouteWithChildren = LRoute._addFileChildren(LRouteChildren)
 
 interface DocsLRouteChildren {
-  DocsLSectionRoute: typeof DocsLSectionRouteWithChildren
-  DocsLIndexRoute: typeof DocsLIndexRoute
+  DocsLNotfoundRoute: typeof DocsLNotfoundRoute
+  DocsLSectionSubsectionRoute: typeof DocsLSectionSubsectionRoute
 }
 
 const DocsLRouteChildren: DocsLRouteChildren = {
-  DocsLSectionRoute: DocsLSectionRouteWithChildren,
-  DocsLIndexRoute: DocsLIndexRoute,
+  DocsLNotfoundRoute: DocsLNotfoundRoute,
+  DocsLSectionSubsectionRoute: DocsLSectionSubsectionRoute,
 }
 
 const DocsLRouteWithChildren = DocsLRoute._addFileChildren(DocsLRouteChildren)
 
 interface DocsRouteChildren {
   DocsLRoute: typeof DocsLRouteWithChildren
+  DocsIndexRoute: typeof DocsIndexRoute
 }
 
 const DocsRouteChildren: DocsRouteChildren = {
   DocsLRoute: DocsLRouteWithChildren,
+  DocsIndexRoute: DocsIndexRoute,
 }
 
 const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof LayoutRouteWithChildren
+  '': typeof LRouteWithChildren
   '/docs': typeof DocsLRouteWithChildren
-  '/docs/$section': typeof DocsLSectionRouteWithChildren
-  '/docs/': typeof DocsLIndexRoute
+  '/docs/': typeof DocsIndexRoute
+  '/docs/$notfound': typeof DocsLNotfoundRoute
   '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
-  '/onboarding/extension': typeof LayoutOnboardingExtensionIndexRoute
-  '/docs/$section/': typeof DocsLSectionIndexRoute
+  '/onboarding/extension': typeof LOnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof LayoutRouteWithChildren
-  '/docs': typeof DocsLIndexRoute
+  '': typeof LRouteWithChildren
+  '/docs': typeof DocsIndexRoute
+  '/docs/$notfound': typeof DocsLNotfoundRoute
   '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
-  '/onboarding/extension': typeof LayoutOnboardingExtensionIndexRoute
-  '/docs/$section': typeof DocsLSectionIndexRoute
+  '/onboarding/extension': typeof LOnboardingExtensionIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/_layout': typeof LayoutRouteWithChildren
+  '/_l': typeof LRouteWithChildren
   '/docs': typeof DocsRouteWithChildren
   '/docs/_l': typeof DocsLRouteWithChildren
-  '/docs/_l/$section': typeof DocsLSectionRouteWithChildren
-  '/docs/_l/': typeof DocsLIndexRoute
+  '/docs/': typeof DocsIndexRoute
+  '/docs/_l/$notfound': typeof DocsLNotfoundRoute
   '/docs/_l/$section/$subsection': typeof DocsLSectionSubsectionRoute
-  '/_layout/onboarding/extension/': typeof LayoutOnboardingExtensionIndexRoute
-  '/docs/_l/$section/': typeof DocsLSectionIndexRoute
+  '/_l/onboarding/extension/': typeof LOnboardingExtensionIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -239,42 +209,40 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/docs'
-    | '/docs/$section'
     | '/docs/'
+    | '/docs/$notfound'
     | '/docs/$section/$subsection'
     | '/onboarding/extension'
-    | '/docs/$section/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | ''
     | '/docs'
+    | '/docs/$notfound'
     | '/docs/$section/$subsection'
     | '/onboarding/extension'
-    | '/docs/$section'
   id:
     | '__root__'
     | '/'
-    | '/_layout'
+    | '/_l'
     | '/docs'
     | '/docs/_l'
-    | '/docs/_l/$section'
-    | '/docs/_l/'
+    | '/docs/'
+    | '/docs/_l/$notfound'
     | '/docs/_l/$section/$subsection'
-    | '/_layout/onboarding/extension/'
-    | '/docs/_l/$section/'
+    | '/_l/onboarding/extension/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LayoutRoute: typeof LayoutRouteWithChildren
+  LRoute: typeof LRouteWithChildren
   DocsRoute: typeof DocsRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LayoutRoute: LayoutRouteWithChildren,
+  LRoute: LRouteWithChildren,
   DocsRoute: DocsRouteWithChildren,
 }
 
@@ -289,56 +257,49 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_layout",
+        "/_l",
         "/docs"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/_layout": {
-      "filePath": "_layout.tsx",
+    "/_l": {
+      "filePath": "_l.tsx",
       "children": [
-        "/_layout/onboarding/extension/"
+        "/_l/onboarding/extension/"
       ]
     },
     "/docs": {
       "filePath": "docs",
       "children": [
-        "/docs/_l"
+        "/docs/_l",
+        "/docs/"
       ]
     },
     "/docs/_l": {
       "filePath": "docs/_l.tsx",
       "parent": "/docs",
       "children": [
-        "/docs/_l/$section",
-        "/docs/_l/"
+        "/docs/_l/$notfound",
+        "/docs/_l/$section/$subsection"
       ]
     },
-    "/docs/_l/$section": {
-      "filePath": "docs/_l.$section.tsx",
-      "parent": "/docs/_l",
-      "children": [
-        "/docs/_l/$section/$subsection",
-        "/docs/_l/$section/"
-      ]
+    "/docs/": {
+      "filePath": "docs/index.tsx",
+      "parent": "/docs"
     },
-    "/docs/_l/": {
-      "filePath": "docs/_l.index.tsx",
+    "/docs/_l/$notfound": {
+      "filePath": "docs/_l.$notfound.tsx",
       "parent": "/docs/_l"
     },
     "/docs/_l/$section/$subsection": {
       "filePath": "docs/_l.$section.$subsection.tsx",
-      "parent": "/docs/_l/$section"
+      "parent": "/docs/_l"
     },
-    "/_layout/onboarding/extension/": {
-      "filePath": "_layout.onboarding/extension/index.tsx",
-      "parent": "/_layout"
-    },
-    "/docs/_l/$section/": {
-      "filePath": "docs/_l.$section.index.tsx",
-      "parent": "/docs/_l/$section"
+    "/_l/onboarding/extension/": {
+      "filePath": "_l.onboarding/extension/index.tsx",
+      "parent": "/_l"
     }
   }
 }

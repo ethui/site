@@ -1,29 +1,28 @@
+import { MDXProvider } from "@mdx-js/react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Markdown } from "#/components/markdown";
-import { fetchDocFile } from "#/utils/docs";
+import { NotFound } from "#/components/NotFound";
 import { titleize } from "#/utils/titleize";
+import { docsManifest } from "./-manifest";
 
 export const Route = createFileRoute("/docs/_l/$section/$subsection")({
   beforeLoad: (ctx) => ({ breadcrumb: titleize(ctx.params.subsection) }),
-  loader: async (ctx) => {
-    const { section, subsection } = ctx.params;
-
-    return await fetchDocFile({
-      data: {
-        org: "ethui",
-        repo: "docs",
-        filepath: `${section}/${subsection}.md`,
-      },
-    });
-  },
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { content } = Route.useLoaderData();
+  const { section, subsection } = Route.useParams();
+
+  const doc = docsManifest.sections
+    .find(({ slug }) => slug === section)
+    ?.children.find(({ frontmatter }) => frontmatter.slug === subsection)!;
+
+  if (!doc) {
+    return <NotFound />;
+  }
+
   return (
-    <Markdown className="mx-auto w-full max-w-[80ch] p-4 md:pt-8">
-      {content}
-    </Markdown>
+    <MDXProvider>
+      <doc.default />
+    </MDXProvider>
   );
 }

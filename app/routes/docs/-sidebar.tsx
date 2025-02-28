@@ -20,14 +20,12 @@ import {
   SidebarMenuSubItem,
 } from "@ethui/ui/components/shadcn/sidebar";
 import { Link, useRouterState } from "@tanstack/react-router";
-import type { DocsConfig } from "#/utils/docs";
+import { docsManifest } from "./-manifest";
 import { SearchForm } from "./-search-form";
 
-interface DocsSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  config: DocsConfig;
-}
-
-export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
+export function DocsSidebar({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
 
@@ -36,13 +34,10 @@ export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <Link
-              to="/docs"
-              className="flex flex-row items-center justify-center"
-            >
+            <Link to="/" className="flex flex-row items-center justify-center">
               <EthuiLogo fg="fill-foreground" bg="bg-transparent" />
               <span className="ml-2 font-bold text-2xl text-gray-900">
-                ethui docs
+                ethui
               </span>
             </Link>
           </SidebarMenuItem>
@@ -50,7 +45,7 @@ export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {config.sections.map(({ title, slug: sectionSlug, children }) => (
+        {docsManifest.sections.map(({ title, slug: sectionSlug, children }) => (
           <Collapsible
             key={title}
             title={title}
@@ -70,19 +65,21 @@ export function DocsSidebar({ config, ...props }: DocsSidebarProps) {
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenuSub>
-                    {children.map(({ title, slug: subsectionSlug }) => {
-                      const to = `/docs/${sectionSlug}/${subsectionSlug}`;
-                      return (
-                        <SidebarMenuSubItem key={to}>
-                          <SidebarMenuSubButton
-                            asChild
-                            isActive={currentPath === to}
-                          >
-                            <Link to={to}>{title}</Link>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      );
-                    })}
+                    {children.map(
+                      ({ frontmatter: { title, slug: subsectionSlug } }) => {
+                        const to = `/docs/${sectionSlug}/${subsectionSlug}`;
+                        return (
+                          <SidebarMenuSubItem key={to}>
+                            <SidebarMenuSubButton
+                              asChild
+                              isActive={currentPath === to}
+                            >
+                              <Link to={to}>{title}</Link>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        );
+                      },
+                    )}
                   </SidebarMenuSub>
                 </SidebarGroupContent>
               </CollapsibleContent>
