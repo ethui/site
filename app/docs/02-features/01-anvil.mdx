@@ -1,14 +1,16 @@
 ---
-title: Anvil
+title: Anvil Support
 slug: anvil
 ---
+
+import videoLocal from "../../assets/videos/ethui-local.webm";
 
 [anvil]: https://book.getfoundry.sh/anvil/
 [foundry]: https://book.getfoundry.sh/
 
-# Anvil
+# Anvil Support
 
-Anvil a local Ethereum node that you can use to test your contracts and applications locally. It is part of the [Foundry][foundry] toolchain.
+Anvil is a local Ethereum node that you can use to test your contracts and applications locally. It is part of the [Foundry][foundry] toolchain.
 
 ## Why is anvil different?
 
@@ -32,3 +34,6 @@ Nonce management is calculated from scratch every time, instead of relying on a 
 As a result, ethui can quickly re-sync data from an anvil chain, such as transaction history, deployed contracts, all in real-time.
 
 
+<video loop controls className="aspect-16/9 cursor-pointer" >
+  <source src={videoLocal} type="video/webm" />
+</video>

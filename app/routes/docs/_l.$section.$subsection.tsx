@@ -1,3 +1,4 @@
+import { MDXProvider } from "@mdx-js/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { NotFound } from "#/components/NotFound";
 import { titleize } from "#/utils/titleize";
@@ -19,5 +20,9 @@ function RouteComponent() {
     return <NotFound />;
   }
 
-  return <doc.default />;
+  return (
+    <MDXProvider>
+      <doc.default />
+    </MDXProvider>
+  );
 }

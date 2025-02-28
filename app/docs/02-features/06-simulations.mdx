@@ -1,0 +1,19 @@
+---
+title: Simulations
+slug: simulations
+---
+
+[revm]: https://github.com/bluealloy/revm
+
+# Simulations
+
+Simulations are a way to debug and validate your transactions without having to actually submit them and irreversibly updating your chain's state.
+
+Typically wallets rely on external services such as [Tenderly](https://tenderly.co/) or, more recently, on the new'ish `eth_simulateV1` RPC method (not yet supported on all chains). This allows wallets to give you a preview of what your transaction will do (e.g.: will it succeed? which token transfers will happen?).
+
+However, 3rd-party services are not always free, and most importantly, they can't operate on your local `anvil`. However, the technology for enabling has been around for a while, and you use it all the time if you develop smart contracts with `forge`. It's just that it's not typically exposed in a way that frontend developers can leverage it.
+
+ethui uses [`revm`][revm] to simulate transactions just as `forge` itself would, allowing you to preview important details about it in the preview screen.
+
+> [!NOTE]
+> This currently requires "Fast mode" to be disabled. In the future, other uses for simulations will be supported that don't sacrifice other existing features.

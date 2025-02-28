@@ -1,0 +1,24 @@
+---
+title: Wallets
+slug: wallets
+---
+
+# Test wallets
+
+ethui offers several wallet types, each with its own target use cases:
+
+## Production-grade wallets
+
+These are recommended for interacting with live networks, and enforce proper security measures
+
+- [HD Wallet](/docs/wallets/hdwallet), the one you may be most familiar with if you've used Metamask, Rabby, or other popular wallet
+- [Keystore](/docs/wallets/keystore), a JSON format that encodes a single private key securely in a file. A password is required to decrypt the private key
+- [Private key](/docs/wallets/pkey), a single password-protected private key
+- [Ledger](/docs/wallets/ledger), a hardware wallet.
+
+## Testing wallets
+
+These are suitable only for testing purposes. They work in live networks as well, but should be used to hold real funds.
+
+- [Plaintext](/docs/wallets/plaintext)
+- [Impersonator](/docs/wallets/impersonator)
