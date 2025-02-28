@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export function Markdown({ children }: { children: React.ReactNode }) {
   return (
-    <div className="prose">
+    <div className="prose max-w-full">
       <MDXProvider components={{ img: Image, Youtube }}>{children}</MDXProvider>
     </div>
   );
@@ -35,6 +35,7 @@ function Youtube({ id }: { id: string }) {
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
       allowFullScreen
+      className="mx-auto"
     />
   );
 }
