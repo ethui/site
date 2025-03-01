@@ -1,6 +1,6 @@
 export const blogManifest = [
   await import("#/blog/01-announcing-ethui/index.mdx"),
-  await import("#/blog/02-ethui-0.2.0-ui-level-up/index.mdx"),
+  //await import("#/blog/02-ethui-0.2.0-ui-level-up/index.mdx"),
   //await import("#/blog/03-ethui-0.3.1-mainnet/index.mdx"),
   //await import("#/blog/04-instant-foundry-abi-explorer/index.mdx"),
   //await import("#/blog/05-ethui-0.5.0-impersonation/index.mdx"),

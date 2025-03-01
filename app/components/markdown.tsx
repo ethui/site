@@ -1,10 +1,14 @@
+import { fetchOEmbedHtml } from "#/utils/oembed";
 import { MDXProvider } from "@mdx-js/react";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
+
+const components = { img: Image, Youtube, Embed };
 
 export function Markdown({ children }: { children: React.ReactNode }) {
   return (
     <div className="prose max-w-full">
-      <MDXProvider components={{ img: Image, Youtube }}>{children}</MDXProvider>
+      <MDXProvider components={components}>{children}</MDXProvider>
     </div>
   );
 }
@@ -39,3 +43,24 @@ function Youtube({ id }: { id: string }) {
     />
   );
 }
+
+interface EmbedProps {
+  url: string;
+}
+
+function Embed({ url }: EmbedProps) {
+  const [embedHtml, setEmbedHtml] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchOEmbedHtml(url)
+      .then((html) => setEmbedHtml(html))
+      .catch((error) =>
+        console.error(`Failed to fetch oEmbed for ${url}:`, error),
+      );
+  }, [url]);
+  console.log(embedHtml);
+
+  return <div dangerouslySetInnerHTML={{ __html: embedHtml ?? "" }} />;
+}
+
+export default Embed;
