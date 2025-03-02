@@ -52,19 +52,25 @@ The [new approach](https://github.com/ethui/ethui/pull/609) speeds up the proces
 
 Transaction previews now show additional information such as ERC20 transfers, and the number of past known transactions to that address, which should help catch unintended transactions such as phishing attempts.
 
-![](https://images.mirror-media.xyz/publication-images/g2LDsyaLHmpFy-BXzf_P7.png?height=613&width=673)
+import improvedSims from "./improved-sims.png?url";
+
+<img src={improvedSims} />
 
 ### Improved contract interactions
 
 The built-in explorer and contract interaction tool now supports many broad use cases and argument types that were previously tricky to parse. This is largely thanks to the great work done in the recent [alloy-dyn-abi crate](https://github.com/alloy-rs/core/tree/main/crates/dyn-abi).
 
-![](https://images.mirror-media.xyz/publication-images/r_k6ijsLWxM3NYxGtWqCP.png?height=364&width=1036)
+import improvedContractInteractions from "./improved-contract-interactions.png?url";
+
+<img src={improvedContractInteractions} />
 
 ### Better wallet onboarding
 
 The previous onboarding flow was limited, especially when it comes to wallet setup. Since wallet needs vary from user to user, it’s important to make the possibilities clear from the start.
 
-![](https://images.mirror-media.xyz/publication-images/dkMHzYB5u7Am_y2ABE3p\_.png?height=652&width=575)
+import walletOnboarding from "./wallet-onboarding.png?url";
+
+<img src={walletOnboarding} />
 
 The new flow directly allows you to create as many wallets of as many types as you need, right from the start.
 
@@ -72,7 +78,9 @@ The new flow directly allows you to create as many wallets of as many types as y
 
 We added [Effigy avatars](https://effigy.im/), chain icons, and token icons for well-known currencies, to enrich the UI and more easily identify things at a glance
 
-![](https://images.mirror-media.xyz/publication-images/bnm5o3Xs0DHVuYjM5MK-B.png?height=760&width=862)
+import icons from "./icons.png?url";
+
+<img src={icons} />
 
 There are many other incremental improvements, performance optimizations, and bug fixes, that you can check out on the release history.
 

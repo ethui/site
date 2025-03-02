@@ -23,7 +23,9 @@ The magic happens in our `iron-forge` [crate](https://github.com/iron-wallet/iro
 
 Since this behavior relies on filesystem monitoring, we make opt-in rather than opt-out. This is due to potential concerns users may have with us snooping into their filesystem, and because we need to give control over which path to scan:
 
-![](https://images.mirror-media.xyz/publication-images/-C27pq_21npLqDygj25Bm.png?height=330&width=756)
+import filesystemTracking from "./filesystem-tracking.png?url";
+
+<img src={filesystemTracking} />
 
 Enabling the ABI watcher, along with a watch path, will cause Iron to listen to filesystem events under that path.
 
