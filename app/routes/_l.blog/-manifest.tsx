@@ -1,4 +1,5 @@
 export const blogManifest = [
+  await import("#/blog/foo.mdx"),
   await import("#/blog/01-announcing-ethui/index.mdx"),
   await import("#/blog/02-ethui-0.2.0-ui-level-up/index.mdx"),
   await import("#/blog/03-ethui-0.3.1-mainnet/index.mdx"),

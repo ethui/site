@@ -1,7 +1,8 @@
+import { useEmbed } from "#/hooks/embedUrl";
 import { fetchOEmbedHtml } from "#/utils/oembed";
 import { MDXProvider } from "@mdx-js/react";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const components = { img: Image, Youtube, Embed };
 
@@ -46,21 +47,18 @@ function Youtube({ id }: { id: string }) {
 
 interface EmbedProps {
   url: string;
+  className?: string;
 }
 
-function Embed({ url }: EmbedProps) {
-  const [embedHtml, setEmbedHtml] = useState<string | null>(null);
+function Embed({ url, className }: EmbedProps) {
+  const { html } = useEmbed(url);
 
-  useEffect(() => {
-    fetchOEmbedHtml(url)
-      .then((html) => setEmbedHtml(html))
-      .catch((error) =>
-        console.error(`Failed to fetch oEmbed for ${url}:`, error),
-      );
-  }, [url]);
-  console.log(embedHtml);
-
-  return <div dangerouslySetInnerHTML={{ __html: embedHtml ?? "" }} />;
+  return (
+    <div
+      className={clsx("mx-auto w-full", className)}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 }
 
 export default Embed;
