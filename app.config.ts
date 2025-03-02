@@ -1,3 +1,4 @@
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "@tanstack/start/config";
@@ -36,6 +37,7 @@ export default defineConfig({
           ],
           rehypeGithubAlerts,
           rehypeGithubEmoji,
+          rehypeMdxImportMedia,
         ],
       }),
       tailwindcss(),

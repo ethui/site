@@ -2,6 +2,11 @@
 title: Instant Foundry ABI Explorer
 slug: instant-foundry-abi-explorer
 ---
+
+import forge_abis from './forge-abis.mp4';
+
+# Instant Foundry ABI Explorer
+
 While working on mainnet, a lot of people rely on [Etherscan](https://etherscan.io/) to view & interact with contracts. That’s in large part due to their built-in explorer, which gives us a handy way to Read/Write to any contract that has previously been verified.
 
 For local development (via [Foundry](https://getfoundry.sh/), [Hardhat](https://hardhat.org/), or others) you’re out of options though.
@@ -10,7 +15,7 @@ Wether you’re writing the contracts, or the UI for your protocol, the ability 
 
 So we did it. And this is how.
 
-[TODO](https://github.com/iron-wallet/video-demos/raw/main/0.4.1-forge-abis.mp4?controls=true&autoplay=true&loop=true)
+<Video controls src={forge_abis} />
 
 ## Filesystem tracking
 
@@ -18,7 +23,7 @@ The magic happens in our `iron-forge` [crate](https://github.com/iron-wallet/iro
 
 Since this behavior relies on filesystem monitoring, we make opt-in rather than opt-out. This is due to potential concerns users may have with us snooping into their filesystem, and because we need to give control over which path to scan:
 
-![](https://images.mirror-media.xyz/publication-images/-C27pq_21npLqDygj25Bm.png?height=330&width=756)
+![](./filesystem-tracking.png)
 
 Enabling the ABI watcher, along with a watch path, will cause Iron to listen to filesystem events under that path.
 

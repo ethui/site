@@ -1,10 +1,8 @@
 import { useEmbed } from "#/hooks/embedUrl";
-import { fetchOEmbedHtml } from "#/utils/oembed";
 import { MDXProvider } from "@mdx-js/react";
 import clsx from "clsx";
-import { Fragment, useEffect, useState } from "react";
 
-const components = { img: Image, Youtube, Embed };
+const components = { Image, img: Image, Video, Youtube, Embed };
 
 export function Markdown({ children }: { children: React.ReactNode }) {
   return (
@@ -22,11 +20,19 @@ function Image({
 }: React.ComponentProps<"img">) {
   return (
     <img
-      className={clsx("mx-auto", className)}
       {...props}
+      className={clsx("mx-auto", className)}
       src={src}
       alt={"asd"}
     />
+  );
+}
+
+function Video({ src }: { src: string }) {
+  return (
+    <picture className="flex w-full justify-center">
+      <video muted autoPlay loop controls src={src} className="max-w-[600px]" />
+    </picture>
   );
 }
 

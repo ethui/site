@@ -3,6 +3,8 @@ title: ethui 0.3.1 – Mainnet
 slug: ethui-0.3.1-mainnet
 ---
 
+import hd_wallet_setup from './hd-wallet-setup.mp4';
+
 # ethui 0.3.1 – Mainnet
 
 We’ve been casting a fresh batch of features, and are now ready to announce the third release of Iron Wallet.
@@ -15,7 +17,7 @@ While our main target is developer tooling, we also believe it’s crucial to su
 
 # HD Wallets
 
-[TODO](https://github.com/iron-wallet/video-demos/raw/main/0.3.0-hd-wallet-setup.mp4?autoplay=true&controls=true&loop=true)
+<Video src={hd_wallet_setup} />
 
 The most critical feature to allow us to migrate from other wallets into Iron is the ability to import the same seed phrase, so we get access to the same set of addresses.
 
@@ -31,7 +33,7 @@ For now, though, the setup flow already looks comfortable enough to migrate exis
 
 ## Transaction indexing
 
-![](https://images.mirror-media.xyz/publication-images/tS-ReyycvPm5CHFcV7dhK.png?height=665&width=821)
+![](./tx-indexing.png)
 
 Getting real-time and historical data from blockchains is a real problem. Blockchains are great for reaching consensus on state, but terrible at allowing arbitrary queries to that same state. Simple operations such as “Give me the transaction history for this wallet” or “What ERC20 tokens am I holding?” are actually complex to implement, because they mostly rely on 3rd party indexers or bespoke clients to crunch the data for you
 
@@ -49,7 +51,7 @@ There are two main points for improvement here in the future:
 
 A simple but effective feature: from now on, the UI will notify you of new releases as soon as they happen!
 
-![](https://images.mirror-media.xyz/publication-images/mvwzP-fxe1VwTTMnf66nD.png?height=74&width=285)
+![](./version-notices.png)
 
 ## Future plans and branding
 
