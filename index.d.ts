@@ -9,3 +9,8 @@ declare module "#/docs/*.mdx" {
   export const frontmatter: { title: string; slug: string };
   export default () => ReactNode;
 }
+
+declare module "#/blog/*.mdx" {
+  export const frontmatter: { title: string; slug: string };
+  export default () => ReactNode;
+}
