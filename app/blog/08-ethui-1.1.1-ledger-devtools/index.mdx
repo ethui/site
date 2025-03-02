@@ -2,6 +2,12 @@
 title: ethui 1.1.1 – Ledger & Devtools
 slug: ethui-1.1.1-ledger-devtools
 ---
+
+import ledger from './ledger.mp4';
+import devtools from './devtools.mp4';
+
+# ethui 1.1.1 – Ledger & Devtools
+
 Recently, during [ETH Lisbon](https://ethlisbon.org/), we quietly released 1.0.0. This was not your typical newsworthy 1.0 release, but rather a breaking-change for a [tedious bugfix](https://github.com/iron-wallet/iron/pull/482).
 
 This time, we’ve got some juice.
@@ -24,7 +30,7 @@ When comparing to MetaMask’s ledger support, a few key advantages stand out:
 
 * Transactions are not immediately rejected if you start one without having your ledger available. Instead, the review dialog will wait until your device is ready (unlocked & with the Ethereum app open)
 
-[TODO](./ledger.mp4)
+<Video controls src={ledger} />
 
 ## Devtools panel
 
@@ -32,7 +38,7 @@ One of the things we’ve wanted for a long time was the ability to debug RPC ca
 
 That’s finally available today:
 
-[TODO](./devtools.mp4)
+<Video controls src={devtools} />
 
 This task was also the result of our bounties published at [ETH Lisbon](https://ethlisbon.org/). congrats to [@PolpEdu](https://github.com/PolpEdu) for getting the work going and winning our bounty!
 

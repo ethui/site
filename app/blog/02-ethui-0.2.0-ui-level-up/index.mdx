@@ -3,6 +3,10 @@ title: ethui 0.2.0 – UI level up
 slug: ethui-0.2.0-ui-level-up
 ---
 
+import alias from './alias.mp4';
+import kbar from './kbar.mp4';
+import json_keystore from './json-keystore.mp4';
+
 # ethui 0.2.0 – UI level up
 
 Gm.
@@ -15,13 +19,13 @@ Around a week after the first public release, here’s a new batch of updates. T
 
 You can now right-click any address and assign it an alias. This should greatly improve readability, and help you understand which accounts or contracts you’re interacting with. ([\#203](#203))
 
-[asd](./alias.mp4)
+<Video src={alias} />
 
 ## Command Bar
 
 `Ctrl+K` will likely be the main navigation tool within the app. Quick network & account switching is now a breeze. ([\#182](https://github.com/iron-wallet/iron/pull/182), [\#207](https://github.com/iron-wallet/iron/pull/207))
 
-[asd](./bar.mp4)
+<Video src={kbar} />
 
 ## Secure wallets (JSON Keystore)
 
@@ -31,7 +35,7 @@ Two steps were missing to enable asset security and confidence when interacting 
 
 This is the first step towards that. While JSON Keystores are not the most popular, they’re a solid foundation on the way to broader support. Having this means we now have first-class support for multiple types of wallets (essential for good abstractions), proper logic for handling wallet unlock through dialogs, and a lot of the foundations needed to properly store secrets in memory (more on this in a future, more technical, blog post).
 
-[asd](./json-keystore.mp4)
+<Video src={json_keystore} />
 
 ## Copy to clipboard
 

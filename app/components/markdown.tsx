@@ -4,7 +4,9 @@ import clsx from "clsx";
 export function Markdown({ children }: { children: React.ReactNode }) {
   return (
     <div className="prose max-w-full">
-      <MDXProvider components={{ img: Image, Youtube }}>{children}</MDXProvider>
+      <MDXProvider components={{ img: Image, Video, Youtube }}>
+        {children}
+      </MDXProvider>
     </div>
   );
 }
@@ -22,6 +24,14 @@ function Image({
       src={src}
       alt={"asd"}
     />
+  );
+}
+
+function Video({ src }: { src: string }) {
+  return (
+    <picture className="flex w-full justify-center">
+      <video muted autoPlay loop controls src={src} className="max-w-[600px]" />
+    </picture>
   );
 }
 
