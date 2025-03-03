@@ -87,14 +87,16 @@ function SuspendedEmbed({ url }: { url: string }) {
   );
 }
 
-function Embed({ url }: { url: string }) {
+function Embed({ url: urlStr }: { url: string }) {
   const {
-    data: { image, title, description },
+    data: { image, title, description, url },
   } = useSuspenseQuery({
-    queryKey: ["github-embed", url],
-    queryFn: () => getOpengraphEmbedData({ data: { url } }),
+    queryKey: ["github-embed", urlStr],
+    queryFn: () => getOpengraphEmbedData({ data: { url: urlStr } }),
   });
 
+
+  console.log("asd", image, title, description, url)
   return (
     <div className="flex flex-col items-stretch md:flex-row-reverse ">
       <div className="aspect-16/9 shrink-0 md:w-[16rem]">
@@ -109,7 +111,7 @@ function Embed({ url }: { url: string }) {
         <p className="line-clamp-3 font-light text-sm">{description}</p>
         <p className="flex items-center gap-2">
           <LinkIcon size="14" />
-          github.com
+          {url.host}
         </p>
       </div>
     </div>

@@ -18,14 +18,24 @@ export const getOpengraphEmbedData = createServerFn({ method: "GET" })
 
     const text = await response.text();
 
-    console.log(text);
     const $ = load(text);
     const image = $('meta[property="og:image"]').attr("content") || "";
     const title = $('meta[property="og:title"]').attr("content") || "";
-    const description =
-      $('meta[property="og:description"]').attr("content") || "";
+    const description = $("body").attr("content") || "";
+    console.log("desc", $("head").html());
+    console.log(title, description);
 
-    return { image, title, description };
+    return {
+      image,
+      title,
+      description,
+      url: {
+        pathname: url.pathname,
+        search: url.search,
+        hash: url.hash,
+        host: url.host,
+      },
+    };
   });
 
 export type GithubMetadata = Awaited<ReturnType<typeof getOpengraphEmbedData>>;
