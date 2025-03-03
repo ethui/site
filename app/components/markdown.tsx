@@ -1,8 +1,9 @@
-import { useEmbed } from "#/hooks/embedUrl";
+import { useGithubEmbed } from "#/hooks/useEmbed";
 import { MDXProvider } from "@mdx-js/react";
+import { Link as LinkIcon } from "lucide-react";
 import clsx from "clsx";
 
-const components = { Image, img: Image, Video, Youtube, Embed };
+const components = { Image, img: Image, Video, Youtube, GithubEmbed };
 
 export function Markdown({ children }: { children: React.ReactNode }) {
   return (
@@ -51,20 +52,32 @@ function Youtube({ id }: { id: string }) {
   );
 }
 
-interface EmbedProps {
-  url: string;
-  className?: string;
-}
+function GithubEmbed({ url }: { url: string }) {
+  const { image, title, description } = useGithubEmbed(url);
 
-function Embed({ url, className }: EmbedProps) {
-  const { html } = useEmbed(url);
-
+  console.log(image);
   return (
-    <div
-      className={clsx("mx-auto w-full", className)}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <a
+      href={url}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="not-prose flex items-stretch border no-underline"
+    >
+      <div className="flex flex-col justify-between gap-2 overflow-hidden p-2">
+        <h1 className="font-bold text-base">{title}</h1>
+        <p className="line-clamp-3 font-light text-sm">{description}</p>
+        <p className="flex items-center gap-2">
+          <LinkIcon size="14" />
+          github.com
+        </p>
+      </div>
+      <div className="aspect-16/9 w-[16rem] shrink-0">
+        <img
+          src={image}
+          className="mt-0 mb-0 h-full object-cover"
+          alt={title}
+        />
+      </div>
+    </a>
   );
 }
-
-export default Embed;
