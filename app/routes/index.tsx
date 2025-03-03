@@ -192,15 +192,10 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
           </Button>
 
           <Button variant="ghost" asChild>
-            <a
-              href="http://mirror.xyz/ethui.eth"
-              rel="noreferrer"
-              target="_blank"
-              className="flex items-center gap-x-2"
-            >
+            <Link to="/blog" className="flex items-center gap-x-2">
               <Rss className="mr-1" />
               Blog
-            </a>
+            </Link>
           </Button>
         </div>
 
