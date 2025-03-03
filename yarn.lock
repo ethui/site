@@ -222,15 +222,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.24.5":
-  version: 7.26.9
-  resolution: "@babel/runtime@npm:7.26.9"
-  dependencies:
-    regenerator-runtime: "npm:^0.14.0"
-  checksum: 10c0/e8517131110a6ec3a7360881438b85060e49824e007f4a64b5dfa9192cf2bb5c01e84bfc109f02d822c7edb0db926928dd6b991e3ee460b483fb0fac43152d9b
-  languageName: node
-  linkType: hard
-
 "@babel/standalone@npm:^7.26.4":
   version: 7.26.8
   resolution: "@babel/standalone@npm:7.26.8"
@@ -1048,8 +1039,6 @@ __metadata:
     "@mdx-js/react": "npm:^3.1.0"
     "@mdx-js/rollup": "npm:^3.1.0"
     "@rainbow-me/rainbowkit": "npm:^2.2.4"
-    "@remark-embedder/core": "npm:^3.0.3"
-    "@remark-embedder/transformer-oembed": "npm:^5.0.1"
     "@tailwindcss/postcss": "npm:^4.0.8"
     "@tailwindcss/typography": "npm:^0.5.16"
     "@tailwindcss/vite": "npm:^4.0.8"
@@ -3002,32 +2991,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remark-embedder/core@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@remark-embedder/core@npm:3.0.3"
-  dependencies:
-    "@babel/runtime": "npm:^7.24.5"
-    "@types/hast": "npm:^3.0.4"
-    "@types/mdast": "npm:^4.0.4"
-    hast-util-from-parse5: "npm:^8.0.1"
-    parse5: "npm:^7.1.2"
-    unified: "npm:^11.0.4"
-    unist-util-visit: "npm:^5.0.0"
-  checksum: 10c0/ad013a6470ae5926ce57e23594ebd9568ebe9ceb47dcac41900ad8915d91ddfd18898253fca1052c3574351e2c92f250d8d0d8fa98e43a127589155f855a1456
-  languageName: node
-  linkType: hard
-
-"@remark-embedder/transformer-oembed@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@remark-embedder/transformer-oembed@npm:5.0.1"
-  dependencies:
-    "@babel/runtime": "npm:^7.24.5"
-  peerDependencies:
-    "@remark-embedder/core": ^3.0.0
-  checksum: 10c0/cf73a79801cbacdc3923cb37d9e668d1d59ed493aa715249752e2442e5c197c4d7b7ba16e74e8efc41ee48a7b83d376ae793083e49944bf461d073ce552812b0
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-alias@npm:^5.1.1":
   version: 5.1.1
   resolution: "@rollup/plugin-alias@npm:5.1.1"
@@ -4400,7 +4363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hast@npm:^3.0.0, @types/hast@npm:^3.0.4":
+"@types/hast@npm:^3.0.0":
   version: 3.0.4
   resolution: "@types/hast@npm:3.0.4"
   dependencies:
@@ -4441,7 +4404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:^4.0.0, @types/mdast@npm:^4.0.4":
+"@types/mdast@npm:^4.0.0":
   version: 4.0.4
   resolution: "@types/mdast@npm:4.0.4"
   dependencies:
@@ -7727,7 +7690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-from-parse5@npm:^8.0.0, hast-util-from-parse5@npm:^8.0.1":
+"hast-util-from-parse5@npm:^8.0.0":
   version: 8.0.3
   resolution: "hast-util-from-parse5@npm:8.0.3"
   dependencies:
