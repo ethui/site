@@ -13,7 +13,7 @@ export const getGithubEmbedData = createServerFn({ method: "GET" })
 
     const response = await fetch(url.toString());
     if (!response.ok) {
-      throw new Error(`Failed to fetch oEmbed data for ${url}`);
+      throw new Error(`Failed to fetch github embed data for ${url}`);
     }
 
     const text = await response.text();
