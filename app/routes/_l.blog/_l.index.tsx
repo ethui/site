@@ -20,7 +20,7 @@ function RouteComponent() {
           <Link
             to="/blog/$slug"
             params={{ slug }}
-            className="text-lg font-medium hover:text-primary transition-colors no-underline"
+            className="font-medium text-lg no-underline transition-colors hover:text-primary"
           >
             {title}
           </Link>
