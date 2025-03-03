@@ -38,7 +38,6 @@ export default defineConfig({
           rehypeGithubAlerts,
           rehypeGithubEmoji,
           rehypeMdxImportMedia,
-          //rehypeEmbedIframes,
         ],
       }),
       tailwindcss(),
