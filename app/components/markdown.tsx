@@ -61,22 +61,22 @@ function GithubEmbed({ url }: { url: string }) {
       href={url}
       rel="noopener noreferrer"
       target="_blank"
-      className="not-prose flex items-stretch border no-underline"
+      className="not-prose my-8 flex flex-col items-stretch bg-background p-2 no-underline hover:bg-accent md:flex-row-reverse"
     >
-      <div className="flex flex-col justify-between gap-2 overflow-hidden p-2">
+      <div className="aspect-16/9 shrink-0 md:w-[16rem]">
+        <img
+          src={image}
+          className="mt-0 mb-0 h-full object-cover"
+          alt={title}
+        />
+      </div>
+      <div className="hidden flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex">
         <h1 className="font-bold text-base">{title}</h1>
         <p className="line-clamp-3 font-light text-sm">{description}</p>
         <p className="flex items-center gap-2">
           <LinkIcon size="14" />
           github.com
         </p>
-      </div>
-      <div className="aspect-16/9 w-[16rem] shrink-0">
-        <img
-          src={image}
-          className="mt-0 mb-0 h-full object-cover"
-          alt={title}
-        />
       </div>
     </a>
   );
