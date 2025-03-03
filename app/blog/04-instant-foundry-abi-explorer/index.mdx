@@ -149,6 +149,6 @@ pub fn diff_score(a: &[u8], b: &[u8]) -> f64 {
 
 This will compare two bytecode snippets, and compute how different they are. Since contract logic is typically large enough to out-weight the bytecode length of all immutables, it's sufficient to consider any contract with a difference of < 10% to be a match. As described in the [original code](https://github.com/foundry-rs/foundry/blob/02e430c20fb7ba1794f5cabdd7eb73182baf4e7e/common/src/contracts.rs#L96-L114), this should only be expected to fail for contracts that are essentially only immutable variables, which are unlikely to be found in real-world usage.
 
-# Next up
+## Next up
 
 One glaring omission we don’t support yet are Proxy contracts. Those will be a challenge on their own, but one we expect to tackle pretty soon. Stay tuned!
