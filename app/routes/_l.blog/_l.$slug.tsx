@@ -18,7 +18,7 @@ function RouteComponent() {
   }
 
   return (
-    <Markdown>
+    <Markdown className="mb-16">
       <post.default />
     </Markdown>
   );

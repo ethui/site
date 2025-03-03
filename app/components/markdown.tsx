@@ -13,9 +13,11 @@ const components = {
   GithubEmbed: SuspendedGithubEmbed,
 };
 
-export function Markdown({ children }: { children: React.ReactNode }) {
+interface MarkdownProps extends React.ComponentProps<"div"> { }
+
+export function Markdown({ children, className, ...props }: MarkdownProps) {
   return (
-    <div className="prose max-w-full">
+    <div className={clsx("prose max-w-full", className)} {...props}>
       <MDXProvider components={components}>{children}</MDXProvider>
     </div>
   );
