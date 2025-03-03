@@ -3,11 +3,13 @@ title: ethui 1.7.0 – forms
 slug: ethui-1.7.0-forms
 ---
 
+![banner](./banner.png)
+
 # ethui 1.7.0 – Forms
 
 The new release brings along a very special feature: Contract interactions are now much easier thanks to our new form interaction tool.
 
-<GithubEmbed url="https://github.com/ethui/ethui/releases/tag/v1.7.0" />
+<Embed url="https://github.com/ethui/ethui/releases/tag/v1.7.0" />
 
 ethui already allowed you, since a very early 0.3 version, to interact with arbitrary contracts as if you were on etherscan. This had the benefit of working fully locally, in private anvil chains, and more importantly, without requiring you to publish or verify your solidity source code anywhere
 
@@ -17,7 +19,9 @@ One problem remained though. That interaction was awkward at best. Similarly to 
 
 This [new package](https://www.npmjs.com/package/@ethui/form), built primarily for our app, but usable by anyone on their own projects, renders a dynamic form based on a given ABI input. 
 
-<Video url="https://github.com/ethui/demos/raw/main/1.7.0-form.mp4?loop=true&autoplay=true?controls=true" />
+import form from "./form.mp4";
+
+<Video src={form} />
 
 The new form allows for much more complex use cases where it wouldn’t be feasible to manipulate complex fields in a single text box. We’re already using it internally to test merkle-tree based transactions, where a long proof must be submitted.
 
@@ -34,10 +38,12 @@ After this release, the transaction preview dialog is now a transaction editing 
 Why, you ask? Well, in many cases, it’s a convenient way to see the simulation update in real-time, and provide you with information of how it would react to slightly different params. 
 
 
-<Video url="https://github.com/ethui/demos/raw/main/1.7.0-tx-review.mp4?autoplay=true&loop=true&controls=true" />
+import txReview from "./tx-review.mp4";
+
+<Video src={txReview} />
 
 ## What’s next?
 
 Next up, we plan to redirect our attention back to indexing, taking the chance that reth has now released [Execution Extensions](https://twitter.com/gakonst/status/1786426191240679729), which could make our work much more pleasant and efficient
 
-<GithubEmbed url="https://github.com/ethui/ethui" />
+<Embed url="https://github.com/ethui/ethui" />

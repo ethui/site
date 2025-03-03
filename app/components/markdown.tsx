@@ -1,7 +1,7 @@
 import { MDXProvider } from "@mdx-js/react";
 import { Link as LinkIcon, LoaderCircle } from "lucide-react";
 import clsx from "clsx";
-import { getGithubEmbedData } from "#/server/embed";
+import { getOpengraphEmbedData } from "#/server/embed";
 import { Suspense } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
@@ -10,14 +10,17 @@ const components = {
   img: Image,
   Video,
   Youtube,
-  GithubEmbed: SuspendedGithubEmbed,
+  Embed: SuspendedEmbed,
 };
 
 interface MarkdownProps extends React.ComponentProps<"div"> { }
 
 export function Markdown({ children, className, ...props }: MarkdownProps) {
   return (
-    <div className={clsx("prose max-w-full", className)} {...props}>
+    <div
+      className={clsx("prose max-w-full", className)}
+      {...props}
+    >
       <MDXProvider components={components}>{children}</MDXProvider>
     </div>
   );
@@ -62,7 +65,7 @@ function Youtube({ id }: { id: string }) {
   );
 }
 
-function SuspendedGithubEmbed({ url }: { url: string }) {
+function SuspendedEmbed({ url }: { url: string }) {
   return (
     <a
       href={url}
@@ -78,18 +81,18 @@ function SuspendedGithubEmbed({ url }: { url: string }) {
           </div>
         }
       >
-        <GithubEmbed url={url} />
+        <Embed url={url} />
       </Suspense>
     </a>
   );
 }
 
-function GithubEmbed({ url }: { url: string }) {
+function Embed({ url }: { url: string }) {
   const {
     data: { image, title, description },
   } = useSuspenseQuery({
     queryKey: ["github-embed", url],
-    queryFn: () => getGithubEmbedData({ data: { url } }),
+    queryFn: () => getOpengraphEmbedData({ data: { url } }),
   });
 
   return (

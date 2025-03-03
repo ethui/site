@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/start";
 import { load } from "cheerio";
 import { z } from "zod";
 
-export const getGithubEmbedData = createServerFn({ method: "GET" })
+export const getOpengraphEmbedData = createServerFn({ method: "GET" })
   .validator(z.object({ url: z.string().url() }))
   .handler(async (ctx) => {
     const url = URL.parse(ctx.data.url);
@@ -28,4 +28,4 @@ export const getGithubEmbedData = createServerFn({ method: "GET" })
     return { image, title, description };
   });
 
-export type GithubMetadata = Awaited<ReturnType<typeof getGithubEmbedData>>;
+export type GithubMetadata = Awaited<ReturnType<typeof getOpengraphEmbedData>>;
