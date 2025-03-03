@@ -1034,7 +1034,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^1.9.4"
     "@ethui/form": "npm:0.0.10"
-    "@ethui/ui": "npm:0.0.41"
+    "@ethui/ui": "npm:0.0.45"
     "@hookform/resolvers": "npm:^4.1.2"
     "@mdx-js/react": "npm:^3.1.0"
     "@mdx-js/rollup": "npm:^3.1.0"
@@ -1059,7 +1059,7 @@ __metadata:
     html-react-parser: "npm:^5.2.2"
     lodash-es: "npm:^4.17.21"
     lru-cache: "npm:^11.0.2"
-    lucide-react: "npm:^0.469.0"
+    lucide-react: "npm:^0.477.0"
     motion: "npm:^12.4.7"
     postcss: "npm:^8.5.3"
     react: "npm:^19.0.0"
@@ -1094,11 +1094,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ethui/ui@npm:0.0.41":
-  version: 0.0.41
-  resolution: "@ethui/ui@npm:0.0.41"
+"@ethui/ui@npm:0.0.45":
+  version: 0.0.45
+  resolution: "@ethui/ui@npm:0.0.45"
   dependencies:
-    "@fontsource/source-code-pro": "npm:^5.1.1"
+    "@fontsource/source-code-pro": "npm:^5.2.5"
     "@hookform/resolvers": "npm:^4.1.2"
     "@radix-ui/react-accordion": "npm:^1.2.2"
     "@radix-ui/react-avatar": "npm:^1.1.2"
@@ -1124,7 +1124,7 @@ __metadata:
     clsx: "npm:^2.0.0"
     cmdk: "npm:1.0.4"
     immer: "npm:^10.1.1"
-    lucide-react: "npm:^0.475.0"
+    lucide-react: "npm:^0.477.0"
     next-themes: "npm:^0.4.4"
     react: "npm: ^19"
     react-dom: "npm:^19"
@@ -1141,13 +1141,13 @@ __metadata:
     "@types/react": ^19
     "@types/react-dom": ^19
     clsx: ^2.0.0
-    lucide-react: ^0.475.0
+    lucide-react: ^0.477.0
     react: ^19
     react-dom: ^19
     tailwind-merge: ^3.0.0
     tailwindcss: ^4.0.0
     tailwindcss-animate: ^1.0.0
-  checksum: 10c0/9d38d7aab0331fe84cbca168533ec2aecb8c5d09d41cc9f292cc40815a5cb408ffc0bf16ecdb449fc499a4335af1b5ce91e2fde9244e87d4c379714d77cd3e3e
+  checksum: 10c0/04522b0e898396d579135de7abdf037af098df3df39a01f38ffb6e8e6fc9aae6a853471853d529f16cdd78048640400a605c23acb2595a7a2be7dba607d52ad0
   languageName: node
   linkType: hard
 
@@ -1238,6 +1238,13 @@ __metadata:
   version: 5.1.1
   resolution: "@fontsource/source-code-pro@npm:5.1.1"
   checksum: 10c0/3014fa31a292f17c209c03cf29d2038270596260f769f792731de2ef80ceb57d53c24664c896571739e903c86d4eda9fcb0582a0ad5ec9a354899c54b48fa3ba
+  languageName: node
+  linkType: hard
+
+"@fontsource/source-code-pro@npm:^5.2.5":
+  version: 5.2.5
+  resolution: "@fontsource/source-code-pro@npm:5.2.5"
+  checksum: 10c0/269f734fff5a1347d3e5ec1a32bacb35fbd92b87422d672c1b3059e24c161b44d7698cdebc47fea07fc96dfa02a1c870ddfa094ddb3c311b91d1f9af12ee9884
   languageName: node
   linkType: hard
 
@@ -8836,21 +8843,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.469.0":
-  version: 0.469.0
-  resolution: "lucide-react@npm:0.469.0"
-  peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/0ee78d110550579b848a01446a440f733fd17e1bf1850aa01551b61f415e03e5f5ab7f26b56f1c648edc93856177f5476ff9f8f6f5d80e8fe45913d208f49961
-  languageName: node
-  linkType: hard
-
 "lucide-react@npm:^0.475.0":
   version: 0.475.0
   resolution: "lucide-react@npm:0.475.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
   checksum: 10c0/9cb17bd4e70da4db104874b6b2e9d9c7e2be9438e9d1c0b2565df0c4d0bdd1add41b7dff3cb60840699ecbd29870c453878b42b69a7c46480def0c9370a852a9
+  languageName: node
+  linkType: hard
+
+"lucide-react@npm:^0.477.0":
+  version: 0.477.0
+  resolution: "lucide-react@npm:0.477.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/950b21e13875f3fbeaa233ffb470e0200c3a4559fd706a0c80c16f3a401d91acb2bd25848c7dd478da79c74b7fd00582d5114f335dc19ec0190fb130045b19e5
   languageName: node
   linkType: hard
 
