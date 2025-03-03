@@ -95,8 +95,6 @@ function Embed({ url: urlStr }: { url: string }) {
     queryFn: () => getOpengraphEmbedData({ data: { url: urlStr } }),
   });
 
-
-  console.log("asd", image, title, description, url)
   return (
     <div className="flex flex-col items-stretch md:flex-row-reverse ">
       <div className="aspect-16/9 shrink-0 md:w-[16rem]">
@@ -106,7 +104,7 @@ function Embed({ url: urlStr }: { url: string }) {
           alt={title}
         />
       </div>
-      <div className="hidden flex-col items-stretch justify-between gap-2 overflow-hidden p-2 pl-4 md:flex">
+      <div className="hidden flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex grow">
         <h1 className="font-bold text-base">{title}</h1>
         <p className="line-clamp-3 font-light text-sm">{description}</p>
         <p className="flex items-center gap-2">
