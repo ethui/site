@@ -8,18 +8,19 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
 });
 
 function RouteComponent() {
-  const { slug } = Route.useParams();
-  const post = blogManifest.find(
-    ({ frontmatter }) => frontmatter.slug === slug,
-  );
-
-  if (!post) {
-    return <NotFound />;
-  }
-
-  return (
-    <Markdown className="mb-16">
-      <post.default />
-    </Markdown>
-  );
+  return <p>Blog</p>;
+//const { slug } = Route.useParams();
+//const post = blogManifest.find(
+//  ({ frontmatter }) => frontmatter.slug === slug,
+//);
+//
+//if (!post) {
+//  return <NotFound />;
+//}
+//
+//return (
+//  <Markdown className="mb-16">
+//    <post.default />
+//  </Markdown>
+//);
 }
