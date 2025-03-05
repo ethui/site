@@ -3,7 +3,7 @@ import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/")({
   loader: () => {
-    console.log(blogManifest);
+    console.log(blogManifest.map(({ frontmatter }) => frontmatter));
     return [];
     //blogManifest
     //  .slice()
