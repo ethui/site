@@ -2,16 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/")({
-  loader: () =>
-    blogManifest
-      .slice()
-      .reverse()
-      .map(({ frontmatter }) => frontmatter),
+  //loader: () =>
+  //  blogManifest
+  //    .slice()
+  //    .reverse()
+  //    .map(({ frontmatter }) => frontmatter),
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const posts = Route.useLoaderData();
+  //const posts = Route.useLoaderData();
+  const posts = [];
 
   return (
     <ul className="prose">
