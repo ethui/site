@@ -3,6 +3,7 @@ import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/")({
   loader: () => {
+    console.log(blogManifest);
     return [];
     //blogManifest
     //  .slice()
