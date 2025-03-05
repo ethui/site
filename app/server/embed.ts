@@ -12,7 +12,7 @@ export const getOpengraphEmbedData = createServerFn({ method: "GET" })
       key: `embed-${ctx.data.url}`,
       ttl: oneWeek,
       fn: async () => {
-        const url = URL.parse(ctx.data.url);
+        const url = new URL(ctx.data.url);
 
         if (!url) {
           throw new Error("Invalid URL");
