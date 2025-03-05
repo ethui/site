@@ -17,10 +17,7 @@ interface MarkdownProps extends React.ComponentProps<"div"> { }
 
 export function Markdown({ children, className, ...props }: MarkdownProps) {
   return (
-    <div
-      className={clsx("prose max-w-full", className)}
-      {...props}
-    >
+    <div className={clsx("prose max-w-full", className)} {...props}>
       <MDXProvider components={components}>{children}</MDXProvider>
     </div>
   );
@@ -88,30 +85,31 @@ function SuspendedEmbed({ url }: { url: string }) {
 }
 
 function Embed({ url: urlStr }: { url: string }) {
-  const {
-    data: { image, title, description, url },
-  } = useSuspenseQuery({
-    queryKey: ["github-embed", urlStr],
-    queryFn: () => getOpengraphEmbedData({ data: { url: urlStr } }),
-  });
-
-  return (
-    <div className="flex flex-col items-stretch md:flex-row-reverse ">
-      <div className="aspect-16/9 shrink-0 md:w-[16rem]">
-        <img
-          src={image}
-          className="mt-0 mb-0 h-full object-cover"
-          alt={title}
-        />
-      </div>
-      <div className="hidden flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex grow">
-        <h1 className="font-bold text-base">{title}</h1>
-        <p className="line-clamp-3 font-light text-sm">{description}</p>
-        <p className="flex items-center gap-2">
-          <LinkIcon size="14" />
-          {url.host}
-        </p>
-      </div>
-    </div>
-  );
+  return "TODO";
+//const {
+//  data: { image, title, description, url },
+//} = useSuspenseQuery({
+//  queryKey: ["github-embed", urlStr],
+//  queryFn: () => getOpengraphEmbedData({ data: { url: urlStr } }),
+//});
+//
+//return (
+//  <div className="flex flex-col items-stretch md:flex-row-reverse ">
+//    <div className="aspect-16/9 shrink-0 md:w-[16rem]">
+//      <img
+//        src={image}
+//        className="mt-0 mb-0 h-full object-cover"
+//        alt={title}
+//      />
+//    </div>
+//    <div className="hidden flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex grow">
+//      <h1 className="font-bold text-base">{title}</h1>
+//      <p className="line-clamp-3 font-light text-sm">{description}</p>
+//      <p className="flex items-center gap-2">
+//        <LinkIcon size="14" />
+//        {url.host}
+//      </p>
+//    </div>
+//  </div>
+//);
 }
