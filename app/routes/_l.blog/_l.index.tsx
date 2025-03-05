@@ -3,7 +3,6 @@ import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/")({
   loader: () => {
-    console.log(blogManifest.map(({ frontmatter }) => frontmatter));
     return [];
     //blogManifest
     //  .slice()
@@ -14,7 +13,10 @@ export const Route = createFileRoute("/_l/blog/_l/")({
 });
 
 function RouteComponent() {
-  const posts = Route.useLoaderData();
+  const posts = blogManifest
+    .slice()
+    .reverse()
+    .map(({ frontmatter }) => frontmatter);
 
   return (
     <ul className="prose">
