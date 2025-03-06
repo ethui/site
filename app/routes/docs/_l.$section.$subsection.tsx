@@ -1,6 +1,6 @@
-import { MDXProvider } from "@mdx-js/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { NotFound } from "#/components/NotFound";
+import { Markdown } from "#/components/markdown";
 import { titleize } from "#/utils/titleize";
 import { docsManifest } from "./-manifest";
 
@@ -21,8 +21,8 @@ function RouteComponent() {
   }
 
   return (
-    <MDXProvider>
+    <Markdown>
       <doc.default />
-    </MDXProvider>
+    </Markdown>
   );
 }

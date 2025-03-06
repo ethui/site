@@ -1,4 +1,7 @@
+import { Button } from "@ethui/ui/components/shadcn/button";
+import { Link } from "@tanstack/react-router";
 import clsx from "clsx";
+import { BookOpen, Rss } from "lucide-react";
 import { GithubIcon } from "#/components/icons";
 import { SmoothScrollLink } from "./smooth-scroll-link";
 
@@ -28,15 +31,29 @@ export function Header({ hero = false, isVisible = true }: Props) {
         />
         <span className="ml-2 font-bold text-2xl text-gray-900">ethui</span>
       </SmoothScrollLink>
-      <nav className="ml-auto flex gap-4 sm:gap-6">
-        <a
-          href="https://github.com/ethui/ethui"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-sm underline-offset-4 hover:underline"
-        >
-          <GithubIcon className="inline h-6 w-6" />
-        </a>
+      <nav className="ml-auto flex items-center gap-2">
+        <Button variant="ghost" asChild>
+          <Link to="/blog" className="flex gap-2">
+            <BookOpen />
+            Docs
+          </Link>
+        </Button>
+        <Button variant="ghost" asChild>
+          <Link to="/blog" className="flex gap-2">
+            <Rss />
+            Blog
+          </Link>
+        </Button>
+        <Button variant="ghost" asChild size="icon">
+          <a
+            href="https://github.com/ethui/ethui"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-sm underline-offset-4 hover:underline"
+          >
+            <GithubIcon className="inline h-6 w-6" />
+          </a>
+        </Button>
       </nav>
     </header>
   );

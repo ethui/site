@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   HeadContent,
+  Outlet,
   Scripts,
   createRootRouteWithContext,
 } from "@tanstack/react-router";
@@ -8,7 +9,6 @@ import { Suspense, lazy } from "react";
 import appCss from "#/app.css?url";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import { AnimatedOutlet } from "#/components/animated-outlet";
 import { seo } from "#/utils/seo";
 
 const TanStackRouterDevtools =
@@ -76,7 +76,7 @@ function RootComponent() {
   return (
     <RootDocument>
       <QueryClientProvider client={queryClient}>
-        <AnimatedOutlet />
+        <Outlet />
       </QueryClientProvider>
     </RootDocument>
   );

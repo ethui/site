@@ -6,6 +6,7 @@ import rehypeAddClasses from "rehype-class-names";
 import rehypeExternalLinks from "rehype-external-links";
 import { rehypeGithubAlerts } from "rehype-github-alerts";
 import rehypeGithubEmoji from "rehype-github-emoji";
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
@@ -27,7 +28,7 @@ export default defineConfig({
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
         rehypePlugins: [
           rehypeSlug,
-          rehypeAutolinkHeadings,
+          [rehypeAutolinkHeadings, { behavior: "wrap" }],
 
           [rehypeAddClasses, classes],
           [
@@ -36,6 +37,7 @@ export default defineConfig({
           ],
           rehypeGithubAlerts,
           rehypeGithubEmoji,
+          rehypeMdxImportMedia,
         ],
       }),
       tailwindcss(),
