@@ -1,4 +1,4 @@
-import { createServerFn } from "@tanstack/start";
+import { createServerFn } from "@tanstack/react-start";
 import { load } from "cheerio";
 import { z } from "zod";
 import { fetchCached } from "./cache";

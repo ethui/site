@@ -1,6 +1,6 @@
 import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "@tanstack/start/config";
+import { defineConfig } from "@tanstack/react-start/config";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeAddClasses from "rehype-class-names";
 import rehypeExternalLinks from "rehype-external-links";
@@ -40,7 +40,7 @@ export default defineConfig({
           rehypeMdxImportMedia,
         ],
       }),
-      tailwindcss(),
+      ...tailwindcss(),
       tsConfigPaths({
         projects: ["./tsconfig.json"],
       }),
