@@ -61,6 +61,7 @@
     "@tailwindcss/postcss": "^4.0.8",
     "@tailwindcss/vite": "^4.0.8",
     "@tanstack/router-plugin": "^1.105.0",
+    "@types/cheerio": "^0.22.35",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",

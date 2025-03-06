@@ -44,5 +44,3 @@ export const getOpengraphEmbedData = createServerFn({ method: "GET" })
       },
     });
   });
-
-export type GithubMetadata = Awaited<ReturnType<typeof getOpengraphEmbedData>>;
