@@ -28,7 +28,7 @@ export default defineConfig({
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
         rehypePlugins: [
           rehypeSlug,
-          rehypeAutolinkHeadings,
+          [rehypeAutolinkHeadings, { behavior: "wrap" }],
 
           [rehypeAddClasses, classes],
           [
