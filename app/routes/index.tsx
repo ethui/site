@@ -156,7 +156,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-between gap-x-6">
+        <div className="mt-10 flex items-center justify-between gap-x-2">
           <span>
             <ButtonWithDropdown
               asChild
@@ -187,20 +187,15 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
           <Button variant="ghost" asChild>
             <Link to="/docs" className="flex items-center gap-x-2">
               <BookOpen className="mr-1" />
-              Read the Docs
+              Docs
             </Link>
           </Button>
 
           <Button variant="ghost" asChild>
-            <a
-              href="http://mirror.xyz/ethui.eth"
-              rel="noreferrer"
-              target="_blank"
-              className="flex items-center gap-x-2"
-            >
+            <Link to="/blog" className="flex items-center gap-x-2">
               <Rss className="mr-1" />
               Blog
-            </a>
+            </Link>
           </Button>
         </div>
 

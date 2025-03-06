@@ -18,12 +18,16 @@ import { Route as IndexImport } from './routes/index'
 import { Route as DocsIndexImport } from './routes/docs/index'
 import { Route as DocsLImport } from './routes/docs/_l'
 import { Route as DocsLNotfoundImport } from './routes/docs/_l.$notfound'
+import { Route as LBlogLImport } from './routes/_l.blog/_l'
 import { Route as LOnboardingExtensionIndexImport } from './routes/_l.onboarding/extension/index'
+import { Route as LBlogLIndexImport } from './routes/_l.blog/_l.index'
 import { Route as DocsLSectionSubsectionImport } from './routes/docs/_l.$section.$subsection'
+import { Route as LBlogLSlugImport } from './routes/_l.blog/_l.$slug'
 
 // Create Virtual Routes
 
 const DocsImport = createFileRoute('/docs')()
+const LBlogImport = createFileRoute('/_l/blog')()
 
 // Create/Update Routes
 
@@ -44,6 +48,12 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const LBlogRoute = LBlogImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => LRoute,
+} as any)
+
 const DocsIndexRoute = DocsIndexImport.update({
   id: '/',
   path: '/',
@@ -61,16 +71,33 @@ const DocsLNotfoundRoute = DocsLNotfoundImport.update({
   getParentRoute: () => DocsLRoute,
 } as any)
 
+const LBlogLRoute = LBlogLImport.update({
+  id: '/_l',
+  getParentRoute: () => LBlogRoute,
+} as any)
+
 const LOnboardingExtensionIndexRoute = LOnboardingExtensionIndexImport.update({
   id: '/onboarding/extension/',
   path: '/onboarding/extension/',
   getParentRoute: () => LRoute,
 } as any)
 
+const LBlogLIndexRoute = LBlogLIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LBlogLRoute,
+} as any)
+
 const DocsLSectionSubsectionRoute = DocsLSectionSubsectionImport.update({
   id: '/$section/$subsection',
   path: '/$section/$subsection',
   getParentRoute: () => DocsLRoute,
+} as any)
+
+const LBlogLSlugRoute = LBlogLSlugImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => LBlogLRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -112,6 +139,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsIndexImport
       parentRoute: typeof DocsImport
     }
+    '/_l/blog': {
+      id: '/_l/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof LBlogImport
+      parentRoute: typeof LImport
+    }
+    '/_l/blog/_l': {
+      id: '/_l/blog/_l'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof LBlogLImport
+      parentRoute: typeof LBlogRoute
+    }
     '/docs/_l/$notfound': {
       id: '/docs/_l/$notfound'
       path: '/$notfound'
@@ -119,12 +160,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsLNotfoundImport
       parentRoute: typeof DocsLImport
     }
+    '/_l/blog/_l/$slug': {
+      id: '/_l/blog/_l/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof LBlogLSlugImport
+      parentRoute: typeof LBlogLImport
+    }
     '/docs/_l/$section/$subsection': {
       id: '/docs/_l/$section/$subsection'
       path: '/$section/$subsection'
       fullPath: '/docs/$section/$subsection'
       preLoaderRoute: typeof DocsLSectionSubsectionImport
       parentRoute: typeof DocsLImport
+    }
+    '/_l/blog/_l/': {
+      id: '/_l/blog/_l/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof LBlogLIndexImport
+      parentRoute: typeof LBlogLImport
     }
     '/_l/onboarding/extension/': {
       id: '/_l/onboarding/extension/'
@@ -138,11 +193,36 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
+interface LBlogLRouteChildren {
+  LBlogLSlugRoute: typeof LBlogLSlugRoute
+  LBlogLIndexRoute: typeof LBlogLIndexRoute
+}
+
+const LBlogLRouteChildren: LBlogLRouteChildren = {
+  LBlogLSlugRoute: LBlogLSlugRoute,
+  LBlogLIndexRoute: LBlogLIndexRoute,
+}
+
+const LBlogLRouteWithChildren =
+  LBlogLRoute._addFileChildren(LBlogLRouteChildren)
+
+interface LBlogRouteChildren {
+  LBlogLRoute: typeof LBlogLRouteWithChildren
+}
+
+const LBlogRouteChildren: LBlogRouteChildren = {
+  LBlogLRoute: LBlogLRouteWithChildren,
+}
+
+const LBlogRouteWithChildren = LBlogRoute._addFileChildren(LBlogRouteChildren)
+
 interface LRouteChildren {
+  LBlogRoute: typeof LBlogRouteWithChildren
   LOnboardingExtensionIndexRoute: typeof LOnboardingExtensionIndexRoute
 }
 
 const LRouteChildren: LRouteChildren = {
+  LBlogRoute: LBlogRouteWithChildren,
   LOnboardingExtensionIndexRoute: LOnboardingExtensionIndexRoute,
 }
 
@@ -177,8 +257,11 @@ export interface FileRoutesByFullPath {
   '': typeof LRouteWithChildren
   '/docs': typeof DocsLRouteWithChildren
   '/docs/': typeof DocsIndexRoute
+  '/blog': typeof LBlogLRouteWithChildren
   '/docs/$notfound': typeof DocsLNotfoundRoute
+  '/blog/$slug': typeof LBlogLSlugRoute
   '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
+  '/blog/': typeof LBlogLIndexRoute
   '/onboarding/extension': typeof LOnboardingExtensionIndexRoute
 }
 
@@ -186,7 +269,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LRouteWithChildren
   '/docs': typeof DocsIndexRoute
+  '/blog': typeof LBlogLIndexRoute
   '/docs/$notfound': typeof DocsLNotfoundRoute
+  '/blog/$slug': typeof LBlogLSlugRoute
   '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
   '/onboarding/extension': typeof LOnboardingExtensionIndexRoute
 }
@@ -198,8 +283,12 @@ export interface FileRoutesById {
   '/docs': typeof DocsRouteWithChildren
   '/docs/_l': typeof DocsLRouteWithChildren
   '/docs/': typeof DocsIndexRoute
+  '/_l/blog': typeof LBlogRouteWithChildren
+  '/_l/blog/_l': typeof LBlogLRouteWithChildren
   '/docs/_l/$notfound': typeof DocsLNotfoundRoute
+  '/_l/blog/_l/$slug': typeof LBlogLSlugRoute
   '/docs/_l/$section/$subsection': typeof DocsLSectionSubsectionRoute
+  '/_l/blog/_l/': typeof LBlogLIndexRoute
   '/_l/onboarding/extension/': typeof LOnboardingExtensionIndexRoute
 }
 
@@ -210,15 +299,20 @@ export interface FileRouteTypes {
     | ''
     | '/docs'
     | '/docs/'
+    | '/blog'
     | '/docs/$notfound'
+    | '/blog/$slug'
     | '/docs/$section/$subsection'
+    | '/blog/'
     | '/onboarding/extension'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | ''
     | '/docs'
+    | '/blog'
     | '/docs/$notfound'
+    | '/blog/$slug'
     | '/docs/$section/$subsection'
     | '/onboarding/extension'
   id:
@@ -228,8 +322,12 @@ export interface FileRouteTypes {
     | '/docs'
     | '/docs/_l'
     | '/docs/'
+    | '/_l/blog'
+    | '/_l/blog/_l'
     | '/docs/_l/$notfound'
+    | '/_l/blog/_l/$slug'
     | '/docs/_l/$section/$subsection'
+    | '/_l/blog/_l/'
     | '/_l/onboarding/extension/'
   fileRoutesById: FileRoutesById
 }
@@ -267,6 +365,7 @@ export const routeTree = rootRoute
     "/_l": {
       "filePath": "_l.tsx",
       "children": [
+        "/_l/blog",
         "/_l/onboarding/extension/"
       ]
     },
@@ -289,13 +388,36 @@ export const routeTree = rootRoute
       "filePath": "docs/index.tsx",
       "parent": "/docs"
     },
+    "/_l/blog": {
+      "filePath": "_l.blog",
+      "parent": "/_l",
+      "children": [
+        "/_l/blog/_l"
+      ]
+    },
+    "/_l/blog/_l": {
+      "filePath": "_l.blog/_l.tsx",
+      "parent": "/_l/blog",
+      "children": [
+        "/_l/blog/_l/$slug",
+        "/_l/blog/_l/"
+      ]
+    },
     "/docs/_l/$notfound": {
       "filePath": "docs/_l.$notfound.tsx",
       "parent": "/docs/_l"
     },
+    "/_l/blog/_l/$slug": {
+      "filePath": "_l.blog/_l.$slug.tsx",
+      "parent": "/_l/blog/_l"
+    },
     "/docs/_l/$section/$subsection": {
       "filePath": "docs/_l.$section.$subsection.tsx",
       "parent": "/docs/_l"
+    },
+    "/_l/blog/_l/": {
+      "filePath": "_l.blog/_l.index.tsx",
+      "parent": "/_l/blog/_l"
     },
     "/_l/onboarding/extension/": {
       "filePath": "_l.onboarding/extension/index.tsx",
