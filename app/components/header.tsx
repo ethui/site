@@ -1,9 +1,9 @@
+import { Button } from "@ethui/ui/components/shadcn/button";
+import { Link } from "@tanstack/react-router";
 import clsx from "clsx";
+import { BookOpen, Rss } from "lucide-react";
 import { GithubIcon } from "#/components/icons";
 import { SmoothScrollLink } from "./smooth-scroll-link";
-import { BookOpen, Rss } from "lucide-react";
-import { Link } from "@tanstack/react-router";
-import { Button } from "@ethui/ui/components/shadcn/button";
 
 interface Props {
   hero?: boolean;

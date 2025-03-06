@@ -1,9 +1,9 @@
 import { MDXProvider } from "@mdx-js/react";
-import { Link as LinkIcon, LoaderCircle } from "lucide-react";
-import clsx from "clsx";
-import { getOpengraphEmbedData } from "#/server/embed";
-import { Suspense } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import clsx from "clsx";
+import { Link as LinkIcon, LoaderCircle } from "lucide-react";
+import { Suspense } from "react";
+import { getOpengraphEmbedData } from "#/server/embed";
 
 const components = {
   Image,
@@ -13,14 +13,11 @@ const components = {
   Embed: SuspendedEmbed,
 };
 
-interface MarkdownProps extends React.ComponentProps<"div"> { }
+interface MarkdownProps extends React.ComponentProps<"div"> {}
 
 export function Markdown({ children, className, ...props }: MarkdownProps) {
   return (
-    <div
-      className={clsx("prose max-w-full", className)}
-      {...props}
-    >
+    <div className={clsx("prose max-w-full", className)} {...props}>
       <MDXProvider components={components}>{children}</MDXProvider>
     </div>
   );
@@ -104,7 +101,7 @@ function Embed({ url: urlStr }: { url: string }) {
           alt={title}
         />
       </div>
-      <div className="hidden flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex grow">
+      <div className="hidden grow flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex">
         <h1 className="font-bold text-base">{title}</h1>
         <p className="line-clamp-3 font-light text-sm">{description}</p>
         <p className="flex items-center gap-2">

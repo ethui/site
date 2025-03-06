@@ -1,6 +1,6 @@
-import { Markdown } from "#/components/markdown";
 import { createFileRoute } from "@tanstack/react-router";
 import { NotFound } from "#/components/NotFound";
+import { Markdown } from "#/components/markdown";
 import { titleize } from "#/utils/titleize";
 import { docsManifest } from "./-manifest";
 

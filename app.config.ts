@@ -1,4 +1,3 @@
-import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "@tanstack/start/config";
@@ -7,6 +6,7 @@ import rehypeAddClasses from "rehype-class-names";
 import rehypeExternalLinks from "rehype-external-links";
 import { rehypeGithubAlerts } from "rehype-github-alerts";
 import rehypeGithubEmoji from "rehype-github-emoji";
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";

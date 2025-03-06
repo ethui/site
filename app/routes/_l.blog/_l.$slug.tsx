@@ -1,7 +1,7 @@
-import { NotFound } from "#/components/NotFound";
 import { createFileRoute } from "@tanstack/react-router";
-import { blogManifest } from "./-manifest";
+import { NotFound } from "#/components/NotFound";
 import { Markdown } from "#/components/markdown";
+import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/$slug")({
   component: RouteComponent,
