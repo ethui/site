@@ -17,6 +17,7 @@ updates:
       tanstack-start:
         patterns:
           - "@tanstack/start"
+          - "@tanstack/react-start"
           - "@tanstack/router-devtools"
           - "@tanstack/router-plugin"
           - "@tanstack/react-router"

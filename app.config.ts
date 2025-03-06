@@ -40,7 +40,7 @@ export default defineConfig({
           rehypeMdxImportMedia,
         ],
       }),
-      tailwindcss(),
+      ...tailwindcss(),
       tsConfigPaths({
         projects: ["./tsconfig.json"],
       }),
