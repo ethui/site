@@ -1078,7 +1078,7 @@ __metadata:
     remark-frontmatter: "npm:^5.0.0"
     remark-mdx-frontmatter: "npm:^5.0.0"
     rollup: "npm:^4.36.0"
-    simple-icons: "npm:^14.10.0"
+    simple-icons: "npm:^14.11.0"
     tailwind-merge: "npm:^3.0.2"
     tailwindcss: "npm:^4.0.11"
     titleize: "npm:^4.0.0"
@@ -11787,10 +11787,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-icons@npm:^14.10.0":
-  version: 14.10.0
-  resolution: "simple-icons@npm:14.10.0"
-  checksum: 10c0/a19b16ceb4bbd3f70b579bd2d7b346b68b5859285a3f669e8a8454562571f68a55874e92bc7e8b32082d26ca4b08cfcfcea940802da344ac73b7738bbac2a0d7
+"simple-icons@npm:^14.11.0":
+  version: 14.11.0
+  resolution: "simple-icons@npm:14.11.0"
+  checksum: 10c0/b2fb4bf66ba4efa42449630e4312ec428b5ea3671e8c28fb677ba00420cc45bad30137aa5a08462560d6df3a179aff48b00edba082ce6678becf5bfb97f145b8
   languageName: node
   linkType: hard
 
