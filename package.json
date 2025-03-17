@@ -73,7 +73,7 @@
     "motion": "^12.4.7",
     "postcss": "^8.5.3",
     "rehype-external-links": "^3.0.0",
-    "rollup": "^4.35.0",
+    "rollup": "^4.36.0",
     "tailwindcss": "^4.0.11",
     "ts-unused-exports": "^11.0.1",
     "tsc": "^2.0.4",
