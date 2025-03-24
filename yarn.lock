@@ -1076,7 +1076,7 @@ __metadata:
     rehype-mdx-import-media: "npm:^1.2.0"
     rehype-slug: "npm:^6.0.0"
     remark-frontmatter: "npm:^5.0.0"
-    remark-mdx-frontmatter: "npm:^5.0.0"
+    remark-mdx-frontmatter: "npm:^5.1.0"
     rollup: "npm:^4.36.0"
     simple-icons: "npm:^14.11.0"
     tailwind-merge: "npm:^3.0.2"
@@ -11260,17 +11260,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-mdx-frontmatter@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "remark-mdx-frontmatter@npm:5.0.0"
+"remark-mdx-frontmatter@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "remark-mdx-frontmatter@npm:5.1.0"
   dependencies:
     "@types/mdast": "npm:^4.0.0"
-    estree-util-is-identifier-name: "npm:^3.0.0"
     estree-util-value-to-estree: "npm:^3.0.0"
     toml: "npm:^3.0.0"
     unified: "npm:^11.0.0"
+    unist-util-mdx-define: "npm:^1.0.0"
     yaml: "npm:^2.0.0"
-  checksum: 10c0/fba25d087b09135231826820afbc9de2f80850ede362b5435246774c204e0de892250165c8de7c313803470073285621ce11d7b8bf7515a4f9164688294119d7
+  checksum: 10c0/5ec696031c35c3bc7f87b863eace10036d811b21d49562b8e9965f328c34fbb275100cad042ee7d15b179826dfd1739ca0b66aeb6ecdcbbba01995b96693e37e
   languageName: node
   linkType: hard
 
@@ -12629,6 +12629,21 @@ __metadata:
   dependencies:
     "@types/unist": "npm:^3.0.0"
   checksum: 10c0/9419352181eaa1da35eca9490634a6df70d2217815bb5938a04af3a662c12c5607a2f1014197ec9c426fbef18834f6371bfdb6f033040fa8aa3e965300d70e7e
+  languageName: node
+  linkType: hard
+
+"unist-util-mdx-define@npm:^1.0.0":
+  version: 1.1.1
+  resolution: "unist-util-mdx-define@npm:1.1.1"
+  dependencies:
+    "@types/estree": "npm:^1.0.0"
+    "@types/hast": "npm:^3.0.0"
+    "@types/mdast": "npm:^4.0.0"
+    estree-util-is-identifier-name: "npm:^3.0.0"
+    estree-util-scope: "npm:^1.0.0"
+    estree-walker: "npm:^3.0.0"
+    vfile: "npm:^6.0.0"
+  checksum: 10c0/93a7d94d2fc6e06e89ad2b048db450ec87498c587e151bc56a40622e5bd52f4d95e821c8f28f589031f9d1ecddd93411f612350596127e2fc4b1ffab654c5041
   languageName: node
   linkType: hard
 
