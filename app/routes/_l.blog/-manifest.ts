@@ -10,4 +10,5 @@ export const blogManifest = [
   await import("#/blog/09-ethui-1.6-a-new-beginning/index.mdx"),
   await import("#/blog/10-ethui-1.7-forms/index.mdx"),
   await import("#/blog/11-ethui-1.13-were-back/index.mdx"),
+  await import("#/blog/12-ethui-1.14/index.mdx"),
 ];
