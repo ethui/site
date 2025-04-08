@@ -7,31 +7,40 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 5
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
     groups:
       tanstack-start:
         patterns:
-          - "@tanstack/react-start"
-          - "@tanstack/router-devtools"
-          - "@tanstack/router-plugin"
-          - "@tanstack/react-router"
+          - "@tanstack/*"
+          - "vinxi"
+          - "vite"
+          - "vite-*"
       react:
         patterns:
           - "react"
           - "react-dom"
           - "@types/react"
           - "@types/react-dom"
+      tailwind:
+        patterns:
+          - "*tailwind*"
+          - "*postcss*"
       wevm:
         patterns:
           - "*wagmi*"
           - "*viem*"
+          - "@rainbow-me/*"
       css:
         patterns:
           - "*tailwind*"
           - "*postcss*"
           - "*autoprefixer*"
+      markdown:
+        patterns:
+          - "*remark*"
+          - "*rehype*"
