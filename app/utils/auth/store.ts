@@ -81,7 +81,7 @@ export const useAuthStore = () => {
       setState((prev) => ({
         ...prev,
         loading: false,
-        step: "verification",
+        step: "send-code",
         email,
       }));
     } catch (error) {

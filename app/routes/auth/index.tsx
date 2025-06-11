@@ -1,18 +1,22 @@
-import { Alert, AlertDescription } from "@ethui/ui/components/shadcn/alert";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { useAuthStore } from "#/utils/auth/store";
 import { Button } from "@ethui/ui/components/shadcn/button";
+import { Input } from "@ethui/ui/components/shadcn/input";
+import { Label } from "@ethui/ui/components/shadcn/label";
+import { Form } from "@ethui/ui/components/form";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@ethui/ui/components/shadcn/card";
-import { Input } from "@ethui/ui/components/shadcn/input";
-import { Label } from "@ethui/ui/components/shadcn/label";
-import { createFileRoute } from "@tanstack/react-router";
+import { Alert, AlertDescription } from "@ethui/ui/components/shadcn/alert";
 import { CheckCircle, Copy, LogOut } from "lucide-react";
-import { useState } from "react";
-import { useAuthStore } from "#/utils/auth/store";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 export const Route = createFileRoute("/auth/")({
   component: AuthPage,
@@ -37,11 +41,9 @@ function AuthPage() {
   const [emailInput, setEmailInput] = useState(email);
   const [codeInput, setCodeInput] = useState(code);
 
-  const handleSendCode = async (e: React.FormEvent) => {
-    console.log("sending");
-    e.preventDefault();
-    if (!emailInput.trim()) return;
-    await sendCode(emailInput.trim());
+  const handleSendCode = async (email: string) => {
+    if (email) return;
+    await sendCode(email);
   };
 
   const handleVerifyCode = async (e: React.FormEvent) => {
@@ -63,9 +65,9 @@ function AuthPage() {
   };
 
   return (
-    <div className="container flex flex-col items-center justify-center py-12">
+    <div className="flex  items-center justify-center h-screen">
       <div className="mx-auto w-full max-w-md">
-        <CardHeader className="text-center">
+        <div className="text-center">
           <CardTitle className="text-2xl">Authentication</CardTitle>
           <CardDescription>
             {step === "email" &&
@@ -74,9 +76,9 @@ function AuthPage() {
               "Enter the 6-digit code sent to your email"}
             {step === "authenticated" && "Successfully authenticated"}
           </CardDescription>
-        </CardHeader>
+        </div>
 
-        <Card className="mt-6">
+        <div className="mt-6">
           <CardContent className="pt-6">
             {error && (
               <Alert variant="destructive" className="mb-6">
@@ -84,32 +86,8 @@ function AuthPage() {
               </Alert>
             )}
 
-            {step === "email" && (
-              <form onSubmit={handleSendCode} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email address</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    value={emailInput}
-                    onChange={handleEmailChange}
-                    placeholder="Enter your email address"
-                    disabled={loading}
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={loading || !emailInput.trim()}
-                >
-                  {loading ? "Sending..." : "Send Code"}
-                </Button>
-              </form>
-            )}
+            {step === "email" && <EmailForm />}
+            {step === "verification" && <VerificationForm />}
 
             {step === "verification" && (
               <div className="space-y-6">
@@ -187,7 +165,7 @@ function AuthPage() {
                       rows={8}
                       value={token}
                       readOnly
-                      className="h-32 resize-none break-all font-mono"
+                      className="font-mono h-32 resize-none break-all"
                     />
                   </div>
                   <CardDescription className="text-xs">
@@ -218,8 +196,98 @@ function AuthPage() {
               </div>
             )}
           </CardContent>
-        </Card>
+        </div>
       </div>
+    </div>
+  );
+}
+
+function EmailForm() {
+  const { setEmail, sendCode } = useAuthStore();
+
+  const schema = z.object({
+    email: z.string().email(),
+  });
+
+  type Schema = z.infer<typeof schema>;
+
+  const form = useForm<Schema>({
+    mode: "onChange",
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = async (values) => {
+    console.log("sending");
+    sendCode(values.email.trim());
+    setEmail(values.email.trim());
+  };
+
+  return (
+    <Form form={form} onSubmit={onSubmit} className="space-y-6">
+      <div className="space-y-2">
+        <Label htmlFor="email">Email address</Label>
+        <Form.Text label="Enter your email address" name="email" />
+      </div>
+
+      <Form.Submit label="Send code" className="cursor-pointer" />
+    </Form>
+  );
+}
+
+function VerificationForm() {
+  const { email, verifyCode, goBackToEmail } = useAuthStore();
+  const onSubmit = async (values) => {
+    console.log("sending");
+    verifyCode(email, values.code.trim());
+  };
+
+  return (
+    <div className="space-y-6">
+      <CardDescription>
+        A verification code has been sent to: <strong>{email}</strong>
+      </CardDescription>
+
+      <form onSubmit={onSubmit} className="space-y-6">
+        <div className="space-y-2">
+          <Label htmlFor="code">Verification Code</Label>
+          <Input
+            id="code"
+            name="code"
+            type="text"
+            required
+            maxLength={6}
+            pattern="[0-9]{6}"
+            value={codeInput}
+            onChange={handleCodeChange}
+            className="text-center text-lg tracking-widest"
+            placeholder="123456"
+            disabled={loading}
+          />
+          <CardDescription className="text-xs">
+            Enter the 6-digit code sent to your email
+          </CardDescription>
+        </div>
+
+        <div className="space-y-3">
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={loading || !codeInput.trim() || codeInput.length !== 6}
+          >
+            {loading ? "Verifying..." : "Verify Code"}
+          </Button>
+
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            onClick={goBackToEmail}
+            disabled={loading}
+          >
+            Change Email Address
+          </Button>
+        </div>
+      </form>
     </div>
   );
 }
