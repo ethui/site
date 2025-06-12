@@ -1,6 +1,8 @@
 {
   "files": {
     "ignore": [
+      "build",
+      "node_modules",
       "**/*.gen.ts",
       "*.generated.ts",
       ".vercel",
