@@ -1,0 +1,19 @@
+@import "@ethui/ui/tailwind.css";
+@import "@rainbow-me/rainbowkit/styles.css";
+@import "../../node_modules/rehype-github-alerts/dist/styling/css/index.css";
+@plugin "@tailwindcss/typography";
+@source "../../node_modules/@ethui/ui";
+
+/* mobile-friendly margins for prose elements */
+@layer utilities {
+  .prose {
+    p:not(:has(img)),
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      @apply px-4;
+    }
+  }
+}
