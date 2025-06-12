@@ -145,7 +145,7 @@ function Authenticated() {
             Authentication Successful
           </span>
           <span className="text-green-700">
-            You have been successfully authenticated for:{" "}
+            You have been successfully authenticated as:{" "}
             <strong>{email}</strong>
           </span>
         </AlertDescription>
