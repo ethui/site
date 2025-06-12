@@ -1,0 +1,61 @@
+---
+title: ethui 0.2.0 – UI level up
+slug: ethui-0.2.0-ui-level-up
+---
+
+
+import alias from './alias.mp4';
+import kbar from './kbar.mp4';
+import json_keystore from './json-keystore.mp4';
+
+![banner](./banner.png)
+
+# ethui 0.2.0 – UI level up
+
+Gm.
+
+Around a week after the first public release, here’s a new batch of updates. This time, the focus is a significantly improved UI, but there are also some interesting updates regarding secure wallets.
+
+<Embed url="https://github.com/iron-wallet/iron/releases/tag/v0.2.1" />
+
+## Address Aliases
+
+You can now right-click any address and assign it an alias. This should greatly improve readability, and help you understand which accounts or contracts you’re interacting with. ([\#203](#203))
+
+<Video src={alias} />
+
+## Command Bar
+
+`Ctrl+K` will likely be the main navigation tool within the app. Quick network & account switching is now a breeze. ([\#182](https://github.com/iron-wallet/iron/pull/182), [\#207](https://github.com/iron-wallet/iron/pull/207))
+
+<Video src={kbar} />
+
+## Secure wallets (JSON Keystore)
+
+The initial release only supported a single wallet type: a plaintext mnemonic, meant purely for testing purposes and not fit for storing actual funds.
+
+Two steps were missing to enable asset security and confidence when interacting with mainnet: secure wallets, and an external indexer.
+
+This is the first step towards that. While JSON Keystores are not the most popular, they’re a solid foundation on the way to broader support. Having this means we now have first-class support for multiple types of wallets (essential for good abstractions), proper logic for handling wallet unlock through dialogs, and a lot of the foundations needed to properly store secrets in memory (more on this in a future, more technical, blog post).
+
+<Video src={json_keystore} />
+
+## Copy to clipboard
+
+A small but effective detail. Clicking on various elements (addresses, ETH amounts, transaction hashes, …) will now copy its raw value to your clipboard.
+
+## Viem & smaller bundle
+
+We migrated from [ethers.js](https://docs.ethers.org/v5/) to the newer [viem.sh](https://viem.sh/). This significantly reduces the UI’s bundle size of the UI build. ([\#204](https://github.com/iron-wallet/iron/pull/204), [\#205](https://github.com/iron-wallet/iron/pull/205)).
+
+## What’s next
+
+Here are some of the main highlights of what we’re already working on:
+
+* mainnet data indexing. initially through [alchemy.com](https://www.alchemy.com/) but other providers to come later
+
+* Support for encrypted mnemonic wallets
+
+* A proper logo
+
+All updates will be done via [Mirror](https://mirror.xyz/iron-wallet.eth) and [Github](https://github.com/iron-wallet/iron), so keep an eye out, and feel free to create issues if anything comes up!

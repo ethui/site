@@ -1,0 +1,19 @@
+---
+title: Plaintext
+slug: plaintext
+---
+
+# Plaintext
+
+The `Plaintext` stores a 12 or 15-word mnenomnic, much like [`hdwallet`](/docs/wallets/hdwallet), but without any encryption.
+
+> [!WARNING]
+> Do not use this with a mnemonic that holds real funds. Your funds will not be safe.
+
+## Why?
+
+It's a fairly common practice for developers to keep a mnemonic purely for testing purposes (local development, or interacting with testnets). In fact, the default wallet created when you first boot ethui is of this exact type, and you may recongize it if you ever used anvil:
+
+```
+test test test test test test test test test test test junk
+```

@@ -1,0 +1,22 @@
+---
+title: Fast Mode
+slug: fast-mode
+---
+
+import videoFast from "../../assets/videos/ethui-fast-mode.webm";
+
+# Fast mode
+
+When using an anvil-based chain, ethui allows for a faster approach to submitting transactions, enabled through the `Fast Mode` toggle on the sidebar.
+This allows ethui to skip transaction dialogs and private key decryption and directly submit an unsigned transaction to the chain.
+
+
+<video loop controls className="aspect-16/9 cursor-pointer" >
+  <source src={videoFast} type="video/webm" />
+</video>
+
+## Why?
+
+This is one of many improvements that enables much faster feedback loops when building a full-stack application.
+
+The ability to quickly iterate and see real-time feedback of a user's actions is critical for a good development workflow.
