@@ -5,8 +5,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import { authConfig, makeApiRequest } from "#/utils/auth/config";
 import { AUTH_STORAGE_KEY } from "#/utils/auth/api";
+import { authConfig, makeApiRequest } from "#/utils/auth/config";
 
 export type AuthStep = "email" | "verification" | "authenticated";
 
