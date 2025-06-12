@@ -14,6 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LRouteImport } from './routes/_l'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DocsIndexRouteImport } from './routes/docs/index'
+import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as DocsLRouteImport } from './routes/docs/_l'
 import { Route as DocsLNotfoundRouteImport } from './routes/docs/_l.$notfound'
 import { Route as LBlogLRouteImport } from './routes/_l.blog/_l'
@@ -48,6 +49,11 @@ const DocsIndexRoute = DocsIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DocsRoute,
+} as any)
+const AuthIndexRoute = AuthIndexRouteImport.update({
+  id: '/auth/',
+  path: '/auth/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DocsLRoute = DocsLRouteImport.update({
   id: '/_l',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LRouteWithChildren
   '/docs': typeof DocsLRouteWithChildren
+  '/auth': typeof AuthIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/blog': typeof LBlogLRouteWithChildren
   '/docs/$notfound': typeof DocsLNotfoundRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LRouteWithChildren
   '/docs': typeof DocsIndexRoute
+  '/auth': typeof AuthIndexRoute
   '/blog': typeof LBlogLIndexRoute
   '/docs/$notfound': typeof DocsLNotfoundRoute
   '/blog/$slug': typeof LBlogLSlugRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/_l': typeof LRouteWithChildren
   '/docs': typeof DocsRouteWithChildren
   '/docs/_l': typeof DocsLRouteWithChildren
+  '/auth/': typeof AuthIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/_l/blog': typeof LBlogRouteWithChildren
   '/_l/blog/_l': typeof LBlogLRouteWithChildren
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/docs'
+    | '/auth'
     | '/docs/'
     | '/blog'
     | '/docs/$notfound'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/docs'
+    | '/auth'
     | '/blog'
     | '/docs/$notfound'
     | '/blog/$slug'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/_l'
     | '/docs'
     | '/docs/_l'
+    | '/auth/'
     | '/docs/'
     | '/_l/blog'
     | '/_l/blog/_l'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LRoute: typeof LRouteWithChildren
   DocsRoute: typeof DocsRouteWithChildren
+  AuthIndexRoute: typeof AuthIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -202,6 +215,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/docs/'
       preLoaderRoute: typeof DocsIndexRouteImport
       parentRoute: typeof DocsRoute
+    }
+    '/auth/': {
+      id: '/auth/'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/docs/_l': {
       id: '/docs/_l'
@@ -318,6 +338,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LRoute: LRouteWithChildren,
   DocsRoute: DocsRouteWithChildren,
+  AuthIndexRoute: AuthIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
