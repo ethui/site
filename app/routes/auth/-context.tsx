@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { authConfig, makeApiRequest } from "#/utils/auth/config";
+import { AUTH_STORAGE_KEY } from "#/utils/auth/api";
 
 export type AuthStep = "email" | "verification" | "authenticated";
 
@@ -26,8 +27,6 @@ export interface AuthCallbacks {
 
 type AuthContextT = AuthState & AuthCallbacks;
 
-const STORAGE_KEY = "ethui_auth_token";
-
 const AuthContext = createContext<AuthContextT | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -43,12 +42,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // Initialize from localStorage on mount with token validation
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedToken = localStorage.getItem(STORAGE_KEY);
+      const savedToken = localStorage.getItem(AUTH_STORAGE_KEY);
       if (savedToken) {
         // Check if token is expired
         if (isTokenExpired(savedToken)) {
           // Remove expired token
-          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(AUTH_STORAGE_KEY);
           setState((prev: AuthState) => ({
             ...prev,
             token: null,

@@ -1,4 +1,4 @@
-const STORAGE_KEY = "ethui_auth_token";
+export const AUTH_STORAGE_KEY = "ethui_auth_token";
 
 export const getStoredToken = (): string | null => {
   if (typeof window === "undefined") return null;
