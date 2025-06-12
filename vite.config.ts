@@ -1,6 +1,5 @@
 import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeAddClasses from "rehype-class-names";
@@ -11,6 +10,7 @@ import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 const classes = {
