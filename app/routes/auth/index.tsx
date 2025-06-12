@@ -139,11 +139,13 @@ function Authenticated() {
   return (
     <div className="space-y-6">
       <Alert className="border-green-200 bg-green-50">
-        <CheckCircle className="h-4 w-4 text-green-600" />
         <AlertDescription className="flex flex-col space-y-2">
-          <span className="font-medium text-green-800">
-            Authentication Successful
-          </span>
+          <div className="flex flex-row items-center gap-2">
+            <CheckCircle className="h-4 w-4 text-green-600" />
+            <span className="font-medium text-green-800">
+              Authentication Successful
+            </span>
+          </div>
           <span className="text-green-700">
             You have been successfully authenticated as:{" "}
             <strong>{email}</strong>
