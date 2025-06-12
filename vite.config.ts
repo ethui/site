@@ -18,7 +18,6 @@ const classes = {
 };
 
 export default defineConfig({
-  esbuild: { supported: { "top-level-await": true } },
   plugins: [
     tsConfigPaths({
       projects: ["./tsconfig.json"],
