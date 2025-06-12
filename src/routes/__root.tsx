@@ -6,9 +6,7 @@ import {
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { Suspense, lazy } from "react";
-// import "./app.css";
-// import appCss from "../../app.css?url";
-// console.log(appCss);
+import appCss from "#/styles/app.css?url";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
 import { seo } from "#/utils/seo";
@@ -45,7 +43,7 @@ export const Route = createRootRouteWithContext<RouteContext>()({
       }),
     ],
     links: [
-      // { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: appCss },
       {
         rel: "apple-touch-icon",
         sizes: "180x180",

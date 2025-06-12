@@ -18,36 +18,28 @@ const classes = {
 };
 
 export default defineConfig({
+  esbuild: { supported: { "top-level-await": true } },
   plugins: [
-    tanstackStart({
-      // : "vercel",
-      // esbuild: { options: { supported: { "top-level-await": true } } },
-    }),
-    mdx({
-      providerImportSource: "@mdx-js/react",
-      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-      rehypePlugins: [
-        rehypeSlug,
-        [rehypeAutolinkHeadings, { behavior: "wrap" }],
-
-        [rehypeAddClasses, classes],
-        [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
-        rehypeGithubAlerts,
-        rehypeGithubEmoji,
-        rehypeMdxImportMedia,
-      ],
-    }),
-    tailwindcss(),
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    {
-      name: "fix-css-parsing",
-      enforce: "pre",
-      transform(code, id) {
-        console.log(id);
-        if (id.match(/\.css/)) return null;
-      },
-    },
+    // mdx({
+    //   providerImportSource: "@mdx-js/react",
+    //   remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+    //   rehypePlugins: [
+    //     rehypeSlug,
+    //     [rehypeAutolinkHeadings, { behavior: "wrap" }],
+    //
+    //     [rehypeAddClasses, classes],
+    //     [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
+    //     rehypeGithubAlerts,
+    //     rehypeGithubEmoji,
+    //     rehypeMdxImportMedia,
+    //   ],
+    // }),
+    tanstackStart({
+      target: "vercel",
+    }),
+    tailwindcss(),
   ],
 });

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router"
 import { NotFound } from "#/components/NotFound";
 import { Markdown } from "#/components/markdown";
 import { blogManifest } from "./-manifest";

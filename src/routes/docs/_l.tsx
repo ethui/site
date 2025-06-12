@@ -1,8 +1,8 @@
+import { createFileRoute } from "@tanstack/react-router"
 import {
   SidebarInset,
   SidebarProvider,
 } from "@ethui/ui/components/shadcn/sidebar";
-import { createFileRoute } from "@tanstack/react-router";
 import { AnimatedOutlet } from "#/components/animated-outlet";
 import { DocsHeader } from "./-header";
 import { DocsSidebar } from "./-sidebar";
