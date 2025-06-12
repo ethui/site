@@ -23,20 +23,20 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    // mdx({
-    //   providerImportSource: "@mdx-js/react",
-    //   remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-    //   rehypePlugins: [
-    //     rehypeSlug,
-    //     [rehypeAutolinkHeadings, { behavior: "wrap" }],
-    //
-    //     [rehypeAddClasses, classes],
-    //     [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
-    //     rehypeGithubAlerts,
-    //     rehypeGithubEmoji,
-    //     rehypeMdxImportMedia,
-    //   ],
-    // }),
+    mdx({
+      providerImportSource: "@mdx-js/react",
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: "wrap" }],
+
+        [rehypeAddClasses, classes],
+        [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
+        rehypeGithubAlerts,
+        rehypeGithubEmoji,
+        rehypeMdxImportMedia,
+      ],
+    }),
     tanstackStart({
       target: "vercel",
     }),
