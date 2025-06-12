@@ -2,12 +2,12 @@ export const AUTH_STORAGE_KEY = "ethui_auth_token";
 
 export const getStoredToken = (): string | null => {
   if (typeof window === "undefined") return null;
-  return localStorage.getItem(STORAGE_KEY);
+  return localStorage.getItem(AUTH_STORAGE_KEY);
 };
 
 export const clearStoredToken = (): void => {
   if (typeof window === "undefined") return;
-  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(AUTH_STORAGE_KEY);
 };
 
 export const makeAuthenticatedRequest = async (

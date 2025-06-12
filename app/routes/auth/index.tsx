@@ -105,7 +105,7 @@ function VerificationForm() {
         <Form.NumberField
           label="Verification Code"
           name="code"
-          className="w-full text-center text-lg"
+          className="w-full text-lg"
           disabled={loading}
         />
 

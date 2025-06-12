@@ -104,6 +104,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         code,
       });
       const token = result.token;
+      console.log("token", token);
 
       // Validate token before saving
       if (isTokenExpired(token)) {
@@ -112,7 +113,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       // Save token to localStorage
       if (typeof window !== "undefined") {
-        localStorage.setItem(STORAGE_KEY, token);
+        localStorage.setItem(AUTH_STORAGE_KEY, token);
       }
 
       setState((prev) => ({
