@@ -20,10 +20,10 @@
     "@mdx-js/react": "^3.1.0",
     "@rainbow-me/rainbowkit": "^2.2.4",
     "@tailwindcss/typography": "^0.5.16",
-    "@tanstack/react-query": "^5.80.7",
-    "@tanstack/react-router": "^1.121.2",
-    "@tanstack/react-start": "^1.121.4",
-    "@tanstack/router-devtools": "^1.121.5",
+    "@tanstack/react-query": "^5.72.0",
+    "@tanstack/react-router": "^1.115.2",
+    "@tanstack/router-devtools": "^1.115.2",
+    "@tanstack/start": "^1.111.10",
     "autoprefixer": "^10.4.20",
     "cheerio": "^1.0.0",
     "clsx": "^2.1.1",
@@ -50,7 +50,7 @@
     "tailwindcss": "4.0.11",
     "titleize": "^4.0.0",
     "viem": "^2.30.5",
-    "vinxi": "0.5.3",
+    "vinxi": "0.5.7",
     "vite-tsconfig-paths": "^5.1.4",
     "wagmi": "^2.15.1",
     "zod": "^3.25.46"
@@ -78,7 +78,7 @@
     "ts-unused-exports": "^11.0.1",
     "tsc": "^2.0.4",
     "typescript": "^5.8.2",
-    "vite": "^6.2.0",
+    "vite": "^6.3.5",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "packageManager": "yarn@4.7.0"
