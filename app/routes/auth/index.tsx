@@ -137,7 +137,7 @@ function Authenticated() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Alert className="border-green-200 bg-green-50">
         <AlertDescription className="flex flex-col space-y-2">
           <div className="flex flex-row items-center gap-2">
@@ -160,11 +160,8 @@ function Authenticated() {
           className="relative cursor-pointer text-left"
           onClick={copy}
         >
-          <div className="h-32 resize-none break-all font-mono">{token}</div>
+          <div className="break-all font-mono">{token}</div>
         </button>
-        <CardDescription className="text-xs">
-          This token can be used for API authentication
-        </CardDescription>
       </div>
       {error && (
         <Alert variant="destructive" className="mb-6">
@@ -172,7 +169,7 @@ function Authenticated() {
         </Alert>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         <Button type="button" className="w-full cursor-pointer" onClick={copy}>
           <Copy className="mr-2 h-4 w-4" />
           {btnText}

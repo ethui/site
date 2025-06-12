@@ -1,6 +1,6 @@
 export const getAuthServerUrl = (): string => {
   // Use the globally defined auth server URL from build time
-  return (globalThis as any).__STACKS_SERVER_URL__ || "http://api.lvh.me:4000";
+  return (globalThis as any).STACKS_SERVER_URL || "http://api.lvh.me:4000";
 };
 
 export const authConfig = {
