@@ -1,18 +1,18 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { createFileRoute } from "@tanstack/react-router";
-import { Button } from "@ethui/ui/components/shadcn/button";
 import { Form } from "@ethui/ui/components/form";
+import { Alert, AlertDescription } from "@ethui/ui/components/shadcn/alert";
+import { Button } from "@ethui/ui/components/shadcn/button";
 import {
   CardContent,
-  CardTitle,
   CardDescription,
+  CardTitle,
 } from "@ethui/ui/components/shadcn/card";
-import { Alert, AlertDescription } from "@ethui/ui/components/shadcn/alert";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle, Copy } from "lucide-react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { AuthProvider, useAuth } from "./-context";
-import { useState } from "react";
 
 export const Route = createFileRoute("/auth/")({
   component: () => (

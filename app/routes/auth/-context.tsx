@@ -1,4 +1,3 @@
-import { authConfig, makeApiRequest } from "#/utils/auth/config";
 import {
   createContext,
   useCallback,
@@ -6,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { authConfig, makeApiRequest } from "#/utils/auth/config";
 
 export type AuthStep = "email" | "verification" | "authenticated";
 
@@ -73,31 +73,28 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setState((prev) => ({ ...prev, error, loading: false }));
   }, []);
 
-  const sendCode = useCallback(
-    async (email: string) => {
-      setState((prev) => ({ ...prev, loading: true, error: null }));
+  const sendCode = useCallback(async (email: string) => {
+    setState((prev) => ({ ...prev, loading: true, error: null }));
 
-      try {
-        await makeApiRequest(authConfig.endpoints.sendCode, { email });
-        setState((prev) => ({
-          ...prev,
-          loading: false,
-          step: "verification",
-          email,
-        }));
-      } catch (error) {
-        setState((prev) => ({
-          ...prev,
-          loading: false,
-          error:
-            error instanceof Error
-              ? error.message
-              : "Failed to send verification code",
-        }));
-      }
-    },
-    [state],
-  );
+    try {
+      await makeApiRequest(authConfig.endpoints.sendCode, { email });
+      setState((prev) => ({
+        ...prev,
+        loading: false,
+        step: "verification",
+        email,
+      }));
+    } catch (error) {
+      setState((prev) => ({
+        ...prev,
+        loading: false,
+        error:
+          error instanceof Error
+            ? error.message
+            : "Failed to send verification code",
+      }));
+    }
+  }, []);
 
   const verifyCode = useCallback(async (email: string, code: number) => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
