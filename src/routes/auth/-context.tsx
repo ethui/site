@@ -8,9 +8,9 @@ import {
 import { AUTH_STORAGE_KEY } from "#/utils/auth/api";
 import { authConfig, makeApiRequest } from "#/utils/auth/config";
 
-export type AuthStep = "email" | "verification" | "authenticated";
+type AuthStep = "email" | "verification" | "authenticated";
 
-export interface AuthState {
+interface AuthState {
   step: AuthStep;
   email: string | null;
   code: number | null;
@@ -19,7 +19,7 @@ export interface AuthState {
   error: string | null;
 }
 
-export interface AuthCallbacks {
+interface AuthCallbacks {
   sendCode: (email: string) => void;
   verifyCode: (email: string, code: number) => void;
   goBackToEmail: () => void;
