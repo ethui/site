@@ -1,38 +1,43 @@
-import { useCallback, useEffect, useState } from "react";
-import { authConfig, makeApiRequest } from "./config";
+import { authConfig, makeApiRequest } from "#/utils/auth/config";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 export type AuthStep = "email" | "verification" | "authenticated";
 
 export interface AuthState {
   step: AuthStep;
-  email: string;
-  code: string;
+  email: string | null;
+  code: number | null;
   token: string | null;
   loading: boolean;
   error: string | null;
 }
 
+export interface AuthCallbacks {
+  sendCode: (email: string) => void;
+  verifyCode: (email: string, code: number) => void;
+  goBackToEmail: () => void;
+}
+
+type AuthContextT = AuthState & AuthCallbacks;
+
 const STORAGE_KEY = "ethui_auth_token";
 
-// Simple JWT token expiry check (without full validation)
-const isTokenExpired = (token: string): boolean => {
-  try {
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    const currentTime = Math.floor(Date.now() / 1000);
-    return payload.exp && payload.exp < currentTime;
-  } catch {
-    return true; // Consider invalid tokens as expired
-  }
-};
+const AuthContext = createContext<AuthContextT | undefined>(undefined);
 
-export const useAuthStore = () => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, setState] = useState<AuthState>({
     step: "email",
-    email: "",
-    code: "",
-    token: null,
+    email: null,
     loading: false,
     error: null,
+    code: null,
+    token: null,
   });
 
   // Initialize from localStorage on mount with token validation
@@ -44,13 +49,13 @@ export const useAuthStore = () => {
         if (isTokenExpired(savedToken)) {
           // Remove expired token
           localStorage.removeItem(STORAGE_KEY);
-          setState((prev) => ({
+          setState((prev: AuthState) => ({
             ...prev,
             token: null,
             step: "email",
           }));
         } else {
-          setState((prev) => ({
+          setState((prev: AuthState) => ({
             ...prev,
             token: savedToken,
             step: "authenticated",
@@ -60,11 +65,7 @@ export const useAuthStore = () => {
     }
   }, []);
 
-  const setEmail = useCallback((email: string) => {
-    setState((prev) => ({ ...prev, email, error: null }));
-  }, []);
-
-  const setCode = useCallback((code: string) => {
+  const setCode = useCallback((code: number) => {
     setState((prev) => ({ ...prev, code, error: null }));
   }, []);
 
@@ -72,31 +73,33 @@ export const useAuthStore = () => {
     setState((prev) => ({ ...prev, error, loading: false }));
   }, []);
 
-  const sendCode = useCallback(async (email: string) => {
-    console.log("Here", email);
-    setState((prev) => ({ ...prev, loading: true, error: null }));
+  const sendCode = useCallback(
+    async (email: string) => {
+      setState((prev) => ({ ...prev, loading: true, error: null }));
 
-    try {
-      await makeApiRequest(authConfig.endpoints.sendCode, { email });
-      setState((prev) => ({
-        ...prev,
-        loading: false,
-        step: "send-code",
-        email,
-      }));
-    } catch (error) {
-      setState((prev) => ({
-        ...prev,
-        loading: false,
-        error:
-          error instanceof Error
-            ? error.message
-            : "Failed to send verification code",
-      }));
-    }
-  }, []);
+      try {
+        await makeApiRequest(authConfig.endpoints.sendCode, { email });
+        setState((prev) => ({
+          ...prev,
+          loading: false,
+          step: "verification",
+          email,
+        }));
+      } catch (error) {
+        setState((prev) => ({
+          ...prev,
+          loading: false,
+          error:
+            error instanceof Error
+              ? error.message
+              : "Failed to send verification code",
+        }));
+      }
+    },
+    [state],
+  );
 
-  const verifyCode = useCallback(async (email: string, code: string) => {
+  const verifyCode = useCallback(async (email: string, code: number) => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
@@ -132,26 +135,12 @@ export const useAuthStore = () => {
     }
   }, []);
 
-  const logout = useCallback(() => {
-    if (typeof window !== "undefined") {
-      localStorage.removeItem(STORAGE_KEY);
-    }
-    setState({
-      step: "email",
-      email: "",
-      code: "",
-      token: null,
-      loading: false,
-      error: null,
-    });
-  }, []);
-
   const reset = useCallback(() => {
-    setState((prev) => ({
+    setState((prev: AuthState) => ({
       ...prev,
       step: "email",
       email: "",
-      code: "",
+      code: null,
       error: null,
       loading: false,
     }));
@@ -161,21 +150,38 @@ export const useAuthStore = () => {
     setState((prev) => ({
       ...prev,
       step: "email",
-      code: "",
+      code: null,
       error: null,
     }));
   }, []);
 
-  return {
+  const value = {
     ...state,
-    setEmail,
     setCode,
     setError,
     sendCode,
     verifyCode,
-    logout,
     reset,
     goBackToEmail,
     isAuthenticated: state.token !== null && !isTokenExpired(state.token || ""),
   };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
+
+// Simple JWT token expiry check (without full validation)
+const isTokenExpired = (token: string): boolean => {
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    const currentTime = Math.floor(Date.now() / 1000);
+    return payload.exp && payload.exp < currentTime;
+  } catch {
+    return true; // Consider invalid tokens as expired
+  }
+};
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth must be used within an AuthProvider");
+  return context;
+}

@@ -18,7 +18,6 @@ export const makeApiRequest = async (
   const url = `${authConfig.serverUrl}${endpoint}`;
 
   try {
-    console.log(data);
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -28,10 +27,8 @@ export const makeApiRequest = async (
       body: JSON.stringify(data),
     });
 
-    console.log("here", response);
     // Handle CORS and other network errors
     if (!response.ok) {
-      console.log("ok", response);
       let errorMessage = "Authentication request failed";
 
       try {
