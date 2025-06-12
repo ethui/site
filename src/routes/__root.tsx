@@ -6,9 +6,9 @@ import {
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { Suspense, lazy } from "react";
+import appCss from "#/app.css?url";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import appCss from "#/styles/app.css?url";
 import { seo } from "#/utils/seo";
 
 const TanStackRouterDevtools =
