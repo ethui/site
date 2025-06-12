@@ -9,7 +9,7 @@
     "lint": "yarn lint:biome && yarn lint:tsc && yarn lint:unused",
     "lint:biome": "biome check .",
     "lint:tsc": "tsc --noEmit",
-    "lint:unused": "ts-unused-exports tsconfig.json --excludePathsFromReport='routeTree.gen.ts;loggingMiddleware.tsx;app.config;api.ts;ssr.tsx;__root.tsx'",
+    "lint:unused": "ts-unused-exports tsconfig.json --excludePathsFromReport='vite.config.ts;routeTree.gen.ts;loggingMiddleware.tsx;app.config;__root.tsx;router.tsx'",
     "fix": "yarn fix:biome",
     "fix:biome": "biome check --write ."
   },
