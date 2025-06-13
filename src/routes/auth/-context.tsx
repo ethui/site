@@ -5,8 +5,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import { AUTH_STORAGE_KEY } from "#/utils/auth/api";
 import { authConfig, makeApiRequest } from "#/utils/auth/config";
+
+const AUTH_STORAGE_KEY = "ethui_auth_token";
 
 type AuthStep = "email" | "verification" | "authenticated";
 
