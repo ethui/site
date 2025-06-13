@@ -1,5 +1,13 @@
 export const authConfig = {
-  serverUrl: import.meta.env.VITE_STACKS_SERVER_URL!,
+  serverUrl: (() => {
+    const url = import.meta.env.VITE_STACKS_SERVER_URL;
+    if (!url) {
+      throw new Error(
+        "Environment variable VITE_STACKS_SERVER_URL is missing. Please set it in your environment configuration."
+      );
+    }
+    return url;
+  })(),
   endpoints: {
     sendCode: "/auth/send-code",
     verifyCode: "/auth/verify-code",
