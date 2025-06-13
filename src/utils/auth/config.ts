@@ -2,9 +2,13 @@ export const authConfig = {
   serverUrl: (() => {
     const url = import.meta.env.VITE_STACKS_SERVER_URL;
     if (!url) {
-      throw new Error(
-        "Environment variable VITE_STACKS_SERVER_URL is missing. Please set it in your environment configuration."
-      );
+      if (import.meta.env.MODE === "production") {
+        throw new Error(
+          "Environment variable VITE_STACKS_SERVER_URL is missing. Please set it in your environment configuration.",
+        );
+      } else {
+        return "http://api.stacks.lvh.me:4000";
+      }
     }
     return url;
   })(),
