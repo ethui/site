@@ -1,10 +1,17 @@
-const getAuthServerUrl = (): string => {
-  // Use the globally defined auth server URL from build time
-  return (globalThis as any).STACKS_SERVER_URL || "http://api.lvh.me:4000";
-};
-
 export const authConfig = {
-  serverUrl: getAuthServerUrl(),
+  serverUrl: (() => {
+    const url = import.meta.env.VITE_STACKS_SERVER_URL;
+    if (!url) {
+      if (import.meta.env.MODE === "production") {
+        throw new Error(
+          "Environment variable VITE_STACKS_SERVER_URL is missing. Please set it in your environment configuration.",
+        );
+      } else {
+        return "http://api.stacks.lvh.me:4000";
+      }
+    }
+    return url;
+  })(),
   endpoints: {
     sendCode: "/auth/send-code",
     verifyCode: "/auth/verify-code",
