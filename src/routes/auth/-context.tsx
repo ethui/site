@@ -105,7 +105,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         code,
       });
       const token = result.token;
-      console.log("token", token);
 
       // Validate token before saving
       if (isTokenExpired(token)) {
