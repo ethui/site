@@ -7,11 +7,11 @@ import { Header } from "#/components/header";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { SmoothScrollLink } from "#/components/smooth-scroll-link";
 
+import { useAptabase } from "@aptabase/react";
 import videoContracts from "#/assets/videos/ethui-contracts.webm?url";
 import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
 import videoLocal from "#/assets/videos/ethui-local.webm?url";
 import videoMulti from "#/assets/videos/ethui-multi.webm?url";
-import { useAptabase } from "@aptabase/react";
 
 export const Route = createFileRoute("/")({
   component: Home,

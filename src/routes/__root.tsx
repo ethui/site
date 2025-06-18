@@ -9,20 +9,20 @@ import { Suspense, lazy } from "react";
 import appCss from "#/app.css?url";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import { seo } from "#/utils/seo";
 import { Aptabase } from "#/components/aptabase";
+import { seo } from "#/utils/seo";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
     ? () => null // Render nothing in production
     : lazy(() =>
-      // Lazy load in development
-      import("@tanstack/react-router-devtools").then((res) => ({
-        default: res.TanStackRouterDevtools,
-        // For Embedded Mode
-        // default: res.TanStackRouterDevtoolsPanel
-      })),
-    );
+        // Lazy load in development
+        import("@tanstack/react-router-devtools").then((res) => ({
+          default: res.TanStackRouterDevtools,
+          // For Embedded Mode
+          // default: res.TanStackRouterDevtoolsPanel
+        })),
+      );
 
 export interface RouteContext {
   breadcrumb?: string;
