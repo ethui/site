@@ -77,11 +77,11 @@ function RootComponent() {
   return (
     <RootDocument>
       <QueryClientProvider client={queryClient}>
-        <Aptabase />
-        <Outlet />
-      </Aptabase>
-    </QueryClientProvider>
-    </RootDocument >
+        <Aptabase>
+          <Outlet />
+        </Aptabase>
+      </QueryClientProvider>
+    </RootDocument>
   );
 }
 
