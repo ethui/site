@@ -14,6 +14,7 @@
     "fix:biome": "biome check --write ."
   },
   "dependencies": {
+    "@aptabase/react": "^0.4.0",
     "@ethui/form": "0.0.10",
     "@ethui/ui": "0.0.73",
     "@hookform/resolvers": "^4.1.2",

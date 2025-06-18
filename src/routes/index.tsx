@@ -7,6 +7,7 @@ import { Header } from "#/components/header";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
 import { SmoothScrollLink } from "#/components/smooth-scroll-link";
 
+import { useAptabase } from "@aptabase/react";
 import videoContracts from "#/assets/videos/ethui-contracts.webm?url";
 import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
 import videoLocal from "#/assets/videos/ethui-local.webm?url";
@@ -89,6 +90,7 @@ function Home() {
 function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
   const [data, setData] = useState<Data | undefined>();
   const isLinux = navigator.userAgent.includes("Linux");
+  const { trackEvent } = useAptabase();
 
   useEffect(() => {
     (async () => {
@@ -113,6 +115,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
       rel="noreferrer"
       download={data?.osx?.name}
       className="flex items-center gap-x-2"
+      onClick={() => trackEvent("download-mac-os")}
     >
       <AppleIcon className="mr-1" />
       Download for macOS
@@ -125,6 +128,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
       rel="noreferrer"
       download={data?.linux?.name}
       className="flex items-center gap-x-2"
+      onClick={() => trackEvent("download-mac-linux")}
     >
       <LinuxIcon className="mr-1" />
       Download for Linux
