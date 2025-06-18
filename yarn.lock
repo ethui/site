@@ -29,6 +29,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aptabase/react@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@aptabase/react@npm:0.4.0"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+  checksum: 10c0/15786e194531f288c5b40eb8b421f7a5b7dbdfa3c463836bcfa7792d66df9b141f4c9ba08edf5c5f1ab3a076a6bd160f0c8eaa4fce36bd2a57f42830c47fe617
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:7.26.2, @babel/code-frame@npm:^7.26.2":
   version: 7.26.2
   resolution: "@babel/code-frame@npm:7.26.2"
@@ -1216,6 +1225,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ethui/site@workspace:."
   dependencies:
+    "@aptabase/react": "npm:^0.4.0"
     "@biomejs/biome": "npm:^1.9.4"
     "@ethui/form": "npm:0.0.10"
     "@ethui/ui": "npm:0.0.73"
