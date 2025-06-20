@@ -1,6 +1,6 @@
 import { ButtonWithDropdown } from "@ethui/ui/components/button-with-dropdown";
 import { Button } from "@ethui/ui/components/shadcn/button";
-import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { BookOpen, ChevronDown, FileCode2, Rss } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
 import { Header } from "#/components/header";
