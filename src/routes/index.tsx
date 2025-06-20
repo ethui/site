@@ -1,6 +1,6 @@
 import { ButtonWithDropdown } from "@ethui/ui/components/button-with-dropdown";
 import { Button } from "@ethui/ui/components/shadcn/button";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { BookOpen, ChevronDown, FileCode2, Rss } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
 import { Header } from "#/components/header";
@@ -110,29 +110,39 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
   }, []);
 
   const macOsLink = (
-    <Link
-      to={data?.osx?.browser_download_url}
+    <button
+      type="button"
       rel="noreferrer"
-      download={data?.osx?.name}
       className="flex items-center gap-x-2"
-      onClick={() => trackEvent("download-mac-os")}
+      onClick={() => {
+        trackEvent("download-mac-os");
+        const a = document.createElement("a");
+        a.href = data?.osx?.browser_download_url;
+        a.download = data?.osx?.name;
+        a.click();
+      }}
     >
       <AppleIcon className="mr-1" />
       Download for macOS
-    </Link>
+    </button>
   );
 
   const linuxLink = (
-    <Link
-      to={data?.linux?.browser_download_url}
+    <button
+      type="button"
       rel="noreferrer"
-      download={data?.linux?.name}
       className="flex items-center gap-x-2"
-      onClick={() => trackEvent("download-mac-linux")}
+      onClick={() => {
+        trackEvent("download-mac-linux");
+        const a = document.createElement("a");
+        a.href = data?.linux?.browser_download_url;
+        a.download = data?.linux?.name;
+        a.click();
+      }}
     >
       <LinuxIcon className="mr-1" />
       Download for Linux
-    </Link>
+    </button>
   );
 
   const defaultLink = isLinux ? linuxLink : macOsLink;
