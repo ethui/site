@@ -31,7 +31,6 @@ type AuthContextT = AuthState & AuthCallbacks;
 const AuthContext = createContext<AuthContextT | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  console.log(authConfig);
   const [state, setState] = useState<AuthState>({
     step: "email",
     email: null,

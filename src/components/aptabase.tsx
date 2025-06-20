@@ -1,14 +1,29 @@
-import { AptabaseProvider } from "@aptabase/react";
+import { AptabaseProvider, useAptabase } from "@aptabase/react";
+import { useLocation } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 const appKey = import.meta.env.VITE_APTABASE_APP_KEY;
-console.log("1", appKey);
-console.log(import.meta.env);
 
 export function Aptabase({ children }: { children: React.ReactNode }) {
-  console.log("2", appKey);
   if (appKey) {
-    return <AptabaseProvider appKey={appKey}>{children}</AptabaseProvider>;
+    return (
+      <AptabaseProvider appKey={appKey}>
+        <NavigationTracker />
+        {children}
+      </AptabaseProvider>
+    );
   } else {
     return children;
   }
+}
+
+function NavigationTracker() {
+  const { trackEvent } = useAptabase();
+  const location = useLocation();
+
+  useEffect(() => {
+    trackEvent("navigation", { pathname: location.pathname });
+  }, [trackEvent, location.pathname]);
+
+  return null;
 }
