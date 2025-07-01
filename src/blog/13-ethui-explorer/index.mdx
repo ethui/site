@@ -3,7 +3,7 @@ title: Announcing the ethui explorer
 slug: ethui-explorer
 ---
 
-![banner](./banner.png)
+![banner](./banner.webp)
 
 [explorer]: https://explorer.ethui.dev
 [anvil]: https://getfoundry.sh/anvil/overview
@@ -48,7 +48,7 @@ Who among us hasn't had to withdraw some funds from a contract, or revoke a comp
 ![Complex contract on etherscan](./etherscan-contract.png)
 
 
-It also doesn't help that the most popular explorer, Etherscan, has a [pretty limited web3 login system][etherscan-login], making a lot of wallets unable to connect.
+It also doesn't help that the most popular explorer, Etherscan, has a pretty limited web3 login system, making a lot of wallets unable to connect.
 
 ![Etherscan's limited login options](./etherscan-login.png)
 
@@ -61,7 +61,7 @@ This is a hugely popular open-source effort, Otterscan, attempting to replicate 
 However, for development workflows, it has some drawbacks of it's own:
 
 - Setup is a bit cumbersome. e.g.: see an early attempt we did to create a reproducible full-stack private testnet [here][persisted-anvil] (with subgraph, explorer and everything);
-- ABI availability requires setup of a local verifier too (Sourcify), and integrating that into our Foundry deploy workflows;
+- ABI availability requires setup of a local verifier too (Sourcify), and requires an integration into our Foundry deploy workflows;
 - Crucially, no equivalent to the "Write Contract" feature of Etherscan. We can only perform read queries, and broadcast raw payloads.
 
 Using Otterscan as a base was also not an easy option, as it uses an incompatible stack compared to ours (`ethers.js`-based vs `viem`-based).
