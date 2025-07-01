@@ -1,11 +1,10 @@
-import { Search } from "lucide-react";
-
 import { Label } from "@ethui/ui/components/shadcn/label";
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarInput,
 } from "@ethui/ui/components/shadcn/sidebar";
+import { Search } from "lucide-react";
 
 export function SearchForm({ ...props }: React.ComponentProps<"form">) {
   return (
