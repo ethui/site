@@ -1,14 +1,15 @@
 {
   "files": {
-    "ignore": [
-      "build",
-      "node_modules",
-      "**/*.gen.ts",
-      "*.generated.ts",
-      ".vercel",
-      ".vinxi",
-      "dist",
-      "app.config.timestamp_*"
+    "includes": [
+      "**",
+      "!**/build",
+      "!**/node_modules",
+      "!**/*.gen.ts",
+      "!**/*.generated.ts",
+      "!**/.vercel",
+      "!**/.vinxi",
+      "!**/dist",
+      "!**/app.config.timestamp_*"
     ]
   },
   "formatter": {
@@ -24,7 +25,16 @@
       },
       "style": {
         "noUselessElse": "off",
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error"
       },
       "performance": {
         "noAccumulatingSpread": "error",
