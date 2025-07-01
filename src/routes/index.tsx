@@ -1,17 +1,16 @@
+import { useAptabase } from "@aptabase/react";
 import { ButtonWithDropdown } from "@ethui/ui/components/button-with-dropdown";
 import { Button } from "@ethui/ui/components/shadcn/button";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, ChevronDown, FileCode2, Rss } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
-import { Header } from "#/components/header";
-import { AppleIcon, LinuxIcon } from "#/components/icons";
-import { SmoothScrollLink } from "#/components/smooth-scroll-link";
-
-import { useAptabase } from "@aptabase/react";
 import videoContracts from "#/assets/videos/ethui-contracts.webm?url";
 import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
 import videoLocal from "#/assets/videos/ethui-local.webm?url";
 import videoMulti from "#/assets/videos/ethui-multi.webm?url";
+import { Header } from "#/components/header";
+import { AppleIcon, LinuxIcon } from "#/components/icons";
+import { SmoothScrollLink } from "#/components/smooth-scroll-link";
 
 export const Route = createFileRoute("/")({
   component: Home,
