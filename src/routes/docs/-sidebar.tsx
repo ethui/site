@@ -1,5 +1,3 @@
-import { ChevronRightIcon } from "lucide-react";
-
 import { EthuiLogo } from "@ethui/ui/components/ethui-logo";
 import {
   Collapsible,
@@ -20,6 +18,7 @@ import {
   SidebarMenuSubItem,
 } from "@ethui/ui/components/shadcn/sidebar";
 import { Link, useRouterState } from "@tanstack/react-router";
+import { ChevronRightIcon } from "lucide-react";
 import { docsManifest } from "./-manifest";
 import { SearchForm } from "./-search-form";
 
