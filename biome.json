@@ -9,7 +9,8 @@
       "!**/.vercel",
       "!**/.vinxi",
       "!**/dist",
-      "!**/app.config.timestamp_*"
+      "!**/app.config.timestamp_*",
+      "!**/.nitro"
     ]
   },
   "formatter": {
