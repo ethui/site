@@ -92,7 +92,6 @@ const LBlogLSlugRoute = LBlogLSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof LRouteWithChildren
   '/docs': typeof DocsLRouteWithChildren
   '/auth': typeof AuthIndexRoute
   '/docs/': typeof DocsIndexRoute
@@ -105,7 +104,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof LRouteWithChildren
   '/docs': typeof DocsIndexRoute
   '/auth': typeof AuthIndexRoute
   '/blog': typeof LBlogLIndexRoute
@@ -134,7 +132,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | ''
     | '/docs'
     | '/auth'
     | '/docs/'
@@ -147,7 +144,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | ''
     | '/docs'
     | '/auth'
     | '/blog'
