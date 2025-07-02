@@ -5,7 +5,7 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@adraffy/ens-normalize@npm:^1.10.1":
+"@adraffy/ens-normalize@npm:^1.10.1, @adraffy/ens-normalize@npm:^1.11.0":
   version: 1.11.0
   resolution: "@adraffy/ens-normalize@npm:1.11.0"
   checksum: 10c0/5111d0f1a273468cb5661ed3cf46ee58de8f32f84e2ebc2365652e66c1ead82649df94c736804e2b9cfa831d30ef24e1cc3575d970dbda583416d3a98d8870a6
@@ -1191,7 +1191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethui/abiparse@npm:*":
+"@ethui/abiparse@npm:*, @ethui/abiparse@npm:^0.0.4":
   version: 0.0.4
   resolution: "@ethui/abiparse@npm:0.0.4"
   dependencies:
@@ -1204,7 +1204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethui/form@npm:0.0.10":
+"@ethui/form@npm:^0.0.10":
   version: 0.0.10
   resolution: "@ethui/form@npm:0.0.10"
   dependencies:
@@ -1227,8 +1227,8 @@ __metadata:
   dependencies:
     "@aptabase/react": "npm:^0.4.0"
     "@biomejs/biome": "npm:^1.9.4"
-    "@ethui/form": "npm:0.0.10"
-    "@ethui/ui": "npm:0.0.73"
+    "@ethui/form": "npm:^0.0.10"
+    "@ethui/ui": "npm:^0.0.82"
     "@hookform/resolvers": "npm:^4.1.2"
     "@mdx-js/react": "npm:^3.1.0"
     "@mdx-js/rollup": "npm:^3.1.0"
@@ -1255,7 +1255,7 @@ __metadata:
     html-react-parser: "npm:^5.2.2"
     lodash-es: "npm:^4.17.21"
     lru-cache: "npm:^11.1.0"
-    lucide-react: "npm:^0.486.0"
+    lucide-react: "npm:^0.506.0"
     motion: "npm:^12.15.0"
     postcss: "npm:^8.5.5"
     react: "npm:^19.1.0"
@@ -1289,61 +1289,6 @@ __metadata:
     zod: "npm:^3.25.46"
   languageName: unknown
   linkType: soft
-
-"@ethui/ui@npm:0.0.73":
-  version: 0.0.73
-  resolution: "@ethui/ui@npm:0.0.73"
-  dependencies:
-    "@fontsource/source-code-pro": "npm:^5.2.5"
-    "@hookform/resolvers": "npm:^5.0.1"
-    "@radix-ui/react-accordion": "npm:^1.2.8"
-    "@radix-ui/react-avatar": "npm:^1.1.7"
-    "@radix-ui/react-checkbox": "npm:^1.3.2"
-    "@radix-ui/react-collapsible": "npm:^1.1.8"
-    "@radix-ui/react-context-menu": "npm:^2.2.12"
-    "@radix-ui/react-dialog": "npm:^1.1.11"
-    "@radix-ui/react-dropdown-menu": "npm:^2.1.12"
-    "@radix-ui/react-icons": "npm:^1.3.2"
-    "@radix-ui/react-label": "npm:^2.1.4"
-    "@radix-ui/react-popover": "npm:^1.1.11"
-    "@radix-ui/react-progress": "npm:^1.1.4"
-    "@radix-ui/react-scroll-area": "npm:^1.2.6"
-    "@radix-ui/react-select": "npm:^2.2.2"
-    "@radix-ui/react-separator": "npm:^1.1.4"
-    "@radix-ui/react-slot": "npm:^1.2.0"
-    "@radix-ui/react-switch": "npm:^1.2.2"
-    "@radix-ui/react-tabs": "npm:^1.1.9"
-    "@radix-ui/react-toast": "npm:^1.2.11"
-    "@radix-ui/react-tooltip": "npm:^1.2.4"
-    "@tailwindcss/postcss": "npm:4.1.5"
-    "@tanstack/react-query": "npm:^5.79.0"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
-    cmdk: "npm:1.1.1"
-    lucide-react: "npm:^0.506.0"
-    next-themes: "npm:^0.4.6"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
-    react-hook-form: "npm:^7.56.1"
-    tailwind-merge: "npm:^3.3.0"
-    tailwindcss: "npm:^4.1.5"
-    tailwindcss-animate: "npm:^1.0.7"
-    viem: "npm:^2.28.3"
-    zod: "npm:^3.24.3"
-  peerDependencies:
-    "@tanstack/react-query": ^5.75
-    "@types/react": ^19
-    "@types/react-dom": ^19
-    clsx: ^2.0
-    lucide-react: ">=0.506"
-    react: ^19
-    react-dom: ^19
-    tailwind-merge: ^3.0
-    tailwindcss: ^4.0
-    tailwindcss-animate: ^1.0
-  checksum: 10c0/650ca7269517a931840d92da37f757d62d0891897f896f946a04eb4026f4ce6d102e789554cdae7482dae06bbaf3612577b69fb8d24b5caf4b015f15dcacfd84
-  languageName: node
-  linkType: hard
 
 "@ethui/ui@npm:0.0.8":
   version: 0.0.8
@@ -1387,6 +1332,62 @@ __metadata:
   peerDependencies:
     "@tanstack/react-query": ^5.21.4
   checksum: 10c0/3eda7689bd8aabe70fd63e0efc2a740317a7f6ac9a51bf022eba35c5b44e497d15dbae91f83ba1623e29730122b56970a6df2d7839d35ad59cef1229155d8e17
+  languageName: node
+  linkType: hard
+
+"@ethui/ui@npm:^0.0.82":
+  version: 0.0.82
+  resolution: "@ethui/ui@npm:0.0.82"
+  dependencies:
+    "@ethui/abiparse": "npm:^0.0.4"
+    "@fontsource/source-code-pro": "npm:^5.2.5"
+    "@hookform/resolvers": "npm:^5.0.1"
+    "@radix-ui/react-accordion": "npm:^1.2.8"
+    "@radix-ui/react-avatar": "npm:^1.1.7"
+    "@radix-ui/react-checkbox": "npm:^1.3.2"
+    "@radix-ui/react-collapsible": "npm:^1.1.8"
+    "@radix-ui/react-context-menu": "npm:^2.2.12"
+    "@radix-ui/react-dialog": "npm:^1.1.11"
+    "@radix-ui/react-dropdown-menu": "npm:^2.1.12"
+    "@radix-ui/react-icons": "npm:^1.3.2"
+    "@radix-ui/react-label": "npm:^2.1.4"
+    "@radix-ui/react-popover": "npm:^1.1.11"
+    "@radix-ui/react-progress": "npm:^1.1.4"
+    "@radix-ui/react-scroll-area": "npm:^1.2.6"
+    "@radix-ui/react-select": "npm:^2.2.2"
+    "@radix-ui/react-separator": "npm:^1.1.4"
+    "@radix-ui/react-slot": "npm:^1.2.0"
+    "@radix-ui/react-switch": "npm:^1.2.2"
+    "@radix-ui/react-tabs": "npm:^1.1.9"
+    "@radix-ui/react-toast": "npm:^1.2.11"
+    "@radix-ui/react-tooltip": "npm:^1.2.4"
+    "@tailwindcss/postcss": "npm:4.1.5"
+    "@tanstack/react-query": "npm:^5.81.5"
+    class-variance-authority: "npm:^0.7.1"
+    clsx: "npm:^2.1.1"
+    cmdk: "npm:1.1.1"
+    lucide-react: "npm:^0.506.0"
+    next-themes: "npm:^0.4.6"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.1.0"
+    react-hook-form: "npm:^7.59.0"
+    tailwind-merge: "npm:^3.3.0"
+    tailwindcss: "npm:^4.1.5"
+    tailwindcss-animate: "npm:^1.0.7"
+    viem: "npm:^2.31.6"
+    zod: "npm:^3.25.67"
+  peerDependencies:
+    "@tanstack/react-query": ^5.75
+    "@types/react": ^19
+    "@types/react-dom": ^19
+    clsx: ^2.0
+    lucide-react: ">=0.506"
+    react: ^19
+    react-dom: ^19
+    tailwind-merge: ^3.0
+    tailwindcss: ^4.0
+    tailwindcss-animate: ^1.0
+  checksum: 10c0/ea913e7013ccccaf0469d3d01174d72654da097abb141132f10f45d07736acc822f319f1fdbdb8bc465f7b42dfdef2ac46ee1dd532fc26e83a77177d37bc416f
   languageName: node
   linkType: hard
 
@@ -2060,6 +2061,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@noble/curves@npm:1.9.2, @noble/curves@npm:^1.9.1":
+  version: 1.9.2
+  resolution: "@noble/curves@npm:1.9.2"
+  dependencies:
+    "@noble/hashes": "npm:1.8.0"
+  checksum: 10c0/21d049ae4558beedbf5da0004407b72db84360fa29d64822d82dc9e80251e1ecb46023590cc4b20e70eed697d1b87279b4911dc39f8694c51c874289cfc8e9a7
+  languageName: node
+  linkType: hard
+
 "@noble/hashes@npm:1.4.0, @noble/hashes@npm:~1.4.0":
   version: 1.4.0
   resolution: "@noble/hashes@npm:1.4.0"
@@ -2088,7 +2098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/hashes@npm:1.8.0, @noble/hashes@npm:~1.8.0":
+"@noble/hashes@npm:1.8.0, @noble/hashes@npm:^1.8.0, @noble/hashes@npm:~1.8.0":
   version: 1.8.0
   resolution: "@noble/hashes@npm:1.8.0"
   checksum: 10c0/06a0b52c81a6fa7f04d67762e08b2c476a00285858150caeaaff4037356dd5e119f45b2a530f638b77a5eeca013168ec1b655db41bae3236cb2e9d511484fc77
@@ -4694,7 +4704,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@scure/bip32@npm:1.7.0":
+"@scure/bip32@npm:1.7.0, @scure/bip32@npm:^1.7.0":
   version: 1.7.0
   resolution: "@scure/bip32@npm:1.7.0"
   dependencies:
@@ -4725,7 +4735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@scure/bip39@npm:1.6.0":
+"@scure/bip39@npm:1.6.0, @scure/bip39@npm:^1.6.0":
   version: 1.6.0
   resolution: "@scure/bip39@npm:1.6.0"
   dependencies:
@@ -5155,7 +5165,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.79.0, @tanstack/react-query@npm:^5.80.7":
+"@tanstack/query-core@npm:5.81.5":
+  version: 5.81.5
+  resolution: "@tanstack/query-core@npm:5.81.5"
+  checksum: 10c0/8d3af841f0e2f3fba1dfd100a8bbc2d07e7b1d5b8570d3d0d8bba5127601c2788e5f7c84839f93f3b0cbe54f14866c1fef8e3f9e745f02d27afaaeea33b7b755
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.80.7":
   version: 5.80.7
   resolution: "@tanstack/react-query@npm:5.80.7"
   dependencies:
@@ -5163,6 +5180,17 @@ __metadata:
   peerDependencies:
     react: ^18 || ^19
   checksum: 10c0/2d2fb8a7c60fe94c90f3345050673e217366e968fd28565a92bf4097a320c7c73bc6ecaa1b20ca70a705accbf8618a9888016c5a1813bb57fe86b6c824973a21
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.81.5":
+  version: 5.81.5
+  resolution: "@tanstack/react-query@npm:5.81.5"
+  dependencies:
+    "@tanstack/query-core": "npm:5.81.5"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/04803dd7d7d6ac73ba8c55bb25d76aa2f74d173d1574a113c35559bf6a8ac7d04a75db5e470e9a2e4132fee5e0ce1ab23bd8c27d17f70a461aca0e7ae740e76b
   languageName: node
   linkType: hard
 
@@ -6460,7 +6488,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"abitype@npm:1.0.8, abitype@npm:^1.0.6":
+"abitype@npm:1.0.8, abitype@npm:^1.0.6, abitype@npm:^1.0.8":
   version: 1.0.8
   resolution: "abitype@npm:1.0.8"
   peerDependencies:
@@ -10819,15 +10847,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.486.0":
-  version: 0.486.0
-  resolution: "lucide-react@npm:0.486.0"
-  peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/1206165b79f243ee32473897629e6a3ec1a8993bc35470e2bde8ece7193f758f27be891f3d380afcdb3b96659677d6c0fb4414b29ee0a6817d2388ac6d58c3b0
-  languageName: node
-  linkType: hard
-
 "lucide-react@npm:^0.506.0":
   version: 0.506.0
   resolution: "lucide-react@npm:0.506.0"
@@ -12244,6 +12263,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ox@npm:0.8.1":
+  version: 0.8.1
+  resolution: "ox@npm:0.8.1"
+  dependencies:
+    "@adraffy/ens-normalize": "npm:^1.11.0"
+    "@noble/ciphers": "npm:^1.3.0"
+    "@noble/curves": "npm:^1.9.1"
+    "@noble/hashes": "npm:^1.8.0"
+    "@scure/bip32": "npm:^1.7.0"
+    "@scure/bip39": "npm:^1.6.0"
+    abitype: "npm:^1.0.8"
+    eventemitter3: "npm:5.0.1"
+  peerDependencies:
+    typescript: ">=5.4.0"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/3d04df384a35c94b21a29d867ee3735acf9a975d46ffb0a26cc438b92f1e4952b2b3cddb74b4213e88d2988e82687db9b85c1018c5d4b24737b1c3d7cb7c809e
+  languageName: node
+  linkType: hard
+
 "p-event@npm:^6.0.0":
   version: 6.0.1
   resolution: "p-event@npm:6.0.1"
@@ -12904,15 +12944,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18 || ^19
   checksum: 10c0/6eebead2900e3d369a989e7a20429f390dc75b3897142aa3107f1f6dabb9ae64fed201ea98cdcd8676e40466c97748aeb0c0d83264f5bd3a84dbc0b8e4863415
-  languageName: node
-  linkType: hard
-
-"react-hook-form@npm:^7.56.1":
-  version: 7.56.1
-  resolution: "react-hook-form@npm:7.56.1"
-  peerDependencies:
-    react: ^16.8.0 || ^17 || ^18 || ^19
-  checksum: 10c0/26eafd54bf47167628e34c2f22ea27ea7bdd5b4231a56af5be31ccedfb2a721708b308026ea4a17f2fb15c7b5fff83c0feb4acc7aa07bd6faa8506e917810cab
   languageName: node
   linkType: hard
 
@@ -15444,27 +15475,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:^2.28.3":
-  version: 2.31.0
-  resolution: "viem@npm:2.31.0"
-  dependencies:
-    "@noble/curves": "npm:1.9.1"
-    "@noble/hashes": "npm:1.8.0"
-    "@scure/bip32": "npm:1.7.0"
-    "@scure/bip39": "npm:1.6.0"
-    abitype: "npm:1.0.8"
-    isows: "npm:1.0.7"
-    ox: "npm:0.7.1"
-    ws: "npm:8.18.2"
-  peerDependencies:
-    typescript: ">=5.0.4"
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 10c0/4f327af609d41720f94664546eae1b8a892ae787630c0259a95ca145f7b07ef82387975b6ab8c223decd34ead69650119226af360d02ac7c17dbc4b60cfdf523
-  languageName: node
-  linkType: hard
-
 "viem@npm:^2.30.5":
   version: 2.30.5
   resolution: "viem@npm:2.30.5"
@@ -15483,6 +15493,27 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/c183004caac620ef12239b650799bd8aa4d9accb24b7986cc7262c3aa2cb76734d1c78651399931eef762d85ece3c08bc20e80e21189312dc5d1f740c3febed0
+  languageName: node
+  linkType: hard
+
+"viem@npm:^2.31.6":
+  version: 2.31.6
+  resolution: "viem@npm:2.31.6"
+  dependencies:
+    "@noble/curves": "npm:1.9.2"
+    "@noble/hashes": "npm:1.8.0"
+    "@scure/bip32": "npm:1.7.0"
+    "@scure/bip39": "npm:1.6.0"
+    abitype: "npm:1.0.8"
+    isows: "npm:1.0.7"
+    ox: "npm:0.8.1"
+    ws: "npm:8.18.2"
+  peerDependencies:
+    typescript: ">=5.0.4"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/0b01fa25cac1c857f846e57178cfc77d45df5b0c44125686d685fc6cbe45055f5c73143d475a4d7e1bf9d214529f5051778366e2103fe8473466f805ae69a359
   languageName: node
   linkType: hard
 
@@ -16031,7 +16062,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.23.8, zod@npm:^3.24.3":
+"zod@npm:^3.23.8":
   version: 3.25.63
   resolution: "zod@npm:3.25.63"
   checksum: 10c0/ce09c6ae327a66629e67340856ec19b6b4ba2c28691a2de1e618a5cc717685c2b4e9baa370cf81c34f453fc652733ecfc9a7d5d966570a22472999931abd5ada
@@ -16049,6 +16080,13 @@ __metadata:
   version: 3.25.46
   resolution: "zod@npm:3.25.46"
   checksum: 10c0/2cc754a49244f9d80ef50c0da8e01136e0202a9fa92229bcfef2b8285ca07f865bcdd17f0fb609219bd91a2de7965b9a27627cd456e151924144d7a06c6d6686
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.25.67":
+  version: 3.25.67
+  resolution: "zod@npm:3.25.67"
+  checksum: 10c0/80a0cab3033272c4ab9312198081f0c4ea88e9673c059aa36dc32024906363729db54bdb78f3dc9d5529bd1601f74974d5a56c0a23e40c6f04a9270c9ff22336
   languageName: node
   linkType: hard
 
