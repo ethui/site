@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Markdown } from "#/components/markdown";
 import { NotFound } from "#/components/NotFound";
+import { TableOfContents } from "#/components/table-of-contents";
 import { titleize } from "#/utils/titleize";
 import { docsManifest } from "./-manifest";
 
@@ -19,10 +20,20 @@ function RouteComponent() {
   if (!doc) {
     return <NotFound />;
   }
+  console.log(doc);
 
   return (
-    <Markdown>
-      <doc.default />
-    </Markdown>
+    <div className="flex gap-8">
+      <div className="flex-1">
+        <Markdown>
+          <doc.default />
+        </Markdown>
+      </div>
+      <div className="hidden xl:block w-64 shrink-0">
+        <div className="sticky top-8">
+          <TableOfContents tableOfContents={doc.tableOfContents} />
+        </div>
+      </div>
+    </div>
   );
 }

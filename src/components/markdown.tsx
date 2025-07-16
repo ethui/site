@@ -13,7 +13,7 @@ const components = {
   Embed: SuspendedEmbed,
 };
 
-interface MarkdownProps extends React.ComponentProps<"div"> {}
+interface MarkdownProps extends React.ComponentProps<"div"> { }
 
 export function Markdown({ children, className, ...props }: MarkdownProps) {
   return (
@@ -34,7 +34,6 @@ function Image({
       {...props}
       className={clsx("mx-auto", className)}
       src={src}
-      alt={"asd"}
     />
   );
 }

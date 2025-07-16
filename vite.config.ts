@@ -10,8 +10,11 @@ import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import remarkToc from "remark-toc";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+import withToc from "@stefanprobst/rehype-extract-toc";
+import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 
 const classes = {
   "h1>a, h2>a, h3>a": "no-underline font-bold",
@@ -34,6 +37,8 @@ export default defineConfig({
         rehypeGithubAlerts,
         rehypeGithubEmoji,
         rehypeMdxImportMedia,
+        withToc,
+        withTocExport,
       ],
     }),
     tanstackStart({

@@ -5,12 +5,11 @@ declare module "#/assets/videos/ethui-local.webm?url";
 
 declare module "#/app.css?url";
 
-declare module "#/docs/*.mdx" {
-  export const frontmatter: { title: string; slug: string };
-  export default () => ReactNode;
-}
+declare module "#/*.mdx" {
+  import type { MDXProps } from "mdx/types";
+  import type { Toc } from "@stefanprobst/rehype-extract-toc";
 
-declare module "#/blog/*.mdx" {
   export const frontmatter: { title: string; slug: string };
+  export const tableOfContents: Toc;
   export default () => ReactNode;
 }

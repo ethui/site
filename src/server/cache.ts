@@ -16,9 +16,9 @@ export async function fetchCached<T>(opts: {
   key: string;
   ttl: number;
 }): Promise<T> {
-  if (cache.has(opts.key)) {
-    return cache.get(opts.key) as T;
-  }
+  // if (cache.has(opts.key)) {
+  //   return cache.get(opts.key) as T;
+  // }
 
   const result = await opts.fn();
 
