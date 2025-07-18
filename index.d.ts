@@ -6,7 +6,6 @@ declare module "#/assets/videos/ethui-local.webm?url";
 declare module "#/app.css?url";
 
 declare module "#/*.mdx" {
-  import type { MDXProps } from "mdx/types";
   import type { Toc } from "@stefanprobst/rehype-extract-toc";
 
   export const frontmatter: { title: string; slug: string };

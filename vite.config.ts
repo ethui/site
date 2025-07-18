@@ -1,4 +1,6 @@
 import mdx from "@mdx-js/rollup";
+import withToc from "@stefanprobst/rehype-extract-toc";
+import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -10,11 +12,8 @@ import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import remarkToc from "remark-toc";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
-import withToc from "@stefanprobst/rehype-extract-toc";
-import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 
 const classes = {
   "h1>a, h2>a, h3>a": "no-underline font-bold",
