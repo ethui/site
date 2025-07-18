@@ -29,7 +29,7 @@ function RouteComponent() {
           <doc.default />
         </Markdown>
       </div>
-      <div className="hidden w-64 shrink-0 xl:block">
+      <div className="hidden w-64 shrink-0 lg:block">
         <div className="sticky top-8">
           <TableOfContents tableOfContents={doc.tableOfContents} />
         </div>
