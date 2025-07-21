@@ -1,4 +1,6 @@
 import mdx from "@mdx-js/rollup";
+import withToc from "@stefanprobst/rehype-extract-toc";
+import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -34,6 +36,8 @@ export default defineConfig({
         rehypeGithubAlerts,
         rehypeGithubEmoji,
         rehypeMdxImportMedia,
+        withToc,
+        withTocExport,
       ],
     }),
     tanstackStart({

@@ -30,12 +30,7 @@ function Image({
   ...props
 }: React.ComponentProps<"img">) {
   return (
-    <img
-      {...props}
-      className={clsx("mx-auto", className)}
-      src={src}
-      alt={"asd"}
-    />
+    <img alt="" {...props} className={clsx("mx-auto", className)} src={src} />
   );
 }
 
