@@ -1324,7 +1324,6 @@ __metadata:
     rehype-slug: "npm:^6.0.0"
     remark-frontmatter: "npm:^5.0.0"
     remark-mdx-frontmatter: "npm:^5.1.0"
-    remark-toc: "npm:^9.0.0"
     rollup: "npm:^4.44.1"
     simple-icons: "npm:^15.4.0"
     solid-js: "npm:^1.9.7"
@@ -5944,13 +5943,6 @@ __metadata:
   version: 2.0.7
   resolution: "@types/trusted-types@npm:2.0.7"
   checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
-  languageName: node
-  linkType: hard
-
-"@types/ungap__structured-clone@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "@types/ungap__structured-clone@npm:1.2.0"
-  checksum: 10c0/52f341ded16708603e5631769b26acf0e9ed7c556ce81abb4e55962110b30442576c631c8f7e298b561b8ff77c7823f0edc9f5e313e1c5e1441825a590e5b0f3
   languageName: node
   linkType: hard
 
@@ -11302,21 +11294,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-toc@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "mdast-util-toc@npm:7.1.0"
-  dependencies:
-    "@types/mdast": "npm:^4.0.0"
-    "@types/ungap__structured-clone": "npm:^1.0.0"
-    "@ungap/structured-clone": "npm:^1.0.0"
-    github-slugger: "npm:^2.0.0"
-    mdast-util-to-string: "npm:^4.0.0"
-    unist-util-is: "npm:^6.0.0"
-    unist-util-visit: "npm:^5.0.0"
-  checksum: 10c0/bd1b4705c24097669b3c8f6c20b3a0d54463a38d088cfc6f45106853c9907eb1dc0ed8084fe01b38c619858ecc04fb9377f16992287270521b0ffb7366faab7e
-  languageName: node
-  linkType: hard
-
 "media-query-parser@npm:^2.0.2":
   version: 2.0.2
   resolution: "media-query-parser@npm:2.0.2"
@@ -13674,16 +13651,6 @@ __metadata:
     unified: "npm:^11.0.0"
     vfile: "npm:^6.0.0"
   checksum: 10c0/68f986e8ee758d415e93babda2a0d89477c15b7c200edc23b8b1d914dd6e963c5fc151a11cbbbcfa7dd237367ff3ef86e302be90f31f37a17b0748668bd8c65b
-  languageName: node
-  linkType: hard
-
-"remark-toc@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "remark-toc@npm:9.0.0"
-  dependencies:
-    "@types/mdast": "npm:^4.0.0"
-    mdast-util-toc: "npm:^7.0.0"
-  checksum: 10c0/f579645a642a152d4daf4e4b21a516fd15da9d153251faddf65213bcb0bd41a8d98d4cdbd3bbe364660fb646322d1192f1629f167eb5c14f1720734df119c9c7
   languageName: node
   linkType: hard
 
