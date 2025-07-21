@@ -20,7 +20,6 @@ function RouteComponent() {
   if (!doc) {
     return <NotFound />;
   }
-  console.log(doc);
 
   return (
     <div className="flex gap-8">
