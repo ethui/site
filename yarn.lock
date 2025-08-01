@@ -1325,7 +1325,7 @@ __metadata:
     remark-frontmatter: "npm:^5.0.0"
     remark-mdx-frontmatter: "npm:^5.1.0"
     rollup: "npm:^4.44.1"
-    simple-icons: "npm:^15.4.0"
+    simple-icons: "npm:^15.8.0"
     solid-js: "npm:^1.9.7"
     tailwind-merge: "npm:^3.0.2"
     tailwindcss: "npm:^4.0.11"
@@ -14219,10 +14219,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-icons@npm:^15.4.0":
-  version: 15.4.0
-  resolution: "simple-icons@npm:15.4.0"
-  checksum: 10c0/b64d21a3792e308477b7d8310eaea1eded06f19041ff359dd0866fb50a2d637b104a2ca268d8fad57a2846e667a9746309099cd9901f9ad1d3c1b17fd13f711e
+"simple-icons@npm:^15.8.0":
+  version: 15.8.0
+  resolution: "simple-icons@npm:15.8.0"
+  checksum: 10c0/10b3048e91a695c137f959a6f101132ef9df5b506b58173b3ee66dd03dce1dc043c99ba0967021414d507db7e5df98c298a9503962153d125e815c07075f7645
   languageName: node
   linkType: hard
 
