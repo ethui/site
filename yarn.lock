@@ -1307,7 +1307,7 @@ __metadata:
     lodash-es: "npm:^4.17.21"
     lru-cache: "npm:^11.1.0"
     lucide-react: "npm:^0.506.0"
-    motion: "npm:^12.20.3"
+    motion: "npm:^12.23.12"
     postcss: "npm:^8.5.5"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -9284,12 +9284,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.20.3":
-  version: 12.20.3
-  resolution: "framer-motion@npm:12.20.3"
+"framer-motion@npm:^12.23.12":
+  version: 12.23.12
+  resolution: "framer-motion@npm:12.23.12"
   dependencies:
-    motion-dom: "npm:^12.20.3"
-    motion-utils: "npm:^12.19.0"
+    motion-dom: "npm:^12.23.12"
+    motion-utils: "npm:^12.23.6"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -9302,7 +9302,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/8e24f28bfb425ac5c5e222aecbeb2c892e37b248d7a274cde321c72a6c650b902e65c2b7e791bc3a964df478ab2de8c9da6dfc516a9e6948cdd45c925552d2f3
+  checksum: 10c0/40dfb57bf714075c4f6dd0bbe5b84dd11310114474ebf603846ef9b888ed475fa653271c1fd98ec57a6a1d0b781cdf8b3ebcd5e2c6a3620e934b46304ae0fd39
   languageName: node
   linkType: hard
 
@@ -11903,27 +11903,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion-dom@npm:^12.20.3":
-  version: 12.20.3
-  resolution: "motion-dom@npm:12.20.3"
+"motion-dom@npm:^12.23.12":
+  version: 12.23.12
+  resolution: "motion-dom@npm:12.23.12"
   dependencies:
-    motion-utils: "npm:^12.19.0"
-  checksum: 10c0/0d0855cea05e988ee46d9acbe3a9d1af4165b4e80f2e747c02a646b4ece54624ad3f7f8e6b83427b7e45483ec3df85698a58d6b39ea1cc0e5c0e04ec4df68e71
+    motion-utils: "npm:^12.23.6"
+  checksum: 10c0/1b6a4b86c1aed5b5da7b8a5d1f8310ad169125235bdc1953b8c41cf9f4e2c460ee90bb48ffdae54daecb8db1d7006566ceb5f5c9ccdc82606d548c527cb2631e
   languageName: node
   linkType: hard
 
-"motion-utils@npm:^12.19.0":
-  version: 12.19.0
-  resolution: "motion-utils@npm:12.19.0"
-  checksum: 10c0/e9526e0135c5f596b2d9a242edbd5b5268922b6001d1b9fb63f2fb4b11f891ac63a186eef8dbd80a4011692d70897aa0c6d4d161fcaaaef3dd4ca7aea6263226
+"motion-utils@npm:^12.23.6":
+  version: 12.23.6
+  resolution: "motion-utils@npm:12.23.6"
+  checksum: 10c0/c058e8ba6423b3baa63e985bcc669877ee7d9579d938f5348b4e60c5ea1b4b33dd7f4877434436a4a5807f3cf00370d3fd4079a6fdd6309c5c87aa62b311a897
   languageName: node
   linkType: hard
 
-"motion@npm:^12.20.3":
-  version: 12.20.3
-  resolution: "motion@npm:12.20.3"
+"motion@npm:^12.23.12":
+  version: 12.23.12
+  resolution: "motion@npm:12.23.12"
   dependencies:
-    framer-motion: "npm:^12.20.3"
+    framer-motion: "npm:^12.23.12"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -11936,7 +11936,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/f80af04f8cd1bc1707ffc0ed6ec6a2b524e941748f2e8a92cf605f7af8251d279e3e21b41bc6c531e150e601e042555bf6db56538edba9b29e75184aa409e1cf
+  checksum: 10c0/48137c82b4fc8e55e06031f17219b2eb4385f028e77717aa6b2e87238c1e42d4222fb4b59b6527ebb66f98ea5f1234edd17c15682985e690b8cf48a5f3e44e67
   languageName: node
   linkType: hard
 
