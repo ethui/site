@@ -1343,7 +1343,7 @@ __metadata:
     rehype-mdx-import-media: "npm:^1.2.0"
     rehype-slug: "npm:^6.0.0"
     remark-frontmatter: "npm:^5.0.0"
-    remark-mdx-frontmatter: "npm:^5.1.0"
+    remark-mdx-frontmatter: "npm:^5.2.0"
     rollup: "npm:^4.44.1"
     simple-icons: "npm:^15.8.0"
     solid-js: "npm:^1.9.7"
@@ -13728,9 +13728,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-mdx-frontmatter@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "remark-mdx-frontmatter@npm:5.1.0"
+"remark-mdx-frontmatter@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "remark-mdx-frontmatter@npm:5.2.0"
   dependencies:
     "@types/mdast": "npm:^4.0.0"
     estree-util-value-to-estree: "npm:^3.0.0"
@@ -13738,7 +13738,7 @@ __metadata:
     unified: "npm:^11.0.0"
     unist-util-mdx-define: "npm:^1.0.0"
     yaml: "npm:^2.0.0"
-  checksum: 10c0/5ec696031c35c3bc7f87b863eace10036d811b21d49562b8e9965f328c34fbb275100cad042ee7d15b179826dfd1739ca0b66aeb6ecdcbbba01995b96693e37e
+  checksum: 10c0/72c6ee94c927e0ff9d941481b568d34f8103655cb30fe9315510410c733af7e89d6c64417cf2e59d8a2396f6e4663ba122e98a25e1277bda57be7f381a763e7d
   languageName: node
   linkType: hard
 
