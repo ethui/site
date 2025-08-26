@@ -72,7 +72,7 @@ function EmailForm() {
       <Form.Text label="E-mail address" name="email" className="w-full" />
 
       <div className="flex gap-2">
-        <Form.Submit label="Send code" className="cursor-pointer " />
+        <Form.Submit label="Send code" className="cursor-pointer" />
       </div>
     </Form>
   );
