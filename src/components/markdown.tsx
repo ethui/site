@@ -88,7 +88,7 @@ function Embed({ url: urlStr }: { url: string }) {
   });
 
   return (
-    <div className="flex flex-col items-stretch md:flex-row-reverse ">
+    <div className="flex flex-col items-stretch md:flex-row-reverse">
       <div className="aspect-16/9 shrink-0 md:w-[16rem]">
         <img
           src={image}

@@ -232,7 +232,7 @@ function Highlights() {
     >
       <div className="sticky flex flex-col bg-sidebar md:top-0 md:w-2/5 md:self-start">
         <div className="flex flex-col gap-2 px-4 py-16 md:h-screen md:items-end md:justify-center md:px-8 md:py-0">
-          <h2 className=" font-bold text-3xl">Ethereum made easy</h2>
+          <h2 className="font-bold text-3xl">Ethereum made easy</h2>
           <p className="text-right">
             Developing for web3 can be challenging, we're here to help.
           </p>
