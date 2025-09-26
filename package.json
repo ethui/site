@@ -23,7 +23,7 @@
     "@rainbow-me/rainbowkit": "^2.2.4",
     "@stefanprobst/rehype-extract-toc": "^3.0.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@tanstack/react-query": "^5.90.2",
+    "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-router": "^1.124.0",
     "@tanstack/react-router-devtools": "^1.124.0",
     "@tanstack/react-start": "^1.124.0",
