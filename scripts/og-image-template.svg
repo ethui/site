@@ -1,0 +1,44 @@
+<svg width="559" height="315" viewBox="0 0 559 315" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip0_536_627">
+      <rect width="39.2116" height="39.2116" fill="white" transform="translate(392.062 28.0817)"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="558.092" height="313.927" transform="translate(0 0.177246)" fill="white"/>
+
+  <!-- Logo -->
+  <g>
+    <path d="M392.062 28.0818H431.274V67.2932H392.062V28.0818Z" fill="#0A0A0A"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M424.213 52.3929L411.665 35.5319L399.117 52.3929H406.256L411.665 45.1246L417.074 52.3929H424.213Z" fill="white"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M406.176 52.393L411.665 59.8432L417.155 52.393H414.032L411.665 55.6045L409.299 52.393H406.176Z" fill="white"/>
+  </g>
+
+  <text fill="#0A0A0A" font-family="Source Code Pro">
+    <!-- logo name -->
+    <tspan font-size="30" font-weight="bold" x="440" y="60">
+      ethui
+    </tspan>
+
+    <tspan font-size="14">
+      <tspan x="28" y="108">
+        [{{TYPE}}]
+      </tspan>
+      <tspan x="28" y="128">
+        [{{DATE}}]
+      </tspan>
+      <tspan x="28" y="148">
+        [{{AUTHOR}}]
+      </tspan>
+    </tspan>
+    <tspan font-size="48">
+      <tspan x="28" y="220">
+        {{TITLE}} /
+      </tspan>
+      <tspan x="28" y="270.688" font-weight="bold">
+        {{SUBTITLE}}
+      </tspan>
+    </tspan>
+  </text>
+</svg>
