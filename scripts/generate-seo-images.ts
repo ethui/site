@@ -59,16 +59,30 @@ function extractFirstParagraph(content: string): string {
 
 async function generateImageForPost(postDir: string, postData: PostData): Promise<void> {
   const template = await fs.readFile(TEMPLATE_PATH, 'utf-8');
-  
+
   // Extract subtitle from content if not in banner metadata
   const mdxPath = path.join(BLOG_DIR, postDir, 'index.mdx');
   const mdxContent = await fs.readFile(mdxPath, 'utf-8');
   const { content } = matter(mdxContent);
-  
+
   // Use banner data if available, otherwise use defaults
   const banner = postData.banner || {} as BannerData;
   const subtitle = banner.subtitle || extractFirstParagraph(content);
-  
+
+  // Check if banner.png exists and embed it
+  const bannerImagePath = path.join(BLOG_DIR, postDir, 'banner.png');
+  let bannerImageElement = '';
+
+  try {
+    const bannerImageBuffer = await fs.readFile(bannerImagePath);
+    const base64Image = bannerImageBuffer.toString('base64');
+    // Position the image to fill the entire grey area (x=450 to x=1200, full height)
+    bannerImageElement = `<image x="450" y="0" width="750" height="630" href="data:image/png;base64,${base64Image}" preserveAspectRatio="xMidYMid slice"/>`;
+  } catch (error) {
+    // Banner image doesn't exist, continue without it
+    console.log(`No banner image found for ${postDir}`);
+  }
+
   // Replace placeholders
   let svg = template
     .replace('{{TYPE}}', escapeXml(banner.type || 'blog'))
@@ -76,6 +90,14 @@ async function generateImageForPost(postDir: string, postData: PostData): Promis
     .replace('{{AUTHOR}}', escapeXml(banner.author))
     .replace('{{TITLE}}', escapeXml(banner.title || postData.title || 'Untitled'))
     .replace('{{SUBTITLE}}', escapeXml(subtitle));
+
+  // Insert banner image after the grey rectangle
+  if (bannerImageElement) {
+    svg = svg.replace(
+      '<rect x="450" width="100%" height="630" fill="#888888"/>',
+      `<rect x="450" width="100%" height="630" fill="#888888"/>\n  ${bannerImageElement}`
+    );
+  }
   
   // Convert SVG to PNG
   const resvg = new Resvg(svg, {
@@ -93,7 +115,7 @@ async function generateImageForPost(postDir: string, postData: PostData): Promis
   const pngBuffer = pngData.asPng();
   
   // Save PNG to the post directory
-  const outputPath = path.join(BLOG_DIR, postDir, 'banner.png');
+  const outputPath = path.join(BLOG_DIR, postDir, 'og-banner.png');
   await fs.writeFile(outputPath, pngBuffer);
   
   console.log(`✓ Generated: ${outputPath}`);
