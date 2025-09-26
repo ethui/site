@@ -12,7 +12,39 @@ import * as blog11 from "#/blog/11-ethui-1.13-were-back/index.mdx";
 import * as blog12 from "#/blog/12-ethui-1.14/index.mdx";
 import * as blog13 from "#/blog/13-ethui-explorer/index.mdx";
 
-export const blogManifest = [
+// Auto-import all og-banner.png images using Vite's import.meta.glob
+const ogBannerImages = import.meta.glob("../../blog/*/og-banner.png", {
+  eager: true,
+});
+
+// Helper to get og-banner image for a slug
+const getOgBannerForSlug = (slug: string): string | undefined => {
+  const imgPath = `../../blog/${getDirectoryFromSlug(slug)}/og-banner.png`;
+  const ogBannerModule = ogBannerImages[imgPath] as { default: string } | undefined;
+  return ogBannerModule?.default;
+};
+
+// Map slug to directory name
+const getDirectoryFromSlug = (slug: string): string => {
+  const slugToDir: Record<string, string> = {
+    "announcing-ethui": "01-announcing-ethui",
+    "ethui-0.2.0-ui-level-up": "02-ethui-0.2.0-ui-level-up",
+    "ethui-0.3.1-mainnet": "03-ethui-0.3.1-mainnet",
+    "instant-foundry-abi-explorer": "04-instant-foundry-abi-explorer",
+    "ethui-0.5.0-impersonation": "05-ethui-0.5.0-impersonation",
+    "ethui-0.6.0-going-multi-chain": "06-ethui-0.6.0-going-multi-chain",
+    "ethui-0.7.0-eth-lisbon": "07-ethui-0.7.0-eth-lisbon",
+    "ethui-1.1.1-ledger-devtools": "08-ethui-1.1.1-ledger-devtools",
+    "ethui-1.6.0-a-new-beginning": "09-ethui-1.6-a-new-beginning",
+    "ethui-1.7.0-forms": "10-ethui-1.7-forms",
+    "ethui-1.13.0-were-back": "11-ethui-1.13-were-back",
+    "ethui-1.14.0": "12-ethui-1.14",
+    "ethui-explorer": "13-ethui-explorer",
+  };
+  return slugToDir[slug] || slug;
+};
+
+const rawBlogManifest = [
   blog01,
   blog02,
   blog03,
@@ -27,3 +59,12 @@ export const blogManifest = [
   blog12,
   blog13,
 ];
+
+// Enhanced blog manifest with og-banner images
+export const blogManifest = rawBlogManifest.map((post) => ({
+  ...post,
+  frontmatter: {
+    ...post.frontmatter,
+    ogBanner: getOgBannerForSlug(post.frontmatter.slug),
+  },
+}));

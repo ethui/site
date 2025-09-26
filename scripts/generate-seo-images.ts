@@ -122,14 +122,14 @@ async function generateImageForPost(postDir: string, postData: PostData): Promis
 }
 
 async function main(): Promise<void> {
-  
+
   // Read all blog post directories
   const postDirs = await fs.readdir(BLOG_DIR);
-  
+
   for (const dir of postDirs) {
     const postPath = path.join(BLOG_DIR, dir);
     const stat = await fs.stat(postPath);
-    
+
     if (stat.isDirectory()) {
       try {
         // Read the MDX file
@@ -141,14 +141,14 @@ async function main(): Promise<void> {
           slug: frontmatter.slug,
           banner: frontmatter.banner,
         };
-        
+
         await generateImageForPost(dir, postData);
       } catch (error) {
         console.error(`Error processing ${dir}:`, error instanceof Error ? error.message : String(error));
       }
     }
   }
-  
+
   console.log('SEO image generation complete!');
 }
 

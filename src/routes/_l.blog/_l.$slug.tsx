@@ -3,7 +3,6 @@ import { Markdown } from "#/components/markdown";
 import { NotFound } from "#/components/NotFound";
 import { seo } from "#/utils/seo";
 import { blogManifest } from "./-manifest";
-import { bannerManifest } from "./-banner-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/$slug")({
   component: RouteComponent,
@@ -11,7 +10,7 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
     const post = blogManifest.find(
       ({ frontmatter }) => frontmatter.slug === params.slug,
     );
-    
+
     if (!post) {
       return {
         meta: seo({
@@ -21,17 +20,23 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
       };
     }
 
-    const bannerImage = bannerManifest[params.slug];
+    let image: string | undefined;
+    if (post.frontmatter.ogBanner) {
+      const baseUrl = import.meta.env.VITE_VERCEL_URL
+        ? `https://${import.meta.env.VITE_VERCEL_URL}`
+        : 'https://ethui.dev';
+      image = new URL(post.frontmatter.ogBanner, baseUrl).href;
+    }
     const title = post.frontmatter.title;
-    const description = post.frontmatter.banner?.subtitle || 
+    const description = post.frontmatter.banner?.subtitle ||
       `${post.frontmatter.banner?.type || 'Blog post'} - ${post.frontmatter.banner?.date || ''}`.trim();
-    
+
     return {
       meta: seo({
-        title: `${title} - ethui`,
+        title: `${title} | ethui`,
         description,
         type: "article",
-        image: bannerImage,
+        image,
       }),
     };
   },

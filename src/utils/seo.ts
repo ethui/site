@@ -15,6 +15,7 @@ export const seo = ({
   twitterCreator?: string;
   twitterSite?: string;
 }) => {
+  console.log("seo", title, image);
   const tags = [
     { title },
     { name: "description", content: description },
