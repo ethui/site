@@ -29,7 +29,7 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
     }
     const title = post.frontmatter.title;
     const description = post.frontmatter.banner?.subtitle ||
-      `${post.frontmatter.banner?.type || 'Blog post'} - ${post.frontmatter.banner?.date || ''}`.trim();
+      `${post.frontmatter.banner?.type || 'Blog post'}`.trim();
 
     return {
       meta: seo({

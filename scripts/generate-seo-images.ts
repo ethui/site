@@ -37,26 +37,6 @@ function escapeXml(unsafe: string): string {
     .replace(/'/g, '&#039;');
 }
 
-function extractFirstParagraph(content: string): string {
-  const lines = content.split('\n');
-  let firstPara = '';
-  let inParagraph = false;
-  
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed) {
-      if (inParagraph) break;
-      continue;
-    }
-    if (!trimmed.startsWith('#') && !trimmed.startsWith('import') && !trimmed.startsWith('export')) {
-      firstPara += (firstPara ? ' ' : '') + trimmed;
-      inParagraph = true;
-    }
-  }
-  
-  return firstPara.replace(/<[^>]*>/g, '').slice(0, 100) + (firstPara.length > 100 ? '...' : '');
-}
-
 async function generateImageForPost(postDir: string, postData: PostData): Promise<void> {
   const template = await fs.readFile(TEMPLATE_PATH, 'utf-8');
 
@@ -67,7 +47,6 @@ async function generateImageForPost(postDir: string, postData: PostData): Promis
 
   // Use banner data if available, otherwise use defaults
   const banner = postData.banner || {} as BannerData;
-  const subtitle = banner.subtitle || extractFirstParagraph(content);
 
   // Check if banner.png exists and embed it
   const bannerImagePath = path.join(BLOG_DIR, postDir, 'banner.png');
@@ -88,8 +67,7 @@ async function generateImageForPost(postDir: string, postData: PostData): Promis
     .replace('{{TYPE}}', escapeXml(banner.type || 'blog'))
     .replace('{{DATE}}', escapeXml(banner.date))
     .replace('{{AUTHOR}}', escapeXml(banner.author))
-    .replace('{{TITLE}}', escapeXml(banner.title || postData.title || 'Untitled'))
-    .replace('{{SUBTITLE}}', escapeXml(subtitle));
+    .replace('{{TITLE}}', escapeXml(banner.title || postData.title || 'Untitled'));
 
   // Insert banner image after the grey rectangle
   if (bannerImageElement) {
