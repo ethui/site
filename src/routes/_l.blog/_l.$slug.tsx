@@ -24,12 +24,13 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
     if (post.frontmatter.ogBanner) {
       const baseUrl = import.meta.env.VITE_VERCEL_URL
         ? `https://${import.meta.env.VITE_VERCEL_URL}`
-        : 'https://ethui.dev';
+        : "https://ethui.dev";
       image = new URL(post.frontmatter.ogBanner, baseUrl).href;
     }
     const title = post.frontmatter.title;
-    const description = post.frontmatter.banner?.subtitle ||
-      `${post.frontmatter.banner?.type || 'Blog post'}`.trim();
+    const description =
+      post.frontmatter.banner?.subtitle ||
+      `${post.frontmatter.banner?.type || "Blog post"}`.trim();
 
     return {
       meta: seo({

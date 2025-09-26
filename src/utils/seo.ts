@@ -36,5 +36,5 @@ export const seo = ({
       : []),
   ];
 
-  return tags.filter(tag => tag.content || tag.title);
+  return tags.filter((tag) => tag.content || tag.title);
 };

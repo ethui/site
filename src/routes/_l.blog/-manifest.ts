@@ -20,7 +20,9 @@ const ogBannerImages = import.meta.glob("../../blog/*/og-banner.png", {
 // Helper to get og-banner image for a slug
 const getOgBannerForSlug = (slug: string): string | undefined => {
   const imgPath = `../../blog/${getDirectoryFromSlug(slug)}/og-banner.png`;
-  const ogBannerModule = ogBannerImages[imgPath] as { default: string } | undefined;
+  const ogBannerModule = ogBannerImages[imgPath] as
+    | { default: string }
+    | undefined;
   return ogBannerModule?.default;
 };
 

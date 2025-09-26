@@ -13,8 +13,8 @@ declare module "*.png" {
 declare module "#/*.mdx" {
   import type { Toc } from "@stefanprobst/rehype-extract-toc";
 
-  export const frontmatter: { 
-    title: string; 
+  export const frontmatter: {
+    title: string;
     slug: string;
     banner?: {
       type?: string;
