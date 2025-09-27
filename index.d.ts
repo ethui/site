@@ -5,10 +5,25 @@ declare module "#/assets/videos/ethui-local.webm?url";
 
 declare module "#/app.css?url";
 
+declare module "*.png" {
+  const value: string;
+  export default value;
+}
+
 declare module "#/*.mdx" {
   import type { Toc } from "@stefanprobst/rehype-extract-toc";
 
-  export const frontmatter: { title: string; slug: string };
+  export const frontmatter: {
+    title: string;
+    slug: string;
+    banner?: {
+      type?: string;
+      date?: string;
+      author?: string;
+      title?: string;
+      subtitle?: string;
+    };
+  };
   export const tableOfContents: Toc;
   export default () => ReactNode;
 }

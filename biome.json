@@ -3,6 +3,7 @@
     "includes": [
       "**",
       "!**/build",
+      "!**/.output",
       "!**/node_modules",
       "!**/*.gen.ts",
       "!**/*.generated.ts",

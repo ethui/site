@@ -3,11 +3,17 @@ export const seo = ({
   description,
   keywords,
   image,
+  type = "website",
+  twitterCreator = "@naps62",
+  twitterSite = "@naps62",
 }: {
   title: string;
   description?: string;
   image?: string;
   keywords?: string;
+  type?: "website" | "article";
+  twitterCreator?: string;
+  twitterSite?: string;
 }) => {
   const tags = [
     { title },
@@ -15,9 +21,9 @@ export const seo = ({
     { name: "keywords", content: keywords },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
-    { name: "twitter:creator", content: "@tannerlinsley" },
-    { name: "twitter:site", content: "@tannerlinsley" },
-    { name: "og:type", content: "website" },
+    { name: "twitter:creator", content: twitterCreator },
+    { name: "twitter:site", content: twitterSite },
+    { name: "og:type", content: type },
     { name: "og:title", content: title },
     { name: "og:description", content: description },
     ...(image
@@ -29,5 +35,5 @@ export const seo = ({
       : []),
   ];
 
-  return tags;
+  return tags.filter((tag) => tag.content || tag.title);
 };
