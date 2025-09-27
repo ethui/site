@@ -4,7 +4,11 @@ import { NotFound } from "./components/NotFound";
 import { routeTree } from "./routeTree.gen";
 
 export function getRouter() {
+<<<<<<< HEAD
   return createRouter({
+=======
+  const router = createTanStackRouter({
+>>>>>>> main
     routeTree,
     defaultPreload: "intent",
     defaultErrorComponent: DefaultCatchBoundary,
