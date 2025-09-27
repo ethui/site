@@ -6,11 +6,11 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "start": "node .output/server/index.mjs",
-    "lint": "yarn lint:biome && yarn lint:tsc && yarn lint:unused",
+    "lint": "tsc lint:biome && tsc lint:tsc && tsc lint:unused",
     "lint:biome": "biome check .",
     "lint:tsc": "tsc --noEmit",
     "lint:unused": "ts-unused-exports tsconfig.json --excludePathsFromReport='vite.config.ts;routeTree.gen.ts;loggingMiddleware.tsx;app.config;__root.tsx;router.tsx'",
-    "fix": "yarn fix:biome",
+    "fix": "tsc fix:biome",
     "fix:biome": "biome check --write .",
     "gen:seo-images": "tsx scripts/generate-seo-images.ts"
   },
