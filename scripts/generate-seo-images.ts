@@ -68,7 +68,8 @@ async function generateImageForPost(
     .replace(
       "{{TITLE}}",
       escapeXml(banner.title || postData.title || "Untitled"),
-    );
+    )
+    .replace("{{SUBTITLE}}", escapeXml(banner.subtitle || ""));
 
   // Insert banner image after the grey rectangle
   if (bannerImageElement) {
