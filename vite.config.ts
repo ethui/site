@@ -2,7 +2,9 @@ import mdx from "@mdx-js/rollup";
 import withToc from "@stefanprobst/rehype-extract-toc";
 import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import tailwindcss from "@tailwindcss/vite";
+import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import viteReact from "@vitejs/plugin-react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeAddClasses from "rehype-class-names";
 import rehypeExternalLinks from "rehype-external-links";
@@ -40,9 +42,11 @@ export default defineConfig({
         withTocExport,
       ],
     }),
-    tanstackStart({
-      target: "vercel",
+    tanstackStart(),
+    nitroV2Plugin({
+      compatibilityDate: "2025-09-25",
     }),
+    viteReact(),
     tailwindcss(),
   ],
 });
