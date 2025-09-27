@@ -12,18 +12,12 @@ import * as blog11 from "#/blog/11-ethui-1.13-were-back/index.mdx";
 import * as blog12 from "#/blog/12-ethui-1.14/index.mdx";
 import * as blog13 from "#/blog/13-ethui-explorer/index.mdx";
 
-// Auto-import all og-banner.png images using Vite's import.meta.glob
-const ogBannerImages = import.meta.glob("../../blog/*/og-banner.png", {
-  eager: true,
-});
-
 // Helper to get og-banner image for a slug
-const getOgBannerForSlug = (slug: string): string | undefined => {
-  const imgPath = `../../blog/${getDirectoryFromSlug(slug)}/og-banner.png`;
-  const ogBannerModule = ogBannerImages[imgPath] as
-    | { default: string }
-    | undefined;
-  return ogBannerModule?.default;
+const getOgBannerForSlug = (slug: string): string => {
+  const baseUrl = import.meta.env.PROD
+    ? `https://${import.meta.env.VERCEL_URL || "https://ethui.dev"}`
+    : "http://localhost:3000";
+  return `${baseUrl}/opengraph/${getDirectoryFromSlug(slug)}/banner.png`;
 };
 
 // Map slug to directory name

@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.join(__dirname, "..");
 const BLOG_DIR = path.join(ROOT_DIR, "src", "blog");
+const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 const TEMPLATE_PATH = path.join(ROOT_DIR, "scripts", "og-image-template.svg");
 
 interface BannerData {
@@ -92,8 +93,12 @@ async function generateImageForPost(
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();
 
-  // Save PNG to the post directory
-  const outputPath = path.join(BLOG_DIR, postDir, "og-banner.png");
+  // Create opengraph directory for this post if it doesn't exist
+  const opengraphPostDir = path.join(PUBLIC_DIR, "opengraph", postDir);
+  await fs.mkdir(opengraphPostDir, { recursive: true });
+
+  // Save PNG to the opengraph directory
+  const outputPath = path.join(opengraphPostDir, "banner.png");
   await fs.writeFile(outputPath, pngBuffer);
 
   console.log(`✓ Generated: ${outputPath}`);
