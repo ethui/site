@@ -1,6 +1,6 @@
 import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
-import { nitro} from "nitro-nightly/vite";
+import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -39,7 +39,9 @@ export default defineConfig({
       ],
     }),
     tanstackStart(),
-    nitro(),
+    nitroV2Plugin({
+      compatibilityDate: "2025-09-25",
+    }),
     viteReact(),
     tailwindcss(),
   ],

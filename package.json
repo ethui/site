@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "@aptabase/react": "^0.4.0",
-    "@ethui/form": "^0.0.10",
     "@ethui/ui": "^0.0.82",
     "@hookform/resolvers": "^5.1.1",
     "@mdx-js/react": "^3.1.0",
     "@rainbow-me/rainbowkit": "^2.2.4",
     "@tailwindcss/typography": "^0.5.16",
+    "@tanstack/nitro-v2-vite-plugin": "^1.132.0",
     "@tanstack/react-query": "^5.90.2",
     "@tanstack/react-router": "^1.132.7",
     "@tanstack/react-router-devtools": "^1.132.11",
@@ -32,7 +32,7 @@
     "lodash-es": "^4.17.21",
     "lru-cache": "^11.1.0",
     "lucide-react": "^0.506.0",
-    "nitro-nightly": "3.0.0-20250925-181710-5191890e",
+    "nitro": "npm:nitro-nightly",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.59.0",
@@ -82,6 +82,5 @@
     "typescript": "^5.8.2",
     "vite": "^7.0.0",
     "vite-tsconfig-paths": "^5.1.4"
-  },
-  "packageManager": "yarn@4.7.0"
+  }
 }
