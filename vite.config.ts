@@ -36,9 +36,7 @@ export default defineConfig({
         rehypeMdxImportMedia,
       ],
     }),
-    tanstackStart({
-      target: "vercel",
-    }),
+    tanstackStart({}),
     tailwindcss(),
   ],
 });
