@@ -39,7 +39,9 @@ export default defineConfig({
       ],
     }),
     tanstackStart(),
-    nitroV2Plugin(),
+    nitroV2Plugin({
+      compatibilityDate: "2025-09-27"
+    }),
     viteReact(),
     tailwindcss(),
   ],
