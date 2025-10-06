@@ -8,7 +8,7 @@
     "start": "node .output/server/index.mjs",
     "lint": "tsc lint:biome && tsc lint:tsc && tsc lint:unused",
     "lint:biome": "biome check .",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "pnpm --package=typescript dlx tsc --noEmit",
     "lint:unused": "ts-unused-exports tsconfig.json --excludePathsFromReport='vite.config.ts;routeTree.gen.ts;loggingMiddleware.tsx;app.config;__root.tsx;router.tsx'",
     "fix": "tsc fix:biome",
     "fix:biome": "biome check --write .",
