@@ -33,7 +33,7 @@ export function Header({ hero = false, isVisible = true }: Props) {
       </SmoothScrollLink>
       <nav className="ml-auto flex items-center gap-2">
         <Button variant="ghost" asChild>
-          <Link to="/blog" className="flex gap-2">
+          <Link to="/docs" className="flex gap-2">
             <BookOpen />
             Docs
           </Link>
