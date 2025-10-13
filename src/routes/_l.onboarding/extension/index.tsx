@@ -5,7 +5,7 @@ import {
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute, Link } from "@tanstack/react-router";
 import { WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
@@ -31,38 +31,40 @@ const queryClient = new QueryClient();
 
 function Extension() {
   return (
-    <WagmiProvider config={wagmi}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
-          <div className="flex h-screen flex-col bg-white">
-            <div className="flex flex-col items-center px-6 py-28 sm:py-44 lg:py-52">
-              <div className="space-y-4">
-                <section>
-                  <h2 className="mb-2 text-lg">
-                    1. Install the ethui extension for your browser:
-                  </h2>
-                  <DownloadLinks />
-                </section>
+    <ClientOnly>
+      <WagmiProvider config={wagmi}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider>
+            <div className="flex h-screen flex-col bg-white">
+              <div className="flex flex-col items-center px-6 py-28 sm:py-44 lg:py-52">
+                <div className="space-y-4">
+                  <section>
+                    <h2 className="mb-2 text-lg">
+                      1. Install the ethui extension for your browser:
+                    </h2>
+                    <DownloadLinks />
+                  </section>
 
-                <section className="pt-8">
-                  <h2 className="mb-2 text-lg">
-                    2. Refresh this page to reload the extension
-                  </h2>
-                  <Refresh />
-                </section>
+                  <section className="pt-8">
+                    <h2 className="mb-2 text-lg">
+                      2. Refresh this page to reload the extension
+                    </h2>
+                    <Refresh />
+                  </section>
 
-                <section className="pt-8">
-                  <h2 className="mb-2 text-lg">
-                    3. Connect the wallet to activate the app
-                  </h2>
-                  <ConnectButton />
-                </section>
+                  <section className="pt-8">
+                    <h2 className="mb-2 text-lg">
+                      3. Connect the wallet to activate the app
+                    </h2>
+                    <ConnectButton />
+                  </section>
+                </div>
               </div>
             </div>
-          </div>
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </ClientOnly>
   );
 }
 
