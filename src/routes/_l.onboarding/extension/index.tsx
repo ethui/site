@@ -31,7 +31,7 @@ function Extension() {
     appName: "ethui website",
     projectId: "@ethui/site",
     chains: [mainnet],
-    ssr: true,
+    ssr: false,
   });
 
   return (
