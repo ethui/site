@@ -5,18 +5,14 @@ import {
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ClientOnly, createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 
 export const Route = createFileRoute("/_l/onboarding/extension/")({
   ssr: false,
-  component: () => (
-    <ClientOnly>
-      <Extension />
-    </ClientOnly>
-  ),
+  component: Extension,
 });
 
 const CHROME_EXTENSION =
