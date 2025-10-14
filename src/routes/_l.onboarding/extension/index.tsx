@@ -11,7 +11,11 @@ import { mainnet } from "wagmi/chains";
 import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 
 export const Route = createFileRoute("/_l/onboarding/extension/")({
-  component: Extension,
+  component: () => (
+    <ClientOnly>
+      <Extension />
+    </ClientOnly>
+  ),
 });
 
 const CHROME_EXTENSION =
@@ -20,51 +24,49 @@ const FIREFOX_EXTENSION =
   "https://addons.mozilla.org/en-US/firefox/addon/ethui/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search";
 const GITHUB_LATEST_RELEASE = "https://github.com/ethui/ethui/releases/latest";
 
-const wagmi = getDefaultConfig({
-  appName: "ethui website",
-  projectId: "@ethui/site",
-  chains: [mainnet],
-  ssr: false,
-});
-
 const queryClient = new QueryClient();
 
 function Extension() {
+  const wagmi = getDefaultConfig({
+    appName: "ethui website",
+    projectId: "@ethui/site",
+    chains: [mainnet],
+    ssr: true,
+  });
+
   return (
-    <ClientOnly>
-      <WagmiProvider config={wagmi}>
-        <QueryClientProvider client={queryClient}>
-          <RainbowKitProvider>
-            <div className="flex h-screen flex-col bg-white">
-              <div className="flex flex-col items-center px-6 py-28 sm:py-44 lg:py-52">
-                <div className="space-y-4">
-                  <section>
-                    <h2 className="mb-2 text-lg">
-                      1. Install the ethui extension for your browser:
-                    </h2>
-                    <DownloadLinks />
-                  </section>
+    <WagmiProvider config={wagmi}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+          <div className="flex h-screen flex-col bg-white">
+            <div className="flex flex-col items-center px-6 py-28 sm:py-44 lg:py-52">
+              <div className="space-y-4">
+                <section>
+                  <h2 className="mb-2 text-lg">
+                    1. Install the ethui extension for your browser:
+                  </h2>
+                  <DownloadLinks />
+                </section>
 
-                  <section className="pt-8">
-                    <h2 className="mb-2 text-lg">
-                      2. Refresh this page to reload the extension
-                    </h2>
-                    <Refresh />
-                  </section>
+                <section className="pt-8">
+                  <h2 className="mb-2 text-lg">
+                    2. Refresh this page to reload the extension
+                  </h2>
+                  <Refresh />
+                </section>
 
-                  <section className="pt-8">
-                    <h2 className="mb-2 text-lg">
-                      3. Connect the wallet to activate the app
-                    </h2>
-                    <ConnectButton />
-                  </section>
-                </div>
+                <section className="pt-8">
+                  <h2 className="mb-2 text-lg">
+                    3. Connect the wallet to activate the app
+                  </h2>
+                  <ConnectButton />
+                </section>
               </div>
             </div>
-          </RainbowKitProvider>
-        </QueryClientProvider>
-      </WagmiProvider>
-    </ClientOnly>
+          </div>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }
 
