@@ -20,16 +20,16 @@ const FIREFOX_EXTENSION =
   "https://addons.mozilla.org/en-US/firefox/addon/ethui/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search";
 const GITHUB_LATEST_RELEASE = "https://github.com/ethui/ethui/releases/latest";
 
-const wagmi = getDefaultConfig({
-  appName: "ethui website",
-  projectId: "@ethui/site",
-  chains: [mainnet],
-  ssr: false,
-});
-
 const queryClient = new QueryClient();
 
 function Extension() {
+  const wagmi = getDefaultConfig({
+    appName: "ethui website",
+    projectId: "@ethui/site",
+    chains: [mainnet],
+    ssr: false,
+  });
+
   return (
     <ClientOnly>
       <WagmiProvider config={wagmi}>
