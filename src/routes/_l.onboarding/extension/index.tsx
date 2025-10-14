@@ -11,6 +11,7 @@ import { mainnet } from "wagmi/chains";
 import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
 
 export const Route = createFileRoute("/_l/onboarding/extension/")({
+  ssr: false,
   component: () => (
     <ClientOnly>
       <Extension />
