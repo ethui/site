@@ -50,7 +50,7 @@
     "rehype-slug": "^6.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
-    "simple-icons": "^15.16.0",
+    "simple-icons": "^16.3.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "4.0.11",
     "titleize": "^4.0.0",
