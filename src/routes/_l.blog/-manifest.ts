@@ -11,6 +11,7 @@ import * as blog10 from "#/blog/10-ethui-1.7-forms/index.mdx";
 import * as blog11 from "#/blog/11-ethui-1.13-were-back/index.mdx";
 import * as blog12 from "#/blog/12-ethui-1.14/index.mdx";
 import * as blog13 from "#/blog/13-ethui-explorer/index.mdx";
+import * as blog14 from "#/blog/14-ethui-stacks/index.mdx";
 
 // Helper to get og-banner image for a slug
 const getOgBannerForSlug = (slug: string): string => {
@@ -36,6 +37,7 @@ const getDirectoryFromSlug = (slug: string): string => {
     "ethui-1.13.0-were-back": "11-ethui-1.13-were-back",
     "ethui-1.14.0": "12-ethui-1.14",
     "ethui-explorer": "13-ethui-explorer",
+    "ethui-stacks": "14-ethui-stacks",
   };
   return slugToDir[slug] || slug;
 };
@@ -54,6 +56,7 @@ const rawBlogManifest = [
   blog11,
   blog12,
   blog13,
+  blog14,
 ];
 
 // Enhanced blog manifest with og-banner images
