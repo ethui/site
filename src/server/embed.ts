@@ -26,9 +26,20 @@ export const getOpengraphEmbedData = createServerFn({ method: "GET" })
         const text = await response.text();
 
         const $ = load(text);
-        const image = $('meta[property="og:image"]').attr("content") || "";
-        const title = $('meta[property="og:title"]').attr("content") || "";
-        const description = $("body").attr("content") || "";
+
+        const image =
+          $('meta[property="og:image"]').attr("content") ||
+          $('meta[name="og:image"]').attr("content") ||
+          "";
+        const title =
+          $('meta[property="og:title"]').attr("content") ||
+          $('meta[name="og:title"]').attr("content") ||
+          "";
+        const description =
+          $('meta[property="og:description"]').attr("content") ||
+          $('meta[name="og:description"]').attr("content") ||
+          $('meta[name="description"]').attr("content") ||
+          "";
 
         return {
           image,

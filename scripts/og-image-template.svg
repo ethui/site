@@ -6,8 +6,8 @@
   </defs>
 
   <!-- Background -->
-  <rect width="450" height="630" transform="translate(0 0.354)" fill="white"/>
-  <rect x="450" width="100%" height="630" fill="#888888"/>
+  <rect width="550" height="630" transform="translate(0 0.354)" fill="white"/>
+  <rect x="550" width="100%" height="630" fill="#888888"/>
 
   <!-- Logo -->
   <g transform="translate(20, 550) scale(0.0667)">
