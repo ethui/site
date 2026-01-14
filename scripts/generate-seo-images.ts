@@ -9,6 +9,8 @@ import matter from "gray-matter";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const force = process.argv.includes("--force");
+
 const ROOT_DIR = path.join(__dirname, "..");
 const BLOG_DIR = path.join(ROOT_DIR, "src", "blog");
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
@@ -41,6 +43,19 @@ async function generateImageForPost(
   postDir: string,
   postData: PostData,
 ): Promise<void> {
+  const outputPath = path.join(PUBLIC_DIR, "opengraph", postDir, "banner.png");
+
+  // Skip if image already exists (unless --force is given)
+  if (!force) {
+    try {
+      await fs.access(outputPath);
+      console.log(`⏭ Skipped: ${outputPath} (already exists)`);
+      return;
+    } catch {
+      // File doesn't exist, continue with generation
+    }
+  }
+
   const template = await fs.readFile(TEMPLATE_PATH, "utf-8");
 
   // Use banner data if available, otherwise use defaults
@@ -53,8 +68,8 @@ async function generateImageForPost(
   try {
     const bannerImageBuffer = await fs.readFile(bannerImagePath);
     const base64Image = bannerImageBuffer.toString("base64");
-    // Position the image to fill the entire grey area (x=450 to x=1200, full height)
-    bannerImageElement = `<image x="450" y="0" width="750" height="630" href="data:image/png;base64,${base64Image}" preserveAspectRatio="xMidYMid slice"/>`;
+    // Position the image to fill the entire grey area (x=550 to x=1200, full height)
+    bannerImageElement = `<image x="550" y="0" width="650" height="630" href="data:image/png;base64,${base64Image}" preserveAspectRatio="xMidYMid slice"/>`;
   } catch (_error) {
     // Banner image doesn't exist, continue without it
     console.log(`No banner image found for ${postDir}`);
@@ -74,16 +89,20 @@ async function generateImageForPost(
   // Insert banner image after the grey rectangle
   if (bannerImageElement) {
     svg = svg.replace(
-      '<rect x="450" width="100%" height="630" fill="#888888"/>',
-      `<rect x="450" width="100%" height="630" fill="#888888"/>\n  ${bannerImageElement}`,
+      '<rect x="550" width="100%" height="630" fill="#888888"/>',
+      `<rect x="550" width="100%" height="630" fill="#888888"/>\n  ${bannerImageElement}`,
     );
   }
 
   // Convert SVG to PNG
   const resvg = new Resvg(svg, {
     font: {
-      loadSystemFonts: true, // This will load system fonts including Source Code Pro if installed
-      defaultFontFamily: "monospace", // Fallback to monospace if Source Code Pro not found
+      fontFiles: [
+        path.join(__dirname, "fonts", "SourceCodePro-Regular.ttf"),
+        path.join(__dirname, "fonts", "SourceCodePro-Bold.ttf"),
+      ],
+      loadSystemFonts: false,
+      defaultFontFamily: "Source Code Pro",
     },
     dpi: 150,
     fitTo: {
@@ -95,11 +114,9 @@ async function generateImageForPost(
   const pngBuffer = pngData.asPng();
 
   // Create opengraph directory for this post if it doesn't exist
-  const opengraphPostDir = path.join(PUBLIC_DIR, "opengraph", postDir);
-  await fs.mkdir(opengraphPostDir, { recursive: true });
+  await fs.mkdir(path.dirname(outputPath), { recursive: true });
 
   // Save PNG to the opengraph directory
-  const outputPath = path.join(opengraphPostDir, "banner.png");
   await fs.writeFile(outputPath, pngBuffer);
 
   console.log(`✓ Generated: ${outputPath}`);
