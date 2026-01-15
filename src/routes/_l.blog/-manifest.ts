@@ -37,7 +37,7 @@ const getDirectoryFromSlug = (slug: string): string => {
     "ethui-1.13.0-were-back": "11-ethui-1.13-were-back",
     "ethui-1.14.0": "12-ethui-1.14",
     "ethui-explorer": "13-ethui-explorer",
-    "ethui-stacks": "14-ethui-stacks",
+    stacks: "14-ethui-stacks",
   };
   return slugToDir[slug] || slug;
 };
