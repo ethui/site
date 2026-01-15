@@ -1,0 +1,80 @@
+---
+title: "ethui stacks - effortless EVM testnets"
+slug: stacks
+banner:
+  type: announcement
+  date: Jan 20th 2025
+  author: "@naps62"
+  title: ethui
+  subtitle: Announcing stacks
+---
+
+import screenshot from "./screenshot.png";
+
+# ethui stacks - one-click testnets
+
+[stacks]: https://stacks.ethui.dev
+[anvil]: https://getfoundry.sh/anvil/overview
+[ethui]: https://ethui.dev
+[explorer]: https://explorer.ethui.dev
+[bold]: https://github.com/liquity/bold
+
+
+We recently took the time to polish something we’ve been using internally with a number of projects, and that has helped us eliminate boilerplate and simplify our development processes.
+
+We called it Stacks. It's been heavily useful to us in recent months, so we’re releasing it to others: 
+
+<Embed url="https://stacks.ethui.dev" />
+
+It’s also fully open-source and self-hostable: [https://github.com/ethui/stacks][stacks]
+
+**TL;DR:** It’s a tool that allows you to easily create private testnets for development and testing scenarios.
+
+The underlying chain is a thin wrapper around [`anvil`][anvil], so all the usual cheatcodes are there for you, with the added bonus of cloud persistence, easy setup,  and zero maintenance. Just create a stack and copy the RPC URL.
+
+<Image src={screenshot} alt="ethui stacks screenshot" className="max-w-150"/>
+
+## Why testnets
+
+The main reason we initially created ethui was to solve our own grievances with existing tooling for smart contract development. The tooling in web3 felt, and still feels, scattered, often clunky, and not accessible to beginners. This could be symptomatic of the entirety of Web3, but for the purpose of this article let’s keep it to tooling.
+
+One particular pain point we struggle with often is dealing with testnets. From recent talks with other developers, it seems this hasn't particularly improved. If you use ethui, maybe you're somewhat shielded from all that pain, since you probably rely on local development with anvil already (and if you're not, [maybe it's worth a try!][ethui]).
+
+But the problem remains when you need to go live on a testnet. Whether that is for internal use, QA, or for user-testing, there’s a lot of friction involved:
+
+- **Paying for gas**. Not only might it be hard to come by sometimes, it also needs to be distributed to each user (particularly painful if you’re starting a user interview using a fresh wallet)
+- **Limited interoperability**. Chances are your protocol interfaces with other protocols, or is meant to be itself used by other systems. But those 3rd parties often have their own MockUSDC instance, not interoperable among each other. Or maybe it’s completely non-functional due to lack of maintenance. This happens quite frequently, in our experience, making it hard or downright impossible to test interoperable protocols against live data on testnets.
+- **Slow feedback loops**. Since Sepolia acts as a regular chain, any small fix in your contract requires a new deploy, new contract addresses, waiting for transactions, possibly some network congestion. Compare this to a local workflow where anvil is just rolled-back, and contracts are deployed instantly, sometimes to the same address if your setup allows for it.
+
+## ethui stacks today
+
+When you create a new stack, a new remote `anvil` instance is created for you. That instance is persistent, and becomes fully available to you through a private API Key.
+
+You get an authenticated URL to use as RPC, which you can easily add to your wallet, or foundry setup.
+
+You also get a unique chain ID, allowing you to set up custom logic or identify your own testnet contracts, and protecting you from replay attacks.
+
+Stacks can also be bootstrapped by forking other networks, where only an upstream RPC url is required.
+
+This combination allows you to easily create your own fork of Ethereum Mainnet, and then take advantage of anvil cheatcodes to easily:
+
+- Fund any account you need using `anvil_setBalance`
+- Impersonate anyone to test specific flows, without needing private keys, through `anvil_impersonateAccount`
+- Create your own snapshots for easy rollbacks
+
+On top of this, each stack chain can be seamlessly inspected with [our own anvil explorer][explorer].
+
+We’ve been using an early internal version of this for the past year at Subvisual, with great success, closely resembling setups such as what the Liquity v2 team did [https://github.com/liquity/bold][bold]. We were able to eliminate all boilerplate and setup overhead from our projects since we’ve made this change.
+
+## Future work
+
+We have also worked towards supporting subgraphs in this system. In fact, that’s how the name “stacks” came about, since we don’t want to just deploy a testnet, but also the entire tech stack that might be needed for you to develop seamlessly.
+
+Subgraphs are by themselves rather complex to set up, especially locally and against anvil nodes. For example, I once noticed that both foundry and alloy-rs had an RPC spec bug that prevented subgraphs from syncing correctly. This was a little eye-opening, since it showed me that I was pretty much the only person even attempting to do this, or at least cared enough to investigate.
+
+Hosting a subgraph requires additional overhead (mainly Postgresql, IPFS, not to mention the indexer node itself). But the trickiest part is how to deal with anvil reverts. We’re holding off on publishing them for now until we figure out how to best approach it.
+It’s also very much worth mentioning we’re open to feedback from the community, so if any of this resonates and you have something to add to the conversation, do get in touch.
+
+In the meantime, stacks is completely free to try out at [https://stacks.ethui.dev][stacks].
+
+<Embed url="https://stacks.ethui.dev" />
