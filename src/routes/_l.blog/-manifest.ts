@@ -17,7 +17,7 @@ import * as blog15 from "#/blog/15-ethui-1.27-hardhat-support/index.mdx";
 // Helper to get og-banner image for a slug
 const getOgBannerForSlug = (slug: string): string => {
   const baseUrl = import.meta.env.PROD
-    ? `https://${import.meta.env.VERCEL_URL || "https://ethui.dev"}`
+    ? `https://${import.meta.env.VERCEL_URL || "ethui.dev"}`
     : "http://localhost:3000";
   return `${baseUrl}/opengraph/${getDirectoryFromSlug(slug)}/banner.png`;
 };
