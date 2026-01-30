@@ -1,0 +1,53 @@
+---
+title: "ethui 1.27 - hardhat support"
+slug: ethui-1.27
+banner:
+  type: release
+  date: Jan 30th 2026
+  author: "@naps62"
+  title: ethui 1.27
+  subtitle: Hardhat support
+---
+
+[abi-sync]: https://ethui.dev/blog/instant-foundry-abi-explorer
+
+![banner](./banner.png)
+
+# ethui 1.27
+
+We're happy to announce the release of ethui 1.27.
+
+The highlight is hardhat support, which was finally possible after addressing some low hanging fruit, but there's also good news for the browser extension.
+
+<Embed url="https://github.com/ethui/ethui/releases/tag/v1.27.0" />
+
+# Hardhat support
+
+`anvil` RPC endpoints such as `anvil_mine` and `anvil_impersonateAccount` are mostly aliases to hardhat equivalent RPCs, so supporting both types of development nodes is actually pretty simple.
+
+The main difficulty was in seamlessly handling compilation artifacts in our [filesystem ABI sync][abi-sync] feature, which we finally were able to implement after a series of updates to the underlying logic.
+
+## Some love for the extension
+
+The ethui browser extension has always served purely as a proxy to the desktop app.
+
+However, this made onboarding a bit more painful, since users needed to first install the app, which prompts you back to a browser to install the extension.
+
+We've now inverted this flow, meaning you can easily install the extension first, where you're now prompted directly to the download action.
+
+We have also laid the groundwork for an upcoming feature where the extension will start to be useful on its own, and potentially be enough for simpler use cases, resulting in a much faster setup flow for new users.
+
+import ext from "./ext.png";
+
+<Image src={ext} className="max-w-100" />
+
+## Become a user / contributor
+
+The new release can be downloaded from [our website](https://ethui.dev/), or directly from [github’s releases](https://github.com/ethui/ethui/releases/tag/v1.27.0). You can also [build directly from source](https://github.com/ethui/ethui).
+
+Check out our other products as well:
+
+<Embed url="https://explorer.ethui.dev" />
+<Embed url="https://stacks.ethui.dev" />
+
+As always, feedback and contributions are most welcome!

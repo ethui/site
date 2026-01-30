@@ -12,6 +12,7 @@ import * as blog11 from "#/blog/11-ethui-1.13-were-back/index.mdx";
 import * as blog12 from "#/blog/12-ethui-1.14/index.mdx";
 import * as blog13 from "#/blog/13-ethui-explorer/index.mdx";
 import * as blog14 from "#/blog/14-stacks/index.mdx";
+import * as blog15 from "#/blog/15-ethui-1.27-hardhat-support/index.mdx";
 
 // Helper to get og-banner image for a slug
 const getOgBannerForSlug = (slug: string): string => {
@@ -38,6 +39,7 @@ const getDirectoryFromSlug = (slug: string): string => {
     "ethui-1.14.0": "12-ethui-1.14",
     "ethui-explorer": "13-ethui-explorer",
     stacks: "14-ethui-stacks",
+    "ethui-1.27.0-hardhat-support": "15-ethui-1.27-hardhat-support",
   };
   return slugToDir[slug] || slug;
 };
@@ -57,6 +59,7 @@ const rawBlogManifest = [
   blog12,
   blog13,
   blog14,
+  blog15,
 ];
 
 // Enhanced blog manifest with og-banner images
