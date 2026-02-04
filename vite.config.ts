@@ -30,8 +30,8 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tanstackStart({
-      prerender: { enabled: true, crawlLinks: true },
-      sitemap: { enabled: true, host: "https://ethui.dev" },
+      // prerender: { enabled: true, crawlLinks: true },
+      // sitemap: { enabled: true, host: "https://ethui.dev" },
     }),
     mdx({
       providerImportSource: "@mdx-js/react",
@@ -49,9 +49,6 @@ export default defineConfig({
         withTocExport,
       ],
     }),
-    // nitroV2Plugin({
-    //   compatibilityDate: "2025-09-25",
-    // }),
     viteReact(),
     tailwindcss(),
   ],
