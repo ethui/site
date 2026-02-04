@@ -10,23 +10,26 @@ import appCss from "#/app.css?url";
 import { Aptabase } from "#/components/aptabase";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import { seo } from "#/utils/seo";
+import { linkedData, seo } from "#/utils/seo";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
     ? () => null // Render nothing in production
     : lazy(() =>
-        // Lazy load in development
-        import("@tanstack/react-router-devtools").then((res) => ({
-          default: res.TanStackRouterDevtools,
-          // For Embedded Mode
-          // default: res.TanStackRouterDevtoolsPanel
-        })),
-      );
+      // Lazy load in development
+      import("@tanstack/react-router-devtools").then((res) => ({
+        default: res.TanStackRouterDevtools,
+        // For Embedded Mode
+        // default: res.TanStackRouterDevtoolsPanel
+      })),
+    );
 
 export interface RouteContext {
   breadcrumb?: string;
 }
+
+const seoDescription =
+  "High-performance Ethereum desktop app for Web3 devs. Native Hardhat & Foundry support, local smart contract explorer, and multi-wallet sync. Open-source.";
 
 export const Route = createRootRouteWithContext<RouteContext>()({
   head: () => ({
@@ -39,8 +42,11 @@ export const Route = createRootRouteWithContext<RouteContext>()({
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
-        title: "ethui",
-        description: "An Ethereum toolkit",
+        title: "ethui | An Ethereum wallet for Developers",
+        description: seoDescription,
+        keywords:
+          "ethereum, wallet, developer tools, rust, foundry, hardhat, web3, smart contract explorer",
+        image: "https://ethui.eth.limo/symbol-black.svg",
       }),
     ],
     links: [
@@ -57,7 +63,8 @@ export const Route = createRootRouteWithContext<RouteContext>()({
         href: "/symbol-black.svg",
       },
       { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
-      { rel: "icon", href: "/symbol-black.svg" },
+      { rel: "icon", href: "/symbol-black.svg", type: "image/svg+xml" },
+      { rel: "alteernate icon", href: "/favicon.ico", sizes: "any" },
     ],
   }),
   errorComponent: (props) => {
@@ -105,6 +112,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 gtag('js', new Date());
                 gtag('config', '${googleAnalyticsId}');
               `}
+            </script>
+
+            <script type="application/ld+json">
+              {JSON.stringify(linkedData({ description: seoDescription }))}
             </script>
           </>
         )}

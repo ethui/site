@@ -37,3 +37,21 @@ export const seo = ({
 
   return tags.filter((tag) => tag.content || tag.title);
 };
+
+export function linkedData({ description }: { description: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "ethui",
+    operatingSystem: "macOS, Linux",
+    applicationCategory: "DeveloperApplication",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    description,
+    softwareVersion: "1.27.0", // TODO: get dynamically
+    license: "https://opensource.org/licenses/MIT",
+  };
+}
