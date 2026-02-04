@@ -52,6 +52,7 @@
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
     "simple-icons": "^16.3.0",
+    "srvx": "^0.11.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "4.0.11",
     "titleize": "^4.0.0",
