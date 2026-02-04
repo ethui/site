@@ -2,7 +2,6 @@ import mdx from "@mdx-js/rollup";
 import withToc from "@stefanprobst/rehype-extract-toc";
 import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import tailwindcss from "@tailwindcss/vite";
-import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -46,9 +45,9 @@ export default defineConfig({
       prerender: { enabled: true, crawlLinks: true },
       sitemap: { enabled: true, host: "https://ethui.dev" },
     }),
-    nitroV2Plugin({
-      compatibilityDate: "2025-09-25",
-    }),
+    // nitroV2Plugin({
+    //   compatibilityDate: "2025-09-25",
+    // }),
     viteReact(),
     tailwindcss(),
   ],

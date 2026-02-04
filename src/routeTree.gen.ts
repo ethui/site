@@ -8,8 +8,6 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LRouteImport } from './routes/_l'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,14 +21,6 @@ import { Route as LBlogLIndexRouteImport } from './routes/_l.blog/_l.index'
 import { Route as DocsLSectionSubsectionRouteImport } from './routes/docs/_l.$section.$subsection'
 import { Route as LBlogLSlugRouteImport } from './routes/_l.blog/_l.$slug'
 
-const DocsRouteImport = createFileRoute('/docs')()
-const LBlogRouteImport = createFileRoute('/_l/blog')()
-
-const DocsRoute = DocsRouteImport.update({
-  id: '/docs',
-  path: '/docs',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LRoute = LRouteImport.update({
   id: '/_l',
   getParentRoute: () => rootRouteImport,
@@ -40,15 +30,10 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LBlogRoute = LBlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => LRoute,
-} as any)
 const DocsIndexRoute = DocsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DocsRoute,
+  id: '/docs/',
+  path: '/docs/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
   id: '/auth/',
@@ -56,8 +41,9 @@ const AuthIndexRoute = AuthIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocsLRoute = DocsLRouteImport.update({
-  id: '/_l',
-  getParentRoute: () => DocsRoute,
+  id: '/docs/_l',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DocsLNotfoundRoute = DocsLNotfoundRouteImport.update({
   id: '/$notfound',
@@ -65,8 +51,9 @@ const DocsLNotfoundRoute = DocsLNotfoundRouteImport.update({
   getParentRoute: () => DocsLRoute,
 } as any)
 const LBlogLRoute = LBlogLRouteImport.update({
-  id: '/_l',
-  getParentRoute: () => LBlogRoute,
+  id: '/blog/_l',
+  path: '/blog',
+  getParentRoute: () => LRoute,
 } as any)
 const LOnboardingExtensionIndexRoute =
   LOnboardingExtensionIndexRouteImport.update({
@@ -93,34 +80,32 @@ const LBlogLSlugRoute = LBlogLSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/docs': typeof DocsLRouteWithChildren
-  '/auth': typeof AuthIndexRoute
+  '/auth/': typeof AuthIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/blog': typeof LBlogLRouteWithChildren
   '/docs/$notfound': typeof DocsLNotfoundRoute
   '/blog/$slug': typeof LBlogLSlugRoute
   '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
   '/blog/': typeof LBlogLIndexRoute
-  '/onboarding/extension': typeof LOnboardingExtensionIndexRoute
+  '/onboarding/extension/': typeof LOnboardingExtensionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/docs': typeof DocsIndexRoute
   '/auth': typeof AuthIndexRoute
-  '/blog': typeof LBlogLIndexRoute
   '/docs/$notfound': typeof DocsLNotfoundRoute
   '/blog/$slug': typeof LBlogLSlugRoute
   '/docs/$section/$subsection': typeof DocsLSectionSubsectionRoute
+  '/blog': typeof LBlogLIndexRoute
   '/onboarding/extension': typeof LOnboardingExtensionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_l': typeof LRouteWithChildren
-  '/docs': typeof DocsRouteWithChildren
   '/docs/_l': typeof DocsLRouteWithChildren
   '/auth/': typeof AuthIndexRoute
   '/docs/': typeof DocsIndexRoute
-  '/_l/blog': typeof LBlogRouteWithChildren
   '/_l/blog/_l': typeof LBlogLRouteWithChildren
   '/docs/_l/$notfound': typeof DocsLNotfoundRoute
   '/_l/blog/_l/$slug': typeof LBlogLSlugRoute
@@ -133,33 +118,31 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/docs'
-    | '/auth'
+    | '/auth/'
     | '/docs/'
     | '/blog'
     | '/docs/$notfound'
     | '/blog/$slug'
     | '/docs/$section/$subsection'
     | '/blog/'
-    | '/onboarding/extension'
+    | '/onboarding/extension/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/docs'
     | '/auth'
-    | '/blog'
     | '/docs/$notfound'
     | '/blog/$slug'
     | '/docs/$section/$subsection'
+    | '/blog'
     | '/onboarding/extension'
   id:
     | '__root__'
     | '/'
     | '/_l'
-    | '/docs'
     | '/docs/_l'
     | '/auth/'
     | '/docs/'
-    | '/_l/blog'
     | '/_l/blog/_l'
     | '/docs/_l/$notfound'
     | '/_l/blog/_l/$slug'
@@ -171,23 +154,17 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LRoute: typeof LRouteWithChildren
-  DocsRoute: typeof DocsRouteWithChildren
+  DocsLRoute: typeof DocsLRouteWithChildren
   AuthIndexRoute: typeof AuthIndexRoute
+  DocsIndexRoute: typeof DocsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/docs': {
-      id: '/docs'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof DocsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/_l': {
       id: '/_l'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof LRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -198,24 +175,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_l/blog': {
-      id: '/_l/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof LBlogRouteImport
-      parentRoute: typeof LRoute
-    }
     '/docs/': {
       id: '/docs/'
-      path: '/'
+      path: '/docs'
       fullPath: '/docs/'
       preLoaderRoute: typeof DocsIndexRouteImport
-      parentRoute: typeof DocsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/auth/': {
       id: '/auth/'
       path: '/auth'
-      fullPath: '/auth'
+      fullPath: '/auth/'
       preLoaderRoute: typeof AuthIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -224,7 +194,7 @@ declare module '@tanstack/react-router' {
       path: '/docs'
       fullPath: '/docs'
       preLoaderRoute: typeof DocsLRouteImport
-      parentRoute: typeof DocsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/docs/_l/$notfound': {
       id: '/docs/_l/$notfound'
@@ -238,12 +208,12 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof LBlogLRouteImport
-      parentRoute: typeof LBlogRoute
+      parentRoute: typeof LRoute
     }
     '/_l/onboarding/extension/': {
       id: '/_l/onboarding/extension/'
       path: '/onboarding/extension'
-      fullPath: '/onboarding/extension'
+      fullPath: '/onboarding/extension/'
       preLoaderRoute: typeof LOnboardingExtensionIndexRouteImport
       parentRoute: typeof LRoute
     }
@@ -284,23 +254,13 @@ const LBlogLRouteChildren: LBlogLRouteChildren = {
 const LBlogLRouteWithChildren =
   LBlogLRoute._addFileChildren(LBlogLRouteChildren)
 
-interface LBlogRouteChildren {
-  LBlogLRoute: typeof LBlogLRouteWithChildren
-}
-
-const LBlogRouteChildren: LBlogRouteChildren = {
-  LBlogLRoute: LBlogLRouteWithChildren,
-}
-
-const LBlogRouteWithChildren = LBlogRoute._addFileChildren(LBlogRouteChildren)
-
 interface LRouteChildren {
-  LBlogRoute: typeof LBlogRouteWithChildren
+  LBlogLRoute: typeof LBlogLRouteWithChildren
   LOnboardingExtensionIndexRoute: typeof LOnboardingExtensionIndexRoute
 }
 
 const LRouteChildren: LRouteChildren = {
-  LBlogRoute: LBlogRouteWithChildren,
+  LBlogLRoute: LBlogLRouteWithChildren,
   LOnboardingExtensionIndexRoute: LOnboardingExtensionIndexRoute,
 }
 
@@ -318,23 +278,12 @@ const DocsLRouteChildren: DocsLRouteChildren = {
 
 const DocsLRouteWithChildren = DocsLRoute._addFileChildren(DocsLRouteChildren)
 
-interface DocsRouteChildren {
-  DocsLRoute: typeof DocsLRouteWithChildren
-  DocsIndexRoute: typeof DocsIndexRoute
-}
-
-const DocsRouteChildren: DocsRouteChildren = {
-  DocsLRoute: DocsLRouteWithChildren,
-  DocsIndexRoute: DocsIndexRoute,
-}
-
-const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LRoute: LRouteWithChildren,
-  DocsRoute: DocsRouteWithChildren,
+  DocsLRoute: DocsLRouteWithChildren,
   AuthIndexRoute: AuthIndexRoute,
+  DocsIndexRoute: DocsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
