@@ -1,32 +1,18 @@
+import { TanStackDevtools } from "@tanstack/react-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   createRootRouteWithContext,
   HeadContent,
   Outlet,
+  type RouteContext,
   Scripts,
 } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import appCss from "#/app.css?url";
 import { Aptabase } from "#/components/aptabase";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
 import { linkedData, seo } from "#/utils/seo";
-
-const TanStackRouterDevtools =
-  process.env.NODE_ENV === "production"
-    ? () => null // Render nothing in production
-    : lazy(() =>
-      // Lazy load in development
-      import("@tanstack/react-router-devtools").then((res) => ({
-        default: res.TanStackRouterDevtools,
-        // For Embedded Mode
-        // default: res.TanStackRouterDevtoolsPanel
-      })),
-    );
-
-export interface RouteContext {
-  breadcrumb?: string;
-}
 
 const seoDescription =
   "High-performance Ethereum desktop app for Web3 devs. Native Hardhat & Foundry support, local smart contract explorer, and multi-wallet sync. Open-source.";
@@ -122,9 +108,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
-        <Suspense>
-          <TanStackRouterDevtools position="bottom-right" />
-        </Suspense>
+        <TanStackDevtools
+          config={{
+            position: "bottom-right",
+          }}
+          plugins={[
+            {
+              name: "Tanstack Router",
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+          ]}
+        />
         <Scripts />
       </body>
     </html>
