@@ -25,7 +25,7 @@ const classes = {
 export default defineConfig({
   plugins: [
     devtools(),
-    nitro(),
+    nitro({ preset: "vercel" }),
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
