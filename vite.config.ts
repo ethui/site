@@ -42,7 +42,10 @@ export default defineConfig({
         withTocExport,
       ],
     }),
-    tanstackStart(),
+    tanstackStart({
+      prerender: { enabled: true, crawlLinks: true },
+      sitemap: { enabled: true, host: "https://ethui.dev" },
+    }),
     nitroV2Plugin({
       compatibilityDate: "2025-09-25",
     }),
