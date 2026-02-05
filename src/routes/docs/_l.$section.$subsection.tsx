@@ -15,7 +15,7 @@ function RouteComponent() {
 
   const doc = docsManifest.sections
     .find(({ slug }) => slug === section)
-    ?.children.find(({ frontmatter }) => frontmatter.slug === subsection)!;
+    ?.children.find(({ frontmatter }) => frontmatter.slug === subsection);
 
   if (!doc) {
     return <NotFound />;

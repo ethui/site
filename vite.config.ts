@@ -2,8 +2,10 @@ import mdx from "@mdx-js/rollup";
 import withToc from "@stefanprobst/rehype-extract-toc";
 import withTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import tailwindcss from "@tailwindcss/vite";
+import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
+import { nitro } from "nitro/vite";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeAddClasses from "rehype-class-names";
 import rehypeExternalLinks from "rehype-external-links";
@@ -22,8 +24,14 @@ const classes = {
 
 export default defineConfig({
   plugins: [
+    devtools(),
+    nitro({ preset: "vercel" }),
     tsConfigPaths({
       projects: ["./tsconfig.json"],
+    }),
+    tanstackStart({
+      // prerender: { enabled: true, crawlLinks: true },
+      // sitemap: { enabled: true, host: "https://ethui.dev" },
     }),
     mdx({
       providerImportSource: "@mdx-js/react",
@@ -41,13 +49,6 @@ export default defineConfig({
         withTocExport,
       ],
     }),
-    tanstackStart({
-      prerender: { enabled: true, crawlLinks: true },
-      sitemap: { enabled: true, host: "https://ethui.dev" },
-    }),
-    // nitroV2Plugin({
-    //   compatibilityDate: "2025-09-25",
-    // }),
     viteReact(),
     tailwindcss(),
   ],

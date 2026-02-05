@@ -14,7 +14,10 @@ export function Breadcrumbs() {
   const breadcrumbs: { label: string; path: string }[] = matches.reduce(
     (acc, { context, pathname }) => {
       if (
-        context?.breadcrumb &&
+        context &&
+        typeof context === "object" &&
+        "breadcrumb" in context &&
+        typeof context.breadcrumb === "string" &&
         context.breadcrumb !== acc[acc.length - 1]?.label
       ) {
         acc.push({ label: context.breadcrumb, path: pathname });
