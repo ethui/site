@@ -8,8 +8,17 @@ import { Resvg } from "@resvg/resvg-js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+function escapeXml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 async function main() {
-  const svgPath = path.join(__dirname, "og-default.svg");
+  const templatePath = path.join(__dirname, "og-image-template.svg");
   const outputPath = path.join(
     __dirname,
     "..",
@@ -18,11 +27,26 @@ async function main() {
     "default.png",
   );
 
-  const svg = await fs.readFile(svgPath, "utf-8");
+  const template = await fs.readFile(templatePath, "utf-8");
+  const svg = template
+    .replace("{{TYPE}}", escapeXml("site"))
+    .replace("{{DATE}}", escapeXml(""))
+    .replace("{{AUTHOR}}", escapeXml("ethui"))
+    .replace("{{TITLE}}", escapeXml("ethui"))
+    .replace("{{SUBTITLE}}", escapeXml("Ethereum toolkit"));
+
   const resvg = new Resvg(svg, {
+    font: {
+      fontFiles: [
+        path.join(__dirname, "fonts", "SourceCodePro-Regular.ttf"),
+        path.join(__dirname, "fonts", "SourceCodePro-Bold.ttf"),
+      ],
+      loadSystemFonts: false,
+      defaultFontFamily: "Source Code Pro",
+    },
+    dpi: 150,
     fitTo: {
-      mode: "width",
-      value: 1200,
+      mode: "original",
     },
   });
 
