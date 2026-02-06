@@ -28,12 +28,30 @@ async function main() {
   );
 
   const template = await fs.readFile(templatePath, "utf-8");
+  const dateAuthorBlock = `    <tspan font-size="20">
+      <tspan x="250" y="565">
+        [{{DATE}}]
+      </tspan>
+      <tspan x="250" y="590">
+        [{{AUTHOR}}]
+      </tspan>
+    </tspan>
+`;
   const fullPaneTemplate = template
     .replace(
       '<rect width="550" height="630" transform="translate(0 0.354)" fill="white"/>',
       '<rect width="1200" height="630" fill="white"/>',
     )
-    .replace('<rect x="550" width="100%" height="630" fill="#888888"/>', "");
+    .replace('<rect x="550" width="100%" height="630" fill="#888888"/>', "")
+    .replace(dateAuthorBlock, "")
+    .replace(
+      '<tspan x="20" y="80">',
+      '<tspan x="600" y="80" text-anchor="middle">',
+    )
+    .replace(
+      '<tspan x="20" y="140" font-weight="bold">',
+      '<tspan x="600" y="140" font-weight="bold" text-anchor="middle">',
+    );
   const svg = fullPaneTemplate
     .replace("{{TYPE}}", escapeXml("site"))
     .replace("{{DATE}}", escapeXml(""))
