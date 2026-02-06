@@ -8,8 +8,8 @@ export const seo = ({
   image,
   type = "website",
   url,
-  twitterCreator = "@naps62",
-  twitterSite = "@naps62",
+  twitterCreator = "@ethuidev",
+  twitterSite = "@ethuidev",
   article,
 }: {
   title: string;

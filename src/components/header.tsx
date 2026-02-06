@@ -49,6 +49,7 @@ export function Header({ hero = false, isVisible = true }: Props) {
             href="https://github.com/ethui/ethui"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub"
             className="font-medium text-sm underline-offset-4 hover:underline"
           >
             <GithubIcon className="inline h-6 w-6" />

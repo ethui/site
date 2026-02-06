@@ -13,7 +13,7 @@ import {
 } from "motion/react";
 import { forwardRef, useContext, useRef } from "react";
 
-const exit = { opacity: 0.0, scale: 0.99 };
+const exit = { opacity: 0.01, scale: 0.99 };
 
 const transitionProps = {
   initial: exit,

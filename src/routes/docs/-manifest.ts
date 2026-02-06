@@ -9,7 +9,7 @@ import * as features05LazyLoadedKeys from "#/docs/02-features/05-lazy-loaded-key
 import * as features06Sim from "#/docs/02-features/06-simulations.mdx";
 
 import * as wallets01 from "#/docs/03-wallets/01-index.mdx";
-import * as wallest02HD from "#/docs/03-wallets/02-hdwallet.mdx";
+import * as wallets02HD from "#/docs/03-wallets/02-hdwallet.mdx";
 import * as wallets03Keystore from "#/docs/03-wallets/03-keystore.mdx";
 import * as wallets04PKey from "#/docs/03-wallets/04-pkey.mdx";
 import * as wallets05Plaintext from "#/docs/03-wallets/05-plaintext.mdx";
@@ -40,7 +40,7 @@ export const docsManifest = {
       slug: "wallets",
       children: [
         wallets01,
-        wallest02HD,
+        wallets02HD,
         wallets03Keystore,
         wallets04PKey,
         wallets05Plaintext,
