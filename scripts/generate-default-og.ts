@@ -34,7 +34,7 @@ async function main() {
     <path fill-rule="evenodd" clip-rule="evenodd" d="M216.005 372L300.005 486L384.005 372L336.215 372L300.005 421.142L263.795 372L216.005 372Z" fill="#ffffff"/>
   </g>
 `;
-  const centeredLogoBlock = `  <g transform="translate(300, 294) scale(0.12)">
+  const centeredLogoBlock = `  <g transform="translate(282, 282) scale(0.16)">
     <path d="M0 0L600 0L600 599.997L0 599.997L0 0Z" fill="#0a0a0a"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M492.005 372L300.005 114L108.005 372H217.239L300.005 260.783L382.771 372H492.005Z" fill="#ffffff"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M216.005 372L300.005 486L384.005 372L336.215 372L300.005 421.142L263.795 372L216.005 372Z" fill="#ffffff"/>
