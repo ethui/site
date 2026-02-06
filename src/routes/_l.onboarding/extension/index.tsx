@@ -9,10 +9,20 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { FirefoxIcon, GithubIcon, GoogleChromeIcon } from "#/components/icons";
+import { canonicalLink, seo } from "#/utils/seo";
 
 export const Route = createFileRoute("/_l/onboarding/extension/")({
   ssr: false,
   component: Extension,
+  head: () => ({
+    meta: seo({
+      title: "Install Extension | ethui",
+      description:
+        "Set up the ethui browser extension for Chrome or Firefox to connect your wallet to web3 apps.",
+      url: "/onboarding/extension",
+    }),
+    links: [canonicalLink("/onboarding/extension")],
+  }),
 });
 
 const CHROME_EXTENSION =

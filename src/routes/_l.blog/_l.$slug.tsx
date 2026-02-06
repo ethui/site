@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Markdown } from "#/components/markdown";
 import { NotFound } from "#/components/NotFound";
-import { seo } from "#/utils/seo";
+import { canonicalLink, seo } from "#/utils/seo";
 import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/$slug")({
@@ -31,6 +31,7 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
     const description =
       post.frontmatter.banner?.subtitle ||
       `${post.frontmatter.banner?.type || "Blog post"}`.trim();
+    const path = `/blog/${params.slug}`;
 
     return {
       meta: seo({
@@ -38,7 +39,13 @@ export const Route = createFileRoute("/_l/blog/_l/$slug")({
         description,
         type: "article",
         image,
+        url: path,
+        article: {
+          publishedTime: post.frontmatter.banner?.date,
+          author: post.frontmatter.banner?.author,
+        },
       }),
+      links: [canonicalLink(path)],
     };
   },
 });

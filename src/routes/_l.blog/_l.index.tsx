@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalLink, seo } from "#/utils/seo";
 import { blogManifest } from "./-manifest";
 
 const postsList = blogManifest
@@ -8,6 +9,15 @@ const postsList = blogManifest
 
 export const Route = createFileRoute("/_l/blog/_l/")({
   component: RouteComponent,
+  head: () => ({
+    meta: seo({
+      title: "Blog | ethui",
+      description:
+        "Latest updates, release notes, and development insights from the ethui team.",
+      url: "/blog",
+    }),
+    links: [canonicalLink("/blog")],
+  }),
 });
 
 function RouteComponent() {

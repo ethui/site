@@ -12,7 +12,7 @@ import appCss from "#/app.css?url";
 import { Aptabase } from "#/components/aptabase";
 import { DefaultCatchBoundary } from "#/components/DefaultCatchBoundary";
 import { NotFound } from "#/components/NotFound";
-import { linkedData, seo } from "#/utils/seo";
+import { canonicalLink, linkedData, seo } from "#/utils/seo";
 
 const seoDescription =
   "High-performance Ethereum desktop app for Web3 devs. Native Hardhat & Foundry support, local smart contract explorer, and multi-wallet sync. Open-source.";
@@ -28,11 +28,12 @@ export const Route = createRootRouteWithContext<RouteContext>()({
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
-        title: "ethui | An Ethereum wallet for Developers",
+        title: "ethui | An Ethereum toolkit for Developers",
         description: seoDescription,
         keywords:
           "ethereum, wallet, developer tools, rust, foundry, hardhat, web3, smart contract explorer",
         image: "https://ethui.dev/symbol-black.svg",
+        url: "/",
       }),
     ],
     links: [
@@ -51,6 +52,7 @@ export const Route = createRootRouteWithContext<RouteContext>()({
       { rel: "manifest", href: "/site.webmanifest", color: "#ffffff" },
       { rel: "icon", href: "/symbol-black.svg", type: "image/svg+xml" },
       { rel: "alternate icon", href: "/favicon.ico", sizes: "any" },
+      canonicalLink("/"),
     ],
   }),
   errorComponent: (props) => {
