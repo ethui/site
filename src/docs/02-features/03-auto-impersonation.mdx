@@ -9,6 +9,8 @@ ethui automatically uses `anvil_impersonateAccount` whenever submitting transact
 
 This allows you to submit transactions without having to unlock your wallet, and enables [fast mode](/docs/features/fast-mode) to work on secure wallets as well.
 
+If you want to explicitly pick which account is being impersonated, use the [Impersonator wallet](/docs/wallets/impersonator).
+
 ## Why?
 
 This is actually a security feature that happens to be very convenient for development.
@@ -27,3 +29,6 @@ By auto-impersonating accounts, you now skip the signing step, but are still abl
 - no signature is ever produced from your private key
 - [fast mode](/docs/features/fast-mode) can now be available as well, since the confirmation steps that would be needed for a signature is now optional
 
+## Related
+
+- [Impersonator wallet](/docs/wallets/impersonator)

@@ -9,20 +9,15 @@ The `Impersonator` wallet allows you to impersonate any account on the chain, by
 
 This is useful for testing, as it allows you to submit transactions without having to unlock your wallet, and enables [fast mode](/docs/features/fast-mode) to work on secure wallets as well.
 
-## Why?
+## How it works
 
-This is actually a security feature that happens to be very convenient for development.
+The wallet sends `anvil_impersonateAccount` for the address you choose, so you can run transactions as that account without signing locally.
 
-Let's say you're spawning the following anvil node:
+## Setup
 
-```sh
-anvil --chain-id 1
-```
+1. Start an anvil node.
+2. Create a new wallet and select **Impersonator**.
+3. Enter the address you want to impersonate.
+4. Submit transactions as usual.
 
-This could open you up for [replay attacks](https://chain.link/education-hub/replay-attack), where you end up signing a payload that can actually end up being used on the real mainnet chain to execute a real transaction, either maliciously or by mistake.
-
-By auto-impersonating accounts, you now skip the signing step, but are still able to include transactions on the test chain. In the end:
-
-- you never have to actually unlock your wallet
-- no signature is ever produced from your private key
-- [fast mode](/docs/features/fast-mode) can be used
+For the background on why this is safe and how it avoids signing, see [Auto Impersonation](/docs/features/auto-impersonation).

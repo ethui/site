@@ -19,6 +19,7 @@ import {
 } from "@ethui/ui/components/shadcn/sidebar";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronRightIcon } from "lucide-react";
+import { useMemo, useState } from "react";
 import { docsManifest } from "./-manifest";
 import { SearchForm } from "./-search-form";
 
@@ -27,6 +28,43 @@ export function DocsSidebar({
 }: React.ComponentProps<typeof Sidebar>) {
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
+  const [query, setQuery] = useState("");
+  const normalizedQuery = query.trim().toLowerCase();
+
+  const filteredSections = useMemo(() => {
+    if (!normalizedQuery) {
+      return docsManifest.sections;
+    }
+
+    return docsManifest.sections
+      .map((section) => {
+        const sectionMatches = section.title
+          .toLowerCase()
+          .includes(normalizedQuery);
+        if (sectionMatches) {
+          return section;
+        }
+
+        const filteredChildren = section.children.filter(({ frontmatter }) =>
+          frontmatter.title.toLowerCase().includes(normalizedQuery),
+        );
+
+        if (filteredChildren.length === 0) {
+          return null;
+        }
+
+        return {
+          ...section,
+          children: filteredChildren,
+        };
+      })
+      .filter(
+        (section): section is (typeof docsManifest.sections)[number] =>
+          section !== null,
+      );
+  }, [normalizedQuery]);
+
+  const hasResults = filteredSections.length > 0;
 
   return (
     <Sidebar {...props}>
@@ -41,10 +79,15 @@ export function DocsSidebar({
             </Link>
           </SidebarMenuItem>
         </SidebarMenu>
-        <SearchForm />
+        <SearchForm value={query} onValueChange={setQuery} />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {docsManifest.sections.map(({ title, slug: sectionSlug, children }) => (
+        {!hasResults && normalizedQuery && (
+          <div className="px-4 py-6 text-muted-foreground text-sm">
+            No docs match "{query}".
+          </div>
+        )}
+        {filteredSections.map(({ title, slug: sectionSlug, children }) => (
           <Collapsible
             key={title}
             title={title}

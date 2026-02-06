@@ -216,6 +216,11 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
           </Button>
         </div>
 
+        <div className="mt-4 flex flex-wrap items-center gap-4 text-gray-600 text-sm">
+          <span>macOS and Linux only.</span>
+          <span>Open-source on GitHub</span>
+        </div>
+
         <SmoothScrollLink
           className="mt-10 flex items-center justify-center gap-2 text-center"
           hash="highlights"
