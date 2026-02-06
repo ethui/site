@@ -4,9 +4,13 @@ import { Button } from "@ethui/ui/components/shadcn/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, ChevronDown, FileCode2, Rss } from "lucide-react";
 import { type Ref, useEffect, useRef, useState } from "react";
+import videoContractsMp4 from "#/assets/videos/ethui-contracts.mp4?url";
 import videoContracts from "#/assets/videos/ethui-contracts.webm?url";
+import videoFastModeMp4 from "#/assets/videos/ethui-fast-mode.mp4?url";
 import videoFastMode from "#/assets/videos/ethui-fast-mode.webm?url";
+import videoLocalMp4 from "#/assets/videos/ethui-local.mp4?url";
 import videoLocal from "#/assets/videos/ethui-local.webm?url";
+import videoMultiMp4 from "#/assets/videos/ethui-multi.mp4?url";
 import videoMulti from "#/assets/videos/ethui-multi.webm?url";
 import { Header } from "#/components/header";
 import { AppleIcon, LinuxIcon } from "#/components/icons";
@@ -27,25 +31,25 @@ const features = [
     title: "Local-first",
     description:
       "ethui works directly with anvil and forge to provide a fast and reproducible environment",
-    video: videoLocal,
+    video: { webm: videoLocal, mp4: videoLocalMp4 },
   },
   {
     title: "Fast feedback loops",
     description:
       "ethui can skip annoying transaction reviews, allowing you to focus on what matters",
-    video: videoFastMode,
+    video: { webm: videoFastMode, mp4: videoFastModeMp4 },
   },
   {
     title: "Your own contract explorer",
     description:
       "By scanning compilation artifacts, we give you a UI to directly interact with your contracts",
-    video: videoContracts,
+    video: { webm: videoContracts, mp4: videoContractsMp4 },
   },
   {
     title: "Multi wallet, multi browser",
     description:
       "Setup multiple wallets without needing browser profiles; Connect websites to different chains simultaneously",
-    video: videoMulti,
+    video: { webm: videoMulti, mp4: videoMultiMp4 },
   },
 ];
 
@@ -155,7 +159,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
       <div className="isolate flex flex-col">
         <div className="flex items-center justify-center">
           <img
-            src="https://avatars.githubusercontent.com/u/164216877?s=400&v=4"
+            src="/symbol-black.svg"
             alt="ethui logo"
             className="h-32 w-auto"
           />
@@ -255,7 +259,8 @@ function Highlights() {
                 playsInline
                 className="mr-4 aspect-16/9 max-w-3xl py-8"
               >
-                <source src={video} type="video/webm" />
+                <source src={video.webm} type="video/webm" />
+                <source src={video.mp4} type="video/mp4" />
               </video>
             )}
           </div>
@@ -271,7 +276,7 @@ function Footer() {
       <div className="flex flex-col items-center justify-between md:flex-row">
         <Link className="flex items-center justify-center" to="/" hash="hero">
           <img
-            src="https://avatars.githubusercontent.com/u/164216877?s=200&v=4"
+            src="/symbol-black.svg"
             alt="ethui logo"
             className="h-8 w-auto"
           />

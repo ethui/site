@@ -24,11 +24,7 @@ export function Header({ hero = false, isVisible = true }: Props) {
         to="/"
         hash="hero"
       >
-        <img
-          src="https://avatars.githubusercontent.com/u/164216877?s=200&v=4"
-          alt="ethui logo"
-          className="h-8 w-auto"
-        />
+        <img src="/symbol-black.svg" alt="ethui logo" className="h-8 w-auto" />
         <span className="ml-2 font-bold text-2xl text-gray-900">ethui</span>
       </SmoothScrollLink>
       <nav className="ml-auto flex items-center gap-2">

@@ -29,8 +29,16 @@ function Image({
   className = "",
   ...props
 }: React.ComponentProps<"img">) {
+  const resolvedAlt = typeof alt === "string" ? alt : "";
   return (
-    <img alt="" {...props} className={clsx("mx-auto", className)} src={src} />
+    <img
+      src={src}
+      alt={resolvedAlt}
+      loading={props.loading ?? "lazy"}
+      decoding="async"
+      {...props}
+      className={clsx("mx-auto h-auto max-w-full", className)}
+    />
   );
 }
 
