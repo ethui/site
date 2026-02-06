@@ -29,10 +29,7 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    tanstackStart({
-      prerender: { enabled: true, crawlLinks: true },
-      sitemap: { enabled: true, host: "https://ethui.dev" },
-    }),
+    tanstackStart(),
     mdx({
       providerImportSource: "@mdx-js/react",
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
