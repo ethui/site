@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Markdown } from "#/components/markdown";
 import { NotFound } from "#/components/NotFound";
-import { canonicalLink, seo } from "#/utils/seo";
+import { articleLinkedData, canonicalLink, seo } from "#/utils/seo";
 import { blogManifest } from "./-manifest";
 
 export const Route = createFileRoute("/_l/blog/_l/$slug")({
@@ -60,9 +60,40 @@ function RouteComponent() {
     return <NotFound />;
   }
 
+  const description =
+    post.frontmatter.banner?.subtitle ||
+    `${post.frontmatter.banner?.type || "Blog post"}`.trim();
+  const publishedDate = normalizeDate(post.frontmatter.banner?.date);
+  const jsonLd = articleLinkedData({
+    title: post.frontmatter.title,
+    description,
+    url: `/blog/${slug}`,
+    image: post.frontmatter.ogBanner,
+    datePublished: publishedDate,
+    author: post.frontmatter.banner?.author,
+  });
+
   return (
-    <Markdown className="mb-16">
-      <post.default />
-    </Markdown>
+    <>
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <Markdown className="mb-16">
+        <post.default />
+      </Markdown>
+    </>
   );
+}
+
+function normalizeDate(dateValue?: string) {
+  if (!dateValue) {
+    return undefined;
+  }
+
+  const cleaned = dateValue.replace(/(\d+)(st|nd|rd|th)/g, "$1");
+  const parsed = new Date(cleaned);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return dateValue;
+  }
+
+  return parsed.toISOString();
 }

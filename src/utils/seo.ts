@@ -1,5 +1,8 @@
 const SITE_URL = "https://ethui.dev";
 const SITE_NAME = "ethui";
+const DEFAULT_DOWNLOAD_URL = "https://github.com/ethui/ethui/releases/latest";
+const DEFAULT_SCREENSHOT = `${SITE_URL}/opengraph/default.png`;
+const DEFAULT_SOFTWARE_VERSION = import.meta.env.VITE_ETHUI_VERSION || "latest";
 
 export const seo = ({
   title,
@@ -78,13 +81,82 @@ export function linkedData({ description }: { description: string }) {
     url: SITE_URL,
     operatingSystem: "macOS, Linux",
     applicationCategory: "DeveloperApplication",
+    downloadUrl: DEFAULT_DOWNLOAD_URL,
+    screenshot: DEFAULT_SCREENSHOT,
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
     },
     description,
-    softwareVersion: "1.27.0", // TODO: get dynamically
+    softwareVersion: DEFAULT_SOFTWARE_VERSION,
     license: "https://opensource.org/licenses/MIT",
+  };
+}
+
+export function articleLinkedData({
+  title,
+  description,
+  url,
+  image,
+  datePublished,
+  author,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  datePublished?: string;
+  author?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image,
+    datePublished,
+    author: author
+      ? {
+          "@type": "Person",
+          name: author,
+        }
+      : {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}${url}`,
+    },
+  };
+}
+
+export function breadcrumbLinkedData(items: { label: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: `${SITE_URL}${item.path}`,
+    })),
   };
 }
