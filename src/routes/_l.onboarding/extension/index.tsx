@@ -85,7 +85,7 @@ const DownloadLinks = () => {
       <Button asChild>
         <a href={GITHUB_LATEST_RELEASE} rel="noreferrer" target="_blank">
           <GithubIcon className="text-4xl" />
-          <span className="pl-2">From Github</span>
+          <span className="pl-2">From GitHub</span>
         </a>
       </Button>
     </div>

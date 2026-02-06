@@ -97,7 +97,7 @@ function Embed({ url: urlStr }: { url: string }) {
         />
       </div>
       <div className="hidden grow flex-col items-stretch justify-between gap-2 overflow-hidden p-2 md:flex">
-        <h1 className="font-bold text-base">{title}</h1>
+        <h3 className="font-bold text-base">{title}</h3>
         <p className="line-clamp-3 font-light text-sm">{description}</p>
         <p className="flex items-center gap-2">
           <LinkIcon size="14" />

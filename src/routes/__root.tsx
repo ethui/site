@@ -32,7 +32,7 @@ export const Route = createRootRouteWithContext<RouteContext>()({
         description: seoDescription,
         keywords:
           "ethereum, wallet, developer tools, rust, foundry, hardhat, web3, smart contract explorer",
-        image: "https://ethui.eth.limo/symbol-black.svg",
+        image: "https://ethui.dev/symbol-black.svg",
       }),
     ],
     links: [
@@ -48,9 +48,9 @@ export const Route = createRootRouteWithContext<RouteContext>()({
         sizes: "32x32",
         href: "/symbol-black.svg",
       },
-      { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
+      { rel: "manifest", href: "/site.webmanifest", color: "#ffffff" },
       { rel: "icon", href: "/symbol-black.svg", type: "image/svg+xml" },
-      { rel: "alteernate icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "alternate icon", href: "/favicon.ico", sizes: "any" },
     ],
   }),
   errorComponent: (props) => {
@@ -99,12 +99,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 gtag('config', '${googleAnalyticsId}');
               `}
             </script>
-
-            <script type="application/ld+json">
-              {JSON.stringify(linkedData({ description: seoDescription }))}
-            </script>
           </>
         )}
+
+        <script type="application/ld+json">
+          {JSON.stringify(linkedData({ description: seoDescription }))}
+        </script>
       </head>
       <body>
         {children}

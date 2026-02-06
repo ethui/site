@@ -51,7 +51,7 @@ const features = [
 
 const footerLinks = [
   { text: "Github", href: "https://github.com/ethui" },
-  { text: "Twitter", href: "https://twittter.com/ethuidev" },
+  { text: "Twitter", href: "https://twitter.com/ethuidev" },
 ];
 
 function Home() {
@@ -182,7 +182,7 @@ function Hero({ ref }: { ref: Ref<HTMLDivElement> }) {
                 </Button>,
                 <Button key="From Source" variant="ghost" asChild>
                   <a
-                    href="http://github.com/ethui/ethui"
+                    href="https://github.com/ethui/ethui"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-x-2"

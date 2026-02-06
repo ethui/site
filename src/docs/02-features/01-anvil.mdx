@@ -22,7 +22,7 @@ Anvil is a local, test-focused blockchain. It exposes functionality that can't p
 
 None of these functionalities are expected to be available in a production blockchain. As such, user-facing wallets are not prepared to handle these scenarios, and sometimes outright fail to function in these situations.
 
-For example, Metamask tracks its own transaction `nonce` for each account, and will fail to sign valid transactions if anvil is reverted or entirely restarted (as the nonce given by Metamask will no longer match what the chain expects).
+For example, MetaMask tracks its own transaction `nonce` for each account, and will fail to sign valid transactions if anvil is reverted or entirely restarted (as the nonce given by MetaMask will no longer match what the chain expects).
 
 ## What does ethui do differently?
 
