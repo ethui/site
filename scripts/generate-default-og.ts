@@ -44,13 +44,10 @@ async function main() {
     )
     .replace('<rect x="550" width="100%" height="630" fill="#888888"/>', "")
     .replace(dateAuthorBlock, "")
-    .replace(
-      '<tspan x="20" y="80">',
-      '<tspan x="600" y="80" text-anchor="middle">',
-    )
+    .replace('<tspan x="20" y="80">', '<tspan x="400" y="300">')
     .replace(
       '<tspan x="20" y="140" font-weight="bold">',
-      '<tspan x="600" y="140" font-weight="bold" text-anchor="middle">',
+      '<tspan x="400" y="360" font-weight="bold">',
     );
   const svg = fullPaneTemplate
     .replace("{{TYPE}}", escapeXml("site"))
