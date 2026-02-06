@@ -28,6 +28,18 @@ async function main() {
   );
 
   const template = await fs.readFile(templatePath, "utf-8");
+  const logoBlock = `  <g transform="translate(20, 550) scale(0.0667)">
+    <path d="M0 0L600 0L600 599.997L0 599.997L0 0Z" fill="#0a0a0a"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M492.005 372L300.005 114L108.005 372H217.239L300.005 260.783L382.771 372H492.005Z" fill="#ffffff"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M216.005 372L300.005 486L384.005 372L336.215 372L300.005 421.142L263.795 372L216.005 372Z" fill="#ffffff"/>
+  </g>
+`;
+  const centeredLogoBlock = `  <g transform="translate(300, 294) scale(0.12)">
+    <path d="M0 0L600 0L600 599.997L0 599.997L0 0Z" fill="#0a0a0a"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M492.005 372L300.005 114L108.005 372H217.239L300.005 260.783L382.771 372H492.005Z" fill="#ffffff"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M216.005 372L300.005 486L384.005 372L336.215 372L300.005 421.142L263.795 372L216.005 372Z" fill="#ffffff"/>
+  </g>
+`;
   const dateAuthorBlock = `    <tspan font-size="20">
       <tspan x="250" y="565">
         [{{DATE}}]
@@ -44,6 +56,7 @@ async function main() {
     )
     .replace('<rect x="550" width="100%" height="630" fill="#888888"/>', "")
     .replace(dateAuthorBlock, "")
+    .replace(logoBlock, centeredLogoBlock)
     .replace('<tspan x="20" y="80">', '<tspan x="400" y="300">')
     .replace(
       '<tspan x="20" y="140" font-weight="bold">',
