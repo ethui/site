@@ -32,7 +32,7 @@ export const Route = createRootRouteWithContext<RouteContext>()({
         description: seoDescription,
         keywords:
           "ethereum, wallet, developer tools, rust, foundry, hardhat, web3, smart contract explorer",
-        image: "https://ethui.dev/symbol-black.svg",
+        image: "https://ethui.dev/opengraph/default.png",
         url: "/",
       }),
     ],
