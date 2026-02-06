@@ -28,7 +28,13 @@ async function main() {
   );
 
   const template = await fs.readFile(templatePath, "utf-8");
-  const svg = template
+  const fullPaneTemplate = template
+    .replace(
+      '<rect width="550" height="630" transform="translate(0 0.354)" fill="white"/>',
+      '<rect width="1200" height="630" fill="white"/>',
+    )
+    .replace('<rect x="550" width="100%" height="630" fill="#888888"/>', "");
+  const svg = fullPaneTemplate
     .replace("{{TYPE}}", escapeXml("site"))
     .replace("{{DATE}}", escapeXml(""))
     .replace("{{AUTHOR}}", escapeXml("ethui"))
