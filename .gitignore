@@ -24,3 +24,5 @@ app.config.timestamp_*
 /playwright/.cache/
 .tanstack
 .nitro
+ISSUES.md
+.claude
