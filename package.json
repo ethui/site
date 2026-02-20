@@ -76,7 +76,7 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.20",
     "csstype": "^3.2.3",
-    "globals": "^16.5.0",
+    "globals": "^17.3.0",
     "gray-matter": "^4.0.3",
     "html-react-parser": "^5.2.16",
     "motion": "^12.31.0",
