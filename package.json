@@ -59,7 +59,7 @@
     "titleize": "^4.0.0",
     "viem": "^2.45.1",
     "vite-tsconfig-paths": "^6.0.5",
-    "wagmi": "^2.19.5",
+    "wagmi": "^3.5.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
